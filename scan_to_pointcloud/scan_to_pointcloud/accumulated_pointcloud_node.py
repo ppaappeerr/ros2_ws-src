@@ -76,7 +76,7 @@ class AccumulatedPointcloud(Node):
         self.declare_parameter('reset_time', 60.0)    # 맵 리셋 시간 (초)
         self.declare_parameter('velocity_decay', 0.98)  # 속도 감쇠 계수 (드리프트 보정용)
         self.declare_parameter('imu_to_laser_z', 0.05)  # IMU에서 라이다까지 Z축 거리 (m)
-        self.declare_parameter('motion_threshold', 0.03)  # IMU 움직임 감지 임계값
+        self.declare_parameter('motion_threshold', 0.03)  # IMU움직임 감지 임계값
         self.declare_parameter('use_tf', True)  # TF 트리 사용 여부
         
         # 파라미터 가져오기

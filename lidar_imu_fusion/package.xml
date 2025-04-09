@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>scan_to_pointcloud</name>
+  <name>lidar_imu_fusion</name>
   <version>0.0.0</version>
-  <description>Converts 2D laser scans to 3D point clouds using IMU data</description>
-  <maintainer email="p@todo.todo">p</maintainer>
+  <description>TODO: Package description</description>
+  <maintainer email="whdgnl098@gmail.com">p</maintainer>
   <license>TODO: License declaration</license>
 
   <depend>rclpy</depend>
   <depend>sensor_msgs</depend>
-  <depend>tf2_ros</depend>
   <depend>geometry_msgs</depend>
-  <depend>numpy</depend>
-  <depend>visualization_msgs</depend>
+  <depend>tf2_ros</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

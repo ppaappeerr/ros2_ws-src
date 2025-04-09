@@ -12,14 +12,44 @@ def generate_launch_description():
     configuration_basename = 'sllidar_a2m8_3d.lua'  # 3D 설정 파일
     
     # 기본 static TF 및 센서 노드들
-    static_tf_base_to_imu = Node(...)
-    static_tf_base_to_laser = Node(...)
-    sllidar_node = Node(...)
-    imu_node = Node(...)
+    static_tf_base_to_imu = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_base_to_imu',
+        arguments=['0', '0', '0.05', '0', '0', '0', '1', 'base_link', 'imu_link']
+    )
+
+    static_tf_base_to_laser = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_base_to_laser',
+        arguments=['0', '0', '0', '0', '0', '0', '1', 'base_link', 'laser']
+    )
+
+    sllidar_node = Node(
+        package='sllidar_ros2',
+        executable='sllidar_node',
+        name='sllidar_node',
+        parameters=[{
+            'channel_type': 'serial',
+            'serial_port': '/dev/ttyUSB0',
+            'serial_baudrate': 115200,
+            'frame_id': 'laser',
+            'inverted': False,
+            'angle_compensate': True
+        }]
+    )
+
+    imu_node = Node(
+        package='mpu6050_py',
+        executable='mpu6050_node',
+        name='mpu6050_node',
+        parameters=[{'frame_id': 'imu_link'}]
+    )
     
     # 스캔을 포인트 클라우드로 변환하는 노드
     scan_to_pointcloud_node = Node(
-        package='pointcloud_to_laserscan',  # 적절한 패키지 이름으로 변경
+        package='scan_to_pointcloud',  # 패키지 이름 확인 필요
         executable='scan_to_pointcloud',
         name='scan_to_pointcloud',
         output='screen'
@@ -38,11 +68,24 @@ def generate_launch_description():
     )
     
     # 점유 그리드 노드
-    occupancy_grid_node = Node(...)
+    occupancy_grid_node = Node(
+        package='cartographer_ros',
+        executable='occupancy_grid_node',
+        name='occupancy_grid_node',
+        output='screen',
+        parameters=[{'use_sim_time': False, 'resolution': 0.05}]
+    )
     
     # RViz2 노드 (3D 시각화 설정)
     rviz_config_dir = os.path.join(get_package_share_directory('cartographer_ros'), 'configuration_files', 'demo_3d.rviz')
-    rviz_node = Node(...)
+    rviz_node = Node(
+        package='rviz2',
+        executable='rviz2',
+        name='rviz2',
+        arguments=['-d', rviz_config_dir],
+        parameters=[{'use_sim_time': False}],
+        output='screen'
+    )
     
     return LaunchDescription([
         static_tf_base_to_imu,
