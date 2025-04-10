@@ -141,7 +141,7 @@ class ScanToPointcloud(Node):
                 x, y, z, w = x/norm, y/norm, z/norm, w/norm
                 R = self.quaternion_to_rotation_matrix([x, y, z, w])
             
-        ## 2D 스캔을 3D 점으로 변환
+        # 2D 스캔을 3D 점으로 변환
         for i, r in enumerate(msg.ranges):
             if r < msg.range_min or r > msg.range_max or not np.isfinite(r):
                 continue
