@@ -17,29 +17,34 @@ class ImuTfPublisher(Node):
         self.declare_parameter('publish_rate', 20.0)  # Hz
         self.declare_parameter('stabilization_time', 2.0)  # 초기 안정화 시간
         
-        # 좌표계 방향 교정 파라미터 수정 (전체 반전으로 변경)
-        self.declare_parameter('invert_roll', True)   # roll 반전으로 변경
-        self.declare_parameter('invert_pitch', True)  # pitch 반전 유지
-        self.declare_parameter('invert_yaw', True)    # yaw 반전 유지
+        # 좌표계 방향 교정 파라미터 수정 (전체 반전으로 변경) ## 센서 위치에 따라 다르게 사용
+        self.declare_parameter('invert_roll', False)   # x축 회전
+        self.declare_parameter('invert_pitch', False)  # y축 회전
+        self.declare_parameter('invert_yaw', False)    # z축 회전
         
         # 드리프트 보정
         self.declare_parameter('drift_correction', 0.995) # 드리프트 보정 계수
         
         # 방향 유지 비활성화 (오뚝이 효과 제거)
-        self.declare_parameter('maintain_orientation', False)
+        self.declare_parameter('maintain_orientation', False) # True의 경우 오뚝이 효과 발생
+
+        # 0.999: 거의 유지, 0.0: 완전 초기화
         self.declare_parameter('orientation_decay', 0.999)    # 방향 감쇠율 (1.0이면 무한히 유지)
         
         # 파라미터 가져오기
-        self.parent_frame = self.get_parameter('parent_frame').value
-        self.child_frame = self.get_parameter('child_frame').value
-        self.publish_rate = self.get_parameter('publish_rate').value
-        self.stabilization_time = self.get_parameter('stabilization_time').value
+        self.parent_frame = self.get_parameter('parent_frame').value # 상위 좌표계 기본값: 'map'
+        self.child_frame = self.get_parameter('child_frame').value   # 하위 좌표계 기본값: 'base_link'
+        self.publish_rate = self.get_parameter('publish_rate').value # TF 발행 주기 기본값: 20Hz
+        self.stabilization_time = self.get_parameter('stabilization_time').value # 안정화 시간 기본값: 2초
         
         self.invert_roll = self.get_parameter('invert_roll').value
         self.invert_pitch = self.get_parameter('invert_pitch').value
         self.invert_yaw = self.get_parameter('invert_yaw').value
         
-        self.drift_correction = self.get_parameter('drift_correction').value
+        self.drift_correction = self.get_parameter('drift_correction').value 
+        # 드리프트 보정 계수 기본값: 0.995
+        # 드리프트 보정 계수는 0.0~1.0 사이의 값으로 설정
+        # 0.0: 드리프트 보정 없음, 1.0: 드리프트 완전 보정
         
         self.maintain_orientation = self.get_parameter('maintain_orientation').value
         self.orientation_decay = self.get_parameter('orientation_decay').value

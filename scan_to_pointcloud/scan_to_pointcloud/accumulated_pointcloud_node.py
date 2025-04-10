@@ -214,7 +214,7 @@ class AccumulatedPointcloud(Node):
         # 정기적인 움직임 확인 및 위치 업데이트 타이머
         self.motion_timer = self.create_timer(0.05, self.update_motion)
         
-        # TF 발행 타이머 (use_imu_tf_only가 True일 때는 비활성화)
+        ## TF 발행 타이머 (use_imu_tf_only가 True일 때는 비활성화)
         if not self.use_imu_tf_only:
             self.tf_timer = self.create_timer(0.05, self.publish_tf_tree)
         else:
