@@ -214,8 +214,12 @@ class AccumulatedPointcloud(Node):
         # 정기적인 움직임 확인 및 위치 업데이트 타이머
         self.motion_timer = self.create_timer(0.05, self.update_motion)
         
-        # TF 발행 타이머
-        self.tf_timer = self.create_timer(0.05, self.publish_tf_tree)
+        # TF 발행 타이머 (use_imu_tf_only가 True일 때는 비활성화)
+        if not self.use_imu_tf_only:
+            self.tf_timer = self.create_timer(0.05, self.publish_tf_tree)
+        else:
+            # use_imu_tf_only 모드에서는 TF를 발행하지 않고 외부 TF만 사용
+            self.get_logger().info("TF 전용 모드: 이 노드는 TF를 발행하지 않고 외부 TF만 사용합니다.")
         
         # 마지막으로 성공한 변환 저장용 속성 추가
         self.last_valid_transform = None
@@ -457,14 +461,14 @@ class AccumulatedPointcloud(Node):
     
     def publish_tf_tree(self):
         """TF 트리 발행 - 명확한 역할 분리"""
-        if not self.use_tf or self.last_imu is None:
+        # use_imu_tf_only=True일 때는 TF 발행하지 않음 (충돌 방지)
+        if self.use_imu_tf_only or not self.use_tf or self.last_imu is None:
             return
         
         # 현재 시간
         now = self.get_clock().now().to_msg()
         
-        # 이 노드는 map -> base_link 변환만 발행 
-        # (static_transform_publisher가 base_link -> laser, world -> map 발행)
+        # 이 노드는 map -> base_link 변환만 발행
         t_map_base = TransformStamped()
         t_map_base.header.stamp = now
         t_map_base.header.frame_id = 'map'
@@ -475,11 +479,11 @@ class AccumulatedPointcloud(Node):
         t_map_base.transform.translation.y = self.last_position[1]
         t_map_base.transform.translation.z = self.last_position[2]
         
-        # 방향 설정 (수정: x, y, z, w 순서로 저장)
-        t_map_base.transform.rotation.w = self.last_orientation[3]  # w
-        t_map_base.transform.rotation.x = self.last_orientation[0]  # x
-        t_map_base.transform.rotation.y = self.last_orientation[1]  # y
-        t_map_base.transform.rotation.z = self.last_orientation[2]  # z
+        # 방향 설정 (w, x, y, z 순서로 저장)
+        t_map_base.transform.rotation.w = self.last_orientation[3]
+        t_map_base.transform.rotation.x = self.last_orientation[0]
+        t_map_base.transform.rotation.y = self.last_orientation[1]
+        t_map_base.transform.rotation.z = self.last_orientation[2]
         
         # map -> base_link 변환만 발행
         self.tf_broadcaster.sendTransform(t_map_base)
@@ -498,51 +502,37 @@ class AccumulatedPointcloud(Node):
                 self.last_tf_warn_time = self.get_clock().now()
             return
         
-        # use_imu_tf_only 모드: 외부 TF만 사용
-        if self.use_imu_tf_only:
-            try:
-                # 'map' -> 'laser' 직접 변환 가져오기 (필요한 TF 체인 전부)
-                transform = self.tf_buffer.lookup_transform(
-                    'map', 'laser',
-                    rclpy.time.Time(),  # 현재 시간 기준
-                    rclpy.duration.Duration(seconds=0.1)
-                )
-                
-                have_valid_transform = True
-                self.last_valid_transform = transform
-                self.last_valid_transform_time = self.get_clock().now()
-                
-                # 포인트 변환 및 누적 처리
-                self.process_scan_with_transform(msg, transform)
-                
-            except Exception as e:
-                have_valid_transform = False
-                now = self.get_clock().now()
-                time_since_valid = (now - self.last_valid_transform_time).nanoseconds / 1e9
-                
-                # 최근 유효 변환이 있고, 오래되지 않았다면 재사용
-                if self.last_valid_transform and time_since_valid < 1.0:
-                    self.process_scan_with_transform(msg, self.last_valid_transform)
-                    self.get_logger().debug("이전 유효 변환 사용")
-                else:
-                    self.tf_lookup_failures += 1
-                    if self.tf_lookup_failures % 10 == 0:
-                        self.get_logger().warn(f"TF 조회 {self.tf_lookup_failures}회 연속 실패: {str(e)[:50]}...")
-        else:
-            # 기존 코드 유지 - 여기에 들여쓰기된 코드 블록 필요
-            self.get_logger().debug("use_imu_tf_only가 비활성화되어 있습니다. 기존 메소드 사용")
-            try:
-                # 기존 방식으로 변환 시도
-                transform = self.tf_buffer.lookup_transform(
-                    'map', 'laser',
-                    rclpy.time.Time(),
-                    rclpy.duration.Duration(seconds=0.1)
-                )
-                self.process_scan_with_transform(msg, transform)
-            except Exception as e:
-                self.get_logger().warn(f"기존 TF 조회 실패: {str(e)[:50]}...")
+        # 항상 map->laser 직접 변환 사용 (use_imu_tf_only 설정과 관계없이)
+        try:
+            # 'map' -> 'laser' 직접 변환 가져오기 (필요한 TF 체인 전부)
+            transform = self.tf_buffer.lookup_transform(
+                'map', 'laser',
+                rclpy.time.Time(),  # 현재 시간 기준
+                rclpy.duration.Duration(seconds=0.1)
+            )
+            
+            have_valid_transform = True
+            self.last_valid_transform = transform
+            self.last_valid_transform_time = self.get_clock().now()
+            
+            # 포인트 변환 및 누적 처리
+            self.process_scan_with_transform(msg, transform)
+            
+        except Exception as e:
+            have_valid_transform = False
+            now = self.get_clock().now()
+            time_since_valid = (now - self.last_valid_transform_time).nanoseconds / 1e9
+            
+            # 최근 유효 변환이 있고, 오래되지 않았다면 재사용
+            if self.last_valid_transform and time_since_valid < 1.0:
+                self.process_scan_with_transform(msg, self.last_valid_transform)
+                self.get_logger().debug("이전 유효 변환 사용")
+            else:
+                self.tf_lookup_failures += 1
+                if self.tf_lookup_failures % 10 == 0:
+                    self.get_logger().warn(f"TF 조회 {self.tf_lookup_failures}회 연속 실패: {str(e)[:50]}...")
         
-        # live_points 발행 로직 분리
+        # live_points 발행 로직
         self.publish_live_points(msg)
     
     def process_scan_with_transform(self, msg, transform):
