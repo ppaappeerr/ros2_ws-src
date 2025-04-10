@@ -6,7 +6,7 @@ from rclpy.node import Node
 from sensor_msgs.msg import LaserScan, PointCloud2, Imu
 import numpy as np
 import math
-from geometry_msgs.msg import TransformStamped, Point
+from geometry_msgs.msg import TransformStamped, Point, Vector3, Quaternion
 import struct
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
@@ -15,6 +15,7 @@ import sensor_msgs.msg as sensor_msgs
 from visualization_msgs.msg import Marker, MarkerArray
 from std_msgs.msg import ColorRGBA, Header
 import time
+from rclpy.duration import Duration
 
 # PointField 클래스 정의
 class PointField:
@@ -78,6 +79,12 @@ class AccumulatedPointcloud(Node):
         self.declare_parameter('imu_to_laser_z', 0.05)  # IMU에서 라이다까지 Z축 거리 (m)
         self.declare_parameter('motion_threshold', 0.03)  # IMU 움직임 감지 임계값
         self.declare_parameter('use_tf', True)  # TF 트리 사용 여부
+        self.declare_parameter('tf_buffer_duration', 5.0)  # 5초 TF 버퍼
+        
+        # 다운샘플링 파라미터 추가
+        self.declare_parameter('point_skip', 2)  # 몇 개의 포인트마다 하나만 사용할지
+        self.declare_parameter('update_rate', 2.0)  # 포인트클라우드 갱신 속도 (Hz)
+        self.point_skip = self.get_parameter('point_skip').value
         
         # 파라미터 가져오기
         self.max_points = self.get_parameter('max_points').value
@@ -87,6 +94,7 @@ class AccumulatedPointcloud(Node):
         self.imu_to_laser_z = self.get_parameter('imu_to_laser_z').value
         self.motion_threshold = self.get_parameter('motion_threshold').value
         self.use_tf = self.get_parameter('use_tf').value
+        self.tf_buffer_duration = self.get_parameter('tf_buffer_duration').value
         
         # IMU 및 레이저 스캔 구독
         self.imu_sub = self.create_subscription(
@@ -103,9 +111,13 @@ class AccumulatedPointcloud(Node):
             MarkerArray, 'point_markers', 10)
         
         # TF 관련 객체들
-        self.tf_buffer = Buffer()
+        self.tf_buffer = Buffer(Duration(seconds=self.tf_buffer_duration))
         self.tf_listener = TransformListener(self.tf_buffer, self)
         self.tf_broadcaster = TransformBroadcaster(self)
+        
+        # TF 트리가 준비되었는지 확인하는 플래그 추가
+        self.tf_ready = False
+        self.tf_check_timer = self.create_timer(0.5, self.check_tf_ready)
         
         # 상태 변수
         self.last_imu = None
@@ -127,7 +139,8 @@ class AccumulatedPointcloud(Node):
         self.start_time = time.time()
         
         # 정기적인 발행을 위한 타이머
-        self.publish_timer = self.create_timer(0.5, self.publish_accumulated)
+        self.publish_timer = self.create_timer(1.0/self.get_parameter('update_rate').value, 
+                                               self.publish_accumulated)
         
         # 정기적인 움직임 확인 및 위치 업데이트 타이머
         self.motion_timer = self.create_timer(0.05, self.update_motion)
@@ -136,6 +149,25 @@ class AccumulatedPointcloud(Node):
         self.tf_timer = self.create_timer(0.05, self.publish_tf_tree)
         
         self.get_logger().info("3D Accumulated PointCloud Node Initialized with improved IMU integration!")
+    
+    def check_tf_ready(self):
+        """TF 트리가 준비되었는지 확인"""
+        try:
+            # 필요한 TF만 확인
+            self.tf_buffer.lookup_transform('world', 'map', rclpy.time.Time())
+            self.tf_buffer.lookup_transform('map', 'base_link', rclpy.time.Time())
+            self.tf_buffer.lookup_transform('base_link', 'laser', rclpy.time.Time())
+            
+            if not self.tf_ready:
+                self.get_logger().info("TF 트리가 준비되었습니다!")
+                self.tf_ready = True
+                
+        except Exception as e:
+            if self.tf_ready:
+                self.get_logger().warn("TF 트리가 깨졌습니다.")
+                self.tf_ready = False
+            else:
+                self.get_logger().debug(f"TF 트리 준비 중... ({str(e)[:30]})")
     
     def imu_callback(self, msg):
         """IMU 데이터 처리 개선"""
@@ -281,14 +313,15 @@ class AccumulatedPointcloud(Node):
         return point_global[0], point_global[1], point_global[2]
     
     def publish_tf_tree(self):
-        """TF 트리 발행 - 센서 좌표계 간의 관계 설정"""
+        """TF 트리 발행 - 명확한 역할 분리"""
         if not self.use_tf or self.last_imu is None:
             return
         
         # 현재 시간
         now = self.get_clock().now().to_msg()
         
-        # map -> base_link 변환 (IMU 위치)
+        # 이 노드는 map -> base_link 변환만 발행 
+        # (static_transform_publisher가 base_link -> laser, world -> map 발행)
         t_map_base = TransformStamped()
         t_map_base.header.stamp = now
         t_map_base.header.frame_id = 'map'
@@ -305,109 +338,158 @@ class AccumulatedPointcloud(Node):
         t_map_base.transform.rotation.z = self.last_orientation[2]
         t_map_base.transform.rotation.w = self.last_orientation[3]
         
-        # base_link -> laser 변환
-        t_base_laser = TransformStamped()
-        t_base_laser.header.stamp = now
-        t_base_laser.header.frame_id = 'base_link'
-        t_base_laser.child_frame_id = 'laser'
-        
-        # 라이다는 IMU 위에 위치 (z축 방향으로)
-        t_base_laser.transform.translation.x = 0.0
-        t_base_laser.transform.translation.y = 0.0
-        t_base_laser.transform.translation.z = self.imu_to_laser_z
-        
-        # 라이다와 IMU 간에 방향 차이가 없다고 가정 (identity rotation)
-        t_base_laser.transform.rotation.x = 0.0
-        t_base_laser.transform.rotation.y = 0.0
-        t_base_laser.transform.rotation.z = 0.0
-        t_base_laser.transform.rotation.w = 1.0
-        
-        # TF 변환 발행
+        # map -> base_link 변환만 발행
         self.tf_broadcaster.sendTransform(t_map_base)
-        self.tf_broadcaster.sendTransform(t_base_laser)
     
     def scan_callback(self, msg):
-        """라이다 스캔 데이터를 처리하여 3D 포인트 클라우드 생성"""
         if self.last_imu is None:
             self.get_logger().warn("No IMU data yet")
             return
         
-        # 리셋 시간 확인
-        current_time = time.time()
-        if current_time - self.start_time > self.reset_time:
-            self.get_logger().info(f"Resetting map after {self.reset_time} seconds")
-            self.accumulated_points = []
-            self.grid_map = {}
-            self.start_time = current_time
+        if not self.tf_ready:
+            self.get_logger().warn("TF 트리가 준비되지 않았습니다. 스캔을 스킵합니다.")
+            return
         
-        # 현재 IMU 방향 및 위치
-        quat = self.last_orientation
-        position = self.last_position
+        # TF 조회 시간 문제 해결
+        try:
+            # 현재 시간을 기준으로 조회 (메시지 시간은 사용하지 않음)
+            current_time = self.get_clock().now()
+            
+            # 약간 과거의 시간으로 요청하여 extrapolation 오류 방지
+            past_time = rclpy.time.Time(
+                seconds=current_time.seconds_nanoseconds()[0] - 0.1, 
+                nanoseconds=current_time.seconds_nanoseconds()[1]
+            )
+            
+            transform = self.tf_buffer.lookup_transform(
+                'map', 'laser',
+                past_time,
+                rclpy.duration.Duration(seconds=0.5))  # 타임아웃 줄임
+            
+            # 변환 행렬 추출
+            translation = transform.transform.translation
+            rotation = transform.transform.rotation
+            
+            # 유효한 변환이 있는 경우 계속 진행
+            have_valid_transform = True
+            
+        except Exception as e:
+            # 변환 실패 시 base_link → laser 변환만 사용하는 대체 방법
+            self.get_logger().warn(f"TF lookup failed: {e}")
+            try:
+                # base_link → laser 변환은 고정이므로 항상 이용 가능해야 함
+                transform = self.tf_buffer.lookup_transform(
+                    'base_link', 'laser',
+                    self.get_clock().now(),
+                    rclpy.duration.Duration(seconds=0.1))
+                    
+                # 회전과 변환 정보 추출
+                base_trans = transform.transform.translation
+                base_rot = transform.transform.rotation
+                
+                # map → base_link는 누적 노드 자체가 알고 있는 정보 사용
+                translation_map_to_base = self.last_position
+                rotation_map_to_base = self.last_orientation
+                
+                # 변환 조합 (간단한 근사)
+                translation = Vector3()
+                translation.x = translation_map_to_base[0] + base_trans.x
+                translation.y = translation_map_to_base[1] + base_trans.y
+                translation.z = translation_map_to_base[2] + base_trans.z
+                
+                # 회전은 base_link의 회전만 사용 (간소화)
+                rotation = Quaternion()
+                rotation.x = rotation_map_to_base[0]
+                rotation.y = rotation_map_to_base[1]
+                rotation.z = rotation_map_to_base[2]
+                rotation.w = rotation_map_to_base[3]
+                
+                have_valid_transform = True
+                
+            except Exception as e2:
+                self.get_logger().error(f"Fallback TF also failed: {e2}")
+                have_valid_transform = False
         
         # 현재 스캔에서의 포인트
         current_points = []
         
-        # 스캔 데이터를 3D 포인트로 변환
-        for i, r in enumerate(msg.ranges):
-            if r < msg.range_min or r > msg.range_max or not np.isfinite(r):
-                continue
+        # 전역 좌표계에서의 누적 포인트
+        if have_valid_transform:
+            # 포인트 다운샘플링 - 모든 포인트를 사용하지 않고 일부만 샘플링
+            sample_indices = range(0, len(msg.ranges), self.point_skip)
             
-            # 레이저 각도
-            angle = msg.angle_min + i * msg.angle_increment
-            
-            # 로컬 좌표계에서의 점 위치 (레이저 프레임)
-            x_local = r * math.cos(angle)
-            y_local = r * math.sin(angle)
-            
-            # IMU 기반 3D 변환 (개선된 방법)
-            x_3d, y_3d, z_3d = self.transform_to_3d(x_local, y_local, quat)
-            
-            # 강도 값 (있는 경우)
-            intensity = 100.0
-            if hasattr(msg, 'intensities') and i < len(msg.intensities):
-                intensity = float(msg.intensities[i])
-            
-            # 현재 프레임의 포인트 추가
-            current_points.append([x_3d, y_3d, z_3d, intensity])
-            
-            # 글로벌 좌표계로 변환 (누적용)
-            x_global = x_3d + position[0]
-            y_global = y_3d + position[1]
-            z_global = z_3d + position[2]
-            
-            # 그리드 인덱스 계산
-            grid_x = int(x_global / self.grid_size)
-            grid_y = int(y_global / self.grid_size)
-            grid_z = int(z_global / self.grid_size)
-            grid_key = (grid_x, grid_y, grid_z)
-            
-            # 이 그리드에 아직 포인트가 없으면 추가
-            if grid_key not in self.grid_map:
-                self.accumulated_points.append([x_global, y_global, z_global, intensity])
-                self.grid_map[grid_key] = len(self.accumulated_points) - 1
-                
-                # 최대 포인트 수 관리
-                if len(self.accumulated_points) > self.max_points:
-                    # 가장 오래된 포인트 제거
-                    removed_point = self.accumulated_points.pop(0)
-                    removed_grid = (
-                        int(removed_point[0] / self.grid_size),
-                        int(removed_point[1] / self.grid_size),
-                        int(removed_point[2] / self.grid_size)
-                    )
-                    self.grid_map.pop(removed_grid, None)
+            # 스캔 데이터를 3D 포인트로 변환
+            for i in sample_indices:
+                if i >= len(msg.ranges):
+                    continue
                     
-                    # 인덱스 업데이트 (하나씩 앞으로 당김)
-                    for k, v in self.grid_map.items():
-                        if v > 0:  # 첫 번째 이후 항목들은 인덱스가 1 감소
-                            self.grid_map[k] = v - 1
+                r = msg.ranges[i]
+                if r < msg.range_min or r > msg.range_max or not np.isfinite(r):
+                    continue
+                
+                # 레이저 각도
+                angle = msg.angle_min + i * msg.angle_increment
+                
+                # 로컬 좌표계에서의 점 위치 (레이저 프레임)
+                x_local = r * math.cos(angle)
+                y_local = r * math.sin(angle)
+                z_local = 0.0
+                
+                # TF를 이용한 글로벌 좌표계 변환
+                point_local = np.array([x_local, y_local, z_local])
+                
+                # 회전 행렬 계산
+                q = [rotation.x, rotation.y, rotation.z, rotation.w]
+                R = self.quaternion_to_rotation_matrix(q)
+                
+                # 글로벌 좌표계로 변환
+                point_global = np.dot(R, point_local) + np.array([
+                    translation.x, translation.y, translation.z])
+                
+                # 강도 값 (있는 경우)
+                intensity = 100.0
+                if hasattr(msg, 'intensities') and i < len(msg.intensities):
+                    intensity = float(msg.intensities[i])
+                
+                # 현재 프레임의 포인트 추가
+                current_points.append([*point_global, intensity])
+                
+                # 그리드 인덱스 계산
+                grid_x = int(point_global[0] / self.grid_size)
+                grid_y = int(point_global[1] / self.grid_size)
+                grid_z = int(point_global[2] / self.grid_size)
+                grid_key = (grid_x, grid_y, grid_z)
+                
+                # 이 그리드에 아직 포인트가 없으면 누적 목록에 추가
+                if grid_key not in self.grid_map:
+                    self.accumulated_points.append([
+                        point_global[0], point_global[1], point_global[2], intensity])
+                    self.grid_map[grid_key] = len(self.accumulated_points) - 1
+                    
+                    # 최대 포인트 수 관리
+                    if len(self.accumulated_points) > self.max_points:
+                        # 가장 오래된 포인트 제거
+                        removed_point = self.accumulated_points.pop(0)
+                        removed_grid = (
+                            int(removed_point[0] / self.grid_size),
+                            int(removed_point[1] / self.grid_size),
+                            int(removed_point[2] / self.grid_size)
+                        )
+                        self.grid_map.pop(removed_grid, None)
+                        
+                        # 인덱스 업데이트
+                        updated_grid_map = {}
+                        for k, v in self.grid_map.items():
+                            if v > 0:  # 첫 번째 이후 항목들은 인덱스가 1 감소
+                                updated_grid_map[k] = v - 1
+                        self.grid_map = updated_grid_map
         
-        # 현재 스캔의 포인트 클라우드 발행
+        # 현재 스캔 포인트 발행
         if current_points:
             # 헤더 설정
             header = Header()
             header.stamp = self.get_clock().now().to_msg()
-            header.frame_id = 'laser'  # 라이다 프레임
+            header.frame_id = 'map'  # map 프레임으로 설정하여 일관성 유지
             
             self.publish_pointcloud(current_points, 'live_points', header)
     
@@ -416,10 +498,10 @@ class AccumulatedPointcloud(Node):
         if not self.accumulated_points:
             return
             
-        # 헤더 생성
+        # 헤더 생성 - 프레임 ID를 'map'으로 통일
         header = Header()
         header.stamp = self.get_clock().now().to_msg()
-        header.frame_id = 'map'  # 누적된 포인트는 글로벌 맵 프레임에 있음
+        header.frame_id = 'map'  # 누적된 포인트는 항상 map 프레임에
         
         # 누적된 포인트 클라우드 발행
         self.publish_pointcloud(self.accumulated_points, 'accumulated_points', header)

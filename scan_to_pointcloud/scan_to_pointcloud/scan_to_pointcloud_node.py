@@ -63,15 +63,19 @@ class ScanToPointcloud(Node):
     def __init__(self):
         super().__init__('scan_to_pointcloud')
         
+        # 매개변수 추가 - 숫자로 시작하지 않는 토픽 이름 사용
+        self.declare_parameter('output_topic', 'pc_3d')
+        self.output_topic = self.get_parameter('output_topic').value
+        
+        # 포인트 클라우드 publisher
+        self.cloud_pub = self.create_publisher(
+            PointCloud2, self.output_topic, 10)
+        
         # IMU 및 라이다 subscription
         self.imu_sub = self.create_subscription(
             Imu, 'imu', self.imu_callback, 10)
         self.scan_sub = self.create_subscription(
             LaserScan, 'scan', self.scan_callback, 10)
-        
-        # 포인트 클라우드 publisher
-        self.cloud_pub = self.create_publisher(
-            PointCloud2, 'points2', 10)
         
         # TF 리스너 설정
         self.tf_buffer = Buffer()
@@ -90,14 +94,21 @@ class ScanToPointcloud(Node):
             self.get_logger().warn("No IMU data yet")
             return
         
-        # IMU 방향에서 롤, 피치 추출
-        q = self.last_imu.orientation
-        roll, pitch, yaw = self.euler_from_quaternion(q.x, q.y, q.z, q.w)
+        # 현재 TF 확인
+        try:
+            # base_link를 기준으로 laser의 위치 확인
+            transform = self.tf_buffer.lookup_transform(
+                'base_link', 'laser',
+                rclpy.time.Time(),
+                rclpy.duration.Duration(seconds=0.1))
+        except Exception as e:
+            self.get_logger().warn(f"TF lookup failed: {e}")
+            # 변환을 찾을 수 없으면 기본 프레임 사용
         
-        # 2D 레이저 스캔을 3D 포인트 클라우드로 변환
+        # 2D 레이저 스캔을 IMU 방향을 고려한 3D 포인트 클라우드로 변환
         points = []
         for i, r in enumerate(msg.ranges):
-            if r < msg.range_min or r > msg.range_max:
+            if r < msg.range_min or r > msg.range_max or not np.isfinite(r):
                 continue
                 
             # 각도 계산
@@ -107,53 +118,42 @@ class ScanToPointcloud(Node):
             x = r * math.cos(angle)
             y = r * math.sin(angle)
             
-            # IMU의 롤과 피치를 적용하여 Z 축 계산
-            # 간단한 근사를 위해 평면 방정식 사용
-            z = x * math.sin(pitch) + y * math.sin(roll)
+            # IMU의 롤과 피치를 이용한 개선된 3D 변환
+            q = self.last_imu.orientation
+            R = self.quaternion_to_rotation_matrix([q.x, q.y, q.z, q.w])
             
-            # 점의 품질을 반영하기 위해 강도 추가 (있는 경우)
-            intensity = 255.0  # 기본값
-            if hasattr(msg, 'intensities') and len(msg.intensities) > i:
+            # 레이저 평면상의 점
+            point_local = np.array([x, y, 0.0])
+            
+            # IMU 방향 적용 - 회전 행렬을 통한 변환
+            point_rotated = np.dot(R, point_local)
+            
+            # 변환된 3D 좌표
+            x_3d, y_3d, z_3d = point_rotated
+            
+            # 강도 정보 추가
+            intensity = 100.0
+            if hasattr(msg, 'intensities') and i < len(msg.intensities):
                 intensity = float(msg.intensities[i])
             
-            # XYZRGB 포인트 생성
-            points.append([x, y, z, intensity])
+            # 포인트 추가
+            points.append([x_3d, y_3d, z_3d, intensity])
         
-        # 포인트 클라우드 생성 및 게시
+        # 포인트클라우드 생성 및 발행
         if points:
+            # 필드 설정
             fields = [
-                # X 필드
-                sensor_msgs.PointField(
-                    name='x',
-                    offset=0,
-                    datatype=PointField.FLOAT32,
-                    count=1
-                ),
-                # Y 필드
-                sensor_msgs.PointField(
-                    name='y',
-                    offset=4,
-                    datatype=PointField.FLOAT32,
-                    count=1
-                ),
-                # Z 필드
-                sensor_msgs.PointField(
-                    name='z',
-                    offset=8,
-                    datatype=PointField.FLOAT32,
-                    count=1
-                ),
-                # Intensity 필드
-                sensor_msgs.PointField(
-                    name='intensity',
-                    offset=12,
-                    datatype=PointField.FLOAT32,
-                    count=1
-                )
+                sensor_msgs.PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
+                sensor_msgs.PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
+                sensor_msgs.PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
+                sensor_msgs.PointField(name='intensity', offset=12, datatype=PointField.FLOAT32, count=1)
             ]
             
-            cloud_msg = create_cloud(msg.header, fields, points)
-            cloud_msg.header.frame_id = 'laser'
+            # 헤더 설정 - 프레임 ID를 'base_link'로 고정 (항상 같은 프레임 사용)
+            header = msg.header
+            header.frame_id = 'base_link'  # 이전: 'laser'
+            
+            cloud_msg = create_cloud(header, fields, points)
             self.cloud_pub.publish(cloud_msg)
             self.get_logger().info(f"Published pointcloud with {len(points)} points")
     
@@ -179,6 +179,18 @@ class ScanToPointcloud(Node):
         yaw = math.atan2(siny_cosp, cosy_cosp)
         
         return roll, pitch, yaw
+    
+    def quaternion_to_rotation_matrix(self, q):
+        """
+        쿼터니언을 회전 행렬로 변환
+        """
+        x, y, z, w = q
+        R = np.array([
+            [1 - 2 * (y**2 + z**2), 2 * (x * y - z * w), 2 * (x * z + y * w)],
+            [2 * (x * y + z * w), 1 - 2 * (x**2 + z**2), 2 * (y * z - x * w)],
+            [2 * (x * z - y * w), 2 * (y * z + x * w), 1 - 2 * (x**2 + y**2)]
+        ])
+        return R
 
 def main(args=None):
     rclpy.init(args=args)
