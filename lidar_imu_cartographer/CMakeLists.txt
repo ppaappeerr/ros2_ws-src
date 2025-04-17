@@ -41,11 +41,12 @@ endif()
 # Python 모듈 설치 부분 제거 (이 패키지에는 Python 모듈이 필요 없음)
 # ament_python_install_package(${PROJECT_NAME}) <- 이 부분 제거
 
-# 실행 파일 설치 부분 제거 또는 수정 (필요없는 경우)
-# install(PROGRAMS
-#   scripts/custom_cartographer_script.py 
-#   DESTINATION lib/${PROJECT_NAME}
-# )
+# 실행 파일 설치
+install(
+  PROGRAMS
+  scripts/debug_cartographer.py
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 # 테스트 설정
 if(BUILD_TESTING)
@@ -55,3 +56,7 @@ endif()
 
 # 패키지 내보내기
 ament_package()
+# Install config files
+install(DIRECTORY config/
+  DESTINATION share/${PROJECT_NAME}/config
+)

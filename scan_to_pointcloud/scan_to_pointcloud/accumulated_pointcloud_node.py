@@ -692,17 +692,15 @@ class AccumulatedPointcloud(Node):
         return f"{grid_x},{grid_y},{grid_z}"
     
     def publish_accumulated(self):
-        """누적된 포인트 클라우드 발행 - 개선된 버전"""
+        """누적된 포인트 클라우드 발행 - 디버깅 코드 추가"""
         # 충분한 포인트가 없으면 건너뛰기
         if not self.accumulated_points:
+            self.get_logger().warn("누적된 포인트가 없어 발행하지 않습니다.")
             return
         
         if len(self.accumulated_points) < self.initial_accumulation_size:
-            if not self.accumulated_points_published:  # 처음 한번만 로그
-                self.get_logger().info(
-                    f"누적 포인트 부족: {len(self.accumulated_points)}/{self.initial_accumulation_size}, "
-                    f"충분히 쌓이면 발행됩니다."
-                )
+            if not self.accumulated_points_published:
+                self.get_logger().warn(f"누적된 포인트 수({len(self.accumulated_points)})가 최소 요구값({self.initial_accumulation_size})보다 적습니다.")
             return
         
         # 헤더 설정 (항상 map 프레임)
@@ -722,22 +720,34 @@ class AccumulatedPointcloud(Node):
             # 포인트 수 제한 (성능 개선)
             points_to_publish = self.accumulated_points
             if len(points_to_publish) > 10000:
-                # 간단한 균등 샘플링
-                indices = np.linspace(0, len(points_to_publish)-1, 10000, dtype=int)
-                points_to_publish = [points_to_publish[i] for i in indices]
+                # 샘플링하여 포인트 수 줄이기
+                step = len(points_to_publish) // 10000 + 1
+                points_to_publish = points_to_publish[::step]
+                self.get_logger().debug(f"성능 최적화: {len(self.accumulated_points)}→{len(points_to_publish)} 포인트로 다운샘플링")
+            
+            # 디버깅: 포인트 데이터 형식 및 값 확인
+            if len(points_to_publish) > 0:
+                sample_point = points_to_publish[0]
+                self.get_logger().debug(f"샘플 포인트: x={sample_point[0]:.3f}, y={sample_point[1]:.3f}, z={sample_point[2]:.3f}, i={sample_point[3]:.3f}")
             
             # 포인트 클라우드 메시지 생성 및 발행
             cloud_msg = create_cloud(header, fields, points_to_publish)
+            
+            # 추가 디버깅 정보 (메시지 크기 등)
+            msg_size = cloud_msg.width * cloud_msg.height * cloud_msg.point_step
+            self.get_logger().debug(f"포인트 클라우드 메시지 생성: {cloud_msg.width}x{cloud_msg.height}, {msg_size/1024:.1f} KB")
+            
             self.accumulated_pub.publish(cloud_msg)
             
             # 상태 추적
             self.publish_successes += 1
             self.accumulated_points_published = True
             
+            # 성공 로그 (빈도 제한)
             if not hasattr(self, 'last_publish_log') or \
                (self.get_clock().now() - self.last_publish_log).nanoseconds / 1e9 > 5.0:
-                self.get_logger().info(f"누적 포인트 발행: {len(points_to_publish)} 포인트 (총 {len(self.accumulated_points)}개 중)")
                 self.last_publish_log = self.get_clock().now()
+                self.get_logger().info(f"누적 포인트클라우드 발행: {len(points_to_publish)} 포인트, 프레임: {header.frame_id}")
                 
             # 마커도 함께 발행
             self.publish_markers()
@@ -745,6 +755,9 @@ class AccumulatedPointcloud(Node):
         except Exception as e:
             self.publish_failures += 1
             self.get_logger().error(f"누적 포인트 발행 실패: {e}")
+            # 스택 트레이스 출력 (자세한 오류 정보)
+            import traceback
+            self.get_logger().error(traceback.format_exc())
     
     def publish_pointcloud(self, points, topic_name, header):
         """포인트 클라우드 메시지 생성 및 발행"""
