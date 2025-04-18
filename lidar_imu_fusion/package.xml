@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>lidar_imu_correction</name>
+  <name>lidar_imu_fusion</name>
   <version>0.0.0</version>
-  <description>라이다 데이터를 IMU로 보정하는 패키지</description>
+  <description>라이다와 IMU 센서 데이터 통합 패키지</description>
   <maintainer email="your_email@example.com">Your Name</maintainer>
   <license>TODO: License declaration</license>
 
@@ -11,6 +11,7 @@
   <depend>sensor_msgs</depend>
   <depend>geometry_msgs</depend>
   <depend>tf2_ros</depend>
+  <depend>numpy</depend>
 
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>

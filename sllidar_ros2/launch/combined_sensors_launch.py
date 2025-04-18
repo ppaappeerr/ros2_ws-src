@@ -16,20 +16,35 @@ def generate_launch_description():
     angle_compensate = LaunchConfiguration('angle_compensate', default='true')
     scan_mode = LaunchConfiguration('scan_mode', default='Sensitivity')
 
-    # TF 정의: base_link -> imu_link
-    static_tf_base_to_imu = Node(
+    # TF 프레임 설정
+    # TF 명확한 책임 분리: static_transform만 여기서 발행
+    # world -> map은 고정 TF
+    static_tf_world_to_map = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='static_tf_base_to_imu',
-        arguments=['0', '0', '0.05', '0', '0', '0', '1', 'base_link', 'imu_link']
+        name='static_tf_world_to_map',
+        arguments=['0', '0', '0', '0', '0', '0', '1', 'world', 'map'],
+        output='screen'
     )
 
-    # TF 정의: base_link -> laser
+    # base_link -> laser 변환
+    # 센서의 실제 위치에 맞게 조정 필요
     static_tf_base_to_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_base_to_laser',
-        arguments=['0', '0', '0', '0', '0', '0', '1', 'base_link', 'laser']
+        arguments=['0', '0', '0', '0', '0', '0', '1', 'base_link', 'laser'],
+        output='screen'
+    )
+
+    # base_link -> imu_link 변환
+    # 센서의 실제 위치에 맞게 조정 필요
+    static_tf_base_to_imu = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        name='static_tf_base_to_imu',
+        arguments=['0', '0', '0.05', '0', '0', '0', '1', 'base_link', 'imu_link'],
+        output='screen'
     )
 
     # SLLIDAR 노드
@@ -55,16 +70,17 @@ def generate_launch_description():
         executable='mpu6050_node',
         name='mpu6050_node',
         parameters=[{
-            'frame_id': 'imu_link'  # IMU frame_id를 imu_link로 설정
+            'frame_id': 'imu_link',  # IMU frame_id
+            'publish_rate': 50.0     # Hz
         }],
         output='screen'
     )
 
-    # RViz2 실행
+    # RViz 설정
     rviz_config_dir = os.path.join(
         get_package_share_directory('sllidar_ros2'),
         'rviz',
-        'sllidar_with_imu.rviz')  # 새 RViz 설정 파일
+        'sllidar_with_imu.rviz')
         
     rviz_node = Node(
         package='rviz2',
@@ -74,10 +90,17 @@ def generate_launch_description():
         output='screen'
     )
 
+    # 명확한 실행 순서 보장
     return LaunchDescription([
-        static_tf_base_to_imu,
+        # 1단계: 고정 TF 트리 설정
+        static_tf_world_to_map,
         static_tf_base_to_laser,
+        static_tf_base_to_imu,
+        
+        # 2단계: 센서 노드 실행
         sllidar_node,
         imu_node,
+        
+        # 3단계: RViz 시각화
         rviz_node
     ])
