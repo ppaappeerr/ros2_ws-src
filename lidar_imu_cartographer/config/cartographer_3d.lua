@@ -38,10 +38,10 @@ MAP_BUILDER.use_trajectory_builder_2d = false
 MAP_BUILDER.num_background_threads = 4
 
 -- 포인트 클라우드 처리 안정화
-TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 30  -- 누적 데이터 증가
-TRAJECTORY_BUILDER_3D.min_range = 0.25  -- 0.2 → 0.25
+TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 15  -- 30 → 15 (맵 생성 속도 개선)
+TRAJECTORY_BUILDER_3D.min_range = 0.2
 TRAJECTORY_BUILDER_3D.max_range = 8.0
-TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.15  -- 노이즈 줄이기
+TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.1
 
 -- IMU 설정 (중복 없이)
 TRAJECTORY_BUILDER_3D.imu_gravity_time_constant = 20.0  -- 15.0 → 20.0 (더 안정적)
