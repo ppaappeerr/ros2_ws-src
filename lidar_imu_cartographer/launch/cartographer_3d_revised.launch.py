@@ -1,27 +1,43 @@
+# filepath: /home/p/ros2_ws/src/lidar_imu_cartographer/launch/cartographer_3d_revised.launch.py
 import os
 from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument, LogInfo
+from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from launch.actions import LogInfo
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     pkg_share = get_package_share_directory('lidar_imu_cartographer')
     cartographer_config_dir = os.path.join(pkg_share, 'config')
     rviz_config_path = os.path.join(pkg_share, 'rviz', 'cartographer_3d.rviz')
+    lua_config_basename = 'cartographer_3d_scan_imu.lua'
 
-    lua_config_basename = 'cartographer_3d_scan_imu.lua' # Lua 파일 이름 확인
+    # --- Launch Arguments 추가 ---
+    use_complementary_filter_arg = DeclareLaunchArgument(
+        'use_complementary_filter',
+        default_value='false',  # 기본값은 상보 필터 사용 안 함
+        description='MPU6050 노드에서 상보 필터 사용 여부'
+    )
+    imu_topic_source_arg = DeclareLaunchArgument(
+        'imu_topic_source',
+        default_value='/imu/data_raw',  # 기본값은 Raw IMU 사용
+        description='Cartographer가 사용할 IMU 토픽 (/imu/data_raw 또는 /imu/data_complementary)'
+    )
+    # --------------------------
 
-    return LaunchDescription([
-        LogInfo(msg=f"Cartographer 3D SLAM 시작 (LiDAR Scan + IMU Odom) using {lua_config_basename}"),
+    nodes_to_launch = [
+        LogInfo(msg=f"Cartographer 3D SLAM 시작 (LiDAR Scan + IMU) using {lua_config_basename}"),
+        LogInfo(msg=["Using Complementary Filter: ", LaunchConfiguration('use_complementary_filter')]),
+        LogInfo(msg=["IMU Topic for Cartographer: ", LaunchConfiguration('imu_topic_source')]),
 
-        # 1. Static TF Publishers (base_link 기준 센서 위치)
+        # 1. Static TF Publishers
         Node(
             package='tf2_ros', executable='static_transform_publisher', name='static_tf_base_to_laser',
             arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'laser']
         ),
         Node(
             package='tf2_ros', executable='static_transform_publisher', name='static_tf_base_to_imu',
-            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'imu_link'] # imu_link와 base_link 동일하게 설정
+            arguments=['0', '0', '0', '0', '0', '0', 'base_link', 'imu_link']
         ),
 
         # 2. Sensor Nodes
@@ -32,55 +48,59 @@ def generate_launch_description():
         ),
         Node(
             package='mpu6050_py', executable='mpu6050_node', name='mpu6050_node',
-            parameters=[{'frame_id': 'imu_link'}],
-            remappings=[('imu', '/imu/data_raw')], # Raw 데이터 발행
-            output='screen'
-        ),
-
-        # 2.5 IMU Filter Node (Madgwick)
-        Node(
-            package='imu_filter_madgwick', executable='imu_filter_madgwick_node', name='imu_filter_node',
-            parameters=[{'use_mag': False, 'publish_tf': False}], # TF 발행 안 함
-            remappings=[('imu/data_raw', '/imu/data_raw'), ('imu/data', '/imu/data')], # 필터링된 데이터 /imu/data 발행
-            output='screen'
-        ),
-
-        # 2.6 IMU Odom Publisher Node (수정된 노드 추가)
-        Node(
-            package='lidar_imu_fusion', # 패키지 이름 확인
-            executable='imu_odom_publisher', # setup.py에 정의된 실행 파일 이름
-            name='imu_odom_publisher_node',
             parameters=[
-                {'odom_frame': 'odom'}, # 발행할 TF: odom -> base_link
-                {'base_frame': 'base_link'}
+                {'frame_id': 'imu_link'},
+                {'use_complementary_filter': LaunchConfiguration('use_complementary_filter')}  # 파라미터 전달
             ],
-            remappings=[('imu', '/imu/data')], # 필터링된 IMU 데이터 구독
+            remappings=[
+                ('imu_raw', '/imu/data_raw'),  # Raw 데이터 토픽
+                ('imu_filtered', '/imu/data_complementary')  # 필터링된 데이터 토픽
+            ],
             output='screen'
         ),
 
-        # 3. Cartographer Nodes
+        # 3. Scan to PointCloud Node
+        Node(
+            package='scan_to_pointcloud', executable='scan_to_pointcloud', name='scan_to_pointcloud_node',
+            parameters=[
+                {'input_topic': 'scan'},
+                {'output_topic': 'pc_3d'},  # Cartographer 입력으로 사용될 포인트 클라우드
+                {'frame_id': 'laser'},
+                {'output_frame': 'laser'}  # 원본 프레임 유지
+            ],
+            output='screen'
+        ),
+
+        # 4. Cartographer Node
         Node(
             package='cartographer_ros', executable='cartographer_node', name='cartographer_node',
             output='screen',
             parameters=[{'use_sim_time': False}],
             arguments=['-configuration_directory', cartographer_config_dir, '-configuration_basename', lua_config_basename],
             remappings=[
-                ('scan', '/scan'),
-                ('imu', '/imu/data') # Cartographer는 여전히 필터링된 IMU 직접 사용
-                # 오도메트리 TF는 Cartographer가 내부적으로 사용하므로 odom 리매핑 불필요
+                ('points2', '/pc_3d'),         # /pc_3d 직접 사용
+                ('imu', LaunchConfiguration('imu_topic_source'))  # 선택된 IMU 토픽 사용
             ]
         ),
+
+        # 5. Occupancy Grid Node
         Node(
             package='cartographer_ros', executable='cartographer_occupancy_grid_node', name='cartographer_occupancy_grid_node',
             output='screen',
             parameters=[{'use_sim_time': False, 'resolution': 0.05}],
-            remappings=[('map', '/map')]
+            remappings=[('map', '/map')]  # Cartographer가 발행하는 /map 사용
         ),
 
-        # 4. RViz
+        # 6. RViz
         Node(
             package='rviz2', executable='rviz2', name='rviz2',
             arguments=['-d', rviz_config_path],
             output='screen'
         )
+    ]
+
+    return LaunchDescription([
+        use_complementary_filter_arg,  # Launch Argument 등록
+        imu_topic_source_arg,          # Launch Argument 등록
+        *nodes_to_launch
     ])

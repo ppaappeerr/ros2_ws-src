@@ -105,14 +105,18 @@ class ScanToPointcloud(Node):
 def main(args=None):
     rclpy.init(args=args)
     node = ScanToPointcloud()
-    
+
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
         node.get_logger().info("사용자에 의해 종료됨")
     finally:
-        node.destroy_node()
-        rclpy.shutdown()
+        # --- 수정: 종료 처리 로직 개선 ---
+        if node and rclpy.ok(): # 노드가 존재하고 rclpy 컨텍스트가 유효할 때만 destroy
+            node.destroy_node()
+        if rclpy.ok(): # rclpy 컨텍스트가 유효할 때만 shutdown
+             rclpy.shutdown()
+        # ---------------------
 
 if __name__ == '__main__':
     main()
