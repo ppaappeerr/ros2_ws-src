@@ -1,3 +1,4 @@
+lua
 include "map_builder.lua"
 include "trajectory_builder.lua"
 
@@ -9,6 +10,8 @@ options = {
   published_frame = "base_link",
   odom_frame = "odom",
   provide_odom_frame = false,
+  publish_frame_projected_to_2d = false,
+  use_pose_extrapolator = true,
   use_odometry = false,
   use_nav_sat = false,
   use_landmarks = false,
@@ -25,8 +28,7 @@ options = {
   fixed_frame_pose_sampling_ratio = 1.0,
   imu_sampling_ratio = 1.0,
   landmarks_sampling_ratio = 1.0,
-  publish_frame_projected_to_2d = false,
-  publish_to_tf = true,
+  publish_to_tf = false,
 }
 
 MAP_BUILDER.use_trajectory_builder_3d = true
@@ -38,13 +40,13 @@ TRAJECTORY_BUILDER_3D.max_range = 8.0
 TRAJECTORY_BUILDER_3D.num_accumulated_range_data = 1
 TRAJECTORY_BUILDER_3D.voxel_filter_size = 0.1
 TRAJECTORY_BUILDER_3D.use_imu_data = true
-TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.max_length = 2.0
-TRAJECTORY_BUILDER_3D.high_resolution_adaptive_voxel_filter.min_num_points = 150
-TRAJECTORY_BUILDER_3D.low_resolution_adaptive_voxel_filter.max_length = 4.0
-TRAJECTORY_BUILDER_3D.low_resolution_adaptive_voxel_filter.min_num_points = 150
+
+-- 간소화된 설정
 TRAJECTORY_BUILDER_3D.submaps.high_resolution = 0.2
-TRAJECTORY_BUILDER_3D.submaps.low_resolution = 0.45
+TRAJECTORY_BUILDER_3D.submaps.low_resolution = 0.5
+TRAJECTORY_BUILDER_3D.submaps.num_range_data = 100
 
 POSE_GRAPH.optimize_every_n_nodes = 30
+POSE_GRAPH.constraint_builder.min_score = 0.5
 
 return options

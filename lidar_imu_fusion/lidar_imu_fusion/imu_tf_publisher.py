@@ -7,6 +7,8 @@ import numpy as np
 import math
 import tf2_ros
 
+## Rotation only
+
 class ImuTfPublisher(Node):
     def __init__(self):
         super().__init__('imu_tf_publisher')
