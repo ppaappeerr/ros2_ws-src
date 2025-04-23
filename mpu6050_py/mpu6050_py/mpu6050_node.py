@@ -177,37 +177,35 @@ class MPU6050(Node):
             gyro_z = (float(gyro_z_raw) - self.gyro_offset.get('z', 0.0)) * gyro_scale
 
             # IMU 메시지 생성 (Raw)
-            imu_msg_raw = Imu()
-            imu_msg_raw.header.stamp = current_time.to_msg() # 현재 ROS 시간 사용
-            imu_msg_raw.header.frame_id = self.frame_id
+            imu_raw_msg = Imu()
+            imu_raw_msg.header.stamp = self.get_clock().now().to_msg() # 현재 시간 사용
+            imu_raw_msg.header.frame_id = self.frame_id
 
-            # Orientation, Covariance 등 설정 (이전과 동일)
-            imu_msg_raw.orientation.x = 0.0
-            imu_msg_raw.orientation.y = 0.0
-            imu_msg_raw.orientation.z = 0.0
-            imu_msg_raw.orientation.w = 1.0
-            imu_msg_raw.orientation_covariance[0] = -1.0
+            imu_raw_msg.orientation.x = 0.0
+            imu_raw_msg.orientation.y = 0.0
+            imu_raw_msg.orientation.z = 0.0
+            imu_raw_msg.orientation.w = 1.0
+            imu_raw_msg.orientation_covariance[0] = -1.0
 
-            imu_msg_raw.angular_velocity.x = gyro_x
-            imu_msg_raw.angular_velocity.y = gyro_y
-            imu_msg_raw.angular_velocity.z = gyro_z
-            imu_msg_raw.angular_velocity_covariance[0] = 0.01
-            imu_msg_raw.angular_velocity_covariance[4] = 0.01
-            imu_msg_raw.angular_velocity_covariance[8] = 0.01
+            imu_raw_msg.angular_velocity.x = gyro_x
+            imu_raw_msg.angular_velocity.y = gyro_y
+            imu_raw_msg.angular_velocity.z = gyro_z
+            imu_raw_msg.angular_velocity_covariance[0] = 0.01
+            imu_raw_msg.angular_velocity_covariance[4] = 0.01
+            imu_raw_msg.angular_velocity_covariance[8] = 0.01
 
-            imu_msg_raw.linear_acceleration.x = acc_x
-            imu_msg_raw.linear_acceleration.y = acc_y
-            imu_msg_raw.linear_acceleration.z = acc_z
-            imu_msg_raw.linear_acceleration_covariance[0] = 0.01
-            imu_msg_raw.linear_acceleration_covariance[4] = 0.01
-            imu_msg_raw.linear_acceleration_covariance[8] = 0.01
+            imu_raw_msg.linear_acceleration.x = acc_x
+            imu_raw_msg.linear_acceleration.y = acc_y
+            imu_raw_msg.linear_acceleration.z = acc_z
+            imu_raw_msg.linear_acceleration_covariance[0] = 0.01
+            imu_raw_msg.linear_acceleration_covariance[4] = 0.01
+            imu_raw_msg.linear_acceleration_covariance[8] = 0.01
 
-            # Raw 메시지 발행
-            self.pub_imu_raw.publish(imu_msg_raw)
+            # Raw 데이터 발행
+            self.pub_imu_raw.publish(imu_raw_msg)
             self.publish_count_raw += 1
-            self.last_success_time = current_time # 성공 시간 업데이트
 
-            # 상보 필터 로직 (활성화된 경우)
+            # 상보 필터 사용 시
             if self.use_complementary_filter:
                 dt = self.publish_interval_ns / 1e9 # dt는 여전히 publish_rate 기반으로 계산
                 acc_roll = math.atan2(acc_y, math.sqrt(acc_x**2 + acc_z**2))
@@ -215,28 +213,38 @@ class MPU6050(Node):
                 self.comp_roll = self.alpha * (self.comp_roll + gyro_x * dt) + (1.0 - self.alpha) * acc_roll
                 self.comp_pitch = self.alpha * (self.comp_pitch + gyro_y * dt) + (1.0 - self.alpha) * acc_pitch
                 self.comp_yaw += gyro_z * dt
-                q = self.euler_to_quaternion(self.comp_roll, self.comp_pitch, self.comp_yaw)
+                quat = self.euler_to_quaternion(self.comp_roll, self.comp_pitch, self.comp_yaw)
 
-                imu_msg_filtered = Imu()
-                imu_msg_filtered.header.stamp = current_time.to_msg() # 동일한 타임스탬프 사용
-                imu_msg_filtered.header.frame_id = self.frame_id
-                imu_msg_filtered.orientation.x = q[0]
-                imu_msg_filtered.orientation.y = q[1]
-                imu_msg_filtered.orientation.z = q[2]
-                imu_msg_filtered.orientation.w = q[3]
-                imu_msg_filtered.orientation_covariance[0] = 0.001
-                imu_msg_filtered.orientation_covariance[4] = 0.001
-                imu_msg_filtered.orientation_covariance[8] = 0.001
-                imu_msg_filtered.angular_velocity = imu_msg_raw.angular_velocity
-                imu_msg_filtered.angular_velocity_covariance = imu_msg_raw.angular_velocity_covariance
-                imu_msg_filtered.linear_acceleration = imu_msg_raw.linear_acceleration
-                imu_msg_filtered.linear_acceleration_covariance = imu_msg_raw.linear_acceleration_covariance
-                self.pub_imu_filtered.publish(imu_msg_filtered)
+                # 필터링된 IMU 메시지 생성
+                imu_filtered_msg = Imu()
+                imu_filtered_msg.header.stamp = imu_raw_msg.header.stamp # 동일한 타임스탬프 사용
+                imu_filtered_msg.header.frame_id = self.frame_id
+
+                imu_filtered_msg.orientation.x = quat[0]
+                imu_filtered_msg.orientation.y = quat[1]
+                imu_filtered_msg.orientation.z = quat[2]
+                imu_filtered_msg.orientation.w = quat[3]
+
+                # --- Orientation Covariance 설정 (중요) ---
+                imu_filtered_msg.orientation_covariance[0] = 0.01  # Roll variance
+                imu_filtered_msg.orientation_covariance[4] = 0.01  # Pitch variance
+                imu_filtered_msg.orientation_covariance[8] = 0.1   # Yaw variance (보통 더 불확실)
+                # -----------------------------------------
+
+                imu_filtered_msg.linear_acceleration = imu_raw_msg.linear_acceleration
+                imu_filtered_msg.angular_velocity = imu_raw_msg.angular_velocity
+                imu_filtered_msg.linear_acceleration_covariance = imu_raw_msg.linear_acceleration_covariance
+                imu_filtered_msg.angular_velocity_covariance = imu_raw_msg.angular_velocity_covariance
+
+                # 필터링된 데이터 발행
+                self.pub_imu_filtered.publish(imu_filtered_msg)
                 self.publish_count_filtered += 1
 
+            self.last_success_time = self.get_clock().now()
+
         except Exception as e:
-            self.get_logger().error(f"Error in publish_imu_data: {e}", exc_info=True)
             self.error_count += 1
+            self.get_logger().error(f"IMU 데이터 처리 중 오류: {e}")
 
     def euler_to_quaternion(self, roll, pitch, yaw):
         """오일러 각도를 쿼터니언으로 변환"""
