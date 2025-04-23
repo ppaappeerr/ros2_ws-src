@@ -8,6 +8,7 @@ import numpy as np
 import math
 import struct
 import tf2_ros
+from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy  # QoS import 추가
 
 class ScanToPointcloud(Node):
     def __init__(self):
@@ -25,12 +26,26 @@ class ScanToPointcloud(Node):
         self.frame_id = self.get_parameter('frame_id').value
         self.output_frame = self.get_parameter('output_frame').value or self.frame_id
         
-        # 포인트 클라우드 발행자
-        self.cloud_pub = self.create_publisher(PointCloud2, self.output_topic, 10)
-        
-        # 스캔 구독
-        self.scan_sub = self.create_subscription(LaserScan, self.input_topic, self.scan_callback, 10)
-        
+        # QoS 설정 (Reliable)
+        qos_profile = QoSProfile(
+            reliability=ReliabilityPolicy.RELIABLE,  # BEST_EFFORT -> RELIABLE
+            history=HistoryPolicy.KEEP_LAST,
+            depth=10,  # Depth는 유지하거나 늘릴 수 있음
+            durability=DurabilityPolicy.VOLATILE  # VOLATILE 유지
+        )
+
+        # 포인트 클라우드 발행자 (수정된 QoS 적용)
+        self.cloud_pub = self.create_publisher(PointCloud2, self.output_topic, qos_profile)  # qos_profile 적용
+
+        # 스캔 구독 (기존 QoS 유지 또는 BEST_EFFORT 사용 가능)
+        scan_qos = QoSProfile(
+            reliability=ReliabilityPolicy.BEST_EFFORT,
+            history=HistoryPolicy.KEEP_LAST,
+            depth=10
+        )
+        self.scan_sub = self.create_subscription(
+            LaserScan, self.input_topic, self.scan_callback, scan_qos)  # scan_qos 적용
+
         # TF 버퍼
         self.tf_buffer = tf2_ros.Buffer()
         self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)

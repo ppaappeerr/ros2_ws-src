@@ -19,13 +19,13 @@ def generate_launch_description():
     # TF 프레임 설정
     # TF 명확한 책임 분리: static_transform만 여기서 발행
     # world -> map은 고정 TF
-    static_tf_world_to_map = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_tf_world_to_map',
-        arguments=['0', '0', '0', '0', '0', '0', '1', 'world', 'map'],
-        output='screen'
-    )
+    # static_tf_world_to_map = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_tf_world_to_map',
+    #     arguments=['0', '0', '0', '0', '0', '0', '1', 'world', 'map'],
+    #     output='screen'
+    # )
 
     # base_link -> laser 변환
     # 센서의 실제 위치에 맞게 조정 필요
@@ -70,8 +70,9 @@ def generate_launch_description():
         executable='mpu6050_node',
         name='mpu6050_node',
         parameters=[{
-            'frame_id': 'imu_link',  # IMU frame_id
-            'publish_rate': 50.0     # Hz
+            'frame_id': 'imu_link',
+            'publish_rate': 50.0,
+            'use_complementary_filter': True   # 반드시 추가!
         }],
         output='screen'
     )
@@ -93,7 +94,7 @@ def generate_launch_description():
     # 명확한 실행 순서 보장
     return LaunchDescription([
         # 1단계: 고정 TF 트리 설정
-        static_tf_world_to_map,
+        # static_tf_world_to_map,
         static_tf_base_to_laser,
         static_tf_base_to_imu,
         

@@ -55,7 +55,7 @@ class ImuTfPublisher(Node):
         self.use_direct_computation = True
         
         # IMU 구독
-        self.imu_sub = self.create_subscription(Imu, 'imu', self.imu_callback, 10)
+        self.imu_sub = self.create_subscription(Imu, 'imu_filtered', self.imu_callback, 10)
         
         # TF 브로드캐스터
         self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)

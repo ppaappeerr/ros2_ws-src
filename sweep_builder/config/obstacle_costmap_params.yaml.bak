@@ -1,0 +1,29 @@
+local_costmap:
+  ros__parameters:
+    global_frame: odom          # 원하는 전역 프레임
+    robot_base_frame: base_link
+    update_frequency: 10.0
+    publish_frequency: 5.0
+    resolution: 0.05
+    footprint: "[[0.25,0.20],[0.25,-0.20],[-0.25,-0.20],[-0.25,0.20]]"
+
+    plugins: ["obstacle_layer", "inflation_layer"]
+
+    obstacle_layer:
+      plugin: "nav2_costmap_2d::ObstacleLayer"
+      observation_sources: pointcloud
+      pointcloud:
+        topic: /obstacles_pc_flat      # << 우리가 만든 토픽
+        max_obstacle_height: 1.0       # z=0이지만 여유
+        min_obstacle_height: -1.0
+        obstacle_range: 3.0            # 장애물 마킹 범위
+        raytrace_range: 4.0            # 장애물 지우는 범위
+        data_type: PointCloud2
+        clearing: true
+        marking:  true
+        voxel_filter: false            # 이미 평면이므로
+
+    inflation_layer:
+      plugin: "nav2_costmap_2d::InflationLayer"
+      inflation_radius: 0.40
+      cost_scaling_factor: 10.0

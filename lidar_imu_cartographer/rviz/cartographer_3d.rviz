@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /TF1/Frames1
+        - /PointCloud22
         - /Submaps1
         - /Map1
       Splitter Ratio: 0.5
@@ -62,8 +63,6 @@ Visualization Manager:
           Value: true
         laser:
           Value: true
-        map:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -75,8 +74,6 @@ Visualization Manager:
             {}
           laser:
             {}
-        map:
-          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -217,7 +214,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: map
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
