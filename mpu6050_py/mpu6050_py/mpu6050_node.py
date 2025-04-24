@@ -23,8 +23,8 @@ class MPU6050(Node):
         self.declare_parameter('publish_rate', 50.0)
         self.declare_parameter('use_calibration', True)
         self.declare_parameter('calibration_path', '')
-        self.declare_parameter('use_complementary_filter', False)
-        self.declare_parameter('complementary_alpha', 0.98)
+        self.declare_parameter('use_complementary_filter', True)
+        self.declare_parameter('complementary_alpha', 0.95)
 
         self.frame_id = self.get_parameter('frame_id').value
         self.publish_rate = self.get_parameter('publish_rate').value

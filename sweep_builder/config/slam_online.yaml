@@ -4,18 +4,19 @@ slam_toolbox:
     map_frame: map
     odom_frame: odom
     base_frame: base_link
-    scan_topic: /scan_leveled
+    # scan_topic: scan_leveled # 기존 설정 주석 처리
+    scan_topic: /scan          # 원본 스캔 토픽 사용
+    use_odometry: true
+    provide_odom_frame: false
     publish_tf: true
     autostart: true
-    resolution: 0.05
-    use_scan_matching: true
-    minimum_time_interval: 0.1
+    resolution: 0.1
+    use_scan_matching: false
+    minimum_time_interval: 0.2
     transform_publish_period: 0.05
+    max_laser_range: 12.0  # 사용하는 LiDAR 모델에 맞게 수정 (예: 12.0 또는 16.0)
 
     queue_size: 100
     scan_time: 0.1
     throttle_scans: 1
-    transform_timeout: 1.0
-
-    use_scan_matching: false
-    minimum_time_interval: 0.1
+    transform_timeout: 2.0
