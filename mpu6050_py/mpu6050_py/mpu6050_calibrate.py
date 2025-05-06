@@ -38,7 +38,7 @@ def main():
         gyro_offsets[key] /= samples
 
     # Z축 중력 보정 (9.81 m/s² ≈ raw 16384)
-    acc_offsets['z'] -= 16384
+    # acc_offsets['z'] -= 16384
 
     # Save to JSON
     calib_data = {"accel_offset": acc_offsets, "gyro_offset": gyro_offsets}

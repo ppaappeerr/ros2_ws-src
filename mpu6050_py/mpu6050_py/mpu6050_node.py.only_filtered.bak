@@ -14,6 +14,8 @@ from builtin_interfaces.msg import Time as BuiltinTime
 import traceback
 from rclpy.qos import QoSProfile, ReliabilityPolicy, HistoryPolicy, DurabilityPolicy # QoS import 추가
 
+## only imu_filtered
+
 class MPU6050(Node):
     def __init__(self):
         super().__init__('mpu6050_node')
