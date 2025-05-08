@@ -1,0 +1,23 @@
+from setuptools import setup
+import os
+from glob import glob
+
+package_name = 'lidar_icp_odometry'
+
+setup(
+    name=package_name,
+    version='0.1.0',
+    packages=[package_name],
+    install_requires=['setuptools','scikit-learn', 'numpy', 'ros2-numpy'],
+    zip_safe=True,
+    maintainer='Your Name',
+    maintainer_email='your_email@example.com',
+    description='ICP based odometry estimation',
+    license='Apache-2.0',
+    tests_require=['pytest'],
+    entry_points={
+        'console_scripts': [
+            'icp_odom_node = lidar_icp_odometry.icp_odom_node:main'
+        ],
+    },
+)

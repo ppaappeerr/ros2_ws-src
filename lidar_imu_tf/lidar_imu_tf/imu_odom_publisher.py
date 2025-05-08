@@ -14,7 +14,7 @@ class ImuOdomPublisher(Node):
         # 파라미터 선언
         self.declare_parameter('odom_frame', 'odom')
         self.declare_parameter('base_frame', 'base_link')
-        self.declare_parameter('imu_topic', '/imu_raw') # launch 파일에서 리매핑됨
+        self.declare_parameter('imu_topic', '/imu_filtered') # launch 파일에서 리매핑됨
         self.declare_parameter('odom_topic', '/odom')
 
         # 파라미터 가져오기

@@ -58,7 +58,7 @@ class ImuTfPublisher(Node):
         self.imu_sub = self.create_subscription(Imu, 'imu_filtered', self.imu_callback, 10)
         
         # TF 브로드캐스터
-        self.tf_broadcaster = tf2_ros.TransformBroadcaster(self)
+        # self.tf_broadcaster = tf2_ros.TransformBroadcaster(self) - 25.05.08 02:28
         
         # 상태 변수
         self.position = np.zeros(3)
@@ -245,7 +245,7 @@ class ImuTfPublisher(Node):
         t.transform.rotation.z = float(self.orientation[3])
         
         # 변환 발행
-        self.tf_broadcaster.sendTransform(t)
+        # self.tf_broadcaster.sendTransform(t) - 25.05.08 02:28
         
         # 디버깅: 현재 방향 오일러각 출력
         roll, pitch, yaw = self.euler_from_quaternion(
