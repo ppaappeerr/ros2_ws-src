@@ -19,7 +19,7 @@ class ICPOdomNode(Node):
 
         self.subscription = self.create_subscription(
             PointCloud2,
-            'accumulated_points',
+            'pc_3d', # accumulated_points -> pc_3d 25.05.08 13:59
             self.cloud_callback,
             10
         )
@@ -95,6 +95,16 @@ class ICPOdomNode(Node):
         odom_msg.pose.pose.orientation.y = quat[1]
         odom_msg.pose.pose.orientation.z = quat[2]
         odom_msg.pose.pose.orientation.w = quat[3]
+    
+        # Covariance matrix 25.05.08 14:01
+        odom_msg.pose.covariance = [
+            1e-2, 0, 0, 0, 0, 0,
+            0, 1e-2, 0, 0, 0, 0,
+            0, 0, 1e-2, 0, 0, 0,
+            0, 0, 0, 1e-3, 0, 0,
+            0, 0, 0, 0, 1e-3, 0,
+            0, 0, 0, 0, 0, 5e-2
+        ]
 
         self.odom_publisher.publish(odom_msg)
 

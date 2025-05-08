@@ -43,8 +43,8 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_base_to_imu',
-        arguments=['0', '0', '-0.02', '0', '0', '0', '1', 'base_link', 'imu_link'],
-        output='screen'
+        arguments=['0', '0', '0', '0', '0', '0', '1', 'base_link', 'imu_link'],
+        output='screen' #     센서를 바닥면과 수평으로 장착했다면 z ≈ 0 으로 두고, 굳이 음수 오프셋을 줄 이유가 없습니다.
     )
 
     # SLLIDAR 노드

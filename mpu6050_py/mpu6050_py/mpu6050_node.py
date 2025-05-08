@@ -20,7 +20,7 @@ class MPU6050(Node):
 
         # 파라미터
         self.declare_parameter('frame_id', 'imu_link')
-        self.declare_parameter('publish_rate', 50.0)
+        self.declare_parameter('publish_rate', 100.0)
         self.declare_parameter('use_calibration', True)
         self.declare_parameter('calibration_path', '')
         self.declare_parameter('use_complementary_filter', True) # if False, publish imu_raw only

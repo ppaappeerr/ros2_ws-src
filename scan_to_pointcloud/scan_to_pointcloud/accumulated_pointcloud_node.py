@@ -18,7 +18,7 @@ class AccumulatedPointcloud(Node):
         # 파라미터
         self.declare_parameter('max_points', 10000)
         self.declare_parameter('grid_size', 0.05)
-        self.declare_parameter('use_tf', True)
+        self.declare_parameter('use_tf', False) # map -> laser 변환 없는 경우 lookup 실패 출력 / False 상태에서 ICP 독립 회전 여부만 파악
         self.declare_parameter('publish_rate', 5.0)
         
         # 파라미터 가져오기

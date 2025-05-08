@@ -14,8 +14,8 @@ class ImuTfPublisher(Node):
         super().__init__('imu_tf_publisher')
         
         # 주요 파라미터
-        self.declare_parameter('parent_frame', 'odom')
-        self.declare_parameter('child_frame', 'imu_link')
+        self.declare_parameter('parent_frame', 'odom') # map -> odom 25.05.08 14:00
+        self.declare_parameter('child_frame', 'imu_link') # base_link -> imu_link 25.05.08 13:57
         self.declare_parameter('publish_rate', 20.0)  # Hz
         self.declare_parameter('stabilization_time', 2.0)  # 초기 안정화 시간
         
