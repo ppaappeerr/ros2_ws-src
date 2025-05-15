@@ -42,6 +42,10 @@ class ICPOdomNode(Node):
         self.odom_frame = self.get_parameter('odom_frame_id').value
         self.base_link_frame = self.get_parameter('base_link_frame_id').value
         self.publish_tf = self.get_parameter('publish_tf').value
+        self.latest_cloud_msg = None # 최신 클라우드 메시지 저장용
+        self.odom_publish_rate = 20.0 # 예: 20Hz
+        self.odom_timer = self.create_timer(1.0 / self.odom_publish_rate, self.process_and_publish_odom)
+
 
         self.subscription = self.create_subscription(
             PointCloud2,
@@ -154,6 +158,7 @@ class ICPOdomNode(Node):
 
 
     def cloud_callback(self, msg: PointCloud2):
+        self.latest_cloud_msg = msg # 최신 클라우드 메시지 저장
         # PointCloud2 메시지를 NumPy 배열로 변환 (x, y, z 필드만 사용)
         # ros2_numpy.point_cloud2.pointcloud2_to_array는 structured array를 반환
         # xyz_array = ros2_numpy.point_cloud2.pointcloud2_to_xyz_array(msg, remove_nans=True)
@@ -236,36 +241,38 @@ class ICPOdomNode(Node):
         # 만약 icp_step이 T_source_target (T_prev_curr)을 반환한다면:
         self.current_transform_matrix = self.current_transform_matrix @ delta_transform
 
+        current_time_stamp = msg.header.stamp # 입력 pc_3d의 타임스탬프 사용
 
         # TF 발행 (odom -> base_link)
         if self.publish_tf:
             t = TransformStamped()
-            # Odometry 메시지와 TF의 타임스탬프는 현재 입력 클라우드의 타임스탬프를 사용
-            t.header.stamp = msg.header.stamp
-            t.header.frame_id = self.odom_frame      # 부모 프레임 (예: "odom")
-            t.child_frame_id = self.base_link_frame # 자식 프레임 (예: "base_link")
+            t.header.stamp = current_time_stamp
+            t.header.frame_id = self.odom_frame      # "odom"
+            t.child_frame_id = self.base_link_frame # "base_link"
 
             t.transform.translation.x = self.current_transform_matrix[0, 3]
             t.transform.translation.y = self.current_transform_matrix[1, 3]
-            t.transform.translation.z = self.current_transform_matrix[2, 3] # 3D ICP라면 Z도 사용
+            t.transform.translation.z = self.current_transform_matrix[2, 3] # Z 변위도 반영
 
-            # scipy의 Rotation을 사용하여 회전 행렬을 쿼터니언으로 변환
             try:
                 rotation_matrix = self.current_transform_matrix[:3, :3]
-                quat_scipy = R.from_matrix(rotation_matrix).as_quat() # [x, y, z, w] 순서
-                t.transform.rotation = np_quat_to_ros_quat(quat_scipy)
+                quat_scipy = R.from_matrix(rotation_matrix).as_quat() # [x, y, z, w]
+                t.transform.rotation.x = quat_scipy[0]
+                t.transform.rotation.y = quat_scipy[1]
+                t.transform.rotation.z = quat_scipy[2]
+                t.transform.rotation.w = quat_scipy[3]
             except Exception as e:
-                self.get_logger().error(f"쿼터니언 변환 중 오류: {e}")
+                self.get_logger().error(f"ICP TF 쿼터니언 변환 오류: {e}")
+                # 오류 시 단위 쿼터니언으로 설정 (회전 없음)
                 t.transform.rotation.x = 0.0
                 t.transform.rotation.y = 0.0
                 t.transform.rotation.z = 0.0
-                t.transform.rotation.w = 1.0 # 기본값
-
+                t.transform.rotation.w = 1.0
             self.tf_broadcaster.sendTransform(t)
 
         # Odometry 메시지 발행
         odom_msg = Odometry()
-        odom_msg.header.stamp = msg.header.stamp # TF와 동일한 타임스탬프
+        odom_msg.header.stamp = current_time_stamp
         odom_msg.header.frame_id = self.odom_frame
         odom_msg.child_frame_id = self.base_link_frame
 
@@ -276,12 +283,12 @@ class ICPOdomNode(Node):
         try:
             rotation_matrix_odom = self.current_transform_matrix[:3, :3]
             quat_scipy_odom = R.from_matrix(rotation_matrix_odom).as_quat()
-            odom_msg.pose.pose.orientation = np_quat_to_ros_quat(quat_scipy_odom)
+            odom_msg.pose.pose.orientation.x = quat_scipy_odom[0]
+            odom_msg.pose.pose.orientation.y = quat_scipy_odom[1]
+            odom_msg.pose.pose.orientation.z = quat_scipy_odom[2]
+            odom_msg.pose.pose.orientation.w = quat_scipy_odom[3]
         except Exception as e:
-            self.get_logger().error(f"Odometry 쿼터니언 변환 중 오류: {e}")
-            odom_msg.pose.pose.orientation.x = 0.0
-            odom_msg.pose.pose.orientation.y = 0.0
-            odom_msg.pose.pose.orientation.z = 0.0
+            self.get_logger().error(f"ICP Odometry 쿼터니언 변환 오류: {e}")
             odom_msg.pose.pose.orientation.w = 1.0
 
         # 공분산 행렬 (간단한 예시, 실제로는 ICP 결과의 불확실성을 반영해야 함)
@@ -308,7 +315,30 @@ class ICPOdomNode(Node):
         self.odom_publisher.publish(odom_msg)
 
         # 다음 반복을 위해 현재 클라우드를 이전 클라우드로 저장
+        self.odom_publisher.publish(odom_msg)
         self.prev_cloud_np = current_cloud_np
+
+    def process_and_publish_odom(self):
+        if self.latest_cloud_msg is None:
+            return
+
+        msg_to_process = self.latest_cloud_msg
+        self.latest_cloud_msg = None # 처리 후 초기화 (또는 Lock 사용 등 동기화 필요)
+
+        # 아래는 기존 cloud_callback의 ICP 계산 및 발행 로직
+        # current_cloud_np = ... (msg_to_process 사용)
+        # ...
+        # if self.prev_cloud_np is None or ...:
+        #     # 초기화 로직 (header.stamp = msg_to_process.header.stamp 사용)
+        #     ...
+        #     return
+        # delta_transform = self.icp_step(...)
+        # ...
+        # self.current_transform_matrix = self.current_transform_matrix @ delta_transform
+        # TF 발행 (header.stamp = msg_to_process.header.stamp 사용)
+        # Odometry 메시지 발행 (header.stamp = msg_to_process.header.stamp 사용)
+        # ...
+        # self.prev_cloud_np = current_cloud_np
 
 def main(args=None):
     rclpy.init(args=args)
