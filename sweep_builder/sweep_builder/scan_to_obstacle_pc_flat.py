@@ -11,7 +11,7 @@ class ScanToFlatObstaclePC(Node):
         self.declare_parameter('min_range', 0.05)
         self.declare_parameter('max_range', 10.0)
         self.declare_parameter('quadrant', 'all')  # 여기서 파라미터 선언 필요
-        
+        ``
         self.min_range = self.get_parameter('min_range').value
         self.max_range = self.get_parameter('max_range').value
 

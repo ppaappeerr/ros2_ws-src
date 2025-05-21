@@ -26,7 +26,7 @@ def main():
     for i in range(samples):
         acc_offsets['x'] += read_raw_data(0x3B)
         acc_offsets['y'] += read_raw_data(0x3D)
-        acc_offsets['z'] += read_raw_data(0x3F)
+        acc_offsets['z'] +``= read_raw_data(0x3F)
         gyro_offsets['x'] += read_raw_data(0x43)
         gyro_offsets['y'] += read_raw_data(0x45)
         gyro_offsets['z'] += read_raw_data(0x47)
