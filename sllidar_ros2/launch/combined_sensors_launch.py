@@ -28,13 +28,13 @@ def generate_launch_description():
     )
 
     # map -> odom (고정 TF - SLAM 부재 시)
-    static_tf_map_to_odom = Node(
-        package='tf2_ros',
-        executable='static_transform_publisher',
-        name='static_tf_map_to_odom',
-        arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'], # x, y, z, yaw, pitch, roll, parent, child
-        output='screen'
-    )
+    # static_tf_map_to_odom = Node(
+    #     package='tf2_ros',
+    #     executable='static_transform_publisher',
+    #     name='static_tf_map_to_odom',
+    #     arguments=['0', '0', '0', '0', '0', '0', 'map', 'odom'], # x, y, z, yaw, pitch, roll, parent, child
+    #     output='screen'
+    # )
 
     # base_link -> laser (센서 정적 TF)
     # 사용자의 실제 LiDAR 장착 위치에 맞게 x, y, z, roll, pitch, yaw 값을 수정해야 합니다.
@@ -135,7 +135,7 @@ def generate_launch_description():
             description='Specifies scan mode of lidar'),
 
         static_tf_world_to_map,
-        static_tf_map_to_odom, # 추가된 부분
+        # static_tf_map_to_odom, # 추가된 부분
         static_tf_base_to_laser,
         static_tf_base_to_imu,
         sllidar_node,
