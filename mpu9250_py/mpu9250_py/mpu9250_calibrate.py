@@ -141,7 +141,7 @@ def main():
     acc_offsets = {'x': 0.0, 'y': 0.0, 'z': 0.0}
     gyro_offsets = {'x': 0.0, 'y': 0.0, 'z': 0.0}
     mag_offsets = {'x': 0.0, 'y': 0.0, 'z': 0.0}
-    samples = 200 # Increased samples for better averaging
+    samples = 500 # Increased samples for better averaging
 
     print(f"Collecting {samples} samples...")
     for i in range(samples):

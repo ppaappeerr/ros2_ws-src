@@ -1,0 +1,42 @@
+ekf_filter_node:
+  ros__parameters:
+    frequency: 50.0
+    two_d_mode: true
+    publish_tf: true
+    map_frame: map
+    odom_frame: odom
+    base_link_frame: base_link
+    world_frame: odom
+
+    # IMU 설정 (orientation + angular_velocity만 사용)
+    imu0: /imu/data
+    imu0_config: [false, false, false,    # x y z (pos) 사용X
+                  false, false, true,       # roll pitch yaw (orientation) 사용O
+                  false, false, false,    # x y z (vel) 사용X
+                  false, false, true,       # roll pitch yaw (ang. vel) 사용O
+                  false, false, false]    # acc 사용X
+    imu0_differential: false
+    imu0_relative: true
+    imu0_remove_gravitational_acceleration: false
+
+    # IMU 노이즈/지연 허용값(기본값 OK)
+    sensor_timeout: 0.1
+    two_d_mode: true
+
+    # 출력
+    odom0_differential: false
+    print_diagnostics: true
+
+    # Covariance (입력 값 품질에 따라 필요시 튜닝)
+    process_noise_covariance: [0.05, 0.0, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.05, 0.0, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.05, 0.0, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.1, 0.0, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.1, 0.0,
+                               0.0, 0.0, 0.0, 0.0, 0.0, 0.1]
+    initial_estimate_covariance: [0.001, 0.0, 0.0, 0.0, 0.0, 0.0,
+                                  0.0, 0.001, 0.0, 0.0, 0.0, 0.0,
+                                  0.0, 0.0, 0.001, 0.0, 0.0, 0.0,
+                                  0.0, 0.0, 0.0, 0.01, 0.0, 0.0,
+                                  0.0, 0.0, 0.0, 0.0, 0.01, 0.0,
+                                  0.0, 0.0, 0.0, 0.0, 0.0, 0.01]

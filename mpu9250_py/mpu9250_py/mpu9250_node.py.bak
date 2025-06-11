@@ -57,7 +57,7 @@ class MPU9250Node(Node):
         self.declare_parameter('use_calibration', True)
         self.declare_parameter('calibration_path', str(Path.home() / ".mpu9250_calib.json"))
         self.declare_parameter('use_complementary_filter', True)
-        self.declare_parameter('complementary_alpha', 0.995) # Adjusted alpha
+        self.declare_parameter('complementary_alpha', 0.991) # Adjusted alpha
 
         self.frame_id = self.get_parameter('frame_id').value
         self.mag_frame_id = self.get_parameter('mag_frame_id').value
