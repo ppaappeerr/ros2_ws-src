@@ -27,7 +27,7 @@ class SweepBuilder(Node):
 
         # 구독자
         self.create_subscription(LaserScan, '/scan', self.scan_cb, 10)
-        self.create_subscription(Imu, '/imu_filtered', self.imu_cb, 50)
+        self.create_subscription(Imu, '/imu/data', self.imu_cb, 50)
         # '/imu', '/imu_raw', '/imu_filtered' 중 하나 선택
 
         # 발행자

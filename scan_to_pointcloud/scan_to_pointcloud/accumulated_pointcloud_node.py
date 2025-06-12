@@ -20,7 +20,7 @@ except ImportError:
 class AccumulatedPointcloud(Node):
     def __init__(self):
         super().__init__('accumulated_pointcloud')
-        self.declare_parameter('input_topic', 'pc_3d')
+        self.declare_parameter('input_topic', 'points_3d')
         self.declare_parameter('output_topic', 'accumulated_points')
         self.declare_parameter('max_points_accumulated', 100000)
         self.declare_parameter('downsample_grid_size', 0.05)

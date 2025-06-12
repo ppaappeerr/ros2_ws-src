@@ -24,8 +24,9 @@ class ICPOdomNode(Node):
 
         self.prev_cloud_np = None
         self.current_transform_matrix = np.eye(4)
+        self.imu_orientation = None # IMU 데이터를 저장할 변수
 
-        self.declare_parameter('input_cloud_topic', 'pc_3d')
+        self.declare_parameter('input_cloud_topic', 'points_3d')
         self.declare_parameter('odom_topic', 'odom')
         self.declare_parameter('odom_frame_id', 'odom')
         self.declare_parameter('base_link_frame_id', 'base_link')
@@ -37,28 +38,37 @@ class ICPOdomNode(Node):
         self.base_link_frame = self.get_parameter('base_link_frame_id').value
         self.publish_tf = self.get_parameter('publish_tf').value
 
-        self.subscription = self.create_subscription(
+        self.cloud_subscription = self.create_subscription(
             PointCloud2,
             self.input_cloud_topic,
-            self.cloud_callback,
+            self.cloud_callback, # PointCloud2 메시지 콜백
             10
         )
 
-        self.imu_orientation = None 
-        self.create_subscription(Imu, '/imu/data', self.imu_callback, 50)
+        self.imu_subscription = self.create_subscription(
+            Imu,
+            '/imu/data',
+            self.imu_callback, # Imu 메시지 콜백
+            50  # QoS 프로파일은 상황에 맞게 조절
+        )
         
-
         self.odom_publisher = self.create_publisher(Odometry, self.odom_topic_name, 10)
         if self.publish_tf:
             self.tf_broadcaster = TransformBroadcaster(self)
 
-        # latest_transform_stamp 초기화
         self.latest_transform_stamp = self.get_clock().now().to_msg()
-
-        # TF/odom을 빠르게 발행하는 타이머 (25Hz)
         self.tf_publish_timer = self.create_timer(1.0 / 25.0, self.publish_tf_and_odom)
 
         self.get_logger().info(f"ICP Odometry Node 시작. 입력: '{self.input_cloud_topic}', 출력: '{self.odom_topic_name}', TF: {self.publish_tf}")
+
+    def imu_callback(self, msg: Imu):
+        # IMU 데이터에서 orientation 정보 저장
+        # 예시: self.imu_orientation = msg.orientation
+        # 이 orientation 정보는 나중에 ICP 결과와 융합하거나 다른 용도로 사용될 수 있습니다.
+        # 현재 ICP 로직에서는 직접 사용되지 않으므로, 필요에 따라 구현합니다.
+        self.imu_orientation = msg.orientation 
+        # self.get_logger().info(f"Received IMU data: {self.imu_orientation}")
+
 
     def icp_step(self, source_cloud, target_cloud, initial_guess=np.eye(4), max_iterations=20, tolerance=1e-4):
         if len(source_cloud) == 0 or len(target_cloud) == 0:
