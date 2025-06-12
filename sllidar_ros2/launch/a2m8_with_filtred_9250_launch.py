@@ -86,7 +86,7 @@ def generate_launch_description():
 
     return LaunchDescription([
         DeclareLaunchArgument('channel_type', default_value='serial'),
-        DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB2'),
+        DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
         DeclareLaunchArgument('serial_baudrate', default_value='115200'),
         DeclareLaunchArgument('frame_id', default_value='laser'),
 
