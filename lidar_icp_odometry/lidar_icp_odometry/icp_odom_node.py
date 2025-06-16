@@ -99,9 +99,9 @@ class ICPOdomNode(Node):
 
         t_icp = centroid_target.T - R_icp @ centroid_source.T
 
-        final_transform = np.eye(4)
-        final_transform[:3, :3] = R_icp
-        final_transform[:3, 3] = t_icp
+        final_transform = initial_guess.copy()
+        final_transform[:3, :3] = R_icp @ final_transform[:3, :3]
+        final_transform[:3, 3] = (R_icp @ final_transform[:3, 3]) + t_icp
         return final_transform
 
     def cloud_callback(self, msg: PointCloud2):
@@ -121,8 +121,16 @@ class ICPOdomNode(Node):
             self.publish_identity(msg.header.stamp)
             return
 
+        # ---------- IMU yaw (초기 추정) ----------
+        init_T = np.eye(4)
+        if self.imu_orientation:
+            q = self.imu_orientation
+            imu_yaw = R.from_quat([q.x,q.y,q.z,q.w]).as_euler('zyx')[0]
+            init_T[:3,:3] = R.from_euler('z', imu_yaw).as_matrix()
+
         # ICP 수행 (이전 → 현재)
-        delta_transform = self.icp_step(self.prev_cloud_np, current_cloud_np)
+        delta_transform = self.icp_step(self.prev_cloud_np, current_cloud_np,
+                                       initial_guess=init_T)
         if delta_transform is None:
             self.get_logger().warn("ICP 변환 계산 실패")
             return

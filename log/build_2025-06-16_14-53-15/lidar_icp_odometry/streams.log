@@ -1,0 +1,16 @@
+[3.186s] Invoking command in '/home/p/ros2_ws/build/lidar_icp_odometry': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_icp_odometry/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_icp_odometry/build --no-deps
+[4.022s] running develop
+[4.478s] running egg_info
+[4.526s] writing lidar_icp_odometry.egg-info/PKG-INFO
+[4.526s] writing dependency_links to lidar_icp_odometry.egg-info/dependency_links.txt
+[4.529s] writing entry points to lidar_icp_odometry.egg-info/entry_points.txt
+[4.529s] writing requirements to lidar_icp_odometry.egg-info/requires.txt
+[4.529s] writing top-level names to lidar_icp_odometry.egg-info/top_level.txt
+[4.632s] reading manifest file 'lidar_icp_odometry.egg-info/SOURCES.txt'
+[4.632s] writing manifest file 'lidar_icp_odometry.egg-info/SOURCES.txt'
+[4.687s] running build_ext
+[4.690s] Creating /home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages/lidar-icp-odometry.egg-link (link to .)
+[4.690s] Installing icp_odom_node script to /home/p/ros2_ws/install/lidar_icp_odometry/lib/lidar_icp_odometry
+[4.690s] 
+[4.690s] Installed /home/p/ros2_ws/build/lidar_icp_odometry
+[5.167s] Invoked command in '/home/p/ros2_ws/build/lidar_icp_odometry' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_icp_odometry/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_icp_odometry/build --no-deps

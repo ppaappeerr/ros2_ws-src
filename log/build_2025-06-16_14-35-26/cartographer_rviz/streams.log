@@ -1,0 +1,193 @@
+[0.024s] Invoking command in '/home/p/ros2_ws/build/cartographer_rviz': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/cartographer_ros/cartographer_rviz -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/install/cartographer_rviz
+[0.148s] -- The C compiler identification is GNU 13.3.0
+[0.276s] -- The CXX compiler identification is GNU 13.3.0
+[0.307s] -- Detecting C compiler ABI info
+[0.498s] -- Detecting C compiler ABI info - done
+[0.513s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.513s] -- Detecting C compile features
+[0.514s] -- Detecting C compile features - done
+[0.529s] -- Detecting CXX compiler ABI info
+[0.739s] -- Detecting CXX compiler ABI info - done
+[0.753s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.754s] -- Detecting CXX compile features
+[0.754s] -- Detecting CXX compile features - done
+[0.761s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.073s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.278s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.552s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.718s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.719s] -- Found Threads: TRUE  
+[2.633s] -- Found AMD headers in: /usr/include/suitesparse
+[2.637s] -- Found AMD library: /usr/lib/aarch64-linux-gnu/libamd.so
+[2.638s] -- Found CAMD headers in: /usr/include/suitesparse
+[2.640s] -- Found CAMD library: /usr/lib/aarch64-linux-gnu/libcamd.so
+[2.641s] -- Found CCOLAMD headers in: /usr/include/suitesparse
+[2.644s] -- Found CCOLAMD library: /usr/lib/aarch64-linux-gnu/libccolamd.so
+[2.645s] -- Found CHOLMOD headers in: /usr/include/suitesparse
+[2.647s] -- Found CHOLMOD library: /usr/lib/aarch64-linux-gnu/libcholmod.so
+[2.648s] -- Found COLAMD headers in: /usr/include/suitesparse
+[2.650s] -- Found COLAMD library: /usr/lib/aarch64-linux-gnu/libcolamd.so
+[2.651s] -- Found SPQR headers in: /usr/include/suitesparse
+[2.654s] -- Found SPQR library: /usr/lib/aarch64-linux-gnu/libspqr.so
+[2.655s] -- Found Config headers in: /usr/include/suitesparse
+[2.657s] -- Found Config library: /usr/lib/aarch64-linux-gnu/libsuitesparseconfig.so
+[2.666s] -- Found Intel Thread Building Blocks (TBB) library (2021.11 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+[2.666s] -- Looking for shm_open in rt
+[2.845s] -- Looking for shm_open in rt - found
+[2.845s] -- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+[2.855s] -- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+[2.857s] -- Found SuiteSparse: /usr/include/suitesparse (found suitable version "7.6.1", minimum required is "7.6.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+[2.870s] -- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+[2.887s] -- Found required Ceres dependency: glog
+[2.888s] -- Found required Ceres dependency: gflags
+[2.888s] -- Found Ceres version: 2.2.0 installed in: /usr with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, SchurSpecializations]
+[2.907s] -- Build type: Release
+[2.927s] Files /home/p/ros2_ws/build/cartographer_rviz/AllFiles.cmake and - differ
+[2.958s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: iostreams 
+[2.960s] -- Found cartographer_ros: 2.0.9003 (/home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake)
+[3.043s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[3.075s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[3.111s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.152s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.476s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[3.482s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[3.667s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[3.700s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[3.741s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[4.020s] [33mCMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[4.020s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[4.020s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[4.020s]   cmake_policy command to set the policy and suppress this warning.
+[4.021s] 
+[4.021s]   CMake variable FLANN_ROOT is set to:
+[4.021s] 
+[4.021s]     /usr
+[4.021s] 
+[4.021s]   For compatibility, find_package is ignoring the variable, but code in a
+[4.021s]   .cmake module might still use it.
+[4.021s] Call Stack (most recent call first):
+[4.021s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[4.021s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[4.022s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[4.022s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[4.022s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[4.022s]   /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[4.022s]   /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig.cmake:41 (include)
+[4.022s]   CMakeLists.txt:39 (find_package)
+[4.022s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[4.022s] [0m
+[4.023s] -- Found flann version 1.9.2
+[4.644s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[4.644s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[9.628s] -- Checking for module 'libusb-1.0'
+[9.682s] --   Found libusb-1.0, version 1.0.27
+[9.772s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[9.784s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[9.995s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[10.036s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[10.058s] -- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  
+[10.084s] -- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") 
+[10.830s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[10.842s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[11.651s] -- Found Qhull version 8.0.2
+[12.442s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.157s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[13.158s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[13.160s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[13.161s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[13.163s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[13.164s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[13.165s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[13.166s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[13.167s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[13.170s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[13.171s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[13.173s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[13.175s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[13.176s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[13.178s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[13.180s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[13.181s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[13.183s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[13.185s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[13.186s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[13.188s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+[13.188s] -- Found PCL_MODELER: /usr/include/pcl-1.14  
+[13.189s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+[13.191s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[13.192s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[13.529s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[13.609s] -- Found rviz_common: 14.1.9 (/opt/ros/jazzy/share/rviz_common/cmake)
+[13.974s] -- Setting OGRE_DIR to: '/opt/ros/jazzy/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[14.164s] -- Found OGRE
+[14.164s] --   static     : OFF
+[14.164s] --   components : MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[14.164s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[14.164s] --   media      : /opt/ros/jazzy/opt/rviz_ogre_vendor/share/OGRE/Media
+[14.164s] -- OGRE_LIBRARIES: OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[14.164s] -- OGRE_LIBRARY_DIRS: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib
+[14.164s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[14.164s] -- OGRE_PLUGIN_DIR: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib/OGRE
+[14.165s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[14.165s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[14.165s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[14.165s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/jazzy/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[14.279s] -- Found OpenGL: /usr/lib/aarch64-linux-gnu/libOpenGL.so   
+[14.389s] -- Found X11: /usr/include   
+[15.067s] -- Deploy OGRE media
+[15.073s] -- Configuring done (15.0s)
+[15.693s] -- Generating done (0.4s)
+[15.707s] -- Build files have been written to: /home/p/ros2_ws/build/cartographer_rviz
+[15.791s] Invoked command in '/home/p/ros2_ws/build/cartographer_rviz' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/cartographer_ros/cartographer_rviz -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/install/cartographer_rviz
+[15.795s] Invoking command in '/home/p/ros2_ws/build/cartographer_rviz': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/build/cartographer_rviz -- -j4 -l4
+[15.908s] [  0%] Built target cartographer_rviz_autogen_timestamp_deps
+[15.915s] [  0%] Built target cartographer_rviz_detect_changes
+[15.951s] [ 14%] [34m[1mAutomatic MOC for target cartographer_rviz[0m
+[36.591s] [ 14%] Built target cartographer_rviz_autogen
+[36.683s] [ 71%] [32mBuilding CXX object CMakeFiles/cartographer_rviz.dir/src/ogre_slice.cpp.o[0m
+[36.683s] [ 71%] [32mBuilding CXX object CMakeFiles/cartographer_rviz.dir/src/drawable_submap.cpp.o[0m
+[36.683s] [ 71%] [32mBuilding CXX object CMakeFiles/cartographer_rviz.dir/cartographer_rviz_autogen/mocs_compilation.cpp.o[0m
+[36.683s] [ 71%] [32mBuilding CXX object CMakeFiles/cartographer_rviz.dir/src/submaps_display.cpp.o[0m
+[76.055s] [ 85%] [32m[1mLinking CXX shared library libcartographer_rviz.so[0m
+[83.405s] [100%] Built target cartographer_rviz
+[83.432s] Invoked command in '/home/p/ros2_ws/build/cartographer_rviz' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/build/cartographer_rviz -- -j4 -l4
+[83.435s] Invoking command in '/home/p/ros2_ws/build/cartographer_rviz': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/build/cartographer_rviz
+[83.451s] -- Install configuration: "Release"
+[83.452s] -- Execute custom install script
+[83.452s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz//rviz_plugin_description.xml
+[83.472s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/include//cartographer_rviz/drawable_submap.h
+[83.491s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/include//cartographer_rviz/ogre_slice.h
+[83.509s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/include//cartographer_rviz/submaps_display.h
+[83.530s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/library_path.sh
+[83.549s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/library_path.dsv
+[83.568s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/ament_index/resource_index/package_run_dependencies/cartographer_rviz
+[83.587s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/ament_index/resource_index/parent_prefix_path/cartographer_rviz
+[83.607s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/ament_prefix_path.sh
+[83.633s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/ament_prefix_path.dsv
+[83.654s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/path.sh
+[83.674s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/environment/path.dsv
+[83.693s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/local_setup.bash
+[83.712s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/local_setup.sh
+[83.732s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/local_setup.zsh
+[83.750s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/local_setup.dsv
+[83.770s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/package.dsv
+[83.791s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/ament_index/resource_index/packages/cartographer_rviz
+[83.811s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/ament_index/resource_index/rviz_common__pluginlib__plugin/cartographer_rviz
+[83.830s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/ament_index/resource_index/rviz_ogre_media_exports/cartographer_rviz
+[83.850s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/ament_cmake_export_include_directories-extras.cmake
+[83.870s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/ament_cmake_export_targets-extras.cmake
+[83.889s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/ament_cmake_export_dependencies-extras.cmake
+[83.908s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/cartographer_rvizConfig.cmake
+[83.927s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/cartographer_rvizConfig-version.cmake
+[83.947s] -- Symlinking: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/package.xml
+[83.966s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/lib/libcartographer_rviz.so
+[83.976s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/install/cartographer_rviz/lib/libcartographer_rviz.so" to ""
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/glsl120
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/glsl120/submap.frag
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/glsl120/glsl120.program
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/glsl120/submap.vert
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/scripts
+[83.976s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/ogre_media/materials/scripts/submap.material
+[83.977s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/cartographer_rvizExport.cmake
+[83.977s] -- Installing: /home/p/ros2_ws/install/cartographer_rviz/share/cartographer_rviz/cmake/cartographer_rvizExport-release.cmake
+[83.981s] Invoked command in '/home/p/ros2_ws/build/cartographer_rviz' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/build/cartographer_rviz

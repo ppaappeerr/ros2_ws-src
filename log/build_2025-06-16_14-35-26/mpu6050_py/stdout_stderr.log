@@ -1,0 +1,23 @@
+running develop
+running egg_info
+creating mpu6050_py.egg-info
+writing mpu6050_py.egg-info/PKG-INFO
+writing dependency_links to mpu6050_py.egg-info/dependency_links.txt
+writing entry points to mpu6050_py.egg-info/entry_points.txt
+writing requirements to mpu6050_py.egg-info/requires.txt
+writing top-level names to mpu6050_py.egg-info/top_level.txt
+writing manifest file 'mpu6050_py.egg-info/SOURCES.txt'
+reading manifest file 'mpu6050_py.egg-info/SOURCES.txt'
+writing manifest file 'mpu6050_py.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages/mpu6050-py.egg-link (link to .)
+Installing mpu6050_calibrate script to /home/p/ros2_ws/install/mpu6050_py/lib/mpu6050_py
+Installing mpu6050_node script to /home/p/ros2_ws/install/mpu6050_py/lib/mpu6050_py
+
+Installed /home/p/ros2_ws/build/mpu6050_py
+running symlink_data
+creating /home/p/ros2_ws/install/mpu6050_py/share/ament_index
+creating /home/p/ros2_ws/install/mpu6050_py/share/ament_index/resource_index
+creating /home/p/ros2_ws/install/mpu6050_py/share/ament_index/resource_index/packages
+symbolically linking /home/p/ros2_ws/build/mpu6050_py/resource/mpu6050_py -> /home/p/ros2_ws/install/mpu6050_py/share/ament_index/resource_index/packages
+symbolically linking /home/p/ros2_ws/build/mpu6050_py/package.xml -> /home/p/ros2_ws/install/mpu6050_py/share/mpu6050_py

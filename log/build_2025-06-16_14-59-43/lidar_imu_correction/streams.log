@@ -1,0 +1,17 @@
+[2.107s] Invoking command in '/home/p/ros2_ws/build/lidar_imu_correction': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_imu_correction/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_imu_correction/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_imu_correction/build --no-deps symlink_data
+[3.090s] running develop
+[3.598s] running egg_info
+[3.654s] writing lidar_imu_correction.egg-info/PKG-INFO
+[3.655s] writing dependency_links to lidar_imu_correction.egg-info/dependency_links.txt
+[3.657s] writing entry points to lidar_imu_correction.egg-info/entry_points.txt
+[3.658s] writing requirements to lidar_imu_correction.egg-info/requires.txt
+[3.658s] writing top-level names to lidar_imu_correction.egg-info/top_level.txt
+[3.781s] reading manifest file 'lidar_imu_correction.egg-info/SOURCES.txt'
+[3.781s] writing manifest file 'lidar_imu_correction.egg-info/SOURCES.txt'
+[3.833s] running build_ext
+[3.836s] Creating /home/p/ros2_ws/install/lidar_imu_correction/lib/python3.12/site-packages/lidar-imu-correction.egg-link (link to .)
+[3.836s] Installing lidar_imu_correction_node script to /home/p/ros2_ws/install/lidar_imu_correction/lib/lidar_imu_correction
+[3.836s] 
+[3.836s] Installed /home/p/ros2_ws/build/lidar_imu_correction
+[3.836s] running symlink_data
+[4.033s] Invoked command in '/home/p/ros2_ws/build/lidar_imu_correction' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_imu_correction/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_imu_correction/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_imu_correction/build --no-deps symlink_data

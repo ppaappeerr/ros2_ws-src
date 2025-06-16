@@ -1,0 +1,24 @@
+[1.929s] Invoking command in '/home/p/ros2_ws/build/lidar_imu_tf': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_imu_tf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_imu_tf/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_imu_tf/build --no-deps symlink_data
+[2.602s] running develop
+[3.058s] running egg_info
+[3.058s] creating lidar_imu_tf.egg-info
+[3.112s] writing lidar_imu_tf.egg-info/PKG-INFO
+[3.112s] writing dependency_links to lidar_imu_tf.egg-info/dependency_links.txt
+[3.112s] writing entry points to lidar_imu_tf.egg-info/entry_points.txt
+[3.112s] writing requirements to lidar_imu_tf.egg-info/requires.txt
+[3.115s] writing top-level names to lidar_imu_tf.egg-info/top_level.txt
+[3.115s] writing manifest file 'lidar_imu_tf.egg-info/SOURCES.txt'
+[3.198s] reading manifest file 'lidar_imu_tf.egg-info/SOURCES.txt'
+[3.199s] writing manifest file 'lidar_imu_tf.egg-info/SOURCES.txt'
+[3.255s] running build_ext
+[3.255s] Creating /home/p/ros2_ws/install/lidar_imu_tf/lib/python3.12/site-packages/lidar-imu-tf.egg-link (link to .)
+[3.256s] Installing imu_tf_publisher script to /home/p/ros2_ws/install/lidar_imu_tf/lib/lidar_imu_tf
+[3.256s] 
+[3.257s] Installed /home/p/ros2_ws/build/lidar_imu_tf
+[3.257s] running symlink_data
+[3.257s] creating /home/p/ros2_ws/install/lidar_imu_tf/share/ament_index
+[3.257s] creating /home/p/ros2_ws/install/lidar_imu_tf/share/ament_index/resource_index
+[3.257s] creating /home/p/ros2_ws/install/lidar_imu_tf/share/ament_index/resource_index/packages
+[3.257s] symbolically linking /home/p/ros2_ws/build/lidar_imu_tf/resource/lidar_imu_tf -> /home/p/ros2_ws/install/lidar_imu_tf/share/ament_index/resource_index/packages
+[3.257s] symbolically linking /home/p/ros2_ws/build/lidar_imu_tf/package.xml -> /home/p/ros2_ws/install/lidar_imu_tf/share/lidar_imu_tf
+[3.399s] Invoked command in '/home/p/ros2_ws/build/lidar_imu_tf' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/lidar_imu_tf/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/lidar_imu_tf/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/lidar_imu_tf/build --no-deps symlink_data

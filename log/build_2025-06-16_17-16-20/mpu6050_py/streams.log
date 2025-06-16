@@ -1,0 +1,18 @@
+[4.469s] Invoking command in '/home/p/ros2_ws/build/mpu6050_py': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/mpu6050_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/mpu6050_py/build --no-deps symlink_data
+[5.418s] running develop
+[5.888s] running egg_info
+[5.930s] writing mpu6050_py.egg-info/PKG-INFO
+[5.930s] writing dependency_links to mpu6050_py.egg-info/dependency_links.txt
+[5.933s] writing entry points to mpu6050_py.egg-info/entry_points.txt
+[5.933s] writing requirements to mpu6050_py.egg-info/requires.txt
+[5.934s] writing top-level names to mpu6050_py.egg-info/top_level.txt
+[6.018s] reading manifest file 'mpu6050_py.egg-info/SOURCES.txt'
+[6.020s] writing manifest file 'mpu6050_py.egg-info/SOURCES.txt'
+[6.064s] running build_ext
+[6.064s] Creating /home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages/mpu6050-py.egg-link (link to .)
+[6.065s] Installing mpu6050_calibrate script to /home/p/ros2_ws/install/mpu6050_py/lib/mpu6050_py
+[6.067s] Installing mpu6050_node script to /home/p/ros2_ws/install/mpu6050_py/lib/mpu6050_py
+[6.067s] 
+[6.067s] Installed /home/p/ros2_ws/build/mpu6050_py
+[6.067s] running symlink_data
+[6.209s] Invoked command in '/home/p/ros2_ws/build/mpu6050_py' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/mpu6050_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/mpu6050_py/build --no-deps symlink_data

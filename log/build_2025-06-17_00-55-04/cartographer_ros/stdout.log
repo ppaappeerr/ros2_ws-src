@@ -1,0 +1,111 @@
+[ 60%] Built target cartographer_ros
+[ 65%] Built target cartographer_node
+[ 71%] Built target cartographer_offline_node
+[ 77%] Built target cartographer_assets_writer
+[ 82%] Built target cartographer_occupancy_grid_node
+[ 88%] Built target cartographer_pbstream_to_ros_map
+[ 94%] Built target cartographer_pbstream_map_publisher
+[100%] Built target cartographer_rosbag_validate
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/libcartographer_ros.a
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_node
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_occupancy_grid_node
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_offline_node
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_assets_writer
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_map_publisher
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_to_ros_map
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/lib/cartographer_ros/cartographer_rosbag_validate
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/assets_writer.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/map_builder_bridge.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/metrics/family_factory.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/metrics/internal/counter.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/metrics/internal/family.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/metrics/internal/gauge.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/metrics/internal/histogram.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/msg_conversion.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/node.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/node_constants.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/node_options.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/offline_node.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/playable_bag.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/ros_log_sink.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/ros_map.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/ros_map_writing_points_processor.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/sensor_bridge.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/submap.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/tf_bridge.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/time_conversion.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/trajectory_options.h
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/include//cartographer_ros/urdf_reader.h
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/assets_writer_backpack_2d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/assets_writer_backpack_2d_ci.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/assets_writer_backpack_3d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/assets_writer_ros_map.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_2d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_2d_localization.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_2d_localization_evaluation.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_2d_server.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_3d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/backpack_3d_localization.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/demo_2d.rviz
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/demo_3d.rviz
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/mir-100-mapping.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/pr2.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/revo_lds.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/rplidar_a2m8.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/rplidar_a2m8.lua.bak
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/sllidar_a2m8_2d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/sllidar_a2m8_3d.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/taurob_tracker.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/transform.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/archive/visualize_pbstream.lua
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//configuration_files/my_2d_slam.lua
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//urdf/backpack_2d.urdf
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//urdf/backpack_3d.urdf
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//urdf/mir-100.urdf
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/assets_writer_backpack_2d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/assets_writer_backpack_3d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/assets_writer_ros_map.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/backpack_2d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/backpack_3d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/cartographer.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/cartographer.launch.py.bak
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_backpack_2d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_backpack_2d_localization.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_backpack_3d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_backpack_3d_localization.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_pr2.launch
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_revo_lds.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/demo_taurob_tracker.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/grpc_demo_backpack_2d.launch
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/grpc_demo_backpack_2d_localization.launch
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/offline_backpack_2d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/offline_backpack_3d.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/offline_mir_100_rviz.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/offline_node.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/sllidar_a2m8_3d_cartographer.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/sllidar_a2m8_cartographer.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/taurob_tracker.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/archive/visualize_pbstream.launch.py
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros//launch/my_cartographer_launch.py
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/library_path.sh
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/library_path.dsv
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/ament_index/resource_index/package_run_dependencies/cartographer_ros
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/ament_index/resource_index/parent_prefix_path/cartographer_ros
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/path.sh
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/environment/path.dsv
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/local_setup.bash
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/local_setup.sh
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/local_setup.zsh
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/local_setup.dsv
+-- Symlinking: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/package.dsv
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/ament_index/resource_index/packages/cartographer_ros
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_libraries-extras.cmake
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig.cmake
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig-version.cmake
+-- Up-to-date symlink: /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/package.xml

@@ -1,0 +1,16 @@
+running develop
+running egg_info
+writing mpu9250_py.egg-info/PKG-INFO
+writing dependency_links to mpu9250_py.egg-info/dependency_links.txt
+writing entry points to mpu9250_py.egg-info/entry_points.txt
+writing requirements to mpu9250_py.egg-info/requires.txt
+writing top-level names to mpu9250_py.egg-info/top_level.txt
+reading manifest file 'mpu9250_py.egg-info/SOURCES.txt'
+writing manifest file 'mpu9250_py.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/p/ros2_ws/install/mpu9250_py/lib/python3.12/site-packages/mpu9250-py.egg-link (link to .)
+Installing mpu9250_calibrate script to /home/p/ros2_ws/install/mpu9250_py/lib/mpu9250_py
+Installing mpu9250_node script to /home/p/ros2_ws/install/mpu9250_py/lib/mpu9250_py
+
+Installed /home/p/ros2_ws/build/mpu9250_py
+running symlink_data

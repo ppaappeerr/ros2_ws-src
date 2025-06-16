@@ -1,0 +1,223 @@
+[0.029s] Invoking command in '/home/p/ros2_ws/build/lidar_imu_cartographer': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/lidar_imu_cartographer -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/install/lidar_imu_cartographer
+[0.147s] -- The C compiler identification is GNU 13.3.0
+[0.271s] -- The CXX compiler identification is GNU 13.3.0
+[0.301s] -- Detecting C compiler ABI info
+[0.492s] -- Detecting C compiler ABI info - done
+[0.507s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.507s] -- Detecting C compile features
+[0.508s] -- Detecting C compile features - done
+[0.523s] -- Detecting CXX compiler ABI info
+[0.729s] -- Detecting CXX compiler ABI info - done
+[0.744s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.744s] -- Detecting CXX compile features
+[0.745s] -- Detecting CXX compile features - done
+[0.752s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.068s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.272s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[1.367s] -- Found rclcpp: 28.1.9 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.462s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.495s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.534s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.573s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.727s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.733s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.900s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.934s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.977s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.114s] -- Found std_msgs: 5.3.6 (/opt/ros/jazzy/share/std_msgs/cmake)
+[2.138s] -- Found geometry_msgs: 5.3.6 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[2.165s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.202s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[2.244s] -- Found tf2: 0.36.10 (/opt/ros/jazzy/share/tf2/cmake)
+[2.256s] -- Found tf2_ros: 0.36.10 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[2.474s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[2.734s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.913s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.915s] -- Found Threads: TRUE  
+[3.810s] -- Found AMD headers in: /usr/include/suitesparse
+[3.812s] -- Found AMD library: /usr/lib/aarch64-linux-gnu/libamd.so
+[3.813s] -- Found CAMD headers in: /usr/include/suitesparse
+[3.816s] -- Found CAMD library: /usr/lib/aarch64-linux-gnu/libcamd.so
+[3.817s] -- Found CCOLAMD headers in: /usr/include/suitesparse
+[3.819s] -- Found CCOLAMD library: /usr/lib/aarch64-linux-gnu/libccolamd.so
+[3.820s] -- Found CHOLMOD headers in: /usr/include/suitesparse
+[3.822s] -- Found CHOLMOD library: /usr/lib/aarch64-linux-gnu/libcholmod.so
+[3.822s] -- Found COLAMD headers in: /usr/include/suitesparse
+[3.824s] -- Found COLAMD library: /usr/lib/aarch64-linux-gnu/libcolamd.so
+[3.825s] -- Found SPQR headers in: /usr/include/suitesparse
+[3.827s] -- Found SPQR library: /usr/lib/aarch64-linux-gnu/libspqr.so
+[3.828s] -- Found Config headers in: /usr/include/suitesparse
+[3.831s] -- Found Config library: /usr/lib/aarch64-linux-gnu/libsuitesparseconfig.so
+[3.838s] -- Found Intel Thread Building Blocks (TBB) library (2021.11 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+[3.839s] -- Looking for shm_open in rt
+[4.004s] -- Looking for shm_open in rt - found
+[4.004s] -- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+[4.016s] -- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+[4.016s] -- Found SuiteSparse: /usr/include/suitesparse (found suitable version "7.6.1", minimum required is "7.6.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+[4.030s] -- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+[4.046s] -- Found required Ceres dependency: glog
+[4.047s] -- Found required Ceres dependency: gflags
+[4.048s] -- Found Ceres version: 2.2.0 installed in: /usr with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, SchurSpecializations]
+[4.066s] -- Found cartographer_ros: 2.0.9003 (/home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake)
+[4.254s] [33mCMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[4.254s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[4.254s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[4.254s]   cmake_policy command to set the policy and suppress this warning.
+[4.254s] 
+[4.254s]   CMake variable FLANN_ROOT is set to:
+[4.254s] 
+[4.254s]     /usr
+[4.254s] 
+[4.255s]   For compatibility, find_package is ignoring the variable, but code in a
+[4.255s]   .cmake module might still use it.
+[4.255s] Call Stack (most recent call first):
+[4.255s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[4.256s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[4.256s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[4.256s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[4.256s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[4.256s]   /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[4.256s]   /home/p/ros2_ws/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig.cmake:41 (include)
+[4.256s]   CMakeLists.txt:23 (find_package)
+[4.256s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[4.256s] [0m
+[4.256s] -- Found flann version 1.9.2
+[4.896s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[4.897s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[9.622s] -- Checking for module 'libusb-1.0'
+[9.676s] --   Found libusb-1.0, version 1.0.27
+[9.768s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[9.778s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[9.990s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[10.030s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[10.052s] -- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  
+[10.078s] -- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") 
+[10.806s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[10.817s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[11.645s] -- Found Qhull version 8.0.2
+[12.400s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.083s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[13.085s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[13.087s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[13.088s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[13.090s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[13.092s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[13.093s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[13.093s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[13.095s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[13.097s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[13.099s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[13.101s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[13.103s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[13.105s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[13.107s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[13.109s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[13.111s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[13.113s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[13.115s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[13.117s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[13.119s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+[13.119s] -- Found PCL_MODELER: /usr/include/pcl-1.14  
+[13.136s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+[13.138s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[13.140s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[13.220s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[13.263s] -- Found ament_lint_auto: 0.17.2 (/opt/ros/jazzy/share/ament_lint_auto/cmake)
+[14.126s] -- Added test 'copyright' to check source files copyright and LICENSE
+[14.137s] -- Added test 'flake8' to check Python code syntax and style conventions
+[14.137s] -- Configured 'flake8' exclude dirs and/or files: 
+[14.139s] -- Added test 'lint_cmake' to check CMake code style
+[14.141s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[14.145s] -- Added test 'xmllint' to check XML markup files
+[14.148s] -- Configuring done (14.1s)
+[14.167s] -- Generating done (0.0s)
+[14.173s] -- Build files have been written to: /home/p/ros2_ws/build/lidar_imu_cartographer
+[14.231s] Invoked command in '/home/p/ros2_ws/build/lidar_imu_cartographer' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/lidar_imu_cartographer -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/install/lidar_imu_cartographer
+[14.234s] Invoking command in '/home/p/ros2_ws/build/lidar_imu_cartographer': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/build/lidar_imu_cartographer -- -j4 -l4
+[14.326s] Invoked command in '/home/p/ros2_ws/build/lidar_imu_cartographer' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/build/lidar_imu_cartographer -- -j4 -l4
+[14.328s] Invoking command in '/home/p/ros2_ws/build/lidar_imu_cartographer': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/build/lidar_imu_cartographer
+[14.345s] -- Install configuration: ""
+[14.345s] -- Execute custom install script
+[14.346s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/backpack_3d.lua
+[14.367s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d.lua.bak
+[14.386s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_debug.lua
+[14.406s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_final.lua
+[14.425s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_fixed.lua
+[14.444s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_minimal.lua
+[14.463s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_real.lua
+[14.482s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_scan_imu.lua.bak
+[14.501s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_simple.lua
+[14.520s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/backup/cartographer_3d_solution.lua
+[14.539s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/cartographer_2d.lua
+[14.558s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/cartographer_2d_scan_imu.lua
+[14.578s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/cartographer_3d.lua
+[14.597s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//config/cartographer_3d_scan_imu.lua
+[14.616s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_2d_launch.py
+[14.636s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_complete.launch.py
+[14.657s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_delayed.launch.py
+[14.677s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_final.launch.py
+[14.695s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_fixed.launch.py
+[14.715s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_fixed_imu.launch.py
+[14.734s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_launch.py
+[14.754s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_real.launch.py
+[14.773s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_revised.launch.py
+[14.793s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_revised.launch.py.bak
+[14.812s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_simple.launch.py
+[14.831s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_slam.py
+[14.850s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_solution.launch.py
+[14.871s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_stable.launch.py
+[14.891s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_working.launch.py
+[14.910s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_3d_working_final.launch.py
+[14.930s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_debug.launch.py
+[14.950s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_simple.launch.py
+[14.970s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/cartographer_simple_fixed.launch.py
+[14.990s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/create_rviz_config.py
+[15.011s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_2d.launch.py
+[15.033s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_2d_revised.launch.py
+[15.052s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_3d_debug.py
+[15.073s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_3d_full.launch.py
+[15.093s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_3d_launch.py
+[15.112s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_3d_revised.launch.py
+[15.132s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_launch.py
+[15.151s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/lidar_imu_cartographer_launch.py.bak
+[15.170s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/minimal_3d_cartographer.launch.py
+[15.189s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/sensors_with_cartographer_2d_launch.py
+[15.209s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/sensors_with_cartographer_3d_launch.py
+[15.229s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/backup/sensors_with_cartographer_3d_launch.py.bak
+[15.250s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/slam_2d.launch.py
+[15.271s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/slam_3d.launch.py
+[15.291s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/slam_mapping_test.launch.py
+[15.310s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//launch/test.launch.py
+[15.329s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//rviz/cartographer_2d.rviz
+[15.349s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer//rviz/cartographer_3d.rviz
+[15.369s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/lib/lidar_imu_cartographer/debug_cartographer.py
+[15.388s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/ament_index/resource_index/package_run_dependencies/lidar_imu_cartographer
+[15.408s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/ament_index/resource_index/parent_prefix_path/lidar_imu_cartographer
+[15.427s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/environment/ament_prefix_path.sh
+[15.446s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/environment/ament_prefix_path.dsv
+[15.466s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/environment/path.sh
+[15.485s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/environment/path.dsv
+[15.504s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/local_setup.bash
+[15.524s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/local_setup.sh
+[15.544s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/local_setup.zsh
+[15.564s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/local_setup.dsv
+[15.583s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/package.dsv
+[15.602s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/ament_index/resource_index/packages/lidar_imu_cartographer
+[15.621s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/cmake/lidar_imu_cartographerConfig.cmake
+[15.640s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/cmake/lidar_imu_cartographerConfig-version.cmake
+[15.659s] -- Symlinking: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/package.xml
+[15.680s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/backpack_3d.lua
+[15.680s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d.lua.bak
+[15.680s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_debug.lua
+[15.680s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_final.lua
+[15.680s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_fixed.lua
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_minimal.lua
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_real.lua
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_scan_imu.lua.bak
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_simple.lua
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/backup/cartographer_3d_solution.lua
+[15.681s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/cartographer_2d.lua
+[15.682s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/cartographer_2d_scan_imu.lua
+[15.682s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/cartographer_3d.lua
+[15.682s] -- Up-to-date symlink: /home/p/ros2_ws/install/lidar_imu_cartographer/share/lidar_imu_cartographer/config/cartographer_3d_scan_imu.lua
+[15.685s] Invoked command in '/home/p/ros2_ws/build/lidar_imu_cartographer' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/scan_to_pointcloud:/home/p/ros2_ws/install/mpu6050_py:/home/p/ros2_ws/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu6050_py:/home/p/ros2_ws/install/mpu6050_py/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/build/lidar_imu_cartographer

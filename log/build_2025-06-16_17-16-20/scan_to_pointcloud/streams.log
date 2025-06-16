@@ -1,0 +1,18 @@
+[4.465s] Invoking command in '/home/p/ros2_ws/build/scan_to_pointcloud': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/scan_to_pointcloud/build --no-deps symlink_data
+[5.450s] running develop
+[5.940s] running egg_info
+[5.978s] writing scan_to_pointcloud.egg-info/PKG-INFO
+[5.978s] writing dependency_links to scan_to_pointcloud.egg-info/dependency_links.txt
+[5.979s] writing entry points to scan_to_pointcloud.egg-info/entry_points.txt
+[5.979s] writing requirements to scan_to_pointcloud.egg-info/requires.txt
+[5.980s] writing top-level names to scan_to_pointcloud.egg-info/top_level.txt
+[6.077s] reading manifest file 'scan_to_pointcloud.egg-info/SOURCES.txt'
+[6.077s] writing manifest file 'scan_to_pointcloud.egg-info/SOURCES.txt'
+[6.145s] running build_ext
+[6.146s] Creating /home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages/scan-to-pointcloud.egg-link (link to .)
+[6.151s] Installing accumulated_pointcloud script to /home/p/ros2_ws/install/scan_to_pointcloud/lib/scan_to_pointcloud
+[6.151s] Installing scan_to_pointcloud script to /home/p/ros2_ws/install/scan_to_pointcloud/lib/scan_to_pointcloud
+[6.151s] 
+[6.151s] Installed /home/p/ros2_ws/build/scan_to_pointcloud
+[6.151s] running symlink_data
+[6.715s] Invoked command in '/home/p/ros2_ws/build/scan_to_pointcloud' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/scan_to_pointcloud/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/scan_to_pointcloud/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/scan_to_pointcloud/build --no-deps symlink_data

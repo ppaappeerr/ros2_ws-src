@@ -1,0 +1,18 @@
+[1.947s] Invoking command in '/home/p/ros2_ws/build/mpu9250': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/mpu9250/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/mpu9250/build --no-deps symlink_data
+[2.977s] running develop
+[3.521s] running egg_info
+[3.573s] writing mpu9250.egg-info/PKG-INFO
+[3.574s] writing dependency_links to mpu9250.egg-info/dependency_links.txt
+[3.579s] writing entry points to mpu9250.egg-info/entry_points.txt
+[3.579s] writing requirements to mpu9250.egg-info/requires.txt
+[3.580s] writing top-level names to mpu9250.egg-info/top_level.txt
+[3.675s] reading manifest file 'mpu9250.egg-info/SOURCES.txt'
+[3.677s] writing manifest file 'mpu9250.egg-info/SOURCES.txt'
+[3.728s] running build_ext
+[3.728s] Creating /home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages/mpu9250.egg-link (link to .)
+[3.728s] Installing mpu9250 script to /home/p/ros2_ws/install/mpu9250/lib/mpu9250
+[3.728s] Installing mpu9250_filtered script to /home/p/ros2_ws/install/mpu9250/lib/mpu9250
+[3.729s] 
+[3.729s] Installed /home/p/ros2_ws/build/mpu9250
+[3.732s] running symlink_data
+[3.860s] Invoked command in '/home/p/ros2_ws/build/mpu9250' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/build/mpu9250/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/p/ros2_ws/build/mpu9250/build --no-deps symlink_data

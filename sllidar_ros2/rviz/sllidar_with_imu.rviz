@@ -8,7 +8,8 @@ Panels:
         - /Status1
         - /LaserScan1/Topic1
         - /Odometry1/Shape1
-        - /sweep_pc1
+        - /scan_flat1
+        - /Map2
       Splitter Ratio: 0.5147058963775635
     Tree Height: 631
   - Class: rviz_common/Selection
@@ -66,8 +67,9 @@ Visualization Manager:
       Tree:
         base_link:
           imu_link:
-            laser:
-              {}
+            {}
+          laser:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -82,7 +84,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: FlatColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 47
@@ -103,7 +105,7 @@ Visualization Manager:
         Value: /scan
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Angle Tolerance: 0.10000000149011612
       Class: rviz_default_plugins/Odometry
       Covariance:
@@ -169,8 +171,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.10394467413425446
-        Min Value: -0.055890731513500214
+        Max Value: 0.11493872106075287
+        Min Value: -0.0007209852337837219
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -211,7 +213,7 @@ Visualization Manager:
       Color: 255; 255; 255
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 4096
@@ -231,6 +233,63 @@ Visualization Manager:
         Value: /sweep_pc
       Use Fixed Frame: true
       Use rainbow: true
+      Value: false
+    - Alpha: 1
+      Autocompute Intensity Bounds: true
+      Autocompute Value Bounds:
+        Max Value: 10
+        Min Value: -10
+        Value: true
+      Axis: Z
+      Channel Name: intensity
+      Class: rviz_default_plugins/LaserScan
+      Color: 255; 255; 255
+      Color Transformer: FlatColor
+      Decay Time: 0
+      Enabled: true
+      Invert Rainbow: false
+      Max Color: 255; 255; 255
+      Max Intensity: 47
+      Min Color: 0; 0; 0
+      Min Intensity: 47
+      Name: scan_flat
+      Position Transformer: XYZ
+      Selectable: true
+      Size (Pixels): 3
+      Size (m): 0.019999999552965164
+      Style: Flat Squares
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /scan_flat
+      Use Fixed Frame: true
+      Use rainbow: true
+      Value: true
+    - Alpha: 0.699999988079071
+      Binary representation: false
+      Binary threshold: 100
+      Class: rviz_default_plugins/Map
+      Color Scheme: map
+      Draw Behind: false
+      Enabled: true
+      Name: Map
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map
+      Update Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /map_updates
+      Use Timestamp: false
       Value: true
   Enabled: true
   Global Options:
@@ -278,25 +337,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 5.439945220947266
+      Distance: 8.315110206604004
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.10713136196136475
-        Y: 0.02886594645678997
-        Z: -0.2969440817832947
+        X: -0.5949288606643677
+        Y: -0.9790357947349548
+        Z: -0.17959503829479218
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.47479623556137085
+      Pitch: 0.6797969341278076
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 3.0204014778137207
+      Yaw: 2.370399236679077
     Saved: ~
 Window Geometry:
   Displays:
@@ -312,5 +371,5 @@ Window Geometry:
   Views:
     collapsed: true
   Width: 1426
-  X: -16
-  Y: 120
+  X: 0
+  Y: 27

@@ -1,0 +1,16 @@
+running develop
+running egg_info
+creating lidar_icp_odometry.egg-info
+writing lidar_icp_odometry.egg-info/PKG-INFO
+writing dependency_links to lidar_icp_odometry.egg-info/dependency_links.txt
+writing entry points to lidar_icp_odometry.egg-info/entry_points.txt
+writing requirements to lidar_icp_odometry.egg-info/requires.txt
+writing top-level names to lidar_icp_odometry.egg-info/top_level.txt
+writing manifest file 'lidar_icp_odometry.egg-info/SOURCES.txt'
+reading manifest file 'lidar_icp_odometry.egg-info/SOURCES.txt'
+writing manifest file 'lidar_icp_odometry.egg-info/SOURCES.txt'
+running build_ext
+Creating /home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages/lidar-icp-odometry.egg-link (link to .)
+Installing icp_odom_node script to /home/p/ros2_ws/install/lidar_icp_odometry/lib/lidar_icp_odometry
+
+Installed /home/p/ros2_ws/build/lidar_icp_odometry
