@@ -26,7 +26,7 @@ class AccumulatedPointcloud(Node):
         self.declare_parameter('downsample_grid_size', 0.05)
         self.declare_parameter('use_tf', True)
         self.declare_parameter('publish_rate_hz', 10.0)
-        self.declare_parameter('target_frame', 'map')
+        self.declare_parameter('target_frame', 'laser')  # 'map' → 'base_link'로 변경
 
         self.input_topic = self.get_parameter('input_topic').value
         self.output_topic = self.get_parameter('output_topic').value
@@ -71,17 +71,23 @@ class AccumulatedPointcloud(Node):
 
         # 1. PointCloud2 → np.array 변환 (struct/tuple/list 모두 robust)
         try:
-            points_iter = pc2.read_points(point_cloud_msg, field_names=("x", "y", "z", "intensity"), skip_nans=True)
+            # intensity 필드 제거하고 x,y,z만 읽기
+            points_iter = pc2.read_points(point_cloud_msg, field_names=("x", "y", "z"), skip_nans=True)
             points_list = list(points_iter)
             if not points_list:
                 return
-            # 일반적 경우: tuple/list형 데이터
+            
             if isinstance(points_list[0], (list, tuple, np.ndarray)):
                 pts = np.array(points_list, dtype=np.float32)
+                # intensity 컬럼을 1.0으로 추가
+                intensity_col = np.ones((pts.shape[0], 1), dtype=np.float32)
+                pts = np.hstack([pts, intensity_col])
             else:
-                # structured array (필드명이 존재할 때)
                 arr = np.array(points_list)
-                pts = np.stack([arr['x'], arr['y'], arr['z'], arr['intensity']], axis=-1).astype(np.float32)
+                pts = np.stack([arr['x'], arr['y'], arr['z']], axis=-1).astype(np.float32)
+                # intensity 컬럼을 1.0으로 추가
+                intensity_col = np.ones((pts.shape[0], 1), dtype=np.float32)
+                pts = np.hstack([pts, intensity_col])
         except Exception as e:
             self.get_logger().error(f"PointCloud2 메시지 읽기 실패: {e}")
             return
