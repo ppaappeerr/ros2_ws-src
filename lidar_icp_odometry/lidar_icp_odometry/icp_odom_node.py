@@ -29,7 +29,7 @@ class ICPOdomNode(Node):
         self.current_lin_vel = 0.0  # 현재 선속도
         self.current_ang_vel = 0.0  # 현재 각속도
 
-        self.declare_parameter('input_cloud_topic', 'points_3d')
+        self.declare_parameter('input_cloud_topic', 'sweep_cloud') # points_3d
         self.declare_parameter('odom_topic', 'odom')
         self.declare_parameter('odom_frame_id', 'odom')
         self.declare_parameter('base_link_frame_id', 'base_link')

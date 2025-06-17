@@ -35,6 +35,8 @@ setup(
             'icp_3d_odom = sweep_builder.icp_3d_odom:main',
             'lidar_imu_filtered_to_pointcloud = sweep_builder.lidar_imu_filtered_to_pointcloud:main',
             'ground_aligned_scan_node = sweep_builder.ground_aligned_scan_node:main',
+            'sweep_accmulator_node = sweep_builder.sweep_accumulator_node:main',
+            'sweep_xy_filter_node = sweep_builder.sweep_xy_filter_node:main',
         ],
     },
 )

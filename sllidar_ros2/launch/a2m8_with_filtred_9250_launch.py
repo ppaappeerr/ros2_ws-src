@@ -80,13 +80,13 @@ def generate_launch_description():
     )
 
     # ICP 오도메트리 노드
-    icp_odom_node = Node(
-        package='lidar_icp_odometry',
-        executable='icp_odom_node',
-        name='icp_odom_node',
-        parameters=[{'input_cloud_topic': 'points_3d'}],
-        output='screen'
-    )
+    # icp_odom_node = Node(
+    #     package='lidar_icp_odometry',
+    #     executable='icp_odom_node',
+    #     name='icp_odom_node',
+    #     parameters=[{'input_cloud_topic': 'points_3d'}],
+    #     output='screen'
+    # )
 
     # RViz 설정
     rviz_config_dir = os.path.join(
@@ -114,6 +114,6 @@ def generate_launch_description():
         imu_node,
         pointcloud_node,
         ekf_node,
-        icp_odom_node,
+        #icp_odom_node,
         rviz_node
     ])

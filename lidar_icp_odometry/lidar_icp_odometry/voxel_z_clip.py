@@ -23,7 +23,7 @@ class VoxelClip(Node):
         self.z_max = self.get_parameter('z_max').value
         self.leaf  = self.get_parameter('leaf').value
 
-        self.sub  = self.create_subscription(PointCloud2, '/points_3d', self.cb, 10)
+        self.sub  = self.create_subscription(PointCloud2, '/sweep_cloud', self.cb, 10)
         self.pub  = self.create_publisher(PointCloud2,  '/points_icp', 10)
 
     def cb(self, msg: PointCloud2):

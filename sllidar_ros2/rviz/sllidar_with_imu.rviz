@@ -8,7 +8,7 @@ Panels:
         - /Status1
         - /LaserScan1/Topic1
         - /Odometry1/Shape1
-        - /sweep_pc1
+        - /sweep_cloud1
         - /scan_flat1
         - /Map2
       Splitter Ratio: 0.5147058963775635
@@ -60,8 +60,6 @@ Visualization Manager:
           Value: true
         laser:
           Value: true
-        odom:
-          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
@@ -73,8 +71,6 @@ Visualization Manager:
             {}
           laser:
             {}
-        odom:
-          {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -176,8 +172,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.19886210560798645
-        Min Value: 0.01898135617375374
+        Max Value: 0.2674121856689453
+        Min Value: 0.0022665858268737793
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -185,7 +181,7 @@ Visualization Manager:
       Color: 239; 41; 41
       Color Transformer: AxisColor
       Decay Time: 0
-      Enabled: true
+      Enabled: false
       Invert Rainbow: false
       Max Color: 255; 255; 255
       Max Intensity: 47
@@ -205,18 +201,18 @@ Visualization Manager:
         Value: /points_3d
       Use Fixed Frame: true
       Use rainbow: true
-      Value: true
+      Value: false
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.13241837918758392
-        Min Value: -0.13056662678718567
+        Max Value: 0.16915099322795868
+        Min Value: -0.0974077433347702
         Value: true
       Axis: Z
       Channel Name: intensity
       Class: rviz_default_plugins/PointCloud2
       Color: 255; 255; 255
-      Color Transformer: FlatColor
+      Color Transformer: AxisColor
       Decay Time: 0
       Enabled: true
       Invert Rainbow: false
@@ -224,7 +220,7 @@ Visualization Manager:
       Max Intensity: 1
       Min Color: 0; 0; 0
       Min Intensity: 1
-      Name: sweep_pc
+      Name: sweep_cloud
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
@@ -235,7 +231,7 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /accumulated_points
+        Value: /sweep_cloud
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
@@ -342,25 +338,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 6.369829177856445
+      Distance: 4.654745101928711
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.3681644201278687
-        Y: 0.4129375219345093
-        Z: 0.639815092086792
+        X: 1.3999489545822144
+        Y: 0.24702323973178864
+        Z: 0.7590768337249756
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6547966003417969
+      Pitch: 0.38479653000831604
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.308592796325684
+      Yaw: 5.833586692810059
     Saved: ~
 Window Geometry:
   Displays:
