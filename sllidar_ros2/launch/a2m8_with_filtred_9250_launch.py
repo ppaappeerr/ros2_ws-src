@@ -28,7 +28,7 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='static_tf_imu_to_laser',
-        arguments=['0.0', '0.0', '0.071', '0', '0.0', '0.0', 'imu_link', 'laser'],
+        arguments=['0.0', '0.0', '0.071', '0', '0.0', '0.0', 'base_link', 'laser'],
         output='screen'
     )
 
@@ -70,14 +70,23 @@ def generate_launch_description():
         output='screen'
     )
 
-    # # ICP 오도메트리 노드
-    # icp_odom_node = Node(
-    #     package='lidar_icp_odometry',
-    #     executable='icp_odom_node',
-    #     name='icp_odom_node',
-    #     parameters=[{'input_cloud_topic': 'points_3d'}],
-    #     output='screen'
-    # )
+    # EKF 노드
+    ekf_node = Node(
+        package='robot_localization',
+        executable='ekf_node',
+        name='ekf_odom',
+        parameters=[os.path.expanduser('~/ros2_ws/src/sllidar_ros2/config/ekf_odom.yaml')],
+        output='screen'
+    )
+
+    # ICP 오도메트리 노드
+    icp_odom_node = Node(
+        package='lidar_icp_odometry',
+        executable='icp_odom_node',
+        name='icp_odom_node',
+        parameters=[{'input_cloud_topic': 'points_3d'}],
+        output='screen'
+    )
 
     # RViz 설정
     rviz_config_dir = os.path.join(
@@ -104,6 +113,7 @@ def generate_launch_description():
         sllidar_node,
         imu_node,
         pointcloud_node,
-        #icp_odom_node,
+        ekf_node,
+        icp_odom_node,
         rviz_node
     ])

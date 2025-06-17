@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /LaserScan1
         - /LaserScan1/Topic1
         - /Odometry1/Shape1
         - /scan_flat1
@@ -59,17 +60,24 @@ Visualization Manager:
           Value: true
         laser:
           Value: true
+        map:
+          Value: true
+        odom:
+          Value: true
       Marker Scale: 1
       Name: TF
       Show Arrows: true
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          imu_link:
-            {}
-          laser:
-            {}
+        map:
+          {}
+        odom:
+          base_link:
+            imu_link:
+              {}
+            laser:
+              {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -81,7 +89,7 @@ Visualization Manager:
       Axis: Z
       Channel Name: intensity
       Class: rviz_default_plugins/LaserScan
-      Color: 255; 255; 255
+      Color: 98; 160; 234
       Color Transformer: FlatColor
       Decay Time: 0
       Enabled: false
@@ -294,7 +302,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: imu_link
+    Fixed Frame: map
     Frame Rate: 30
   Name: root
   Tools:
@@ -337,25 +345,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 8.315110206604004
+      Distance: 5.077988624572754
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: -0.5949288606643677
-        Y: -0.9790357947349548
-        Z: -0.17959503829479218
+        X: -0.009887869469821453
+        Y: 0.4968280792236328
+        Z: 0.3294571340084076
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6797969341278076
+      Pitch: 0.9097962379455566
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.370399236679077
+      Yaw: 6.073592185974121
     Saved: ~
 Window Geometry:
   Displays:

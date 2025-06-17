@@ -25,6 +25,9 @@ class ICPOdomNode(Node):
         self.prev_cloud_np = None
         self.current_transform_matrix = np.eye(4)
         self.imu_orientation = None # IMU 데이터를 저장할 변수
+        self.prev_stamp = None  # 이전 타임스탬프 저장
+        self.current_lin_vel = 0.0  # 현재 선속도
+        self.current_ang_vel = 0.0  # 현재 각속도
 
         self.declare_parameter('input_cloud_topic', 'points_3d')
         self.declare_parameter('odom_topic', 'odom')
@@ -118,6 +121,7 @@ class ICPOdomNode(Node):
         if self.prev_cloud_np is None or len(self.prev_cloud_np) < 10:
             self.get_logger().info("이전 클라우드 초기화 중 또는 포인트 부족")
             self.prev_cloud_np = current_cloud_np
+            self.prev_stamp = msg.header.stamp
             self.publish_identity(msg.header.stamp)
             return
 
@@ -134,6 +138,17 @@ class ICPOdomNode(Node):
         if delta_transform is None:
             self.get_logger().warn("ICP 변환 계산 실패")
             return
+
+        # 속도 계산
+        if self.prev_stamp is not None:
+            dt = (msg.header.stamp.sec + msg.header.stamp.nanosec*1e-9) - \
+                 (self.prev_stamp.sec + self.prev_stamp.nanosec*1e-9)
+            self.prev_stamp = msg.header.stamp
+            lin_vel = np.linalg.norm(delta_transform[:2, 3]) / max(dt,1e-3)
+            ang_vel = np.arctan2(delta_transform[1,0], delta_transform[0,0]) / max(dt,1e-3)
+            
+            self.current_lin_vel = lin_vel
+            self.current_ang_vel = ang_vel
 
         self.current_transform_matrix = self.current_transform_matrix @ delta_transform
         self.latest_transform_stamp = msg.header.stamp
@@ -183,12 +198,12 @@ class ICPOdomNode(Node):
             0.0, 0.0, 0.0, 0.0, 1e-3, 0.0,
             0.0, 0.0, 0.0, 0.0, 0.0, 5e-2
         ]
-        odom_msg.twist.twist.linear.x = 0.0
+        odom_msg.twist.twist.linear.x = self.current_lin_vel
         odom_msg.twist.twist.linear.y = 0.0
         odom_msg.twist.twist.linear.z = 0.0
         odom_msg.twist.twist.angular.x = 0.0
         odom_msg.twist.twist.angular.y = 0.0
-        odom_msg.twist.twist.angular.z = 0.0
+        odom_msg.twist.twist.angular.z = self.current_ang_vel
         odom_msg.twist.covariance = [-1.0] * 36
 
         self.odom_publisher.publish(odom_msg)
