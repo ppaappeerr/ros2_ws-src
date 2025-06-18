@@ -57,7 +57,7 @@ def generate_launch_description():
         parameters=[{
             'calibration_path': calib_path,  # 올바른 경로
             'frame_id': 'imu_link',
-            'publish_rate': 50.0
+            'publish_rate': 100.0
         }],
         output='screen'
     )
