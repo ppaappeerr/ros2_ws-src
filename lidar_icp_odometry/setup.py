@@ -20,8 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'icp_odom_node = lidar_icp_odometry.icp_odom_node:main',
-            'voxel_z_clip = lidar_icp_odometry.voxel_z_clip:main',
+            'icp_odom_node = lidar_icp_odometry.icp_odom_node:main'
         ],
         'launch_frontend.launch_extension': [
             'pylaunch = launch',
