@@ -1,0 +1,113 @@
+[INFO] [launch]: All log files can be found below /home/p/.ros/log/2025-06-19-15-23-42-850512-p-39272
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [static_transform_publisher-1]: process started with pid [39281]
+[INFO] [static_transform_publisher-2]: process started with pid [39282]
+[INFO] [sllidar_node-3]: process started with pid [39283]
+[INFO] [mpu9250_filtered-4]: process started with pid [39284]
+[INFO] [lidar_imu_filtered_to_pointcloud-5]: process started with pid [39285]
+[INFO] [fastlio_mapping-6]: process started with pid [39286]
+[INFO] [rviz2-7]: process started with pid [39287]
+[static_transform_publisher-2] [WARN] [1750314223.058470256] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-1] [WARN] [1750314223.098795033] []: Old-style arguments are deprecated; see --help for new-style arguments
+[static_transform_publisher-2] [INFO] [1750314223.601571023] [static_tf_imu_to_laser]: Spinning until stopped - publishing transform
+[static_transform_publisher-2] translation: ('0.000000', '0.000000', '0.071000')
+[static_transform_publisher-2] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-2] from 'base_link' to 'laser'
+[sllidar_node-3] [INFO] [1750314223.719870315] [sllidar_node]: SLLidar running on ROS2 package SLLidar.ROS2 SDK Version:1.0.1, SLLIDAR SDK Version:2.1.0
+[fastlio_mapping-6] [INFO] [1750314223.727661190] [fast_lio_node]: p_pre->lidar_type 4
+[fastlio_mapping-6] Multi thread started 
+[fastlio_mapping-6] ~~~~/home/p/ros2_ws/src/FAST_LIO_ROS2/ file opened
+[static_transform_publisher-1] [INFO] [1750314223.745738924] [static_tf_base_to_imu]: Spinning until stopped - publishing transform
+[static_transform_publisher-1] translation: ('0.000000', '0.000000', '0.000000')
+[static_transform_publisher-1] rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+[static_transform_publisher-1] from 'base_link' to 'imu_link'
+[sllidar_node-3] [INFO] [1750314223.748069201] [sllidar_node]: SLLidar S/N: 9AA3EDF9C7E29BD1A7E39EF20A70431B
+[sllidar_node-3] [INFO] [1750314223.748138535] [sllidar_node]: Firmware Ver: 1.28
+[sllidar_node-3] [INFO] [1750314223.748154665] [sllidar_node]: Hardware Rev: 7
+[sllidar_node-3] [INFO] [1750314223.749724622] [sllidar_node]: SLLidar health status : 0
+[sllidar_node-3] [INFO] [1750314223.749823252] [sllidar_node]: SLLidar health status : OK.
+[fastlio_mapping-6] [INFO] [1750314223.810082277] [fast_lio_node]: Node init finished.
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[static_transform_publisher-2] [INFO] [1750314223.830684326] [rclcpp]: signal_handler(signum=2)
+[fastlio_mapping-6] catch sig %d2
+[static_transform_publisher-1] [INFO] [1750314223.832479118] [rclcpp]: signal_handler(signum=2)
+[lidar_imu_filtered_to_pointcloud-5] Traceback (most recent call last):
+[lidar_imu_filtered_to_pointcloud-5]   File "/home/p/ros2_ws/install/sweep_builder/lib/sweep_builder/lidar_imu_filtered_to_pointcloud", line 33, in <module>
+[lidar_imu_filtered_to_pointcloud-5]     sys.exit(load_entry_point('sweep-builder', 'console_scripts', 'lidar_imu_filtered_to_pointcloud')())
+[lidar_imu_filtered_to_pointcloud-5]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[lidar_imu_filtered_to_pointcloud-5]   File "/home/p/ros2_ws/install/sweep_builder/lib/sweep_builder/lidar_imu_filtered_to_pointcloud", line 25, in importlib_load_entry_point
+[lidar_imu_filtered_to_pointcloud-5]     return next(matches).load()
+[lidar_imu_filtered_to_pointcloud-5]            ^^^^^^^^^^^^^^^^^^^^
+[lidar_imu_filtered_to_pointcloud-5]   File "/usr/lib/python3.12/importlib/metadata/__init__.py", line 205, in load
+[lidar_imu_filtered_to_pointcloud-5]     module = import_module(match.group('module'))
+[lidar_imu_filtered_to_pointcloud-5]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[lidar_imu_filtered_to_pointcloud-5]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[lidar_imu_filtered_to_pointcloud-5]     return _bootstrap._gcd_import(name[level:], package, level)
+[lidar_imu_filtered_to_pointcloud-5]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[lidar_imu_filtered_to_pointcloud-5]   File "/home/p/ros2_ws/build/sweep_builder/sweep_builder/lidar_imu_filtered_to_pointcloud.py", line 4, in <module>
+[lidar_imu_filtered_to_pointcloud-5]     from rclpy.node import Node
+[lidar_imu_filtered_to_pointcloud-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 42, in <module>
+[lidar_imu_filtered_to_pointcloud-5]     from rcl_interfaces.srv import ListParameters
+[lidar_imu_filtered_to_pointcloud-5]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/srv/__init__.py", line 9, in <module>
+[lidar_imu_filtered_to_pointcloud-5]     from rcl_interfaces.srv._get_parameter_types import GetParameterTypes  # noqa: F401
+[lidar_imu_filtered_to_pointcloud-5]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap_external>", line 991, in exec_module
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap_external>", line 1139, in get_code
+[lidar_imu_filtered_to_pointcloud-5]   File "<frozen importlib._bootstrap_external>", line 770, in _code_to_timestamp_pyc
+[lidar_imu_filtered_to_pointcloud-5] KeyboardInterrupt
+[rviz2-7] [INFO] [1750314223.835293047] [rclcpp]: signal_handler(signum=2)
+[mpu9250_filtered-4] Traceback (most recent call last):
+[mpu9250_filtered-4]   File "/home/p/ros2_ws/install/mpu9250/lib/mpu9250/mpu9250_filtered", line 33, in <module>
+[mpu9250_filtered-4]     sys.exit(load_entry_point('mpu9250', 'console_scripts', 'mpu9250_filtered')())
+[mpu9250_filtered-4]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[mpu9250_filtered-4]   File "/home/p/ros2_ws/install/mpu9250/lib/mpu9250/mpu9250_filtered", line 25, in importlib_load_entry_point
+[mpu9250_filtered-4]     return next(matches).load()
+[mpu9250_filtered-4]            ^^^^^^^^^^^^^^^^^^^^
+[mpu9250_filtered-4]   File "/usr/lib/python3.12/importlib/metadata/__init__.py", line 205, in load
+[mpu9250_filtered-4]     module = import_module(match.group('module'))
+[mpu9250_filtered-4]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[mpu9250_filtered-4]   File "/usr/lib/python3.12/importlib/__init__.py", line 90, in import_module
+[mpu9250_filtered-4]     return _bootstrap._gcd_import(name[level:], package, level)
+[mpu9250_filtered-4]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+[mpu9250_filtered-4]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+[mpu9250_filtered-4]   File "/home/p/ros2_ws/build/mpu9250/mpu9250/mpu9250_filtered.py", line 2, in <module>
+[mpu9250_filtered-4]     from rclpy.node import Node
+[mpu9250_filtered-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rclpy/node.py", line 42, in <module>
+[mpu9250_filtered-4]     from rcl_interfaces.srv import ListParameters
+[mpu9250_filtered-4]   File "/opt/ros/jazzy/lib/python3.12/site-packages/rcl_interfaces/srv/__init__.py", line 5, in <module>
+[mpu9250_filtered-4]     from rcl_interfaces.srv._get_logger_levels import GetLoggerLevels  # noqa: F401
+[mpu9250_filtered-4]     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[mpu9250_filtered-4] KeyboardInterrupt
+[ERROR] [lidar_imu_filtered_to_pointcloud-5]: process has died [pid 39285, exit code -2, cmd '/home/p/ros2_ws/install/sweep_builder/lib/sweep_builder/lidar_imu_filtered_to_pointcloud --ros-args -r __node:=lidar_imu_to_pointcloud'].
+[ERROR] [mpu9250_filtered-4]: process has died [pid 39284, exit code -2, cmd '/home/p/ros2_ws/install/mpu9250/lib/mpu9250/mpu9250_filtered --ros-args -r __node:=mpu9250_filtered_node --params-file /tmp/launch_params_ym8t66hw'].
+[sllidar_node-3] [INFO] [1750314224.027163968] [sllidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 16.0 m, scan frequency:10.0 Hz, 
+[INFO] [static_transform_publisher-1]: process has finished cleanly [pid 39281]
+[fastlio_mapping-6] Rebuild thread terminated normally
+[INFO] [static_transform_publisher-2]: process has finished cleanly [pid 39282]
+[rviz2-7] Opening /dev/dri/renderD128 failed: Permission denied
+[rviz2-7] TU: error: ../src/freedreno/vulkan/tu_knl.cc:315: failed to open device /dev/dri/renderD128 (VK_ERROR_INCOMPATIBLE_DRIVER)
+[INFO] [fastlio_mapping-6]: process has finished cleanly [pid 39286]
+[rviz2-7] Opening /dev/dri/renderD128 failed: Permission denied
+[rviz2-7] TU: error: ../src/freedreno/vulkan/tu_knl.cc:315: failed to open device /dev/dri/renderD128 (VK_ERROR_INCOMPATIBLE_DRIVER)
+[sllidar_node-3] [INFO] [1750314224.149674885] [sllidar_node]: Stop motor
+[rviz2-7] [INFO] [1750314224.215487694] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-7] [INFO] [1750314224.215537935] [rviz2]: OpenGl version: 4.5 (GLSL 4.5)
+[rviz2-7] [INFO] [1750314224.257248723] [rviz2]: Stereo is NOT SUPPORTED
+[rviz2-7] terminate called after throwing an instance of 'rclcpp::exceptions::RCLError'
+[rviz2-7]   what():  failed to create guard condition: the given context is not valid, either rcl_init() was not called or rcl_shutdown() was called., at ./src/rcl/guard_condition.c:67
+[ERROR] [rviz2-7]: process has died [pid 39287, exit code -6, cmd '/opt/ros/jazzy/lib/rviz2/rviz2 -d /home/p/ros2_ws/install/sllidar_ros2/share/sllidar_ros2/rviz/sllidar_with_imu.rviz --ros-args -r __node:=rviz2'].
+[INFO] [sllidar_node-3]: process has finished cleanly [pid 39283]

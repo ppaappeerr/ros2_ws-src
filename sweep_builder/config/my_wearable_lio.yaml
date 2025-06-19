@@ -1,0 +1,58 @@
+/**:
+    ros__parameters:
+        # ===== LiDAR-IMU Frontend Settings =====
+        feature_extract_enable: false   # FAST-LIO의 핵심! 특징점 추출을 사용하지 않으므로 false 유지
+        point_filter_num: 2             # 라즈베리파이 성능을 고려하여 포인트 수 다운샘플링 (2~4 권장)
+        max_iteration: 3                # 최적화 반복 횟수. 기본값 유지
+        filter_size_surf: 0.15          # 포인트 클라우드를 얼마나 듬성하게 만들지 결정 (단위: 미터). 실내이므로 값을 줄임
+        filter_size_map: 0.15           # 맵을 만들 때의 포인트 밀도. 위와 동일하게 설정
+        cube_side_length: 1000.0        # 전체 맵의 크기. 기본값 유지
+        runtime_pos_log_enable: false   # 실시간 위치 로그 저장 비활성화
+
+        # ===== Topic and Time Sync Settings =====
+        common:
+            # ❗️ [필수 수정] 사용자의 토픽 이름으로 변경
+            lid_topic:  "/processed_cloud"
+            imu_topic:  "/imu/data"
+            time_sync_en: false         # 각 포인트에 시간 정보가 있으므로, 별도 동기화 기능은 끔
+            time_offset_lidar_to_imu: 0.0 # 정확한 값을 모를 땐 0.0으로 설정하는 것이 가장 안전
+
+        # ===== LiDAR Preprocessing Settings =====
+        preprocess:
+            # ❗️ [필수 수정] 사용자의 커스텀 포인트 클라우드 타입을 지정
+            lidar_type: 4                # 1:Livox, 2:Velodyne, 3:Ouster, 4:커스텀(Timestamped) PointCloud2
+            scan_line: 1                 # 2D LiDAR를 움직이는 방식이므로, 사실상 스캔 라인은 1개
+            scan_rate: 10                # RPLIDAR A2M8의 스캔 속도(Hz)에 맞춰 설정
+            timestamp_unit: 0            # ❗️ [필수 확인] 포인트의 time 필드 단위. 0:초, 1:밀리초, 2:마이크로초, 3:나노초
+            blind: 0.2                   # LiDAR 바로 앞, 측정하지 않을 최소 거리 (단위: 미터)
+
+        # ===== Mapping and Extrinsic Settings =====
+        mapping:
+            # ❗️ [필수 수정] MPU9250 센서 노이즈 값으로 변경
+            acc_cov: 4.33e-4             # 지난번에 계산한 가속도계 노이즈 공분산
+            gyr_cov: 3.81e-7             # 지난번에 계산한 자이로스코프 노이즈 공분산
+            b_acc_cov: 0.0001            # 가속도계 바이어스 노이즈. 우선 기본값 사용
+            b_gyr_cov: 0.0001            # 자이로스코프 바이어스 노이즈. 우선 기본값 사용
+            fov_degree: 360.0            # 2D LiDAR는 360도 스캔하므로 유지
+            det_range: 12.0              # RPLIDAR A2M8의 최대 측정 거리(m)에 맞춰 수정
+            extrinsic_est_en: false      # IMU-LiDAR 외부 파라미터 온라인 추정 기능. 우선 비활성화
+            
+            # ❗️ [매우 중요! 직접 측정 및 수정 필요]
+            # IMU를 기준으로 LiDAR가 어디에 위치하는지 (x, y, z 미터 단위)
+            extrinsic_T: [ 0.0, 0.0, 0.072] # 예시: IMU 바로 위 5cm에 LiDAR가 있을 경우
+            # IMU를 기준으로 LiDAR가 어떻게 회전해 있는지 (3x3 회전행렬)
+            extrinsic_R: [ 1., 0., 0.,
+                           0., 1., 0.,
+                           0., 0., 1.]
+
+        # ===== Publish Settings =====
+        publish:
+            path_en: true                # Odometry 경로를 시각화. 디버깅에 매우 유용하므로 true로 변경
+            scan_publish_en: true        # 현재 스캔 포인트 클라우드 발행 활성화
+            dense_publish_en: true       # 글로벌 맵 포인트 클라우드를 풍성하게 발행
+            scan_bodyframe_pub_en: true  # IMU(body) 기준 포인트 클라우드 발행 활성화
+
+        # ===== PCD Save Settings =====
+        pcd_save:
+            pcd_save_en: false           # 필요할 때 true로 바꿔서 맵 저장
+            interval: -1                 # -1: 종료 시 모든 맵을 하나의 pcd 파일로 저장

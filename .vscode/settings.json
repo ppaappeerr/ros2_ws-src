@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "memory_resource": "cpp"
+        "memory_resource": "cpp",
+        "geometry": "cpp"
     },
     "python.testing.unittestArgs": [
         "-v",

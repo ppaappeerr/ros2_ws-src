@@ -19,6 +19,7 @@ find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(eigen3_cmake_module REQUIRED)
 find_package(Eigen3 REQUIRED)
+find_package(tf2 REQUIRED)  # Added for pointcloud_formatter_node
 
 # PCL 패키지 (ROS2 통합 버전)
 find_package(pcl_ros REQUIRED)
@@ -54,9 +55,22 @@ target_link_libraries(icp_3d_odom_node
   ${PCL_LIBRARIES}
 )
 
+# ===== 새로운 C++ 노드 추가 =====
+add_executable(pointcloud_formatter_node src/pointcloud_formatter_node.cpp)
+
+ament_target_dependencies(pointcloud_formatter_node
+  rclcpp
+  sensor_msgs
+  tf2
+  tf2_ros
+  tf2_geometry_msgs
+  pcl_conversions
+)
+
 # 실행 파일 설치
 install(TARGETS
   icp_3d_odom_node
+  pointcloud_formatter_node  # Added new node
   DESTINATION lib/${PROJECT_NAME}
 )
 

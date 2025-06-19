@@ -13,7 +13,7 @@ class SweepAccumulator(Node):
         super().__init__('sweep_accumulator')
 
         # ───── 파라미터 ─────────────────────────────────────────────
-        self.declare_parameter('in_pc_topic',  'points_3d')
+        self.declare_parameter('in_pc_topic',  '/formatted_cloud')
         self.declare_parameter('imu_topic',    '/imu/data')
         self.declare_parameter('sweep_size',    4000)      # points per sweep
         self.declare_parameter('buffer_secs',      1.0)    # N 초간 링버퍼

@@ -1,9 +1,9 @@
 import os
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     # SLLIDAR 설정
@@ -12,10 +12,18 @@ def generate_launch_description():
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
     frame_id = LaunchConfiguration('frame_id', default='laser')
 
-    # 보정 파일 경로 (동적으로 설정)
+    # 보정 파일 경로
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
 
-    # TF 설정
+    # 사용할 패키지들의 공유 디렉토리 경로 정의
+    fast_lio_pkg_dir = get_package_share_directory('fast_lio')
+    sllidar_ros2_pkg_dir = get_package_share_directory('sllidar_ros2')
+    sweep_builder_pkg_dir = get_package_share_directory('sweep_builder')
+
+    # FAST-LIO 설정 파일 경로
+    fast_lio_params_file = os.path.join(fast_lio_pkg_dir, 'config', 'my_wearable_lio.yaml')
+
+    # TF 설정 (a2m8 런치파일과 동일하게)
     static_tf_base_to_imu = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -49,20 +57,20 @@ def generate_launch_description():
         output='screen'
     )
 
-    # MPU9250 IMU 노드
+    # MPU9250 IMU 노드 (올바른 패키지 이름과 실행파일)
     imu_node = Node(
         package='mpu9250',
         executable='mpu9250_filtered',
         name='mpu9250_filtered_node',
         parameters=[{
-            'calibration_path': calib_path,  # 올바른 경로
+            'calibration_path': calib_path,
             'frame_id': 'imu_link',
             'publish_rate': 100.0
         }],
         output='screen'
     )
 
-    # 라이다-IMU 포인트클라우드 변환 노드
+    # 포인트 클라우드 전처리기 노드
     pointcloud_node = Node(
         package='sweep_builder',
         executable='lidar_imu_filtered_to_pointcloud',
@@ -70,27 +78,18 @@ def generate_launch_description():
         output='screen'
     )
 
-    # EKF 노드
-    ekf_node = Node(
-        package='robot_localization',
-        executable='ekf_node',
-        name='ekf_odom',
-        parameters=[os.path.expanduser('~/ros2_ws/src/sllidar_ros2/config/ekf_odom.yaml')],
+    # FAST-LIO 노드 (실제 실행파일 이름으로 수정)
+    fast_lio_node = Node(
+        package='fast_lio',
+        executable='fastlio_mapping',  # 또는 실제 확인된 실행파일 이름
+        name='fast_lio_node',
+        parameters=[fast_lio_params_file],
         output='screen'
     )
 
-    # ICP 오도메트리 노드
-    # icp_odom_node = Node(
-    #     package='lidar_icp_odometry',
-    #     executable='icp_odom_node',
-    #     name='icp_odom_node',
-    #     parameters=[{'input_cloud_topic': 'points_3d'}],
-    #     output='screen'
-    # )
-
     # RViz 설정
     rviz_config_dir = os.path.join(
-        get_package_share_directory('sllidar_ros2'),
+        sllidar_ros2_pkg_dir,
         'rviz',
         'sllidar_with_imu.rviz')
 
@@ -113,7 +112,6 @@ def generate_launch_description():
         sllidar_node,
         imu_node,
         pointcloud_node,
-        ekf_node,
-        #icp_odom_node,
+        fast_lio_node,
         rviz_node
     ])
