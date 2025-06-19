@@ -3,13 +3,14 @@ from sensor_msgs.msg import LaserScan, Imu, PointCloud2
 from sensor_msgs_py import point_cloud2
 from rclpy.node import Node
 from sensor_msgs.msg import PointField
+from scipy.spatial.transform import Rotation as R
 
-class LidarImuPC(Node):
+class LidarImuToPointCloudNode(Node):
     def __init__(self):
-        super().__init__('lidar_imu_pc')
+        super().__init__('lidar_imu_to_pointcloud_node')
         self.create_subscription(LaserScan,'/scan',self.scan_cb,10)
         self.create_subscription(Imu,'/imu/data',self.imu_cb,50)
-        self.pub = self.create_publisher(PointCloud2,'/points_3d',10)
+        self.points_3d_publisher = self.create_publisher(PointCloud2,'/processed_cloud',10)
         self.q_imu = [0,0,0,1]
 
     def imu_cb(self,msg:Imu):
@@ -17,49 +18,49 @@ class LidarImuPC(Node):
                       msg.orientation.z,msg.orientation.w]
 
     def scan_cb(self,scan:LaserScan):
-        R_imu = tf_transformations.quaternion_matrix(self.q_imu)[:3,:3]
-        pts, ang = [], scan.angle_min
-        for r in scan.ranges:
-            if scan.range_min < r < scan.range_max:
-                x = r * np.cos(ang)
-                y = r * np.sin(ang)
-                pt = np.array([x, y, 0.0], dtype=np.float32)
-                pt_rot = R_imu @ pt  # IMU 회전만 1회 적용
-                pts.append(pt_rot)
-            ang += scan.angle_increment
-        cloud = point_cloud2.create_cloud_xyz32(scan.header, pts)
-        self.pub.publish(cloud)
-
-    def create_pointcloud2(self, points_with_time):
-        # PointCloud2 메시지 생성
-        cloud_msg = PointCloud2()
-        cloud_msg.header.stamp = self.get_clock().now().to_msg()
-        cloud_msg.header.frame_id = 'base_link'
+        points = []
+        time_increment = scan.time_increment
+        angles = [scan.angle_min + i * scan.angle_increment for i in range(len(scan.ranges))]
         
-        # *** 올바른 필드 구조 설정 ***
-        cloud_msg.fields = [
+        for i, (dist, angle) in enumerate(zip(scan.ranges, angles)):
+            if scan.range_min < dist < scan.range_max:
+                # 기존 3D 좌표 계산
+                point_2d = np.array([dist * np.cos(angle), dist * np.sin(angle), 0])
+                point_3d_rotated = R.from_quat(self.q_imu).apply(point_2d)
+                
+                # 각 포인트의 상대적 시간(offset) 계산
+                time_offset = i * time_increment
+                
+                # x, y, z와 함께 time_offset 추가
+                points.append([point_3d_rotated[0], point_3d_rotated[1], point_3d_rotated[2], time_offset])
+
+        if not points:
+            return
+
+        # PointCloud2 메시지의 필드 정의
+        fields = [
             PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
             PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
             PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
-            PointField(name='intensity', offset=12, datatype=PointField.FLOAT32, count=1),  # 추가
-            PointField(name='timestamp', offset=16, datatype=PointField.FLOAT64, count=1),  # 수정
+            PointField(name='time', offset=12, datatype=PointField.FLOAT32, count=1)
         ]
+
+        # PointCloud2 메시지 생성
+        header = scan.header
+        header.frame_id = 'laser'
         
-        cloud_msg.is_bigendian = False
-        cloud_msg.point_step = 24  # 4*4 + 8 = 24 bytes per point
-        cloud_msg.row_step = cloud_msg.point_step * len(points_with_time)
-        cloud_msg.height = 1
-        cloud_msg.width = len(points_with_time)
-        
-        # 데이터 패킹
-        data = []
-        for point in points_with_time:
-            x, y, z, timestamp = point
-            # x, y, z, intensity, timestamp 순서로 패킹
-            data.extend(struct.pack('ffffd', x, y, z, 1.0, timestamp))  # intensity=1.0으로 고정
-        
-        cloud_msg.data = bytes(data)
-        return cloud_msg
+        point_cloud_msg = PointCloud2(
+            header=header,
+            height=1,
+            width=len(points),
+            is_dense=True,
+            is_bigendian=False,
+            fields=fields,
+            point_step=16,  # 4개의 float = 4 * 4 = 16 bytes
+            row_step=16 * len(points),
+            data=np.asarray(points, dtype=np.float32).tobytes()
+        )
+        self.points_3d_publisher.publish(point_cloud_msg)
 
 def main():
-    rclpy.init(); rclpy.spin(LidarImuPC()); rclpy.shutdown()
+    rclpy.init(); rclpy.spin(LidarImuToPointCloudNode()); rclpy.shutdown()

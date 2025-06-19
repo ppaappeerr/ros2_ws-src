@@ -1,0 +1,497 @@
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/submap_2d.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:97:44:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:248:74:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 | ICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                  [01;36m[K^~~~[m[K
+
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/usr/include/c++/13/bits/unique_ptr.h:1070:30:[m[K   required from ‘[01m[Kstd::__detail::__unique_ptr_t<_Tp> std::[01;32m[Kmake_unique[m[K(_Args&& ...) [35m[K[with _Tp = cartographer::transform::Rigid2<double>; _Args = {}; __detail::__unique_ptr_t<_Tp> = __detail::__unique_ptr_t<cartographer::transform::Rigid2<double> >][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:84:64:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), rotation_([01;36m[KRotation2D::Identity()[m[K) {}
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  113 |       Eigen::AngleAxis<T>([01;36m[Ktransform.rotation()[m[K.angle(),
+      |                           [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  113 |       Eigen::AngleAxis<T>([01;36m[Ktransform.rotation()[m[K.angle(),
+      |                           [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.h:29[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.cc:17[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Kinverse[m[K() const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:50:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.cc:112:74:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:98:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   98 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Kinverse[m[K() const { return Rotation2D(-m_angle); }
+      |                                       [01;36m[K^~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc:71:66:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.h:33[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:235:77:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 | ICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                  [01;36m[K^~~~[m[K
+
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Koperator*[m[K(const Eigen::Rotation2D<Scalar>&) const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:258:73:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  101 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Koperator[m[K*(const Rotation2D& other) const
+      |                                       [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:[m[K In member function ‘[01m[Kbool cartographer::mapping::scan_matching::FastCorrelativeScanMatcher2D::[01;32m[KMatchWithSearchParameters[m[K(cartographer::mapping::scan_matching::SearchParameters, const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, float, float*, cartographer::transform::Rigid2d*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  239 |           [01;36m[Kinitial_rotation.cast<float>()[m[K.angle(), Eigen::Vector3f::UnitZ())));
+      |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:258:26:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  258 |         [01;36m[Kinitial_rotation * Eigen::Rotation2Dd(best_candidate.orientation)[m[K);
+      |         [01;36m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:[m[K In member function ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double][m[K[m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 | ICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                  [01;36m[K^~~~[m[K
+
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:[m[K In member function ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Koperator*[m[K(const Eigen::Rotation2D<Scalar>&) const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  101 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Koperator[m[K*(const Rotation2D& other) const
+      |                                       [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:[m[K In member function ‘[01m[Kbool cartographer::mapping::scan_matching::FastCorrelativeScanMatcher2D::[01;32m[KMatchWithSearchParameters[m[K(cartographer::mapping::scan_matching::SearchParameters, const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, float, float*, cartographer::transform::Rigid2d*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  239 |           [01;36m[Kinitial_rotation.cast<float>()[m[K.angle(), Eigen::Vector3f::UnitZ())));
+      |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:235:77:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  235 |   const Eigen::Rotation2Dd initial_rotation = [01;36m[Kinitial_pose_estimate.rotation()[m[K;
+      |                                               [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.h:44[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:123:77:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 | ICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                  [01;36m[K^~~~[m[K
+
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Koperator*[m[K(const Eigen::Rotation2D<Scalar>&) const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:147:71:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  101 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Koperator[m[K*(const Rotation2D& other) const
+      |                                       [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:[m[K In member function ‘[01m[Kdouble cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::[01;32m[KMatch[m[K(const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, const cartographer::mapping::Grid2D&, cartographer::transform::Rigid2d*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  127 |           [01;36m[Kinitial_rotation.cast<float>()[m[K.angle(), Eigen::Vector3f::UnitZ())));
+      |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:147:24:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  147 |       [01;36m[Kinitial_rotation * Eigen::Rotation2Dd(best_candidate.orientation)[m[K);
+      |       [01;36m[K~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:[m[K In member function ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double][m[K[m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 | ICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                  [01;36m[K^~~~[m[K
+
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:[m[K In member function ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Koperator*[m[K(const Eigen::Rotation2D<Scalar>&) const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  101 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Koperator[m[K*(const Rotation2D& other) const
+      |                                       [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:[m[K In function ‘[01m[Kfloat cartographer::mapping::scan_matching::{anonymous}::[01;32m[KComputeCandidateScore[m[K(const cartographer::mapping::TSDF2D&, const cartographer::mapping::scan_matching::DiscreteScan2D&, int, int)[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:47:47:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kstd::pair<float, float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   47 |         tsdf.GetTSDAndWeight(proposed_xy_index[01;36m[K)[m[K;
+      |                                               [01;36m[K^[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:[m[K In member function ‘[01m[Kdouble cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::[01;32m[KMatch[m[K(const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, const cartographer::mapping::Grid2D&, cartographer::transform::Rigid2d*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  127 |           [01;36m[Kinitial_rotation.cast<float>()[m[K.angle(), Eigen::Vector3f::UnitZ())));
+      |           [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:123:77:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  123 |   const Eigen::Rotation2Dd initial_rotation = [01;36m[Kinitial_pose_estimate.rotation()[m[K;
+      |                                               [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:[m[K In member function ‘[01m[Kvoid cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::[01;32m[KScoreCandidates[m[K(const cartographer::mapping::Grid2D&, const std::vector<std::vector<Eigen::Array<int, 2, 1> > >&, const cartographer::mapping::scan_matching::SearchParameters&, std::vector<cartographer::mapping::scan_matching::Candidate2D>*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:151:6:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kstd::pair<float, float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  151 | void [01;36m[KRealTimeCorrelativeScanMatcher2D[m[K::ScoreCandidates(
+      |      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d.cc:[m[K In member function ‘[01m[Kstd::pair<float, float> cartographer::mapping::TSDF2D::[01;32m[KGetTSDAndWeight[m[K(const Eigen::Array2i&) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d.cc:89:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kstd::pair<float, float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   89 |     const Eigen::Array2i& cell_index) [01;36m[Kconst[m[K {
+      |                                       [01;36m[K^~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc:[m[K In member function ‘[01m[Kvoid cartographer::mapping::TSDFRangeDataInserter2D::[01;32m[KUpdateCell[m[K(const Eigen::Array2i&, float, float, cartographer::mapping::TSDF2D*) const[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc:231:76:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kstd::pair<float, float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  231 |   const std::pair<float, float> tsd_and_weight = tsdf->GetTSDAndWeight(cell[01;36m[K)[m[K;
+      |                                                                            [01;36m[K^[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/submap_2d.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.h:35[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:94:19:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::[01;32m[Koperator*[m[K(const Rigid2<FloatType>&, const Rigid2<FloatType>&) [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.cc:197:36:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/submaps.h:30[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_interface.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.h:20[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc:90:45:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/submaps.h:30[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_interface.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_interface.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.h:31[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:71:45:[m[K   required from ‘[01m[Kdouble cartographer::transform::Rigid2<FloatType>::[01;32m[Knormalized_angle[m[K() const [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.cc:80:33:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:52:40:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = float; Rotation2D = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:60:40:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:[m[K In function ‘[01m[Kcartographer::transform::proto::Rigid2d cartographer::transform::[01;32m[KToProto[m[K(const Rigid2d&)[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:52:40:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   52 |   proto.set_rotation([01;36m[Ktransform.rotation()[m[K.angle());
+      |                      [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:[m[K In function ‘[01m[Kcartographer::transform::proto::Rigid2f cartographer::transform::[01;32m[KToProto[m[K(const Rigid2f&)[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:60:40:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   60 |   proto.set_rotation([01;36m[Ktransform.rotation()[m[K.angle());
+      |                      [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:[m[K In function ‘[01m[Kcartographer::transform::proto::Rigid2d cartographer::transform::[01;32m[KToProto[m[K(const Rigid2d&)[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:52:40:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   52 |   proto.set_rotation([01;36m[Ktransform.rotation()[m[K.angle());
+      |                      [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:[m[K In function ‘[01m[Kcartographer::transform::proto::Rigid2f cartographer::transform::[01;32m[KToProto[m[K(const Rigid2f&)[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.cc:60:40:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   60 |   proto.set_rotation([01;36m[Ktransform.rotation()[m[K.angle());
+      |                      [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/submaps.h:30[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_interface.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_trimmer.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/overlapping_submaps_trimmer_2d.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/overlapping_submaps_trimmer_2d_test.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K   required from ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/overlapping_submaps_trimmer_2d_test.cc:50:46:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.h:29[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d_test.cc:17[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d_test.cc:40:37:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d_test.cc:178:63:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                             [01;36m[K^~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d_test.cc:17[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d_test.cc:64:24:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/submap_2d.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.h:35[m[K:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), [01;36m[Krotation_(Rotation2D::Identity())[m[K {}
+      |                                            [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  113 |       Eigen::AngleAxis<T>([01;36m[Ktransform.rotation()[m[K.angle(),
+      |                           [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  113 |       Eigen::AngleAxis<T>([01;36m[Ktransform.rotation()[m[K.angle(),
+      |                           [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  113 |       Eigen::AngleAxis<T>([01;36m[Ktransform.rotation()[m[K.angle(),
+      |                           [01;36m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:50:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   75 |     const Rotation2D rotation = [01;36m[Krotation_.inverse()[m[K;
+      |                                 [01;36m[K~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.h:33[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d_test.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = float; Rotation2D = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K   required from ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = float][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d_test.cc:174:48:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d_test.cc:181:24:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Ktypename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::[01;32m[Kcast[m[K() const [35m[K[with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d_test.cc:187:5:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type [01;36m[Kcast[m[K() const
+      |                                                                                                             [01;36m[K^~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), [01;36m[Krotation_(Rotation2D::Identity())[m[K {}
+      |                                            [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), rotation_([01;36m[KRotation2D::Identity()[m[K) {}
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kcast[m[K() const [35m[K[with OtherType = float; FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   63 |                              [01;36m[Krotation_.template cast<OtherType>()[m[K);
+      |                              [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/usr/src/googletest/googletest/include/gtest/gtest.h:72[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d_test.cc:22[m[K:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d_test.cc:[m[K In member function ‘[01m[Kvirtual void cartographer::mapping::{anonymous}::TSDF2DTest_WriteRead_Test::[01;32m[KTestBody[m[K()[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d_test.cc:126:29:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[Kstd::pair<float, float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  126 |         [01;36m[Ktsdf.GetTSDAndWeight(limits.GetCellIndex(Vector2f(-0.5f, 0.5f)))[m[K.first,
+      |         [01;36m[K~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.h:28[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d_test.cc:17[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:58:48:[m[K   required from ‘[01m[Kstatic cartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[KIdentity[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d_test.cc:89:75:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/landmark_cost_function_2d.h:21[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/landmark_cost_function_2d_test.cc:17[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[Kstatic Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[KIdentity[m[K() [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.h:43:8:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+  152 |   EIGEN_DEVICE_FUNC static inline Rotation2D [01;36m[KIdentity[m[K() { return Rotation2D(0); }
+      |                                              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud_test.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = float; Rotation2D = Eigen::Rotation2D<float>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K   required from ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = float][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud_test.cc:38:38:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K
+In file included from [01m[K/usr/include/eigen3/Eigen/Geometry:41[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:25[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:16[m[K:
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Kinverse[m[K() const [35m[K[with _Scalar = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:50:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = float][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:72:3:[m[K   required from ‘[01m[Kvoid cartographer::transform::{anonymous}::RigidTransformTest_Inverse2DTest_Test<gtest_TypeParam_>::[01;32m[KTestBody[m[K() [35m[K[with gtest_TypeParam_ = float][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:70:1:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:98:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   98 |   EIGEN_DEVICE_FUNC inline Rotation2D [01;36m[Kinverse[m[K() const { return Rotation2D(-m_angle); }
+      |                                       [01;36m[K^~~~~~~[m[K
+/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘[01m[KEigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::[01;32m[Kinverse[m[K() const [35m[K[with _Scalar = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:50:[m[K   required from ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:72:3:[m[K   required from ‘[01m[Kvoid cartographer::transform::{anonymous}::RigidTransformTest_Inverse2DTest_Test<gtest_TypeParam_>::[01;32m[KTestBody[m[K() [35m[K[with gtest_TypeParam_ = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:70:1:[m[K   required from here
+[01m[K/usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:98:39:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:44:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), [01;36m[Krotation_(Rotation2D::Identity())[m[K {}
+      |                                            [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kstd::string cartographer::transform::Rigid2<FloatType>::[01;32m[KDebugString[m[K() const [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:82:56:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   82 |                             translation().y(), [01;36m[Krotation()[m[K.angle());
+      |                                                [01;36m[K~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:22:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   75 |     const Rotation2D [01;36m[Krotation[m[K = rotation_.inverse();
+      |                      [01;36m[K^~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::[01;32m[Kinverse[m[K() const [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:22:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), rotation_([01;36m[KRotation2D::Identity()[m[K) {}
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In constructor ‘[01m[Kcartographer::transform::Rigid2<FloatType>::[01;32m[KRigid2[m[K() [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   40 |   Rigid2() : translation_(Vector::Zero()), rotation_([01;36m[KRotation2D::Identity()[m[K) {}
+      |                                                      [01;36m[K~~~~~~~~~~~~~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kstd::string cartographer::transform::Rigid2<FloatType>::[01;32m[KDebugString[m[K() const [35m[K[with FloatType = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:82:56:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   82 |                             translation().y(), [01;36m[Krotation()[m[K.angle());
+      |                                                [01;36m[K~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In member function ‘[01m[Kstd::string cartographer::transform::Rigid2<FloatType>::[01;32m[KDebugString[m[K() const [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:82:56:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   82 |                             translation().y(), [01;36m[Krotation()[m[K.angle());
+      |                                                [01;36m[K~~~~~~~~^~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::[01;32m[Koperator*[m[K(const Rigid2<FloatType>&, const Rigid2<FloatType>&) [35m[K[with FloatType = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:95:22:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   95 |       [01;36m[Klhs.rotation() * rhs.rotation()[m[K);
+      |       [01;36m[K~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:[m[K In function ‘[01m[Kcartographer::transform::Rigid2<FloatType> cartographer::transform::[01;32m[Koperator*[m[K(const Rigid2<FloatType>&, const Rigid2<FloatType>&) [35m[K[with FloatType = double][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:95:22:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   95 |       [01;36m[Klhs.rotation() * rhs.rotation()[m[K);
+      |       [01;36m[K~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test.cc:20[m[K:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test_helpers.h:[m[K In function ‘[01m[KEigen::Transform<T, 2, 2> cartographer::transform::[01;32m[KToEigen[m[K(const Rigid2<FloatType>&) [35m[K[with T = float][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform_test_helpers.h:34:74:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<float>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   34 |   return Eigen::Translation<T, 2>(rigid2.translation()) * [01;36m[Krigid2.rotation()[m[K;
+      |                                                           [01;36m[K~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26[m[K,
+                 from [01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform_test.cc:17[m[K:
+/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘[01m[Kcartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::[01;32m[Krotation[m[K() const [35m[K[with FloatType = double; Rotation2D = Eigen::Rotation2D<double>][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45:[m[K   required from ‘[01m[Kcartographer::transform::Rigid3<FloatType> cartographer::transform::[01;32m[KEmbed3D[m[K(const Rigid2<FloatType>&) [35m[K[with T = double][m[K[m[K’
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/transform_test.cc:69:3:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14:[m[K [01;36m[Knote: [m[Kparameter passing for argument of type ‘[01m[KEigen::Rotation2D<double>[m[K’ when C++17 is enabled changed to match C++14 ]8;;https://gcc.gnu.org/gcc-10/changes.html#empty_basein GCC 10.1]8;;
+   68 |   Rotation2D [01;36m[Krotation[m[K() const { return rotation_; }
+      |              [01;36m[K^~~~~~~~[m[K

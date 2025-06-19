@@ -1,0 +1,4 @@
+numpy
+ros2-numpy
+scikit-learn
+setuptools

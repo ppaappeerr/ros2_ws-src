@@ -1485,3 +1485,207 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "CMakeLists.txt:49 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy"
+      binary: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -fexceptions   -fopenmp"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ba00d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ba00d.dir/build.make CMakeFiles/cmTC_ba00d.dir/build
+        gmake[1]: Entering directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy'
+        Building C object CMakeFiles/cmTC_ba00d.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -fexceptions   -fopenmp  -o CMakeFiles/cmTC_ba00d.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy/test_mpi.c
+        Linking C executable cmTC_ba00d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ba00d.dir/link.txt --verbose=1
+        /usr/bin/cc  -fexceptions   -fopenmp  -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_ba00d.dir/test_mpi.c.o -o cmTC_ba00d  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[1]: Leaving directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-wZjrxy'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "CMakeLists.txt:49 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t"
+      binary: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -fexceptions   -fopenmp"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bb796/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_bb796.dir/build.make CMakeFiles/cmTC_bb796.dir/build
+        gmake[1]: Entering directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t'
+        Building C object CMakeFiles/cmTC_bb796.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -fexceptions   -fopenmp  -o CMakeFiles/cmTC_bb796.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t/test_mpi.c
+        Linking C executable cmTC_bb796
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bb796.dir/link.txt --verbose=1
+        /usr/bin/cc  -fexceptions   -fopenmp  -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_bb796.dir/test_mpi.c.o -o cmTC_bb796  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[1]: Leaving directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-6DxK6t'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "CMakeLists.txt:49 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ"
+      binary: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -fexceptions   -fopenmp"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cce98/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cce98.dir/build.make CMakeFiles/cmTC_cce98.dir/build
+        gmake[1]: Entering directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ'
+        Building C object CMakeFiles/cmTC_cce98.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -fexceptions   -fopenmp  -o CMakeFiles/cmTC_cce98.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ/test_mpi.c
+        Linking C executable cmTC_cce98
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cce98.dir/link.txt --verbose=1
+        /usr/bin/cc  -fexceptions   -fopenmp  -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_cce98.dir/test_mpi.c.o -o cmTC_cce98  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[1]: Leaving directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-EtcqeJ'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "CMakeLists.txt:49 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG"
+      binary: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -fexceptions   -fopenmp"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_31eac/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_31eac.dir/build.make CMakeFiles/cmTC_31eac.dir/build
+        gmake[1]: Entering directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG'
+        Building C object CMakeFiles/cmTC_31eac.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -fexceptions   -fopenmp  -o CMakeFiles/cmTC_31eac.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG/test_mpi.c
+        Linking C executable cmTC_31eac
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_31eac.dir/link.txt --verbose=1
+        /usr/bin/cc  -fexceptions   -fopenmp  -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_31eac.dir/test_mpi.c.o -o cmTC_31eac  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[1]: Leaving directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-2DLzzG'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "CMakeLists.txt:49 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj"
+      binary: "/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -fexceptions   -fopenmp"
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0890a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0890a.dir/build.make CMakeFiles/cmTC_0890a.dir/build
+        gmake[1]: Entering directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj'
+        Building C object CMakeFiles/cmTC_0890a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi -fexceptions   -fopenmp  -o CMakeFiles/cmTC_0890a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj/test_mpi.c
+        Linking C executable cmTC_0890a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0890a.dir/link.txt --verbose=1
+        /usr/bin/cc  -fexceptions   -fopenmp  -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_0890a.dir/test_mpi.c.o -o cmTC_0890a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[1]: Leaving directory '/home/p/ros2_ws/src/build/spark_fast_lio/CMakeFiles/CMakeScratch/TryCompile-iDPcjj'
+        
+      exitCode: 0
+...

@@ -1,0 +1,7 @@
+[console_scripts]
+ground_aligned_scan_node = sweep_builder.ground_aligned_scan_node:main
+leveled_scan_node = sweep_builder.leveled_scan_node:main
+lidar_imu_filtered_to_pointcloud = sweep_builder.lidar_imu_filtered_to_pointcloud:main
+lidar_imu_to_pointcloud = sweep_builder.lidar_imu_to_pointcloud:main
+point_preprocessor_node = sweep_builder.point_preprocessor_node:main
+sweep_accmulator_node = sweep_builder.sweep_accumulator_node:main
