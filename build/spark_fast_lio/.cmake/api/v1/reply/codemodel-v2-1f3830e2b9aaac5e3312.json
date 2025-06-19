@@ -1,0 +1,97 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Release-b5ac2f2471e677b05c11.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "spark_fast_lio",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ikd_tree::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ikd_tree-Release-75fd62ad5b6352adde91.json",
+					"name" : "ikd_tree",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spark_fast_lio_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spark_fast_lio_uninstall-Release-4d0583e4daa99409a90d.json",
+					"name" : "spark_fast_lio_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spark_lio_component::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spark_lio_component-Release-388f5ff22b3713b14946.json",
+					"name" : "spark_lio_component",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "spark_lio_mapping::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-spark_lio_mapping-Release-825715d7219230a1e0cc.json",
+					"name" : "spark_lio_mapping",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-Release-ffdef65117e7bb30e711.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/p/ros2_ws/src/build/spark_fast_lio",
+		"source" : "/home/p/ros2_ws/src/spark-fast-lio/spark_fast_lio"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
