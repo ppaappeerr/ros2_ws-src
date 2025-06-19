@@ -61,7 +61,7 @@ private:
 public:
     ICP3DOdomNode() : Node("icp_3d_odom_cpp") {
         // 파라미터 선언
-        this->declare_parameter("input_topic", "/formatted_cloud");
+        this->declare_parameter("input_topic", "/points_3d");
         this->declare_parameter("output_topic", "/lio_odom");
         this->declare_parameter("max_correspondence_distance", 0.1);
         this->declare_parameter("max_iterations", 50);

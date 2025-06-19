@@ -31,6 +31,12 @@ setup(
             'ground_aligned_scan_node = sweep_builder.ground_aligned_scan_node:main',
             'sweep_accmulator_node = sweep_builder.sweep_accumulator_node:main',
             'point_preprocessor_node = sweep_builder.point_preprocessor_node:main',
+            'sweep_xy_filter_node = sweep_builder.sweep_xy_filter_node:main',
+            'sweep_node = sweep_builder.sweep_node:main',
+            'accumulator_node = sweep_builder.accumulator_node:main',
+            'preproc_front_filter_node = sweep_builder.preproc_front_filter_node:main',
+            #'lidar_imu_to_pointcloud_front_node = sweep_builder.lidar_imu_to_pointcloud_front_node:main',
+            'lidar_imu_to_pointcloud_front = sweep_builder.lidar_imu_filtered_to_pointcloud_front:main',  # 수정
         ],
     },
 )

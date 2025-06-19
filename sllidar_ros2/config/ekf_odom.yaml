@@ -1,17 +1,17 @@
-frequency: 50
+frequency: 50.0
 two_d_mode: true
 publish_tf: true
 base_link_frame: base_link
 odom_frame: odom
 
-imu0: imu/data
+imu0: /imu/data
 imu0_config: [false, false, false,
               false, false, true,   # IMU 데이터에서 Yaw만 사용
               false, false, true,   # IMU에서 각속도(z) 사용
               false, false, false,
               false, false, false]
 
-odom0: odom_icp
+odom0: /lio_odom
 odom0_config: [true, true, false,   # ICP로부터 x,y 위치 사용
                false, false, true,  # ICP에서 Yaw 사용
                true, true, false,   # ICP에서 선속도 사용

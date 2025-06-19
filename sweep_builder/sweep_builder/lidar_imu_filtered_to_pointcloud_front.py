@@ -5,13 +5,22 @@ from rclpy.node import Node
 from sensor_msgs.msg import PointField
 from scipy.spatial.transform import Rotation as R
 
-class LidarImuToPointCloudNode(Node):
+class LidarImuToPointCloudFrontNode(Node):
     def __init__(self):
-        super().__init__('lidar_imu_to_pointcloud_node')
+        super().__init__('lidar_imu_to_pointcloud_front_node')
+        
+        # 파라미터 선언 (전방 FOV 각도)
+        self.declare_parameter('front_fov_deg', 180.0)  # 전방 ±90도
+        
+        self.front_fov_deg = self.get_parameter('front_fov_deg').value
+        self.half_fov_rad = np.deg2rad(self.front_fov_deg / 2.0)  # ±90도 → ±π/2
+        
         self.create_subscription(LaserScan,'/scan',self.scan_cb,10)
         self.create_subscription(Imu,'/imu/data',self.imu_cb,50)
         self.points_3d_publisher = self.create_publisher(PointCloud2,'/points_3d',10)
         self.q_imu = [0,0,0,1]
+        
+        self.get_logger().info(f'Front LiDAR node started - FOV: ±{self.front_fov_deg/2.0}°')
 
     def imu_cb(self,msg:Imu):
         self.q_imu = [msg.orientation.x,msg.orientation.y,
@@ -24,15 +33,20 @@ class LidarImuToPointCloudNode(Node):
         
         for i, (dist, angle) in enumerate(zip(scan.ranges, angles)):
             if scan.range_min < dist < scan.range_max:
-                # 기존 3D 좌표 계산
-                point_2d = np.array([dist * np.cos(angle), dist * np.sin(angle), 0])
-                point_3d_rotated = R.from_quat(self.q_imu).apply(point_2d)
                 
-                # 각 포인트의 상대적 시간(offset) 계산
-                time_offset = i * time_increment
-                
-                # x, y, z와 함께 time_offset 추가
-                points.append([point_3d_rotated[0], point_3d_rotated[1], point_3d_rotated[2], time_offset])
+                # **전방 FOV 필터링** (LiDAR +X축이 전방)
+                # angle이 ±90도 범위 안에 있는지 확인
+                if abs(angle) <= self.half_fov_rad:
+                    
+                    # 기존 3D 좌표 계산
+                    point_2d = np.array([dist * np.cos(angle), dist * np.sin(angle), 0])
+                    point_3d_rotated = R.from_quat(self.q_imu).apply(point_2d)
+                    
+                    # 각 포인트의 상대적 시간(offset) 계산
+                    time_offset = i * time_increment
+                    
+                    # x, y, z와 함께 time_offset 추가
+                    points.append([point_3d_rotated[0], point_3d_rotated[1], point_3d_rotated[2], time_offset])
 
         if not points:
             return
@@ -61,6 +75,12 @@ class LidarImuToPointCloudNode(Node):
             data=np.asarray(points, dtype=np.float32).tobytes()
         )
         self.points_3d_publisher.publish(point_cloud_msg)
+        
+        # 디버그 정보 (필요시 주석 해제)
+        # self.get_logger().debug(f'Published {len(points)} front points (FOV: ±{self.front_fov_deg/2.0}°)')
 
 def main():
-    rclpy.init(); rclpy.spin(LidarImuToPointCloudNode()); rclpy.shutdown()
+    rclpy.init(); rclpy.spin(LidarImuToPointCloudFrontNode()); rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

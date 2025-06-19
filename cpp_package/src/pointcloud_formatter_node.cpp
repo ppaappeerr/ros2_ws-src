@@ -2,114 +2,155 @@
 #include <sensor_msgs/msg/laser_scan.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
-
-// 1단계에서 추가한 PCL 관련 헤더
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
+#include "cpp_package/point_types.h" // 2단계에서 만든 커스텀 포인트 타입
 
-// 2단계에서 새로 만든 커스텀 포인트 타입 헤더 포함
-#include "cpp_package/point_types.h"
-
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
-
+#include <Eigen/Dense>
+#include <deque>
+#include <mutex>
+#include <algorithm>
 
 class PointCloudFormatterNode : public rclcpp::Node
 {
 public:
     PointCloudFormatterNode() : Node("pointcloud_formatter_node")
     {
-        auto sensor_qos = rclcpp::SensorDataQoS();
+        // QoS 설정: 센서 데이터는 Best-Effort, 발행은 RViz2와 호환되도록 Reliable
+        auto sub_qos = rclcpp::QoS(rclcpp::KeepLast(200)).best_effort();
+        auto pub_qos = rclcpp::QoS(rclcpp::KeepLast(10)).reliable();
 
         scan_sub_ = this->create_subscription<sensor_msgs::msg::LaserScan>(
-            "/scan", sensor_qos, std::bind(&PointCloudFormatterNode::scan_callback, this, std::placeholders::_1));
+            "/scan", sub_qos, std::bind(&PointCloudFormatterNode::scan_callback, this, std::placeholders::_1));
 
         imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
-            "/imu/data", sensor_qos, std::bind(&PointCloudFormatterNode::imu_callback, this, std::placeholders::_1));
+            "/imu/data", sub_qos, std::bind(&PointCloudFormatterNode::imu_callback, this, std::placeholders::_1));
+        
+        cloud_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/formatted_cloud", pub_qos);
 
-        cloud_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/formatted_cloud", 10);
+        this->declare_parameter<double>("imu_buffer_seconds", 2.0);
+        imu_buffer_duration_ = std::chrono::duration<double>(this->get_parameter("imu_buffer_seconds").as_double());
 
-        RCLCPP_INFO(this->get_logger(), "C++ PointCloud Formatter Node has been started.");
+        RCLCPP_INFO(this->get_logger(), "PointCloud Formatter Final Version (IMU Slerp Interpolation) started.");
     }
 
 private:
+    void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg)
+    {
+        std::lock_guard<std::mutex> lock(imu_mutex_);
+        imu_buffer_.push_back(msg);
+        rclcpp::Time now = this->get_clock()->now();
+        while (!imu_buffer_.empty() && (now - imu_buffer_.front()->header.stamp) > imu_buffer_duration_) {
+            imu_buffer_.pop_front();
+        }
+    }
+
     void scan_callback(const sensor_msgs::msg::LaserScan::SharedPtr scan_msg)
     {
-        // 1. IMU 데이터가 없으면 아무 작업도 하지 않음
-        if (!latest_imu_msg_) {
-            RCLCPP_WARN_ONCE(this->get_logger(), "No IMU data received yet. Skipping scan.");
+        std::lock_guard<std::mutex> lock(imu_mutex_);
+        if (imu_buffer_.size() < 2) {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, "IMU buffer is not ready for interpolation. (Need at least 2 messages)");
             return;
         }
 
-        // 2. 커스텀 포인트 타입을 사용하는 PCL 포인트 클라우드 생성
+        rclcpp::Time scan_start_time = scan_msg->header.stamp;
+        double scan_duration = scan_msg->time_increment * (scan_msg->ranges.size() - 1);
+        rclcpp::Time scan_end_time = scan_start_time + rclcpp::Duration::from_seconds(scan_duration);
+
+        // [안전 장치] 스캔 전체를 커버할 만큼의 IMU 데이터가 버퍼에 있는지 확인
+        if (scan_end_time > imu_buffer_.back()->header.stamp) {
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000, "Scan data is newer than IMU buffer. Waiting for more IMU data.");
+            return;
+        }
+
         pcl::PointCloud<PointLIO> cloud_out;
-        cloud_out.header.frame_id = "laser"; // PCL 헤더에 프레임 ID 설정
-        pcl_conversions::toPCL(scan_msg->header.stamp, cloud_out.header.stamp);
+        cloud_out.header.frame_id = "laser";
+        pcl_conversions::toPCL(scan_start_time, cloud_out.header.stamp);
 
-        // IMU 데이터로부터 회전(Quaternion) 정보 가져오기
-        tf2::Quaternion imu_quat;
-        tf2::fromMsg(latest_imu_msg_->orientation, imu_quat);
-
-        // 3. LaserScan의 각 포인트를 순회하며 변환
         for (size_t i = 0; i < scan_msg->ranges.size(); ++i)
         {
             float range = scan_msg->ranges[i];
+            if (range < scan_msg->range_min || range > scan_msg->range_max) continue;
 
-            // 유효한 거리 값만 처리
-            if (std::isinf(range) || std::isnan(range)) {
-                continue;
-            }
+            double point_time_offset_sec = scan_msg->time_increment * i;
+            rclcpp::Time point_time = scan_start_time + rclcpp::Duration::from_seconds(point_time_offset_sec);
 
-            // 2D 좌표 계산
+            Eigen::Quaterniond point_orientation;
+            if (!interpolate_orientation(point_time, point_orientation)) continue;
+
             float angle = scan_msg->angle_min + i * scan_msg->angle_increment;
+            // IMU 좌표계 기준 2D 포인트를 생성 후, 보간된 방향으로 회전시켜 3D 포인트 생성
+            Eigen::Vector3d point_2d(range * cos(angle), range * sin(angle), 0.0);
+            Eigen::Vector3d point_3d = point_orientation.conjugate() * point_2d;
 
-            // 3D로 변환 (아직은 Z=0 평면에 있음)
-            tf2::Vector3 point_2d(range * cos(angle), range * sin(angle), 0.0);
-
-            // IMU 회전을 적용하여 3D 좌표로 변환
-            tf2::Vector3 point_3d = tf2::quatRotate(imu_quat, point_2d);
-
-            // 4. 우리만의 커스텀 포인트(PointLIO)를 만들고 값 채우기
             PointLIO point;
-            point.x = point_3d.x();
-            point.y = point_3d.y();
-            point.z = point_3d.z();
-
-            // 누락된 필드들을 임의의 값으로 채워넣기
-            point.intensity = 1.0f; // 강도 정보가 없으므로 1.0으로 고정
-            point.tag = 0;          // 태그 정보 없으므로 0으로 고정
-            point.line = 0;         // 2D LiDAR는 라인이 1개이므로 0으로 고정
-
-            // TODO (3단계): 여기에 정확한 타임스탬프 계산 로직 추가
-            point.timestamp = 0.0; // 우선 0.0으로 초기화
+            point.x = static_cast<float>(point_3d.x());
+            point.y = static_cast<float>(point_3d.y());
+            point.z = static_cast<float>(point_3d.z());
+            point.intensity = 1.0f;
+            point.tag = 0;
+            point.line = 0;
+            point.timestamp = point_time_offset_sec; // Fast-LIO는 초 단위의 상대 시간을 사용
 
             cloud_out.points.push_back(point);
         }
 
-        // 5. PCL 포인트 클라우드를 ROS2 메시지로 변환하여 발행
+        if (cloud_out.points.empty()) return;
+
         sensor_msgs::msg::PointCloud2 cloud_msg_out;
         pcl::toROSMsg(cloud_out, cloud_msg_out);
-        cloud_msg_out.header.stamp = scan_msg->header.stamp; // 원본 스캔의 타임스탬프 사용
-        cloud_msg_out.header.frame_id = "laser";          // 프레임 ID 설정
+        cloud_msg_out.header.stamp = scan_start_time;
+        cloud_msg_out.header.frame_id = "laser";
         cloud_pub_->publish(cloud_msg_out);
     }
-
-    void imu_callback(const sensor_msgs::msg::Imu::SharedPtr msg)
+    
+    bool interpolate_orientation(const rclcpp::Time& target_time, Eigen::Quaterniond& output)
     {
-        latest_imu_msg_ = msg;
+        if (imu_buffer_.size() < 2) return false;
+
+        auto it_after = std::lower_bound(imu_buffer_.begin(), imu_buffer_.end(), target_time, 
+            [](const sensor_msgs::msg::Imu::SharedPtr& msg, const rclcpp::Time& t) {
+                return rclcpp::Time(msg->header.stamp) < t;
+            });
+
+        if (it_after == imu_buffer_.begin() || it_after == imu_buffer_.end()) return false;
+
+        auto it_before = std::prev(it_after);
+        
+        const auto& imu1 = *it_before;
+        const auto& imu2 = *it_after;
+        rclcpp::Time t1 = imu1->header.stamp;
+        rclcpp::Time t2 = imu2->header.stamp;
+
+        double total_diff = (t2 - t1).seconds();
+        if (total_diff <= 1e-6) {
+             output = Eigen::Quaterniond(imu1->orientation.w, imu1->orientation.x, imu1->orientation.y, imu1->orientation.z);
+             return true;
+        }
+
+        double factor = (target_time - t1).seconds() / total_diff;
+        Eigen::Quaterniond q1(imu1->orientation.w, imu1->orientation.x, imu1->orientation.y, imu1->orientation.z);
+        Eigen::Quaterniond q2(imu2->orientation.w, imu2->orientation.x, imu2->orientation.y, imu2->orientation.z);
+        
+        output = q1.slerp(factor, q2).normalized();
+        return true;
     }
 
     rclcpp::Subscription<sensor_msgs::msg::LaserScan>::SharedPtr scan_sub_;
     rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr cloud_pub_;
-    sensor_msgs::msg::Imu::SharedPtr latest_imu_msg_ = nullptr;
+    
+    std::deque<sensor_msgs::msg::Imu::SharedPtr> imu_buffer_;
+    std::mutex imu_mutex_;
+    std::chrono::duration<double> imu_buffer_duration_;
 };
 
 int main(int argc, char * argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<PointCloudFormatterNode>());
+    auto node = std::make_shared<PointCloudFormatterNode>();
+    rclcpp::spin(node);
     rclcpp::shutdown();
     return 0;
 }

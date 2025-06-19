@@ -88,20 +88,6 @@ def generate_launch_description():
     #     output='screen'
     # )
 
-    # RViz 설정
-    rviz_config_dir = os.path.join(
-        get_package_share_directory('sllidar_ros2'),
-        'rviz',
-        'sllidar_with_imu.rviz')
-
-    rviz_node = Node(
-        package='rviz2',
-        executable='rviz2',
-        name='rviz2',
-        arguments=['-d', rviz_config_dir],
-        output='screen'
-    )
-
     return LaunchDescription([
         DeclareLaunchArgument('channel_type', default_value='serial'),
         DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
@@ -115,5 +101,4 @@ def generate_launch_description():
         pointcloud_node,
         ekf_node,
         #icp_odom_node,
-        rviz_node
     ])

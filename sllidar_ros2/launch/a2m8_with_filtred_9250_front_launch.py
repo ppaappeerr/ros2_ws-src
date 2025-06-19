@@ -55,18 +55,21 @@ def generate_launch_description():
         executable='mpu9250_filtered',
         name='mpu9250_filtered_node',
         parameters=[{
-            'calibration_path': calib_path,  # 올바른 경로
+            'calibration_path': calib_path,
             'frame_id': 'imu_link',
             'publish_rate': 100.0
         }],
         output='screen'
     )
 
-    # 라이다-IMU 포인트클라우드 변환 노드
+    # 전방 FOV 라이다-IMU 포인트클라우드 변환 노드 (수정됨)
     pointcloud_node = Node(
         package='sweep_builder',
-        executable='lidar_imu_filtered_to_pointcloud',
-        name='lidar_imu_to_pointcloud',
+        executable='lidar_imu_to_pointcloud_front',  # 올바른 실행파일 이름
+        name='lidar_imu_to_pointcloud_front',
+        parameters=[{
+            'front_fov_deg': 180.0  # 전방 ±90도
+        }],
         output='screen'
     )
 
@@ -78,15 +81,6 @@ def generate_launch_description():
         parameters=[os.path.expanduser('~/ros2_ws/src/sllidar_ros2/config/ekf_odom.yaml')],
         output='screen'
     )
-
-    # ICP 오도메트리 노드
-    # icp_odom_node = Node(
-    #     package='lidar_icp_odometry',
-    #     executable='icp_odom_node',
-    #     name='icp_odom_node',
-    #     parameters=[{'input_cloud_topic': 'points_3d'}],
-    #     output='screen'
-    # )
 
     # RViz 설정
     rviz_config_dir = os.path.join(
@@ -114,6 +108,5 @@ def generate_launch_description():
         imu_node,
         pointcloud_node,
         ekf_node,
-        #icp_odom_node,
         rviz_node
     ])

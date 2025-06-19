@@ -1,0 +1,86 @@
+import rclpy, time
+from rclpy.node import Node
+from sensor_msgs.msg import PointCloud2, PointField
+from std_msgs.msg import Header
+from std_srvs.srv import Empty
+import sensor_msgs_py.point_cloud2 as pc2
+import numpy as np
+
+class AccumulatorNode(Node):
+    def __init__(self):
+        super().__init__('accumulator_node')
+
+        # ───── 파라미터 ─────────────────────────────────────────────
+        self.declare_parameter('in_pc_topic',  'points_3d')  # sweep 노드에서 받음
+        self.declare_parameter('voxel_leaf',     0.1)          # [m] 누적 맵 voxel
+
+        self.in_pc_topic  = self.get_parameter('in_pc_topic').value
+        self.voxel_leaf   = self.get_parameter('voxel_leaf').value
+
+        # ───── 구독/발행 ────────────────────────────────────────────
+        self.sub_pc = self.create_subscription(PointCloud2,
+                                               self.in_pc_topic,
+                                               self.pc_cb, 10)
+
+        self.pub_map = self.create_publisher(PointCloud2, 'map_cloud', 3)
+        self.srv_reset = self.create_service(Empty, 'reset_map', self.reset_cb)
+
+        # ───── 내부 버퍼 ────────────────────────────────────────────
+        self.map_pc = np.empty((0, 3), np.float32)
+        self.timer = self.create_timer(0.5, self.flush_map)  # 0.5초마다 맵 퍼블리시
+
+    # ────────────────────────────────────────────────────────────────
+    def pc_cb(self, msg: PointCloud2):
+        pts = np.array([[p[0], p[1], p[2]] for p in
+                        pc2.read_points(msg, field_names=("x","y","z"), skip_nans=True)],
+                       dtype=np.float32)
+        if pts.shape[0] == 0:
+            return
+
+        # ── 누적 맵에 추가
+        if self.map_pc.shape[0] == 0:
+            self.map_pc = pts
+        else:
+            self.map_pc = np.vstack((self.map_pc, pts))
+            
+        # 메모리 관리 - 너무 많으면 오래된 것 제거
+        if self.map_pc.shape[0] > 1000000:  # 100만 포인트 제한
+            self.map_pc = self.map_pc[-500000:]  # 최근 50만 포인트만 유지
+
+    # ────────────────────────────────────────────────────────────────
+    def flush_map(self):
+        if self.map_pc.shape[0] == 0:
+            return
+            
+        # 간단한 다운샘플링 (매 N번째 포인트만)
+        step = max(1, int(self.voxel_leaf / 0.01))
+        pc_ds = self.map_pc[::step]
+        
+        stamp = self.get_clock().now().to_msg()
+        header = Header(stamp=stamp, frame_id='base_link')
+        self.pub_map.publish(self.np2msg(pc_ds, header, 'base_link'))
+
+    # ────────────────────────────────────────────────────────────────
+    def reset_cb(self, req, resp):
+        self.map_pc = np.empty((0, 3), np.float32)
+        self.get_logger().info("Accumulated map cleared")
+        return resp
+
+    def np2msg(self, pts: np.ndarray, hdr, frame) -> PointCloud2:
+        hdr.frame_id = frame
+        fields = [
+            PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
+            PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
+            PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1)
+        ]
+        return pc2.create_cloud(hdr, fields, pts)
+
+def main(args=None):
+    rclpy.init(args=args)
+    node = AccumulatorNode()
+    rclpy.spin(node)
+    node.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()

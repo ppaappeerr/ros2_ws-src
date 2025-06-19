@@ -65,6 +65,7 @@ ament_target_dependencies(pointcloud_formatter_node
   tf2_ros
   tf2_geometry_msgs
   pcl_conversions
+  Eigen3
 )
 
 # 실행 파일 설치
