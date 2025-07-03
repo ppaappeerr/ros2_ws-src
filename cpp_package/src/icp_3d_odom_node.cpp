@@ -1,10 +1,13 @@
 #include <rclcpp/rclcpp.hpp>
 #include <sensor_msgs/msg/point_cloud2.hpp>
+#include <sensor_msgs/msg/imu.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <geometry_msgs/msg/pose.hpp>
 #include <geometry_msgs/msg/twist.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
@@ -13,18 +16,25 @@
 #include <pcl/registration/icp_nl.h>
 #include <pcl_conversions/pcl_conversions.h>
 
+#include <message_filters/subscriber.h>
+#include <message_filters/synchronizer.h>
+#include <message_filters/sync_policies/approximate_time.h>
+
 #include <Eigen/Dense>
 #include <Eigen/Geometry>
 
 #include <memory>
 #include <vector>
+#include <deque>
 #include <chrono>
 
 class ICP3DOdomNode : public rclcpp::Node {
 private:
     // ROS2 인터페이스
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr pc_sub_;
+    rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odom_pub_;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr corrected_cloud_pub_;
     std::shared_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
     
     // PCL 포인트클라우드
@@ -43,12 +53,18 @@ private:
     double voxel_size_;
     bool publish_tf_;
     
-    // 성능 최적화 추가
+    // 성능 최적화 파라미터
     double max_processing_time_;
     size_t min_points_threshold_;
     size_t max_points_threshold_;
     bool adaptive_voxel_size_;
     double base_voxel_size_;
+
+    // 모션 왜곡 보정 파라미터
+    bool enable_motion_correction_;
+    double imu_buffer_duration_;
+    std::string odom_frame_;
+    std::string base_frame_;
 
     // 시간 추적
     rclcpp::Time last_time_;
@@ -57,21 +73,30 @@ private:
     // 성능 통계
     size_t scan_count_;
     double total_icp_time_;
+    
+    // IMU 데이터 버퍼
+    std::deque<sensor_msgs::msg::Imu> imu_buffer_;
+    std::mutex imu_buffer_mutex_;
 
 public:
     ICP3DOdomNode() : Node("icp_3d_odom_cpp") {
         // 파라미터 선언
         this->declare_parameter("input_topic", "/points_3d");
+        this->declare_parameter("imu_topic", "/imu/data");
         this->declare_parameter("output_topic", "/lio_odom");
+        this->declare_parameter("odom_frame", "odom");
+        this->declare_parameter("base_frame", "base_link");
         this->declare_parameter("max_correspondence_distance", 0.1);
         this->declare_parameter("max_iterations", 50);
         this->declare_parameter("transformation_epsilon", 1e-8);
         this->declare_parameter("euclidean_fitness_epsilon", 1e-6);
         this->declare_parameter("voxel_size", 0.05);
         this->declare_parameter("publish_tf", true);
+        this->declare_parameter("enable_motion_correction", true);
+        this->declare_parameter("imu_buffer_duration", 2.0);
         
-        // 성능 파라미터 추가
-        this->declare_parameter("max_processing_time", 30.0);  // 30ms 제한
+        // 성능 파라미터
+        this->declare_parameter("max_processing_time", 30.0);
         this->declare_parameter("min_points_threshold", 50);
         this->declare_parameter("max_points_threshold", 2000);
         this->declare_parameter("adaptive_voxel_size", true);
@@ -83,6 +108,10 @@ public:
         euclidean_fitness_epsilon_ = this->get_parameter("euclidean_fitness_epsilon").as_double();
         voxel_size_ = this->get_parameter("voxel_size").as_double();
         publish_tf_ = this->get_parameter("publish_tf").as_bool();
+        enable_motion_correction_ = this->get_parameter("enable_motion_correction").as_bool();
+        imu_buffer_duration_ = this->get_parameter("imu_buffer_duration").as_double();
+        odom_frame_ = this->get_parameter("odom_frame").as_string();
+        base_frame_ = this->get_parameter("base_frame").as_string();
         
         max_processing_time_ = this->get_parameter("max_processing_time").as_double();
         min_points_threshold_ = this->get_parameter("min_points_threshold").as_int();
@@ -100,9 +129,18 @@ public:
         pc_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             this->get_parameter("input_topic").as_string(), 10,
             std::bind(&ICP3DOdomNode::pointCloudCallback, this, std::placeholders::_1));
+        
+        if (enable_motion_correction_) {
+            imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
+                this->get_parameter("imu_topic").as_string(), 50,
+                std::bind(&ICP3DOdomNode::imuCallback, this, std::placeholders::_1));
+        }
             
         odom_pub_ = this->create_publisher<nav_msgs::msg::Odometry>(
             this->get_parameter("output_topic").as_string(), 10);
+        
+        corrected_cloud_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(
+            "/corrected_cloud", 10);
         
         if (publish_tf_) {
             tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
@@ -112,13 +150,23 @@ public:
         RCLCPP_INFO(this->get_logger(), "Input: %s -> Output: %s", 
                    this->get_parameter("input_topic").as_string().c_str(),
                    this->get_parameter("output_topic").as_string().c_str());
-        RCLCPP_INFO(this->get_logger(), "ICP params: max_dist=%.3f, max_iter=%d, voxel=%.3f", 
-                   max_correspondence_distance_, max_iterations_, voxel_size_);
-        RCLCPP_INFO(this->get_logger(), "Performance params: max_time=%.1fms, points=[%zu-%zu]", 
-                   max_processing_time_, min_points_threshold_, max_points_threshold_);
+        RCLCPP_INFO(this->get_logger(), "Motion correction: %s", 
+                   enable_motion_correction_ ? "enabled" : "disabled");
     }
 
 private:
+    void imuCallback(const sensor_msgs::msg::Imu::SharedPtr msg) {
+        std::lock_guard<std::mutex> lock(imu_buffer_mutex_);
+        imu_buffer_.push_back(*msg);
+        
+        // 버퍼 크기 관리
+        rclcpp::Time current_time = this->get_clock()->now();
+        while (!imu_buffer_.empty() && 
+               (current_time - imu_buffer_.front().header.stamp).seconds() > imu_buffer_duration_) {
+            imu_buffer_.pop_front();
+        }
+    }
+    
     void pointCloudCallback(const sensor_msgs::msg::PointCloud2::SharedPtr msg) {
         auto start_time = std::chrono::high_resolution_clock::now();
         
@@ -130,8 +178,20 @@ private:
             return;
         }
         
-        // 🚀 최적화 1: 빠른 전처리
-        PointCloudPtr current_cloud_processed = preprocessCloud(current_cloud);
+        // 모션 왜곡 보정 적용
+        PointCloudPtr corrected_cloud = current_cloud;
+        if (enable_motion_correction_) {
+            corrected_cloud = applyMotionCorrection(current_cloud, msg->header);
+            
+            // 보정된 포인트클라우드 발행 (디버깅용)
+            sensor_msgs::msg::PointCloud2 corrected_msg;
+            pcl::toROSMsg(*corrected_cloud, corrected_msg);
+            corrected_msg.header = msg->header;
+            corrected_cloud_pub_->publish(corrected_msg);
+        }
+        
+        // 전처리
+        PointCloudPtr current_cloud_processed = preprocessCloud(corrected_cloud);
         
         if (current_cloud_processed->size() < min_points_threshold_) {
             RCLCPP_DEBUG(this->get_logger(), "Too few points: %zu", current_cloud_processed->size());
@@ -146,7 +206,7 @@ private:
             return;
         }
         
-        // 🚀 최적화 2: 시간 제한 ICP
+        // ICP 수행
         if (prev_cloud_ && !prev_cloud_->empty()) {
             auto icp_start = std::chrono::high_resolution_clock::now();
             
@@ -155,7 +215,6 @@ private:
             auto icp_end = std::chrono::high_resolution_clock::now();
             double icp_time = std::chrono::duration<double, std::milli>(icp_end - icp_start).count();
             
-            // 🚀 최적화 3: 적응적 품질 체크
             double fitness_threshold = adaptive_voxel_size_ ? 
                 std::min(0.3, 0.1 + current_cloud_processed->size() / 10000.0) : 0.2;
             
@@ -183,23 +242,103 @@ private:
         auto end_time = std::chrono::high_resolution_clock::now();
         double total_time = std::chrono::duration<double, std::milli>(end_time - start_time).count();
         
-        // 경고 임계값 상향 조정
         if (total_time > max_processing_time_) {
-            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000,  // 2초마다만 경고
+            RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 2000,
                                 "Slow processing: %.1fms (points: %zu)", 
                                 total_time, current_cloud_processed->size());
         }
     }
     
-    // 🚀 최적화된 전처리 함수
+    // 모션 왜곡 보정 함수
+    PointCloudPtr applyMotionCorrection(const PointCloudPtr& cloud, const std_msgs::msg::Header& header) {
+        PointCloudPtr corrected_cloud(new PointCloud);
+        corrected_cloud->reserve(cloud->size());
+        
+        std::lock_guard<std::mutex> lock(imu_buffer_mutex_);
+        
+        if (imu_buffer_.empty()) {
+            RCLCPP_DEBUG(this->get_logger(), "No IMU data for motion correction");
+            return cloud;
+        }
+        
+        rclcpp::Time scan_time = header.stamp;
+        
+        for (const auto& point : cloud->points) {
+            // 여기서는 간단히 전체 스캔에 대해 보정 적용
+            // 실제로는 각 포인트의 시간을 추정해야 함
+            tf2::Quaternion correction_quat;
+            if (interpolateImuOrientation(scan_time, correction_quat)) {
+                // 포인트를 IMU 자세로 보정
+                tf2::Vector3 point_vec(point.x, point.y, point.z);
+                tf2::Vector3 corrected_vec = tf2::quatRotate(correction_quat, point_vec);
+                
+                pcl::PointXYZ corrected_point;
+                corrected_point.x = corrected_vec.x();
+                corrected_point.y = corrected_vec.y();
+                corrected_point.z = corrected_vec.z();
+                corrected_cloud->push_back(corrected_point);
+            } else {
+                corrected_cloud->push_back(point);
+            }
+        }
+        
+        return corrected_cloud;
+    }
+    
+    // IMU 자세 보간 함수
+    bool interpolateImuOrientation(const rclcpp::Time& target_time, tf2::Quaternion& output_quat) {
+        if (imu_buffer_.size() < 2) {
+            return false;
+        }
+        
+        sensor_msgs::msg::Imu before, after;
+        bool found = false;
+        
+        for (size_t i = 0; i < imu_buffer_.size() - 1; ++i) {
+            rclcpp::Time t1 = imu_buffer_[i].header.stamp;
+            rclcpp::Time t2 = imu_buffer_[i + 1].header.stamp;
+            
+            if (t1 <= target_time && target_time <= t2) {
+                before = imu_buffer_[i];
+                after = imu_buffer_[i + 1];
+                found = true;
+                break;
+            }
+        }
+        
+        if (!found) {
+            return false;
+        }
+        
+        // ROS2 Time 간의 올바른 연산 방법
+        rclcpp::Time after_time = after.header.stamp;
+        rclcpp::Time before_time = before.header.stamp;
+        rclcpp::Duration dt = after_time - before_time;
+        rclcpp::Duration target_dt = target_time - before_time;
+        
+        // 0으로 나누기 방지
+        if (dt.seconds() <= 0.0) {
+            tf2::fromMsg(before.orientation, output_quat);
+            return true;
+        }
+        
+        double ratio = std::clamp(target_dt.seconds() / dt.seconds(), 0.0, 1.0);
+        
+        tf2::Quaternion q1, q2;
+        tf2::fromMsg(before.orientation, q1);
+        tf2::fromMsg(after.orientation, q2);
+        
+        output_quat = q1.slerp(q2, ratio);
+        return true;
+    }
+    
+    // 기존 함수들은 동일하게 유지
     PointCloudPtr preprocessCloud(const PointCloudPtr& cloud) {
         PointCloudPtr cloud_processed(new PointCloud);
         
-        // 1. 빠른 유효성 체크 + 범위 필터링
         cloud_processed->reserve(cloud->size());
         for (const auto& point : cloud->points) {
             if (std::isfinite(point.x) && std::isfinite(point.y) && std::isfinite(point.z)) {
-                // 더 엄격한 범위 체크 (속도 향상)
                 if (std::abs(point.x) < 8.0 && std::abs(point.y) < 8.0 && 
                     point.z > -2.0 && point.z < 3.0) {
                     cloud_processed->push_back(point);
@@ -207,9 +346,7 @@ private:
             }
         }
         
-        // 2. 적응적 다운샘플링
         if (cloud_processed->size() > max_points_threshold_) {
-            // 포인트 수가 많으면 voxel 크기 증가
             double adaptive_voxel = adaptive_voxel_size_ ? 
                 base_voxel_size_ * (1.0 + cloud_processed->size() / 5000.0) : base_voxel_size_;
             
@@ -225,22 +362,18 @@ private:
         return cloud_processed;
     }
     
-    // 🚀 최적화된 ICP 함수
     std::tuple<Eigen::Matrix4f, double, bool> performFastICP(const PointCloudPtr& source, 
                                                              const PointCloudPtr& target) {
         pcl::IterativeClosestPoint<PointType, PointType> icp;
         icp.setInputSource(source);
         icp.setInputTarget(target);
         
-        // 적응적 파라미터 조정
         size_t total_points = source->size() + target->size();
         
         if (total_points > 2000) {
-            // 포인트 많으면 → 빠른 설정
             icp.setMaxCorrespondenceDistance(max_correspondence_distance_ * 1.5);
             icp.setMaximumIterations(std::max(20, max_iterations_ / 2));
         } else {
-            // 포인트 적으면 → 정확한 설정
             icp.setMaxCorrespondenceDistance(max_correspondence_distance_);
             icp.setMaximumIterations(max_iterations_);
         }
@@ -261,17 +394,14 @@ private:
     void publishOdometry(const std_msgs::msg::Header& header, const Eigen::Matrix4f& pose) {
         auto odom_msg = nav_msgs::msg::Odometry();
         
-        // 헤더 설정
         odom_msg.header = header;
-        odom_msg.header.frame_id = "odom";
-        odom_msg.child_frame_id = "base_link";
+        odom_msg.header.frame_id = odom_frame_;
+        odom_msg.child_frame_id = base_frame_;
         
-        // 위치 설정
         odom_msg.pose.pose.position.x = pose(0, 3);
         odom_msg.pose.pose.position.y = pose(1, 3);
         odom_msg.pose.pose.position.z = pose(2, 3);
         
-        // 회전 설정 (회전 행렬을 쿼터니언으로 변환)
         Eigen::Matrix3f rotation = pose.block<3,3>(0,0);
         Eigen::Quaternionf q(rotation);
         q.normalize();
@@ -281,19 +411,13 @@ private:
         odom_msg.pose.pose.orientation.z = q.z();
         odom_msg.pose.pose.orientation.w = q.w();
         
-        // 공분산 설정 (기본값)
         std::array<double, 36> pose_cov = {0};
-        pose_cov[0] = 0.01;   // x
-        pose_cov[7] = 0.01;   // y  
-        pose_cov[14] = 0.01;  // z
-        pose_cov[21] = 0.01;  // roll
-        pose_cov[28] = 0.01;  // pitch
-        pose_cov[35] = 0.01;  // yaw
+        pose_cov[0] = 0.01; pose_cov[7] = 0.01; pose_cov[14] = 0.01;
+        pose_cov[21] = 0.01; pose_cov[28] = 0.01; pose_cov[35] = 0.01;
         odom_msg.pose.covariance = pose_cov;
         
         std::array<double, 36> twist_cov = {0};
-        twist_cov[0] = 0.1;   // linear x
-        twist_cov[35] = 0.1;  // angular z
+        twist_cov[0] = 0.1; twist_cov[35] = 0.1;
         odom_msg.twist.covariance = twist_cov;
         
         odom_pub_->publish(odom_msg);
@@ -303,15 +427,13 @@ private:
         geometry_msgs::msg::TransformStamped transform;
         
         transform.header = header;
-        transform.header.frame_id = "odom";
-        transform.child_frame_id = "base_link";
+        transform.header.frame_id = odom_frame_;
+        transform.child_frame_id = base_frame_;
         
-        // 위치
         transform.transform.translation.x = pose(0, 3);
         transform.transform.translation.y = pose(1, 3);
         transform.transform.translation.z = pose(2, 3);
         
-        // 회전
         Eigen::Matrix3f rotation = pose.block<3,3>(0,0);
         Eigen::Quaternionf q(rotation);
         q.normalize();
