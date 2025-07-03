@@ -1,0 +1,972 @@
+[0.000000] (-) TimerEvent: {}
+[0.000391] (-) JobUnselected: {'identifier': 'cartographer'}
+[0.000700] (-) JobUnselected: {'identifier': 'cartographer_ros'}
+[0.000862] (-) JobUnselected: {'identifier': 'cartographer_ros_msgs'}
+[0.000885] (-) JobUnselected: {'identifier': 'cartographer_rviz'}
+[0.001088] (-) JobUnselected: {'identifier': 'cpp_package'}
+[0.001110] (-) JobUnselected: {'identifier': 'lidar_icp_odometry'}
+[0.001156] (-) JobUnselected: {'identifier': 'mpu9250'}
+[0.001176] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.001268] (-) JobUnselected: {'identifier': 'sweep_builder'}
+[0.001288] (-) JobUnselected: {'identifier': 'zebedee_lite'}
+[0.001315] (zebedee_lio) JobQueued: {'identifier': 'zebedee_lio', 'dependencies': OrderedDict()}
+[0.001352] (zebedee_lio) JobStarted: {'identifier': 'zebedee_lio'}
+[0.099609] (-) TimerEvent: {}
+[0.138373] (zebedee_lio) JobProgress: {'identifier': 'zebedee_lio', 'progress': 'cmake'}
+[0.139473] (zebedee_lio) Command: {'cmd': ['/usr/bin/cmake', '/home/p/ros2_ws/src/zebedee_lio', '-DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/zebedee_lio'], 'cwd': '/home/p/ros2_ws/src/build/zebedee_lio', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62543 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/spark_fast_lio/lib:/home/p/ros2_ws/install/fast_lio/lib:/home/p/ros2_ws/install/livox_ros_driver2/lib:/home/p/ros2_ws/install/lio_sam/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/home/p/ros2_ws/src/install/livox_ros_driver2/lib:/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'OLDPWD': '/home/p/ros2_ws', 'TERM_PROGRAM_VERSION': '1.101.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-d64409c0-11dd-4cc9-a651-63e40a2489ea.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/extensions/git/dist/askpass-main.js', 'PS1': '\\[\x1b]633;A\x07\\]\\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$ \\[\x1b]633;B\x07\\]', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install:/home/p/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '2', 'PATH': '/home/p/.vscode-server/extensions/ms-python.python-2025.8.0-linux-arm64/python_files/deactivate/bash:/home/p/.pyenv/versions/3.10.14/bin:/home/p/.vscode-server/extensions/ms-python.python-2025.8.0-linux-arm64/python_files/deactivate/bash:/home/p/.pyenv/versions/3.10.14/bin:/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/bin/remote-cli:/home/p/.local/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-cb9b325c8e.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/zebedee_lio:/home/p/ros2_ws/install/zebedee_lite:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/spark_fast_lio:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/fast_lio:/home/p/ros2_ws/install/livox_ros_driver2:/home/p/ros2_ws/install/lio_sam:/home/p/ros2_ws/install/lidar_icp_odometry:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/sweep_builder:/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/mpu9250:/home/p/ros2_ws/src/install/livox_ros_driver2:/home/p/ros2_ws/src/install/lidar_icp_odometry:/home/p/ros2_ws/src/install/cpp_package:/home/p/ros2_ws/src/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/p/ros2_ws/src/build/zebedee_lio', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.2 62543 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/fast_lio/lib/python3.12/site-packages:/home/p/ros2_ws/install/livox_ros_driver2/lib/python3.12/site-packages:/home/p/ros2_ws/install/lio_sam/lib/python3.12/site-packages:/home/p/ros2_ws/build/lidar_icp_odometry:/home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/livox_ros_driver2/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/lidar_icp_odometry/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/zebedee_lio:/home/p/ros2_ws/install/zebedee_lite:/home/p/ros2_ws/install/spark_fast_lio:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/fast_lio:/home/p/ros2_ws/install/livox_ros_driver2:/home/p/ros2_ws/install/lio_sam:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/livox_ros_driver2:/home/p/ros2_ws/src/install/cpp_package:/home/p/ros2_ws/src/install/cartographer_ros_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/lidar_icp_odometry:/home/p/ros2_ws/src/install/sweep_builder:/home/p/ros2_ws/src/install/mpu9250:/home/p/ros2_ws/src/install/lidar_icp_odometry:/opt/ros/jazzy'}), 'shell': False}
+[0.199766] (-) TimerEvent: {}
+[0.300165] (-) TimerEvent: {}
+[0.400556] (-) TimerEvent: {}
+[0.500972] (-) TimerEvent: {}
+[0.601349] (-) TimerEvent: {}
+[0.701718] (-) TimerEvent: {}
+[0.802108] (-) TimerEvent: {}
+[0.902526] (-) TimerEvent: {}
+[1.002922] (-) TimerEvent: {}
+[1.084614] (zebedee_lio) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[1.103014] (-) TimerEvent: {}
+[1.203377] (-) TimerEvent: {}
+[1.303810] (-) TimerEvent: {}
+[1.404228] (-) TimerEvent: {}
+[1.504600] (-) TimerEvent: {}
+[1.605205] (-) TimerEvent: {}
+[1.639919] (zebedee_lio) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[1.705326] (-) TimerEvent: {}
+[1.805712] (-) TimerEvent: {}
+[1.906099] (-) TimerEvent: {}
+[1.913019] (zebedee_lio) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.006221] (-) TimerEvent: {}
+[2.106594] (-) TimerEvent: {}
+[2.206951] (-) TimerEvent: {}
+[2.281772] (zebedee_lio) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.297205] (zebedee_lio) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[2.298128] (zebedee_lio) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.299053] (zebedee_lio) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.307069] (-) TimerEvent: {}
+[2.317485] (zebedee_lio) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.407199] (-) TimerEvent: {}
+[2.507838] (-) TimerEvent: {}
+[2.534074] (zebedee_lio) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.552094] (zebedee_lio) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[2.552498] (zebedee_lio) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.553237] (zebedee_lio) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.588832] (zebedee_lio) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[2.607886] (-) TimerEvent: {}
+[2.708188] (-) TimerEvent: {}
+[2.808613] (-) TimerEvent: {}
+[2.909048] (-) TimerEvent: {}
+[2.920431] (zebedee_lio) StdoutLine: {'line': b'-- Found Python3: /home/p/.pyenv/versions/3.10.14/bin/python3 (found version "3.10.14") found components: Interpreter \n'}
+[3.009163] (-) TimerEvent: {}
+[3.109536] (-) TimerEvent: {}
+[3.209942] (-) TimerEvent: {}
+[3.310334] (-) TimerEvent: {}
+[3.410743] (-) TimerEvent: {}
+[3.511140] (-) TimerEvent: {}
+[3.611531] (-) TimerEvent: {}
+[3.711923] (-) TimerEvent: {}
+[3.812326] (-) TimerEvent: {}
+[3.912741] (-) TimerEvent: {}
+[4.013142] (-) TimerEvent: {}
+[4.113530] (-) TimerEvent: {}
+[4.213904] (-) TimerEvent: {}
+[4.314292] (-) TimerEvent: {}
+[4.414671] (-) TimerEvent: {}
+[4.515041] (-) TimerEvent: {}
+[4.615420] (-) TimerEvent: {}
+[4.715852] (-) TimerEvent: {}
+[4.816274] (-) TimerEvent: {}
+[4.916695] (-) TimerEvent: {}
+[5.017012] (-) TimerEvent: {}
+[5.117375] (-) TimerEvent: {}
+[5.217744] (-) TimerEvent: {}
+[5.318130] (-) TimerEvent: {}
+[5.418492] (-) TimerEvent: {}
+[5.518879] (-) TimerEvent: {}
+[5.619266] (-) TimerEvent: {}
+[5.719654] (-) TimerEvent: {}
+[5.820066] (-) TimerEvent: {}
+[5.920455] (-) TimerEvent: {}
+[6.020887] (-) TimerEvent: {}
+[6.027706] (zebedee_lio) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[6.121004] (-) TimerEvent: {}
+[6.221399] (-) TimerEvent: {}
+[6.321790] (-) TimerEvent: {}
+[6.422148] (-) TimerEvent: {}
+[6.522585] (-) TimerEvent: {}
+[6.623013] (-) TimerEvent: {}
+[6.723377] (-) TimerEvent: {}
+[6.823755] (-) TimerEvent: {}
+[6.924138] (-) TimerEvent: {}
+[7.024472] (-) TimerEvent: {}
+[7.085985] (zebedee_lio) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[7.124594] (-) TimerEvent: {}
+[7.225002] (-) TimerEvent: {}
+[7.325402] (-) TimerEvent: {}
+[7.408021] (zebedee_lio) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[7.425512] (-) TimerEvent: {}
+[7.469058] (zebedee_lio) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[7.525625] (-) TimerEvent: {}
+[7.529457] (zebedee_lio) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[7.625733] (-) TimerEvent: {}
+[7.726071] (-) TimerEvent: {}
+[7.754215] (zebedee_lio) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[7.768948] (zebedee_lio) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[7.826178] (-) TimerEvent: {}
+[7.926530] (-) TimerEvent: {}
+[8.026924] (-) TimerEvent: {}
+[8.030019] (zebedee_lio) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[8.067370] (zebedee_lio) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[8.112166] (zebedee_lio) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[8.127060] (-) TimerEvent: {}
+[8.227551] (-) TimerEvent: {}
+[8.310078] (zebedee_lio) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[8.327672] (-) TimerEvent: {}
+[8.428005] (-) TimerEvent: {}
+[8.443928] (zebedee_lio) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[8.503173] (zebedee_lio) StdoutLine: {'line': b'-- Found tf2: 0.36.12 (/opt/ros/jazzy/share/tf2/cmake)\n'}
+[8.523023] (zebedee_lio) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[8.528101] (-) TimerEvent: {}
+[8.628431] (-) TimerEvent: {}
+[8.729086] (-) TimerEvent: {}
+[8.830346] (-) TimerEvent: {}
+[8.844885] (zebedee_lio) StdoutLine: {'line': b'-- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)\n'}
+[8.930452] (-) TimerEvent: {}
+[9.030836] (-) TimerEvent: {}
+[9.131225] (-) TimerEvent: {}
+[9.184319] (zebedee_lio) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[9.184676] (zebedee_lio) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[9.184806] (zebedee_lio) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[9.184902] (zebedee_lio) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[9.184990] (zebedee_lio) StderrLine: {'line': b'\n'}
+[9.185075] (zebedee_lio) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[9.185158] (zebedee_lio) StderrLine: {'line': b'\n'}
+[9.185244] (zebedee_lio) StderrLine: {'line': b'    /usr\n'}
+[9.185326] (zebedee_lio) StderrLine: {'line': b'\n'}
+[9.185409] (zebedee_lio) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[9.185491] (zebedee_lio) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[9.185574] (zebedee_lio) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[9.185656] (zebedee_lio) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[9.185761] (zebedee_lio) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[9.185849] (zebedee_lio) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[9.185931] (zebedee_lio) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.186013] (zebedee_lio) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[9.186098] (zebedee_lio) StderrLine: {'line': b'  CMakeLists.txt:16 (find_package)\n'}
+[9.186189] (zebedee_lio) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[9.186272] (zebedee_lio) StderrLine: {'line': b'\x1b[0m\n'}
+[9.187849] (zebedee_lio) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[9.231349] (-) TimerEvent: {}
+[9.331720] (-) TimerEvent: {}
+[9.432124] (-) TimerEvent: {}
+[9.532485] (-) TimerEvent: {}
+[9.632880] (-) TimerEvent: {}
+[9.733258] (-) TimerEvent: {}
+[9.828366] (zebedee_lio) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[9.828906] (zebedee_lio) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5") found components: CXX \n'}
+[9.833795] (-) TimerEvent: {}
+[9.934159] (-) TimerEvent: {}
+[10.034551] (-) TimerEvent: {}
+[10.135086] (-) TimerEvent: {}
+[10.235471] (-) TimerEvent: {}
+[10.335905] (-) TimerEvent: {}
+[10.438270] (-) TimerEvent: {}
+[10.538738] (-) TimerEvent: {}
+[10.639194] (-) TimerEvent: {}
+[10.739556] (-) TimerEvent: {}
+[10.839970] (-) TimerEvent: {}
+[10.940411] (-) TimerEvent: {}
+[11.040843] (-) TimerEvent: {}
+[11.141209] (-) TimerEvent: {}
+[11.241577] (-) TimerEvent: {}
+[11.341957] (-) TimerEvent: {}
+[11.442369] (-) TimerEvent: {}
+[11.543227] (-) TimerEvent: {}
+[11.643578] (-) TimerEvent: {}
+[11.743980] (-) TimerEvent: {}
+[11.844395] (-) TimerEvent: {}
+[11.944745] (-) TimerEvent: {}
+[12.045135] (-) TimerEvent: {}
+[12.145508] (-) TimerEvent: {}
+[12.245949] (-) TimerEvent: {}
+[12.346342] (-) TimerEvent: {}
+[12.446761] (-) TimerEvent: {}
+[12.547322] (-) TimerEvent: {}
+[12.648268] (-) TimerEvent: {}
+[12.748669] (-) TimerEvent: {}
+[12.849050] (-) TimerEvent: {}
+[12.949606] (-) TimerEvent: {}
+[13.050185] (-) TimerEvent: {}
+[13.150597] (-) TimerEvent: {}
+[13.251034] (-) TimerEvent: {}
+[13.351423] (-) TimerEvent: {}
+[13.451800] (-) TimerEvent: {}
+[13.552156] (-) TimerEvent: {}
+[13.652531] (-) TimerEvent: {}
+[13.753004] (-) TimerEvent: {}
+[13.853410] (-) TimerEvent: {}
+[13.953848] (-) TimerEvent: {}
+[14.054249] (-) TimerEvent: {}
+[14.154626] (-) TimerEvent: {}
+[14.254986] (-) TimerEvent: {}
+[14.302900] (zebedee_lio) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[14.355111] (-) TimerEvent: {}
+[14.367826] (zebedee_lio) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.27\n'}
+[14.449607] (zebedee_lio) StdoutLine: {'line': b'-- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  \n'}
+[14.455196] (-) TimerEvent: {}
+[14.473420] (zebedee_lio) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[14.555332] (-) TimerEvent: {}
+[14.655760] (-) TimerEvent: {}
+[14.743369] (zebedee_lio) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[14.755844] (-) TimerEvent: {}
+[14.794783] (zebedee_lio) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[14.818397] (zebedee_lio) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  \n'}
+[14.845940] (zebedee_lio) StdoutLine: {'line': b'-- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") \n'}
+[14.855969] (-) TimerEvent: {}
+[14.956332] (-) TimerEvent: {}
+[15.056766] (-) TimerEvent: {}
+[15.157195] (-) TimerEvent: {}
+[15.257637] (-) TimerEvent: {}
+[15.358004] (-) TimerEvent: {}
+[15.458386] (-) TimerEvent: {}
+[15.558723] (-) TimerEvent: {}
+[15.608849] (zebedee_lio) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[15.625878] (zebedee_lio) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[15.658962] (-) TimerEvent: {}
+[15.759576] (-) TimerEvent: {}
+[15.859983] (-) TimerEvent: {}
+[15.960354] (-) TimerEvent: {}
+[16.060716] (-) TimerEvent: {}
+[16.161056] (-) TimerEvent: {}
+[16.261424] (-) TimerEvent: {}
+[16.361821] (-) TimerEvent: {}
+[16.429691] (zebedee_lio) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[16.461925] (-) TimerEvent: {}
+[16.562282] (-) TimerEvent: {}
+[16.662683] (-) TimerEvent: {}
+[16.763070] (-) TimerEvent: {}
+[16.863427] (-) TimerEvent: {}
+[16.963783] (-) TimerEvent: {}
+[17.064151] (-) TimerEvent: {}
+[17.164497] (-) TimerEvent: {}
+[17.211881] (zebedee_lio) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[17.264613] (-) TimerEvent: {}
+[17.365020] (-) TimerEvent: {}
+[17.465454] (-) TimerEvent: {}
+[17.566011] (-) TimerEvent: {}
+[17.666375] (-) TimerEvent: {}
+[17.766734] (-) TimerEvent: {}
+[17.867081] (-) TimerEvent: {}
+[17.941519] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  \n'}
+[17.943115] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  \n'}
+[17.948835] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  \n'}
+[17.950361] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  \n'}
+[17.951962] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[17.953438] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  \n'}
+[17.954234] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.14  \n'}
+[17.954920] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  \n'}
+[17.956605] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  \n'}
+[17.958480] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  \n'}
+[17.960622] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  \n'}
+[17.962715] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  \n'}
+[17.964686] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  \n'}
+[17.966354] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  \n'}
+[17.967135] (-) TimerEvent: {}
+[17.967973] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  \n'}
+[17.969636] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  \n'}
+[17.971245] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  \n'}
+[17.972842] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  \n'}
+[17.974753] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  \n'}
+[17.976316] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  \n'}
+[17.977622] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  \n'}
+[17.978215] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.14  \n'}
+[17.978906] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  \n'}
+[17.980445] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  \n'}
+[17.982042] (zebedee_lio) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  \n'}
+[17.985226] (zebedee_lio) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at CMakeLists.txt:17 (find_package):\n'}
+[17.985427] (zebedee_lio) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[17.985522] (zebedee_lio) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[17.985607] (zebedee_lio) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[17.985710] (zebedee_lio) StderrLine: {'line': b'\n'}
+[17.985801] (zebedee_lio) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[17.985882] (zebedee_lio) StderrLine: {'line': b'\n'}
+[17.985962] (zebedee_lio) StderrLine: {'line': b'    /usr\n'}
+[17.986042] (zebedee_lio) StderrLine: {'line': b'\n'}
+[17.986121] (zebedee_lio) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[17.986199] (zebedee_lio) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[17.986278] (zebedee_lio) StderrLine: {'line': b'\x1b[0m\n'}
+[18.067281] (-) TimerEvent: {}
+[18.167715] (-) TimerEvent: {}
+[18.268109] (-) TimerEvent: {}
+[18.368482] (-) TimerEvent: {}
+[18.468895] (-) TimerEvent: {}
+[18.502512] (zebedee_lio) StdoutLine: {'line': b'-- Configuring done (18.2s)\n'}
+[18.569008] (-) TimerEvent: {}
+[18.669369] (-) TimerEvent: {}
+[18.687543] (zebedee_lio) StdoutLine: {'line': b'-- Generating done (0.1s)\n'}
+[18.702747] (zebedee_lio) StdoutLine: {'line': b'-- Build files have been written to: /home/p/ros2_ws/src/build/zebedee_lio\n'}
+[18.751954] (zebedee_lio) CommandEnded: {'returncode': 0}
+[18.753204] (zebedee_lio) JobProgress: {'identifier': 'zebedee_lio', 'progress': 'build'}
+[18.755249] (zebedee_lio) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/p/ros2_ws/src/build/zebedee_lio', '--', '-j4', '-l4'], 'cwd': '/home/p/ros2_ws/src/build/zebedee_lio', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62543 22', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/extensions/git/dist/askpass.sh', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/spark_fast_lio/lib:/home/p/ros2_ws/install/fast_lio/lib:/home/p/ros2_ws/install/livox_ros_driver2/lib:/home/p/ros2_ws/install/lio_sam/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/home/p/ros2_ws/src/install/livox_ros_driver2/lib:/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'OLDPWD': '/home/p/ros2_ws', 'TERM_PROGRAM_VERSION': '1.101.1', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-d64409c0-11dd-4cc9-a651-63e40a2489ea.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/extensions/git/dist/askpass-main.js', 'PS1': '\\[\x1b]633;A\x07\\]\\[\\e]0;\\u@\\h: \\w\\a\\]${debian_chroot:+($debian_chroot)}\\[\\033[01;32m\\]\\u@\\h\\[\\033[00m\\]:\\[\\033[01;34m\\]\\w\\[\\033[00m\\]\\$ \\[\x1b]633;B\x07\\]', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install:/home/p/ros2_ws/src/install', 'ROS_DISTRO': 'jazzy', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '2', 'PATH': '/home/p/.vscode-server/extensions/ms-python.python-2025.8.0-linux-arm64/python_files/deactivate/bash:/home/p/.pyenv/versions/3.10.14/bin:/home/p/.vscode-server/extensions/ms-python.python-2025.8.0-linux-arm64/python_files/deactivate/bash:/home/p/.pyenv/versions/3.10.14/bin:/home/p/.vscode-server/cli/servers/Stable-18e3a1ec544e6907be1e944a94c496e302073435/server/bin/remote-cli:/home/p/.local/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-cb9b325c8e.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/zebedee_lio:/home/p/ros2_ws/install/zebedee_lite:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/spark_fast_lio:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/fast_lio:/home/p/ros2_ws/install/livox_ros_driver2:/home/p/ros2_ws/install/lio_sam:/home/p/ros2_ws/install/lidar_icp_odometry:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/sweep_builder:/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/mpu9250:/home/p/ros2_ws/src/install/livox_ros_driver2:/home/p/ros2_ws/src/install/lidar_icp_odometry:/home/p/ros2_ws/src/install/cpp_package:/home/p/ros2_ws/src/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'PWD': '/home/p/ros2_ws/src/build/zebedee_lio', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.0.2 62543 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/fast_lio/lib/python3.12/site-packages:/home/p/ros2_ws/install/livox_ros_driver2/lib/python3.12/site-packages:/home/p/ros2_ws/install/lio_sam/lib/python3.12/site-packages:/home/p/ros2_ws/build/lidar_icp_odometry:/home/p/ros2_ws/install/lidar_icp_odometry/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/livox_ros_driver2/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/lidar_icp_odometry/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/zebedee_lio:/home/p/ros2_ws/install/zebedee_lite:/home/p/ros2_ws/install/spark_fast_lio:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/fast_lio:/home/p/ros2_ws/install/livox_ros_driver2:/home/p/ros2_ws/install/lio_sam:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/livox_ros_driver2:/home/p/ros2_ws/src/install/cpp_package:/home/p/ros2_ws/src/install/cartographer_ros_msgs:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/lidar_icp_odometry:/home/p/ros2_ws/src/install/sweep_builder:/home/p/ros2_ws/src/install/mpu9250:/home/p/ros2_ws/src/install/lidar_icp_odometry:/opt/ros/jazzy'}), 'shell': False}
+[18.769517] (-) TimerEvent: {}
+[18.869982] (-) TimerEvent: {}
+[18.871571] (zebedee_lio) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/ikd_tree.dir/ikd-Tree/ikd-Tree/ikd_Tree.cpp.o\x1b[0m\n'}
+[18.970116] (-) TimerEvent: {}
+[19.070502] (-) TimerEvent: {}
+[19.170914] (-) TimerEvent: {}
+[19.271320] (-) TimerEvent: {}
+[19.371731] (-) TimerEvent: {}
+[19.472175] (-) TimerEvent: {}
+[19.572601] (-) TimerEvent: {}
+[19.673080] (-) TimerEvent: {}
+[19.773557] (-) TimerEvent: {}
+[19.874003] (-) TimerEvent: {}
+[19.974423] (-) TimerEvent: {}
+[20.074857] (-) TimerEvent: {}
+[20.175313] (-) TimerEvent: {}
+[20.275740] (-) TimerEvent: {}
+[20.376195] (-) TimerEvent: {}
+[20.476627] (-) TimerEvent: {}
+[20.577029] (-) TimerEvent: {}
+[20.677408] (-) TimerEvent: {}
+[20.777817] (-) TimerEvent: {}
+[20.878215] (-) TimerEvent: {}
+[20.978590] (-) TimerEvent: {}
+[21.079007] (-) TimerEvent: {}
+[21.179384] (-) TimerEvent: {}
+[21.279782] (-) TimerEvent: {}
+[21.380174] (-) TimerEvent: {}
+[21.480546] (-) TimerEvent: {}
+[21.580920] (-) TimerEvent: {}
+[21.681285] (-) TimerEvent: {}
+[21.781643] (-) TimerEvent: {}
+[21.882015] (-) TimerEvent: {}
+[21.982400] (-) TimerEvent: {}
+[22.082782] (-) TimerEvent: {}
+[22.183229] (-) TimerEvent: {}
+[22.283595] (-) TimerEvent: {}
+[22.383990] (-) TimerEvent: {}
+[22.484352] (-) TimerEvent: {}
+[22.584759] (-) TimerEvent: {}
+[22.657004] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kmulti_thread_rebuild\x1b[m\x1b[K() \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.657302] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.657430] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_old\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.657528] (zebedee_lio) StderrLine: {'line': b'  286 |             int \x1b[01;35m\x1b[Kvalid_old\x1b[m\x1b[K = old_root_node->TreeSize-old_root_node->invalid_point_num;\n'}
+[22.657614] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.657725] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_new\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.657817] (zebedee_lio) StderrLine: {'line': b'  287 |             int \x1b[01;35m\x1b[Kvalid_new\x1b[m\x1b[K = new_root_node->TreeSize-new_root_node->invalid_point_num;\n'}
+[22.657900] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.657982] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Knew_node_ptr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.658070] (zebedee_lio) StderrLine: {'line': b'  203 |     KD_TREE_NODE * father_ptr, ** \x1b[01;35m\x1b[Knew_node_ptr\x1b[m\x1b[K;\n'}
+[22.658152] (zebedee_lio) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.660811] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KRebuild\x1b[m\x1b[K(KD_TREE_NODE**) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.660997] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.661090] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksize_rec\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.661178] (zebedee_lio) StderrLine: {'line': b'  636 |         int \x1b[01;35m\x1b[Ksize_rec\x1b[m\x1b[K = (*root)->TreeSize;\n'}
+[22.661262] (zebedee_lio) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[22.661780] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool, bool) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.661910] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.662005] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.662101] (zebedee_lio) StderrLine: {'line': b'  676 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.662181] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.662552] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.662657] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.662767] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.662853] (zebedee_lio) StderrLine: {'line': b'  724 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.662937] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.663309] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool, int) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.663460] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.663554] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.663645] (zebedee_lio) StderrLine: {'line': b'  829 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.663749] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.664162] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.664261] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.664346] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.664435] (zebedee_lio) StderrLine: {'line': b'  782 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.664518] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.664870] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KSearch\x1b[m\x1b[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.665005] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.665096] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ksuggest parentheses around \xe2\x80\x98\x1b[01m\x1b[K&&\x1b[m\x1b[K\xe2\x80\x99 within \xe2\x80\x98\x1b[01m\x1b[K||\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses\x07-Wparentheses\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.665197] (zebedee_lio) StderrLine: {'line': b'  896 |     if (q.size()< k_nearest || \x1b[01;35m\x1b[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist\x1b[m\x1b[K){\n'}
+[22.665286] (zebedee_lio) StderrLine: {'line': b'      |                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.665793] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcur_search_counter\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.665930] (zebedee_lio) StderrLine: {'line': b'  893 |     int \x1b[01;35m\x1b[Kcur_search_counter\x1b[m\x1b[K;\n'}
+[22.666022] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.676514] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Points\x1b[m\x1b[K(PointVector&, bool) \x1b[35m\x1b[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.676724] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.676833] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.676925] (zebedee_lio) StderrLine: {'line': b'  422 |     for (int i=0; \x1b[01;35m\x1b[Ki<PointToAdd.size()\x1b[m\x1b[K;i++){\n'}
+[22.677008] (zebedee_lio) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.677687] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.677824] (zebedee_lio) StderrLine: {'line': b'  437 |             for (int index = 0; \x1b[01;35m\x1b[Kindex < Downsample_Storage.size()\x1b[m\x1b[K; index++){\n'}
+[22.677911] (zebedee_lio) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.678001] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KNewPointSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.678091] (zebedee_lio) StderrLine: {'line': b'  415 |     int \x1b[01;35m\x1b[KNewPointSize\x1b[m\x1b[K = PointToAdd.size();\n'}
+[22.678172] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.678252] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ktree_size\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.678340] (zebedee_lio) StderrLine: {'line': b'  416 |     int \x1b[01;35m\x1b[Ktree_size\x1b[m\x1b[K = size();\n'}
+[22.678421] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.679668] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.679796] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.679880] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.679970] (zebedee_lio) StderrLine: {'line': b'  493 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.680052] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.680145] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.680231] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.680312] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.680431] (zebedee_lio) StderrLine: {'line': b'  515 |     for (int i=0;\x1b[01;35m\x1b[Ki<PointToDel.size()\x1b[m\x1b[K;i++){\n'}
+[22.680514] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.680593] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = ikdTree_PointType]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.680690] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.680780] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.680864] (zebedee_lio) StderrLine: {'line': b'  538 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.680944] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.681023] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kacquire_removed_points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.681107] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:\x1b[m\x1b[K   required from here\n'}
+[22.681186] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.681270] (zebedee_lio) StderrLine: {'line': b'  561 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.681350] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.681428] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.681519] (zebedee_lio) StderrLine: {'line': b'  564 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Multithread_Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.681601] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.684326] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kmulti_thread_rebuild\x1b[m\x1b[K() \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.684462] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.684550] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_old\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.684651] (zebedee_lio) StderrLine: {'line': b'  286 |             int \x1b[01;35m\x1b[Kvalid_old\x1b[m\x1b[K = old_root_node->TreeSize-old_root_node->invalid_point_num;\n'}
+[22.684750] (-) TimerEvent: {}
+[22.684873] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.684972] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_new\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.685062] (zebedee_lio) StderrLine: {'line': b'  287 |             int \x1b[01;35m\x1b[Kvalid_new\x1b[m\x1b[K = new_root_node->TreeSize-new_root_node->invalid_point_num;\n'}
+[22.685155] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.685244] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Knew_node_ptr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.685331] (zebedee_lio) StderrLine: {'line': b'  203 |     KD_TREE_NODE * father_ptr, ** \x1b[01;35m\x1b[Knew_node_ptr\x1b[m\x1b[K;\n'}
+[22.685413] (zebedee_lio) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.686537] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KRebuild\x1b[m\x1b[K(KD_TREE_NODE**) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.686717] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.686814] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksize_rec\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.686901] (zebedee_lio) StderrLine: {'line': b'  636 |         int \x1b[01;35m\x1b[Ksize_rec\x1b[m\x1b[K = (*root)->TreeSize;\n'}
+[22.686984] (zebedee_lio) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[22.687508] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.687623] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.687730] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.687821] (zebedee_lio) StderrLine: {'line': b'  676 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.687902] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.688317] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.688415] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.688499] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.688583] (zebedee_lio) StderrLine: {'line': b'  724 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.688671] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.689107] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool, int) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.689201] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.689284] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.689368] (zebedee_lio) StderrLine: {'line': b'  829 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.689457] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.690001] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.690111] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.690196] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.690300] (zebedee_lio) StderrLine: {'line': b'  782 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.690380] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.690726] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KSearch\x1b[m\x1b[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.690847] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.690946] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ksuggest parentheses around \xe2\x80\x98\x1b[01m\x1b[K&&\x1b[m\x1b[K\xe2\x80\x99 within \xe2\x80\x98\x1b[01m\x1b[K||\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses\x07-Wparentheses\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.691046] (zebedee_lio) StderrLine: {'line': b'  896 |     if (q.size()< k_nearest || \x1b[01;35m\x1b[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist\x1b[m\x1b[K){\n'}
+[22.691140] (zebedee_lio) StderrLine: {'line': b'      |                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.691670] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcur_search_counter\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.691786] (zebedee_lio) StderrLine: {'line': b'  893 |     int \x1b[01;35m\x1b[Kcur_search_counter\x1b[m\x1b[K;\n'}
+[22.691868] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.701192] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Points\x1b[m\x1b[K(PointVector&, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.701445] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.701598] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.701714] (zebedee_lio) StderrLine: {'line': b'  422 |     for (int i=0; \x1b[01;35m\x1b[Ki<PointToAdd.size()\x1b[m\x1b[K;i++){\n'}
+[22.701804] (zebedee_lio) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.701903] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.701991] (zebedee_lio) StderrLine: {'line': b'  437 |             for (int index = 0; \x1b[01;35m\x1b[Kindex < Downsample_Storage.size()\x1b[m\x1b[K; index++){\n'}
+[22.702072] (zebedee_lio) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.702277] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KNewPointSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.702416] (zebedee_lio) StderrLine: {'line': b'  415 |     int \x1b[01;35m\x1b[KNewPointSize\x1b[m\x1b[K = PointToAdd.size();\n'}
+[22.702517] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.702602] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ktree_size\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.702765] (zebedee_lio) StderrLine: {'line': b'  416 |     int \x1b[01;35m\x1b[Ktree_size\x1b[m\x1b[K = size();\n'}
+[22.702863] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.702946] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.703036] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.703174] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.703263] (zebedee_lio) StderrLine: {'line': b'  493 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.703349] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.703476] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.703573] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.703657] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.703766] (zebedee_lio) StderrLine: {'line': b'  515 |     for (int i=0;\x1b[01;35m\x1b[Ki<PointToDel.size()\x1b[m\x1b[K;i++){\n'}
+[22.703850] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.704008] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.704100] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.704182] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.704275] (zebedee_lio) StderrLine: {'line': b'  538 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.704357] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.704437] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kacquire_removed_points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.704522] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:\x1b[m\x1b[K   required from here\n'}
+[22.704601] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.704718] (zebedee_lio) StderrLine: {'line': b'  561 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.704809] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.704889] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.704991] (zebedee_lio) StderrLine: {'line': b'  564 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Multithread_Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.705073] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.707801] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kmulti_thread_rebuild\x1b[m\x1b[K() \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.707954] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.708052] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_old\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.708141] (zebedee_lio) StderrLine: {'line': b'  286 |             int \x1b[01;35m\x1b[Kvalid_old\x1b[m\x1b[K = old_root_node->TreeSize-old_root_node->invalid_point_num;\n'}
+[22.708231] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.708312] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_new\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.708395] (zebedee_lio) StderrLine: {'line': b'  287 |             int \x1b[01;35m\x1b[Kvalid_new\x1b[m\x1b[K = new_root_node->TreeSize-new_root_node->invalid_point_num;\n'}
+[22.708480] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.708613] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Knew_node_ptr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.708727] (zebedee_lio) StderrLine: {'line': b'  203 |     KD_TREE_NODE * father_ptr, ** \x1b[01;35m\x1b[Knew_node_ptr\x1b[m\x1b[K;\n'}
+[22.708817] (zebedee_lio) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.711800] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KRebuild\x1b[m\x1b[K(KD_TREE_NODE**) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.712063] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.712156] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksize_rec\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.712267] (zebedee_lio) StderrLine: {'line': b'  636 |         int \x1b[01;35m\x1b[Ksize_rec\x1b[m\x1b[K = (*root)->TreeSize;\n'}
+[22.712353] (zebedee_lio) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[22.712731] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.712849] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.712936] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.713023] (zebedee_lio) StderrLine: {'line': b'  676 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.713116] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.713571] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.713696] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.713792] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.713877] (zebedee_lio) StderrLine: {'line': b'  724 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.713959] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.714348] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool, int) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.714455] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.714538] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.714622] (zebedee_lio) StderrLine: {'line': b'  829 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.714716] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.715240] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.715346] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.715429] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.715516] (zebedee_lio) StderrLine: {'line': b'  782 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.715604] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.715965] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KSearch\x1b[m\x1b[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.716070] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.716152] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ksuggest parentheses around \xe2\x80\x98\x1b[01m\x1b[K&&\x1b[m\x1b[K\xe2\x80\x99 within \xe2\x80\x98\x1b[01m\x1b[K||\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses\x07-Wparentheses\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.716245] (zebedee_lio) StderrLine: {'line': b'  896 |     if (q.size()< k_nearest || \x1b[01;35m\x1b[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist\x1b[m\x1b[K){\n'}
+[22.716327] (zebedee_lio) StderrLine: {'line': b'      |                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.716814] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcur_search_counter\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.716918] (zebedee_lio) StderrLine: {'line': b'  893 |     int \x1b[01;35m\x1b[Kcur_search_counter\x1b[m\x1b[K;\n'}
+[22.717000] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.726638] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Points\x1b[m\x1b[K(PointVector&, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.726948] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.727070] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.727242] (zebedee_lio) StderrLine: {'line': b'  422 |     for (int i=0; \x1b[01;35m\x1b[Ki<PointToAdd.size()\x1b[m\x1b[K;i++){\n'}
+[22.727328] (zebedee_lio) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.727408] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.727502] (zebedee_lio) StderrLine: {'line': b'  437 |             for (int index = 0; \x1b[01;35m\x1b[Kindex < Downsample_Storage.size()\x1b[m\x1b[K; index++){\n'}
+[22.727584] (zebedee_lio) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.727739] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KNewPointSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.727856] (zebedee_lio) StderrLine: {'line': b'  415 |     int \x1b[01;35m\x1b[KNewPointSize\x1b[m\x1b[K = PointToAdd.size();\n'}
+[22.727942] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.728023] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ktree_size\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.728113] (zebedee_lio) StderrLine: {'line': b'  416 |     int \x1b[01;35m\x1b[Ktree_size\x1b[m\x1b[K = size();\n'}
+[22.728202] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.728324] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.728418] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.728738] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.728904] (zebedee_lio) StderrLine: {'line': b'  493 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.729012] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.729114] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.729221] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.729317] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.729448] (zebedee_lio) StderrLine: {'line': b'  515 |     for (int i=0;\x1b[01;35m\x1b[Ki<PointToDel.size()\x1b[m\x1b[K;i++){\n'}
+[22.729552] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.729776] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.729890] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.729981] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.730106] (zebedee_lio) StderrLine: {'line': b'  538 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.730208] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.730309] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kacquire_removed_points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.730428] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:\x1b[m\x1b[K   required from here\n'}
+[22.730528] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.730651] (zebedee_lio) StderrLine: {'line': b'  561 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.730780] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.730889] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.730995] (zebedee_lio) StderrLine: {'line': b'  564 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Multithread_Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.731087] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.734299] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kmulti_thread_rebuild\x1b[m\x1b[K() \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.734538] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.734651] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_old\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.734789] (zebedee_lio) StderrLine: {'line': b'  286 |             int \x1b[01;35m\x1b[Kvalid_old\x1b[m\x1b[K = old_root_node->TreeSize-old_root_node->invalid_point_num;\n'}
+[22.734882] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.736857] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kvalid_new\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.737144] (zebedee_lio) StderrLine: {'line': b'  287 |             int \x1b[01;35m\x1b[Kvalid_new\x1b[m\x1b[K = new_root_node->TreeSize-new_root_node->invalid_point_num;\n'}
+[22.737251] (zebedee_lio) StderrLine: {'line': b'      |                 \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.737348] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Knew_node_ptr\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.737441] (zebedee_lio) StderrLine: {'line': b'  203 |     KD_TREE_NODE * father_ptr, ** \x1b[01;35m\x1b[Knew_node_ptr\x1b[m\x1b[K;\n'}
+[22.737533] (zebedee_lio) StderrLine: {'line': b'      |                                   \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.738583] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KRebuild\x1b[m\x1b[K(KD_TREE_NODE**) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.738792] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.738895] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksize_rec\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.738985] (zebedee_lio) StderrLine: {'line': b'  636 |         int \x1b[01;35m\x1b[Ksize_rec\x1b[m\x1b[K = (*root)->TreeSize;\n'}
+[22.739068] (zebedee_lio) StderrLine: {'line': b'      |             \x1b[01;35m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[22.739583] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.739731] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.739845] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.739940] (zebedee_lio) StderrLine: {'line': b'  676 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.740023] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.740461] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.740567] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.740666] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.740786] (zebedee_lio) StderrLine: {'line': b'  724 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.740870] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.741315] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_point\x1b[m\x1b[K(KD_TREE_NODE**, PointType, bool, int) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.741416] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.741502] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.741599] (zebedee_lio) StderrLine: {'line': b'  829 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.741699] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.742247] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_by_range\x1b[m\x1b[K(KD_TREE_NODE**, BoxPointType, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.742358] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.742455] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KTimeout\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.742553] (zebedee_lio) StderrLine: {'line': b'  782 |     struct timespec \x1b[01;35m\x1b[KTimeout\x1b[m\x1b[K;\n'}
+[22.742636] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[22.743091] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KSearch\x1b[m\x1b[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.743205] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.743289] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Ksuggest parentheses around \xe2\x80\x98\x1b[01m\x1b[K&&\x1b[m\x1b[K\xe2\x80\x99 within \xe2\x80\x98\x1b[01m\x1b[K||\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses\x07-Wparentheses\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.743373] (zebedee_lio) StderrLine: {'line': b'  896 |     if (q.size()< k_nearest || \x1b[01;35m\x1b[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist\x1b[m\x1b[K){\n'}
+[22.743467] (zebedee_lio) StderrLine: {'line': b'      |                                \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.743991] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Kcur_search_counter\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.744111] (zebedee_lio) StderrLine: {'line': b'  893 |     int \x1b[01;35m\x1b[Kcur_search_counter\x1b[m\x1b[K;\n'}
+[22.744193] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.755079] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Points\x1b[m\x1b[K(PointVector&, bool) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.755448] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.755577] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.755717] (zebedee_lio) StderrLine: {'line': b'  422 |     for (int i=0; \x1b[01;35m\x1b[Ki<PointToAdd.size()\x1b[m\x1b[K;i++){\n'}
+[22.755825] (zebedee_lio) StderrLine: {'line': b'      |                   \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.756848] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.757142] (zebedee_lio) StderrLine: {'line': b'  437 |             for (int index = 0; \x1b[01;35m\x1b[Kindex < Downsample_Storage.size()\x1b[m\x1b[K; index++){\n'}
+[22.757261] (zebedee_lio) StderrLine: {'line': b'      |                                 \x1b[01;35m\x1b[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.757356] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[KNewPointSize\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.757458] (zebedee_lio) StderrLine: {'line': b'  415 |     int \x1b[01;35m\x1b[KNewPointSize\x1b[m\x1b[K = PointToAdd.size();\n'}
+[22.757566] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.757700] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ktree_size\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.757843] (zebedee_lio) StderrLine: {'line': b'  416 |     int \x1b[01;35m\x1b[Ktree_size\x1b[m\x1b[K = size();\n'}
+[22.757968] (zebedee_lio) StderrLine: {'line': b'      |         \x1b[01;35m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[22.758285] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KAdd_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.758440] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.758538] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.758893] (zebedee_lio) StderrLine: {'line': b'  493 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.759071] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.759187] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.759311] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.759732] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.760071] (zebedee_lio) StderrLine: {'line': b'  515 |     for (int i=0;\x1b[01;35m\x1b[Ki<PointToDel.size()\x1b[m\x1b[K;i++){\n'}
+[22.760254] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.760378] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kint KD_TREE<PointType>::\x1b[01;32m\x1b[KDelete_Point_Boxes\x1b[m\x1b[K(std::vector<BoxPointType>&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.760490] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.760581] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<BoxPointType>::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.760744] (zebedee_lio) StderrLine: {'line': b'  538 |     for (int i=0;\x1b[01;35m\x1b[Ki < BoxPoints.size()\x1b[m\x1b[K;i++){\n'}
+[22.760876] (zebedee_lio) StderrLine: {'line': b'      |                  \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.761314] (zebedee_lio) StderrLine: {'line': b'/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid KD_TREE<PointType>::\x1b[01;32m\x1b[Kacquire_removed_points\x1b[m\x1b[K(PointVector&) \x1b[35m\x1b[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >]\x1b[m\x1b[K\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[22.761608] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:\x1b[m\x1b[K   required from here\n'}
+[22.761753] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.761885] (zebedee_lio) StderrLine: {'line': b'  561 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.761984] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.762084] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[22.762186] (zebedee_lio) StderrLine: {'line': b'  564 |     for (int i = 0; \x1b[01;35m\x1b[Ki < Multithread_Points_deleted.size()\x1b[m\x1b[K;i++){\n'}
+[22.762280] (zebedee_lio) StderrLine: {'line': b'      |                     \x1b[01;35m\x1b[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[22.785743] (-) TimerEvent: {}
+[22.886202] (-) TimerEvent: {}
+[22.986746] (-) TimerEvent: {}
+[23.087095] (-) TimerEvent: {}
+[23.187451] (-) TimerEvent: {}
+[23.287833] (-) TimerEvent: {}
+[23.388204] (-) TimerEvent: {}
+[23.488587] (-) TimerEvent: {}
+[23.588951] (-) TimerEvent: {}
+[23.689317] (-) TimerEvent: {}
+[23.789729] (-) TimerEvent: {}
+[23.890077] (-) TimerEvent: {}
+[23.990422] (-) TimerEvent: {}
+[24.090777] (-) TimerEvent: {}
+[24.191129] (-) TimerEvent: {}
+[24.291560] (-) TimerEvent: {}
+[24.389222] (zebedee_lio) StdoutLine: {'line': b'[ 33%] \x1b[32m\x1b[1mLinking CXX static library libikd_tree.a\x1b[0m\n'}
+[24.391647] (-) TimerEvent: {}
+[24.491975] (-) TimerEvent: {}
+[24.592368] (-) TimerEvent: {}
+[24.692758] (-) TimerEvent: {}
+[24.793155] (-) TimerEvent: {}
+[24.893533] (-) TimerEvent: {}
+[24.993962] (-) TimerEvent: {}
+[25.094378] (-) TimerEvent: {}
+[25.194813] (-) TimerEvent: {}
+[25.295211] (-) TimerEvent: {}
+[25.395603] (-) TimerEvent: {}
+[25.496014] (-) TimerEvent: {}
+[25.527027] (zebedee_lio) StdoutLine: {'line': b'[ 33%] Built target ikd_tree\n'}
+[25.573082] (zebedee_lio) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/submap_manager.dir/src/submap_manager.cpp.o\x1b[0m\n'}
+[25.596132] (-) TimerEvent: {}
+[25.696587] (-) TimerEvent: {}
+[25.796986] (-) TimerEvent: {}
+[25.897345] (-) TimerEvent: {}
+[25.997714] (-) TimerEvent: {}
+[26.098056] (-) TimerEvent: {}
+[26.198413] (-) TimerEvent: {}
+[26.298885] (-) TimerEvent: {}
+[26.399443] (-) TimerEvent: {}
+[26.499808] (-) TimerEvent: {}
+[26.600190] (-) TimerEvent: {}
+[26.700558] (-) TimerEvent: {}
+[26.800960] (-) TimerEvent: {}
+[26.901411] (-) TimerEvent: {}
+[27.001868] (-) TimerEvent: {}
+[27.102306] (-) TimerEvent: {}
+[27.202758] (-) TimerEvent: {}
+[27.303165] (-) TimerEvent: {}
+[27.403581] (-) TimerEvent: {}
+[27.504042] (-) TimerEvent: {}
+[27.604474] (-) TimerEvent: {}
+[27.704886] (-) TimerEvent: {}
+[27.805395] (-) TimerEvent: {}
+[27.905786] (-) TimerEvent: {}
+[28.006183] (-) TimerEvent: {}
+[28.106624] (-) TimerEvent: {}
+[28.207017] (-) TimerEvent: {}
+[28.307390] (-) TimerEvent: {}
+[28.407766] (-) TimerEvent: {}
+[28.508130] (-) TimerEvent: {}
+[28.608504] (-) TimerEvent: {}
+[28.708958] (-) TimerEvent: {}
+[28.809319] (-) TimerEvent: {}
+[28.909692] (-) TimerEvent: {}
+[29.010060] (-) TimerEvent: {}
+[29.110443] (-) TimerEvent: {}
+[29.210835] (-) TimerEvent: {}
+[29.311210] (-) TimerEvent: {}
+[29.411566] (-) TimerEvent: {}
+[29.511964] (-) TimerEvent: {}
+[29.612344] (-) TimerEvent: {}
+[29.712726] (-) TimerEvent: {}
+[29.813117] (-) TimerEvent: {}
+[29.913517] (-) TimerEvent: {}
+[30.013994] (-) TimerEvent: {}
+[30.114477] (-) TimerEvent: {}
+[30.214869] (-) TimerEvent: {}
+[30.315228] (-) TimerEvent: {}
+[30.415592] (-) TimerEvent: {}
+[30.516013] (-) TimerEvent: {}
+[30.616378] (-) TimerEvent: {}
+[30.716742] (-) TimerEvent: {}
+[30.817108] (-) TimerEvent: {}
+[30.917467] (-) TimerEvent: {}
+[31.017837] (-) TimerEvent: {}
+[31.118200] (-) TimerEvent: {}
+[31.218555] (-) TimerEvent: {}
+[31.318923] (-) TimerEvent: {}
+[31.419296] (-) TimerEvent: {}
+[31.519671] (-) TimerEvent: {}
+[31.620036] (-) TimerEvent: {}
+[31.720401] (-) TimerEvent: {}
+[31.820805] (-) TimerEvent: {}
+[31.921178] (-) TimerEvent: {}
+[32.021553] (-) TimerEvent: {}
+[32.121929] (-) TimerEvent: {}
+[32.222301] (-) TimerEvent: {}
+[32.322679] (-) TimerEvent: {}
+[32.423057] (-) TimerEvent: {}
+[32.523452] (-) TimerEvent: {}
+[32.623859] (-) TimerEvent: {}
+[32.724238] (-) TimerEvent: {}
+[32.824593] (-) TimerEvent: {}
+[32.924971] (-) TimerEvent: {}
+[33.025337] (-) TimerEvent: {}
+[33.125709] (-) TimerEvent: {}
+[33.226064] (-) TimerEvent: {}
+[33.326429] (-) TimerEvent: {}
+[33.426815] (-) TimerEvent: {}
+[33.527178] (-) TimerEvent: {}
+[33.627543] (-) TimerEvent: {}
+[33.727926] (-) TimerEvent: {}
+[33.828294] (-) TimerEvent: {}
+[33.928681] (-) TimerEvent: {}
+[34.029043] (-) TimerEvent: {}
+[34.129393] (-) TimerEvent: {}
+[34.229757] (-) TimerEvent: {}
+[34.330127] (-) TimerEvent: {}
+[34.430484] (-) TimerEvent: {}
+[34.530891] (-) TimerEvent: {}
+[34.631262] (-) TimerEvent: {}
+[34.731635] (-) TimerEvent: {}
+[34.831999] (-) TimerEvent: {}
+[34.932352] (-) TimerEvent: {}
+[35.032712] (-) TimerEvent: {}
+[35.077450] (zebedee_lio) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX static library libsubmap_manager.a\x1b[0m\n'}
+[35.132823] (-) TimerEvent: {}
+[35.211256] (zebedee_lio) StdoutLine: {'line': b'[ 66%] Built target submap_manager\n'}
+[35.232943] (-) TimerEvent: {}
+[35.259597] (zebedee_lio) StdoutLine: {'line': b'[ 83%] \x1b[32mBuilding CXX object CMakeFiles/lio_frontend_node.dir/src/lio_frontend_node.cpp.o\x1b[0m\n'}
+[35.333051] (-) TimerEvent: {}
+[35.433459] (-) TimerEvent: {}
+[35.533918] (-) TimerEvent: {}
+[35.634288] (-) TimerEvent: {}
+[35.734657] (-) TimerEvent: {}
+[35.835050] (-) TimerEvent: {}
+[35.935438] (-) TimerEvent: {}
+[36.035836] (-) TimerEvent: {}
+[36.136210] (-) TimerEvent: {}
+[36.236563] (-) TimerEvent: {}
+[36.336939] (-) TimerEvent: {}
+[36.437345] (-) TimerEvent: {}
+[36.537744] (-) TimerEvent: {}
+[36.638169] (-) TimerEvent: {}
+[36.738598] (-) TimerEvent: {}
+[36.839057] (-) TimerEvent: {}
+[36.939743] (-) TimerEvent: {}
+[37.040258] (-) TimerEvent: {}
+[37.140869] (-) TimerEvent: {}
+[37.241307] (-) TimerEvent: {}
+[37.341738] (-) TimerEvent: {}
+[37.442171] (-) TimerEvent: {}
+[37.542735] (-) TimerEvent: {}
+[37.643462] (-) TimerEvent: {}
+[37.745019] (-) TimerEvent: {}
+[37.845429] (-) TimerEvent: {}
+[37.945806] (-) TimerEvent: {}
+[38.046184] (-) TimerEvent: {}
+[38.146555] (-) TimerEvent: {}
+[38.246955] (-) TimerEvent: {}
+[38.347351] (-) TimerEvent: {}
+[38.447752] (-) TimerEvent: {}
+[38.548133] (-) TimerEvent: {}
+[38.648496] (-) TimerEvent: {}
+[38.748881] (-) TimerEvent: {}
+[38.849234] (-) TimerEvent: {}
+[38.949609] (-) TimerEvent: {}
+[39.049989] (-) TimerEvent: {}
+[39.150362] (-) TimerEvent: {}
+[39.250730] (-) TimerEvent: {}
+[39.351094] (-) TimerEvent: {}
+[39.451450] (-) TimerEvent: {}
+[39.551835] (-) TimerEvent: {}
+[39.652197] (-) TimerEvent: {}
+[39.752551] (-) TimerEvent: {}
+[39.852947] (-) TimerEvent: {}
+[39.953330] (-) TimerEvent: {}
+[40.053779] (-) TimerEvent: {}
+[40.154159] (-) TimerEvent: {}
+[40.254525] (-) TimerEvent: {}
+[40.354912] (-) TimerEvent: {}
+[40.455284] (-) TimerEvent: {}
+[40.555649] (-) TimerEvent: {}
+[40.656040] (-) TimerEvent: {}
+[40.756401] (-) TimerEvent: {}
+[40.856804] (-) TimerEvent: {}
+[40.957165] (-) TimerEvent: {}
+[41.057512] (-) TimerEvent: {}
+[41.157875] (-) TimerEvent: {}
+[41.258254] (-) TimerEvent: {}
+[41.358708] (-) TimerEvent: {}
+[41.459082] (-) TimerEvent: {}
+[41.559434] (-) TimerEvent: {}
+[41.659805] (-) TimerEvent: {}
+[41.760181] (-) TimerEvent: {}
+[41.860565] (-) TimerEvent: {}
+[41.960946] (-) TimerEvent: {}
+[42.061314] (-) TimerEvent: {}
+[42.161697] (-) TimerEvent: {}
+[42.262067] (-) TimerEvent: {}
+[42.362419] (-) TimerEvent: {}
+[42.462787] (-) TimerEvent: {}
+[42.563154] (-) TimerEvent: {}
+[42.663529] (-) TimerEvent: {}
+[42.763899] (-) TimerEvent: {}
+[42.864269] (-) TimerEvent: {}
+[42.964628] (-) TimerEvent: {}
+[43.065010] (-) TimerEvent: {}
+[43.165372] (-) TimerEvent: {}
+[43.265732] (-) TimerEvent: {}
+[43.366085] (-) TimerEvent: {}
+[43.466445] (-) TimerEvent: {}
+[43.566820] (-) TimerEvent: {}
+[43.667180] (-) TimerEvent: {}
+[43.767548] (-) TimerEvent: {}
+[43.867917] (-) TimerEvent: {}
+[43.968289] (-) TimerEvent: {}
+[44.068656] (-) TimerEvent: {}
+[44.169045] (-) TimerEvent: {}
+[44.269418] (-) TimerEvent: {}
+[44.334315] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LioFrontendNode::\x1b[01;32m\x1b[KpointcloudCallback\x1b[m\x1b[K(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[44.334629] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:125:56:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix4d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kclass Eigen::Matrix<double, 4, 4>\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Ktranslation\x1b[m\x1b[K\xe2\x80\x99\n'}
+[44.334768] (zebedee_lio) StderrLine: {'line': b'  125 |     submap_manager_->updateSlidingWindow(current_pose_.\x1b[01;31m\x1b[Ktranslation\x1b[m\x1b[K());\n'}
+[44.334867] (zebedee_lio) StderrLine: {'line': b'      |                                                        \x1b[01;31m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[44.335628] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid LioFrontendNode::\x1b[01;32m\x1b[KpublishOdometryAndTF\x1b[m\x1b[K(const std_msgs::msg::Header&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[44.335821] (zebedee_lio) StderrLine: {'line': b'\x1b[01m\x1b[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:138:40:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KEigen::Matrix4d\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kclass Eigen::Matrix<double, 4, 4>\x1b[m\x1b[K\xe2\x80\x99} has no member named \xe2\x80\x98\x1b[01m\x1b[Krotation\x1b[m\x1b[K\xe2\x80\x99\n'}
+[44.335932] (zebedee_lio) StderrLine: {'line': b'  138 |     Eigen::Quaterniond q(current_pose_.\x1b[01;31m\x1b[Krotation\x1b[m\x1b[K());\n'}
+[44.336026] (zebedee_lio) StderrLine: {'line': b'      |                                        \x1b[01;31m\x1b[K^~~~~~~~\x1b[m\x1b[K\n'}
+[44.369522] (-) TimerEvent: {}
+[44.469907] (-) TimerEvent: {}
+[44.570268] (-) TimerEvent: {}
+[44.670624] (-) TimerEvent: {}
+[44.770999] (-) TimerEvent: {}
+[44.871364] (-) TimerEvent: {}
+[44.971732] (-) TimerEvent: {}
+[45.072085] (-) TimerEvent: {}
+[45.172449] (-) TimerEvent: {}
+[45.272833] (-) TimerEvent: {}
+[45.373182] (-) TimerEvent: {}
+[45.473535] (-) TimerEvent: {}
+[45.573908] (-) TimerEvent: {}
+[45.674275] (-) TimerEvent: {}
+[45.774630] (-) TimerEvent: {}
+[45.874988] (-) TimerEvent: {}
+[45.975363] (-) TimerEvent: {}
+[46.075740] (-) TimerEvent: {}
+[46.176092] (-) TimerEvent: {}
+[46.276445] (-) TimerEvent: {}
+[46.376832] (-) TimerEvent: {}
+[46.477199] (-) TimerEvent: {}
+[46.577548] (-) TimerEvent: {}
+[46.677904] (-) TimerEvent: {}
+[46.778247] (-) TimerEvent: {}
+[46.878588] (-) TimerEvent: {}
+[46.978949] (-) TimerEvent: {}
+[47.079294] (-) TimerEvent: {}
+[47.179636] (-) TimerEvent: {}
+[47.280000] (-) TimerEvent: {}
+[47.380342] (-) TimerEvent: {}
+[47.480702] (-) TimerEvent: {}
+[47.581056] (-) TimerEvent: {}
+[47.681426] (-) TimerEvent: {}
+[47.781785] (-) TimerEvent: {}
+[47.882140] (-) TimerEvent: {}
+[47.982483] (-) TimerEvent: {}
+[48.082855] (-) TimerEvent: {}
+[48.183218] (-) TimerEvent: {}
+[48.283575] (-) TimerEvent: {}
+[48.383944] (-) TimerEvent: {}
+[48.484294] (-) TimerEvent: {}
+[48.584657] (-) TimerEvent: {}
+[48.685030] (-) TimerEvent: {}
+[48.785402] (-) TimerEvent: {}
+[48.885759] (-) TimerEvent: {}
+[48.986116] (-) TimerEvent: {}
+[49.086489] (-) TimerEvent: {}
+[49.186852] (-) TimerEvent: {}
+[49.287211] (-) TimerEvent: {}
+[49.387566] (-) TimerEvent: {}
+[49.487938] (-) TimerEvent: {}
+[49.588302] (-) TimerEvent: {}
+[49.688683] (-) TimerEvent: {}
+[49.789018] (-) TimerEvent: {}
+[49.889355] (-) TimerEvent: {}
+[49.989704] (-) TimerEvent: {}
+[50.090055] (-) TimerEvent: {}
+[50.190429] (-) TimerEvent: {}
+[50.290819] (-) TimerEvent: {}
+[50.391212] (-) TimerEvent: {}
+[50.492110] (-) TimerEvent: {}
+[50.593225] (-) TimerEvent: {}
+[50.693633] (-) TimerEvent: {}
+[50.749526] (zebedee_lio) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/lio_frontend_node.dir/build.make:76: CMakeFiles/lio_frontend_node.dir/src/lio_frontend_node.cpp.o] Error 1\n'}
+[50.749889] (zebedee_lio) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:194: CMakeFiles/lio_frontend_node.dir/all] Error 2\n'}
+[50.750425] (zebedee_lio) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[50.754171] (zebedee_lio) CommandEnded: {'returncode': 2}
+[50.772095] (zebedee_lio) JobEnded: {'identifier': 'zebedee_lio', 'rc': 2}
+[50.782940] (-) EventReactorShutdown: {}

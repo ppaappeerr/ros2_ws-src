@@ -76,7 +76,11 @@
         "queue": "cpp",
         "__locale": "cpp",
         "regex": "cpp",
-        "*.bak": "cpp"
+        "*.bak": "cpp",
+        "cstdarg": "cpp",
+        "cinttypes": "cpp",
+        "__hash_table": "cpp",
+        "execution": "cpp"
     },
     "python.testing.unittestArgs": [
         "-v",

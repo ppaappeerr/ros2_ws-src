@@ -4,7 +4,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
-#include <Eigen/Core>
+#include <Eigen/Dense>      // 🔥 변경: Dense 포함하면 Quaterniond 사용
 
 class ImuPreprocess : public rclcpp::Node
 {
@@ -19,7 +19,7 @@ public:
   }
 
 private:
-  Eigen::Quaterniond last_q_ = Eigen::Quaterniond::Identity();
+  Eigen::Quaterniond last_q_{Eigen::Quaterniond::Identity()};  // 🔥 수정: 초기화 방식 변경
   
   void cbImu(const sensor_msgs::msg::Imu::SharedPtr msg)
   {

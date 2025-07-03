@@ -30,6 +30,10 @@ ament_target_dependencies(icp_odometry_node
   rclcpp sensor_msgs nav_msgs geometry_msgs tf2 tf2_ros
   PCL Eigen3 pcl_conversions)
 
+target_link_libraries(icp_odometry_node
+  ${PCL_LIBRARIES}
+)
+
 add_executable(odom_tf_broadcaster src/odom_tf_broadcaster.cpp)
 ament_target_dependencies(odom_tf_broadcaster
   rclcpp nav_msgs tf2_ros geometry_msgs)

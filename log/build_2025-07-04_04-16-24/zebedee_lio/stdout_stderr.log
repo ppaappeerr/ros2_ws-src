@@ -1,0 +1,446 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /home/p/.pyenv/versions/3.10.14/bin/python3 (found version "3.10.14") found components: Interpreter 
+-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Found tf2: 0.36.12 (/opt/ros/jazzy/share/tf2/cmake)
+-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+-- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)
+[33mCMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  CMake variable FLANN_ROOT is set to:
+
+    /usr
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+  CMakeLists.txt:16 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Found flann version 1.9.2
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+-- Checking for module 'libusb-1.0'
+--   Found libusb-1.0, version 1.0.27
+-- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+-- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  
+-- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") 
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Found Qhull version 8.0.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+-- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+-- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+-- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+-- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+-- Found PCL_2D: /usr/include/pcl-1.14  
+-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+-- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+-- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+-- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+-- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+-- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+-- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+-- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+-- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+-- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+-- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+-- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+-- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+-- Found PCL_MODELER: /usr/include/pcl-1.14  
+-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+-- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+-- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[33mCMake Warning (dev) at CMakeLists.txt:17 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  CMake variable PCL_ROOT is set to:
+
+    /usr
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+-- Configuring done (18.2s)
+-- Generating done (0.1s)
+-- Build files have been written to: /home/p/ros2_ws/src/build/zebedee_lio
+[ 16%] [32mBuilding CXX object CMakeFiles/ikd_tree.dir/ikd-Tree/ikd-Tree/ikd_Tree.cpp.o[0m
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kmulti_thread_rebuild[m[K() [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_old[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  286 |             int [01;35m[Kvalid_old[m[K = old_root_node->TreeSize-old_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_new[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  287 |             int [01;35m[Kvalid_new[m[K = new_root_node->TreeSize-new_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Knew_node_ptr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  203 |     KD_TREE_NODE * father_ptr, ** [01;35m[Knew_node_ptr[m[K;
+      |                                   [01;35m[K^~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KRebuild[m[K(KD_TREE_NODE**) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksize_rec[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  636 |         int [01;35m[Ksize_rec[m[K = (*root)->TreeSize;
+      |             [01;35m[K^~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool, bool) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  676 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_by_point[m[K(KD_TREE_NODE**, PointType, bool) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  724 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_point[m[K(KD_TREE_NODE**, PointType, bool, int) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  829 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  782 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KSearch[m[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+  896 |     if (q.size()< k_nearest || [01;35m[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist[m[K){
+      |                                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcur_search_counter[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  893 |     int [01;35m[Kcur_search_counter[m[K;
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KAdd_Points[m[K(PointVector&, bool) [35m[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  422 |     for (int i=0; [01;35m[Ki<PointToAdd.size()[m[K;i++){
+      |                   [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  437 |             for (int index = 0; [01;35m[Kindex < Downsample_Storage.size()[m[K; index++){
+      |                                 [01;35m[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNewPointSize[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  415 |     int [01;35m[KNewPointSize[m[K = PointToAdd.size();
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktree_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  416 |     int [01;35m[Ktree_size[m[K = size();
+      |         [01;35m[K^~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  493 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_Points[m[K(PointVector&) [35m[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  515 |     for (int i=0;[01;35m[Ki<PointToDel.size()[m[K;i++){
+      |                  [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = ikdTree_PointType][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  538 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kacquire_removed_points[m[K(PointVector&) [35m[K[with PointType = ikdTree_PointType; PointVector = std::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1446:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  561 |     for (int i = 0; [01;35m[Ki < Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<ikdTree_PointType, Eigen::aligned_allocator<ikdTree_PointType> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  564 |     for (int i = 0; [01;35m[Ki < Multithread_Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kmulti_thread_rebuild[m[K() [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_old[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  286 |             int [01;35m[Kvalid_old[m[K = old_root_node->TreeSize-old_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_new[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  287 |             int [01;35m[Kvalid_new[m[K = new_root_node->TreeSize-new_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Knew_node_ptr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  203 |     KD_TREE_NODE * father_ptr, ** [01;35m[Knew_node_ptr[m[K;
+      |                                   [01;35m[K^~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KRebuild[m[K(KD_TREE_NODE**) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksize_rec[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  636 |         int [01;35m[Ksize_rec[m[K = (*root)->TreeSize;
+      |             [01;35m[K^~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool, bool) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  676 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_by_point[m[K(KD_TREE_NODE**, PointType, bool) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  724 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_point[m[K(KD_TREE_NODE**, PointType, bool, int) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  829 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  782 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KSearch[m[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+  896 |     if (q.size()< k_nearest || [01;35m[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist[m[K){
+      |                                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcur_search_counter[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  893 |     int [01;35m[Kcur_search_counter[m[K;
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KAdd_Points[m[K(PointVector&, bool) [35m[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  422 |     for (int i=0; [01;35m[Ki<PointToAdd.size()[m[K;i++){
+      |                   [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  437 |             for (int index = 0; [01;35m[Kindex < Downsample_Storage.size()[m[K; index++){
+      |                                 [01;35m[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNewPointSize[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  415 |     int [01;35m[KNewPointSize[m[K = PointToAdd.size();
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktree_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  416 |     int [01;35m[Ktree_size[m[K = size();
+      |         [01;35m[K^~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  493 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_Points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  515 |     for (int i=0;[01;35m[Ki<PointToDel.size()[m[K;i++){
+      |                  [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZ][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  538 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kacquire_removed_points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZ; PointVector = std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1447:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  561 |     for (int i = 0; [01;35m[Ki < Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  564 |     for (int i = 0; [01;35m[Ki < Multithread_Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kmulti_thread_rebuild[m[K() [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_old[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  286 |             int [01;35m[Kvalid_old[m[K = old_root_node->TreeSize-old_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_new[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  287 |             int [01;35m[Kvalid_new[m[K = new_root_node->TreeSize-new_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Knew_node_ptr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  203 |     KD_TREE_NODE * father_ptr, ** [01;35m[Knew_node_ptr[m[K;
+      |                                   [01;35m[K^~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KRebuild[m[K(KD_TREE_NODE**) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksize_rec[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  636 |         int [01;35m[Ksize_rec[m[K = (*root)->TreeSize;
+      |             [01;35m[K^~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool, bool) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  676 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_by_point[m[K(KD_TREE_NODE**, PointType, bool) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  724 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_point[m[K(KD_TREE_NODE**, PointType, bool, int) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  829 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  782 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KSearch[m[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+  896 |     if (q.size()< k_nearest || [01;35m[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist[m[K){
+      |                                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcur_search_counter[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  893 |     int [01;35m[Kcur_search_counter[m[K;
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KAdd_Points[m[K(PointVector&, bool) [35m[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  422 |     for (int i=0; [01;35m[Ki<PointToAdd.size()[m[K;i++){
+      |                   [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  437 |             for (int index = 0; [01;35m[Kindex < Downsample_Storage.size()[m[K; index++){
+      |                                 [01;35m[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNewPointSize[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  415 |     int [01;35m[KNewPointSize[m[K = PointToAdd.size();
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktree_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  416 |     int [01;35m[Ktree_size[m[K = size();
+      |         [01;35m[K^~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  493 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_Points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  515 |     for (int i=0;[01;35m[Ki<PointToDel.size()[m[K;i++){
+      |                  [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZI][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  538 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kacquire_removed_points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZI; PointVector = std::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1448:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  561 |     for (int i = 0; [01;35m[Ki < Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZI, Eigen::aligned_allocator<pcl::PointXYZI> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  564 |     for (int i = 0; [01;35m[Ki < Multithread_Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kmulti_thread_rebuild[m[K() [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:286:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_old[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  286 |             int [01;35m[Kvalid_old[m[K = old_root_node->TreeSize-old_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:287:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kvalid_new[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  287 |             int [01;35m[Kvalid_new[m[K = new_root_node->TreeSize-new_root_node->invalid_point_num;
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:203:35:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Knew_node_ptr[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  203 |     KD_TREE_NODE * father_ptr, ** [01;35m[Knew_node_ptr[m[K;
+      |                                   [01;35m[K^~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KRebuild[m[K(KD_TREE_NODE**) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:636:13:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksize_rec[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  636 |         int [01;35m[Ksize_rec[m[K = (*root)->TreeSize;
+      |             [01;35m[K^~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool, bool) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:676:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  676 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_by_point[m[K(KD_TREE_NODE**, PointType, bool) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:724:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  724 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_point[m[K(KD_TREE_NODE**, PointType, bool, int) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:829:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  829 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_by_range[m[K(KD_TREE_NODE**, BoxPointType, bool) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:782:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KTimeout[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  782 |     struct timespec [01;35m[KTimeout[m[K;
+      |                     [01;35m[K^~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KSearch[m[K(KD_TREE_NODE*, int, PointType, MANUAL_HEAP&, double) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:896:62:[m[K [01;35m[Kwarning: [m[Ksuggest parentheses around ‘[01m[K&&[m[K’ within ‘[01m[K||[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wparentheses-Wparentheses]8;;[m[K]
+  896 |     if (q.size()< k_nearest || [01;35m[Kdist_left_node < q.top().dist && dist_right_node < q.top().dist[m[K){
+      |                                [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:893:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcur_search_counter[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  893 |     int [01;35m[Kcur_search_counter[m[K;
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KAdd_Points[m[K(PointVector&, bool) [35m[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:422:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  422 |     for (int i=0; [01;35m[Ki<PointToAdd.size()[m[K;i++){
+      |                   [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:437:39:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  437 |             for (int index = 0; [01;35m[Kindex < Downsample_Storage.size()[m[K; index++){
+      |                                 [01;35m[K~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:415:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KNewPointSize[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  415 |     int [01;35m[KNewPointSize[m[K = PointToAdd.size();
+      |         [01;35m[K^~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:416:9:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ktree_size[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  416 |     int [01;35m[Ktree_size[m[K = size();
+      |         [01;35m[K^~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KAdd_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:493:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  493 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[KDelete_Points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:515:19:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  515 |     for (int i=0;[01;35m[Ki<PointToDel.size()[m[K;i++){
+      |                  [01;35m[K~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kint KD_TREE<PointType>::[01;32m[KDelete_Point_Boxes[m[K(std::vector<BoxPointType>&) [35m[K[with PointType = pcl::PointXYZINormal][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:538:20:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<BoxPointType>::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  538 |     for (int i=0;[01;35m[Ki < BoxPoints.size()[m[K;i++){
+      |                  [01;35m[K~~^~~~~~~~~~~~~~~~~~[m[K
+/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp: In instantiation of ‘[01m[Kvoid KD_TREE<PointType>::[01;32m[Kacquire_removed_points[m[K(PointVector&) [35m[K[with PointType = pcl::PointXYZINormal; PointVector = std::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >][m[K[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:1449:16:[m[K   required from here
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:561:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  561 |     for (int i = 0; [01;35m[Ki < Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/ikd-Tree/ikd-Tree/ikd_Tree.cpp:564:23:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Kstd::vector<pcl::PointXYZINormal, Eigen::aligned_allocator<pcl::PointXYZINormal> >::size_type[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  564 |     for (int i = 0; [01;35m[Ki < Multithread_Points_deleted.size()[m[K;i++){
+      |                     [01;35m[K~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[ 33%] [32m[1mLinking CXX static library libikd_tree.a[0m
+[ 33%] Built target ikd_tree
+[ 50%] [32mBuilding CXX object CMakeFiles/submap_manager.dir/src/submap_manager.cpp.o[0m
+[ 66%] [32m[1mLinking CXX static library libsubmap_manager.a[0m
+[ 66%] Built target submap_manager
+[ 83%] [32mBuilding CXX object CMakeFiles/lio_frontend_node.dir/src/lio_frontend_node.cpp.o[0m
+[01m[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:[m[K In member function ‘[01m[Kvoid LioFrontendNode::[01;32m[KpointcloudCallback[m[K(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:125:56:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matrix4d[m[K’ {aka ‘[01m[Kclass Eigen::Matrix<double, 4, 4>[m[K’} has no member named ‘[01m[Ktranslation[m[K’
+  125 |     submap_manager_->updateSlidingWindow(current_pose_.[01;31m[Ktranslation[m[K());
+      |                                                        [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:[m[K In member function ‘[01m[Kvoid LioFrontendNode::[01;32m[KpublishOdometryAndTF[m[K(const std_msgs::msg::Header&)[m[K’:
+[01m[K/home/p/ros2_ws/src/zebedee_lio/src/lio_frontend_node.cpp:138:40:[m[K [01;31m[Kerror: [m[K‘[01m[KEigen::Matrix4d[m[K’ {aka ‘[01m[Kclass Eigen::Matrix<double, 4, 4>[m[K’} has no member named ‘[01m[Krotation[m[K’
+  138 |     Eigen::Quaterniond q(current_pose_.[01;31m[Krotation[m[K());
+      |                                        [01;31m[K^~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/lio_frontend_node.dir/build.make:76: CMakeFiles/lio_frontend_node.dir/src/lio_frontend_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:194: CMakeFiles/lio_frontend_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

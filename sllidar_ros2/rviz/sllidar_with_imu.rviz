@@ -8,7 +8,6 @@ Panels:
         - /Status1
         - /LaserScan1/Topic1
         - /deskewed_cloud1
-        - /PointCloud21
       Splitter Ratio: 0.5147058963775635
     Tree Height: 917
   - Class: rviz_common/Selection
@@ -92,7 +91,7 @@ Visualization Manager:
           Scale: 1
           Value: true
         Value: false
-      Enabled: false
+      Enabled: true
       Keep: 100
       Name: Odometry
       Position Tolerance: 0.10000000149011612
@@ -112,8 +111,8 @@ Visualization Manager:
         Filter size: 10
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /lio_odom
-      Value: false
+        Value: /lio/odometry
+      Value: true
     - Alpha: 0.699999988079071
       Binary representation: false
       Binary threshold: 100
@@ -340,8 +339,8 @@ Visualization Manager:
     - Alpha: 1
       Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
-        Max Value: 0.18277128040790558
-        Min Value: 0.025979727506637573
+        Max Value: 1.8402934074401855e-06
+        Min Value: -6.780028343200684e-07
         Value: true
       Axis: Z
       Channel Name: intensity
@@ -355,7 +354,7 @@ Visualization Manager:
       Max Intensity: 4096
       Min Color: 0; 0; 0
       Min Intensity: 0
-      Name: PointCloud2
+      Name: lio/submap
       Position Transformer: XYZ
       Selectable: true
       Size (Pixels): 3
@@ -366,14 +365,14 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: /deskewed_cloud
+        Value: /lio/submap
       Use Fixed Frame: true
       Use rainbow: true
       Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: base_link
+    Fixed Frame: odom
     Frame Rate: 30
   Name: root
   Tools:
@@ -423,18 +422,18 @@ Visualization Manager:
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.5350557565689087
-        Y: 1.0546128749847412
-        Z: -0.1193222776055336
+        X: 0.19308292865753174
+        Y: 1.5082720518112183
+        Z: 0.20019054412841797
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.48979634046554565
+      Pitch: 0.6297963857650757
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 5.221790790557861
+      Yaw: 0.22360505163669586
     Saved: ~
 Window Geometry:
   Displays:

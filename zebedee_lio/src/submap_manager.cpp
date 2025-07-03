@@ -3,65 +3,72 @@
 namespace zebedee_lio
 {
 
-SubmapManager::SubmapManager(double sliding_window_size, double voxel_leaf_size)
-: sliding_window_size_(sliding_window_size)
+SubmapManager::SubmapManager(double sliding_window_size, double voxel_leaf_size) 
+: sliding_window_size_(sliding_window_size), voxel_leaf_size_(voxel_leaf_size)
 {
-  // ikd-Tree 초기화
-  ikd_tree_ = std::make_shared<KD_TREE<PointType>>(voxel_leaf_size);
+  ikd_tree_ = std::make_shared<KD_TREE<PointType>>(voxel_leaf_size_);
 }
 
 SubmapManager::~SubmapManager() {}
 
-void SubmapManager::updateSlidingWindow(const Eigen::Vector3d& current_position)
+void SubmapManager::updateSlidingWindow(const Eigen::Vector3d& current_position) 
 {
-  // 현재 위치를 중심으로 슬라이딩 윈도우 박스(Bounding Box)를 정의
-  sliding_window_box_.vertex_min[0] = current_position.x() - sliding_window_size_;
-  sliding_window_box_.vertex_min[1] = current_position.y() - sliding_window_size_;
-  sliding_window_box_.vertex_min[2] = current_position.z() - sliding_window_size_;
-  sliding_window_box_.vertex_max[0] = current_position.x() + sliding_window_size_;
-  sliding_window_box_.vertex_max[1] = current_position.y() + sliding_window_size_;
-  sliding_window_box_.vertex_max[2] = current_position.z() + sliding_window_size_;
+  // 🚨 [에러 수정] ikd-Tree가 요구하는 PointVector 타입 사용
+  PointVector all_points;
+  ikd_tree_->flatten(ikd_tree_->Root_Node, all_points, NOT_RECORD);
 
-  // ikd-Tree의 Box-wise 삭제 기능을 사용하여 윈도우 밖의 포인트들을 효율적으로 제거
-  points_to_delete_.clear();
+  if (all_points.empty()) {
+    return;
+  }
   
-  // Box_Search 함수 호출 (올바른 타입 사용)
-  ikd_tree_->Box_Search(sliding_window_box_, points_to_delete_);
+  PointVector points_to_keep;
+  points_to_keep.reserve(all_points.size());
 
-  // 슬라이딩 윈도우 밖의 포인트들 삭제
-  if (!points_to_delete_.empty())
-  {
-    // Delete_Point_Boxes 함수 사용 (public 함수)
-    vector<BoxPointType> boxes_to_delete;
-    boxes_to_delete.push_back(sliding_window_box_);
-    ikd_tree_->Delete_Point_Boxes(boxes_to_delete);
+  for (const auto& pt : all_points) {
+    float dist_x = pt.x - current_position.x();
+    float dist_y = pt.y - current_position.y();
+    float dist_z = pt.z - current_position.z();
+    if (std::abs(dist_x) < sliding_window_size_ &&
+        std::abs(dist_y) < sliding_window_size_ &&
+        std::abs(dist_z) < sliding_window_size_)
+    {
+      points_to_keep.push_back(pt);
+    }
+  }
+  
+  // 🚨 [에러 수정] Clear() 함수 대신 reset()으로 트리 재구성
+  if (points_to_keep.size() < 1) { // 유지할 포인트가 없으면 비어있는 트리로 초기화
+      ikd_tree_.reset(new KD_TREE<PointType>(voxel_leaf_size_));
+  } else {
+      ikd_tree_.reset(new KD_TREE<PointType>(voxel_leaf_size_));
+      ikd_tree_->Build(points_to_keep);
   }
 }
 
-void SubmapManager::addPointCloud(const PointCloud::Ptr& cloud_to_add)
+void SubmapManager::addPointCloud(const PointCloud::Ptr& cloud_to_add) 
 {
-  if (cloud_to_add->points.empty())
+  if (cloud_to_add->points.empty()) 
   {
     return;
   }
-  // ikd-Tree에 포인트 클라우드 추가
+  // 🚨 [에러 수정] Build 함수에 맞게 PointCloud의 points 벡터를 직접 전달
   ikd_tree_->Build(cloud_to_add->points);
 }
 
-PointCloud::Ptr SubmapManager::getSubmap()
+PointCloud::Ptr SubmapManager::getSubmap() 
 {
   PointCloud::Ptr submap_cloud(new PointCloud());
+  PointVector submap_points;
+  ikd_tree_->flatten(ikd_tree_->Root_Node, submap_points, NOT_RECORD);
   
-  // ikd-Tree에서 현재 유효한 모든 포인트를 가져와서 반환
-  // flatten 함수 호출 (올바른 파라미터 3개)
-  ikd_tree_->flatten(ikd_tree_->Root_Node, submap_cloud->points, delete_point_storage_set::NOT_RECORD);
-  
+  // PointVector를 PointCloud로 변환
+  submap_cloud->points = submap_points;
   return submap_cloud;
 }
 
-KD_TREE<PointType>::Ptr SubmapManager::getTree()
+KD_TREE<PointType>::Ptr SubmapManager::getTree() 
 {
   return ikd_tree_;
 }
 
-} // namespace zebedee_lio
+}

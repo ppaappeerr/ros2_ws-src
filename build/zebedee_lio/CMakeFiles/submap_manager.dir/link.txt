@@ -1,0 +1,2 @@
+/usr/bin/ar qc libsubmap_manager.a CMakeFiles/submap_manager.dir/src/submap_manager.cpp.o
+/usr/bin/ranlib libsubmap_manager.a
