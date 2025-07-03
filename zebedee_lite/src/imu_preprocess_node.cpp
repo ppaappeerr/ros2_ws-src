@@ -4,6 +4,7 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <Eigen/Core>
 
 class ImuPreprocess : public rclcpp::Node
 {
@@ -18,40 +19,33 @@ public:
   }
 
 private:
-  const double alpha_ = 0.05;  // 저역통과 필터 계수
-  double roll_filt_ = 0.0;
-  double pitch_filt_ = 0.0;
-  bool first_ = true;
-
+  Eigen::Quaterniond last_q_ = Eigen::Quaterniond::Identity();
+  
   void cbImu(const sensor_msgs::msg::Imu::SharedPtr msg)
   {
-    // IMU 쿼터니언에서 RPY 추출
-    tf2::Quaternion q_imu;
-    tf2::fromMsg(msg->orientation, q_imu);
-    double roll, pitch, yaw;
-    tf2::Matrix3x3(q_imu).getRPY(roll, pitch, yaw);
-    
-    // 저역통과 필터 적용
-    if(first_) {
-      roll_filt_ = roll;
-      pitch_filt_ = pitch;
-      first_ = false;
-    } else {
-      roll_filt_ = alpha_ * roll + (1.0 - alpha_) * roll_filt_;
-      pitch_filt_ = alpha_ * pitch + (1.0 - alpha_) * pitch_filt_;
-    }
-    
-    // yaw는 0으로 고정, 필터링된 roll/pitch 사용
-    tf2::Quaternion q_fixed;
-    q_fixed.setRPY(roll_filt_, pitch_filt_, 0.0);
-    q_fixed.normalize();
-    
-    geometry_msgs::msg::QuaternionStamped q;
-    q.header = msg->header;
-    q.quaternion = tf2::toMsg(q_fixed);
-    pub_->publish(q);
+    // LPF 0.02
+    static Eigen::Vector3d gyro_f = {0,0,0};
+    Eigen::Vector3d g_raw(msg->angular_velocity.x,
+                          msg->angular_velocity.y,
+                          msg->angular_velocity.z);
+    gyro_f = 0.02 * g_raw + 0.98 * gyro_f;
+
+    tf2::Quaternion q_in;
+    tf2::fromMsg(msg->orientation, q_in);
+    double r,p,y;
+    tf2::Matrix3x3(q_in).getRPY(r,p,y);
+    y = 0.0;                                // yaw 제거
+    tf2::Quaternion q_out;
+    q_out.setRPY(r,p,y); q_out.normalize();
+
+    geometry_msgs::msg::QuaternionStamped out;
+    out.header = msg->header;
+    out.quaternion = tf2::toMsg(q_out);
+    pub_->publish(out);
+
+    last_q_ = Eigen::Quaterniond(q_out.w(),q_out.x(),q_out.y(),q_out.z());
   }
-  
+
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr sub_;
   rclcpp::Publisher<geometry_msgs::msg::QuaternionStamped>::SharedPtr pub_;
 };

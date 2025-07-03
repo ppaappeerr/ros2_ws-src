@@ -2,10 +2,11 @@
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <nav_msgs/msg/odometry.hpp>
 #include <geometry_msgs/msg/quaternion_stamped.hpp>
-#include <pcl/registration/icp.h>
+#include <pcl/registration/gicp.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/filters/voxel_grid.h>
 #include <Eigen/Geometry>
+#include <deque>
 
 class IcpOdom : public rclcpp::Node
 {
@@ -22,12 +23,11 @@ public:
   }
 
 private:
-  pcl::PointCloud<pcl::PointXYZI>::Ptr submap_{new pcl::PointCloud<pcl::PointXYZI>};
-  std::deque<pcl::PointCloud<pcl::PointXYZI>::Ptr> keyframes_;
+  std::deque<pcl::PointCloud<pcl::PointXYZI>::Ptr> kfs_;
+  pcl::PointCloud<pcl::PointXYZI>::Ptr submap_{new pcl::PointCloud<pcl::PointXYZI>()};
   bool first_=true;
   Eigen::Isometry3d T_w_last_ = Eigen::Isometry3d::Identity();
   Eigen::Quaterniond last_q_attitude_ = Eigen::Quaterniond::Identity();
-  rclcpp::Time last_imu_time_;
   
   const double KF_DIST = 0.30;   // 30cm
   const double KF_ANG  = 0.10;   // ~5.7도
@@ -38,29 +38,27 @@ private:
                                          msg->quaternion.x,
                                          msg->quaternion.y,
                                          msg->quaternion.z);
-    last_imu_time_ = msg->header.stamp;
   }
 
-  Eigen::Isometry3d deltaPoseFromImu(const rclcpp::Time& stamp)
+  Eigen::Isometry3d deltaPoseFromImu(const rclcpp::Time& t)
   {
-    static rclcpp::Time last_t = stamp;
-    static Eigen::Quaterniond q0 = Eigen::Quaterniond::Identity();
-    
-    double dt = (stamp - last_t).seconds();
-    last_t = stamp;
-    
-    if(dt > 0.1) { // 너무 오래된 데이터면 무시
-      q0 = last_q_attitude_;
-      return Eigen::Isometry3d::Identity();
-    }
+    static rclcpp::Time last_t = t;
+    static Eigen::Quaterniond q_last = Eigen::Quaterniond::Identity();
     
     Eigen::Quaterniond q = last_q_attitude_;
-    Eigen::Quaterniond delta_q = q * q0.inverse();
-    q0 = q;
+    Eigen::Quaterniond dq = q * q_last.inverse();
+    q_last = q;
+    
+    double yaw = Eigen::AngleAxisd(dq).angle();
+    if (std::abs(yaw) > M_PI) yaw = 0.0;  // 큰 점프 방지
     
     Eigen::Isometry3d inc = Eigen::Isometry3d::Identity();
-    inc.rotate(delta_q);
+    inc.rotate(Eigen::AngleAxisd(yaw, Eigen::Vector3d::UnitZ()));
     return inc;
+  }
+
+  Eigen::Matrix4f eigenToMatrix(const Eigen::Isometry3d& T) {
+    return T.matrix().cast<float>();
   }
 
   void cbCloud(const sensor_msgs::msg::PointCloud2::SharedPtr pc)
@@ -69,62 +67,57 @@ private:
     pcl::fromROSMsg(*pc, *cloud);
 
     if(first_){
-      keyframes_.push_back(cloud);
+      kfs_.push_back(cloud);
       *submap_ = *cloud;
       publishOdom(pc->header.stamp);
       first_=false;
       return;
     }
 
-    pcl::IterativeClosestPoint<pcl::PointXYZI,pcl::PointXYZI> icp;
-    icp.setMaxCorrespondenceDistance(0.5);
-    icp.setMaximumIterations(50);
-    icp.setTransformationEpsilon(1e-6);
-    icp.setEuclideanFitnessEpsilon(1e-6);
-    icp.setInputSource(cloud);
-    icp.setInputTarget(submap_);
+    // IMU 초기 guess
+    Eigen::Isometry3d imu_inc = deltaPoseFromImu(pc->header.stamp);
+    Eigen::Isometry3d init = T_w_last_ * imu_inc;
 
-    // IMU 초기 guess 추가
-    Eigen::Isometry3d imu_delta = deltaPoseFromImu(pc->header.stamp);
-    Eigen::Isometry3d init = T_w_last_ * imu_delta;
-    Eigen::Matrix4f init_guess = init.matrix().cast<float>();
-    
+    pcl::GeneralizedIterativeClosestPoint<pcl::PointXYZI,pcl::PointXYZI> gicp;
+    gicp.setMaxCorrespondenceDistance(0.15);
+    gicp.setMaximumIterations(80);
+    gicp.setTransformationEpsilon(1e-6);
+    gicp.setEuclideanFitnessEpsilon(1e-6);
+    gicp.setInputSource(cloud);
+    gicp.setInputTarget(submap_);
+
     pcl::PointCloud<pcl::PointXYZI> aligned;
-    icp.align(aligned, init_guess);
+    gicp.align(aligned, eigenToMatrix(init));
 
-    if(!icp.hasConverged()) {
-      RCLCPP_WARN(get_logger(), "ICP did not converge");
+    if(!gicp.hasConverged()) {
+      RCLCPP_WARN(get_logger(), "GICP did not converge");
       return;
     }
 
-    Eigen::Matrix4f T = icp.getFinalTransformation();
+    Eigen::Matrix4f T = gicp.getFinalTransformation();
     Eigen::Isometry3d T_inc(T.cast<double>());
     T_w_last_ = T_inc;
 
-    // ✅ 수정: 키프레임 관리 로직 개선
-    Eigen::Isometry3d delta_from_last_kf = last_keyframe_pose_.inverse() * T_w_last_;
+    // 키프레임 관리
+    static Eigen::Isometry3d last_kf_pose = Eigen::Isometry3d::Identity();
+    Eigen::Isometry3d delta_from_kf = last_kf_pose.inverse() * T_w_last_;
     
-    bool need_new_kf = (delta_from_last_kf.translation().norm() > KF_DIST) ||
-                       (Eigen::AngleAxisd(delta_from_last_kf.rotation()).angle() > KF_ANG);
+    bool new_kf = (delta_from_kf.translation().norm() > KF_DIST) ||
+                  (Eigen::AngleAxisd(delta_from_kf.rotation()).angle() > KF_ANG);
 
-    if(need_new_kf) {
-      keyframes_.push_back(cloud);
-      last_keyframe_pose_ = T_w_last_;  // 마지막 키프레임 위치 업데이트
+    if (new_kf) {
+      kfs_.push_back(cloud);
+      last_kf_pose = T_w_last_;
       
-      if(keyframes_.size() > 20) {
-        keyframes_.pop_front();
-      }
+      if(kfs_.size() > 20) kfs_.pop_front();
       
       // 서브맵 재구성
       submap_->clear();
-      for(auto& kf : keyframes_) {
-        *submap_ += *kf;
-      }
+      for(auto& k : kfs_) *submap_ += *k;
       
-      // 다운샘플링
-      pcl::VoxelGrid<pcl::PointXYZI> vg;
-      vg.setLeafSize(0.05f, 0.05f, 0.05f);
-      vg.setInputCloud(submap_);
+      pcl::VoxelGrid<pcl::PointXYZI> vg; 
+      vg.setLeafSize(0.05f,0.05f,0.05f);
+      vg.setInputCloud(submap_); 
       vg.filter(*submap_);
     }
 
@@ -151,8 +144,6 @@ private:
   rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr sub_;
   rclcpp::Subscription<geometry_msgs::msg::QuaternionStamped>::SharedPtr sub_q_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr pub_;
-
-  Eigen::Isometry3d last_keyframe_pose_ = Eigen::Isometry3d::Identity();
 };
 
 int main(int argc,char** argv)

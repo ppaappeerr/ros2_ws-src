@@ -59,4 +59,26 @@ ament_target_dependencies(submap_manager
   "pcl_conversions"
 )
 
+# =============================================================
+# == LIO Frontend Node
+# =============================================================
+add_executable(lio_frontend_node src/lio_frontend_node.cpp)
+ament_target_dependencies(lio_frontend_node
+  "rclcpp"
+  "sensor_msgs"
+  "nav_msgs"
+  "tf2_ros"
+  "pcl_conversions"
+)
+
+target_link_libraries(lio_frontend_node
+  submap_manager
+)
+
+install(TARGETS
+  lio_frontend_node
+  DESTINATION lib/${PROJECT_NAME}
+)
+# =============================================================
+
 ament_package()
