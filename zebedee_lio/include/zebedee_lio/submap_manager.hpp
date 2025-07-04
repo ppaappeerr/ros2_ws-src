@@ -6,17 +6,16 @@
 
 #include <pcl/point_cloud.h>
 #include <pcl/point_types.h>
+#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/crop_box.h>
 #include <pcl_conversions/pcl_conversions.h>
-
-#include "ikd-Tree/ikd_Tree.h" // ikd-Tree 헤더
 
 #include <Eigen/Core>
 #include <memory>
 
-// PCL 포인트 타입 및 ikd-Tree 벡터 타입 정의
+// PCL 포인트 타입 정의
 using PointType = pcl::PointXYZ;
 using PointCloud = pcl::PointCloud<PointType>;
-using PointVector = KD_TREE<PointType>::PointVector; // ikd-Tree가 사용하는 특수 벡터
 
 namespace zebedee_lio
 {
@@ -30,14 +29,14 @@ public:
   void updateSlidingWindow(const Eigen::Vector3d& current_position);
   void addPointCloud(const PointCloud::Ptr& cloud_to_add);
   PointCloud::Ptr getSubmap();
-  KD_TREE<PointType>::Ptr getTree();
 
 private:
-  KD_TREE<PointType>::Ptr ikd_tree_;
   double sliding_window_size_;
-  
-  // 🚨 [에러 수정] 누락된 멤버 변수 선언 추가
   double voxel_leaf_size_; 
+  
+  PointCloud::Ptr submap_cloud_;
+  pcl::VoxelGrid<PointType> voxel_grid_filter_;
+  pcl::CropBox<PointType> crop_box_filter_;
 };
 
 }

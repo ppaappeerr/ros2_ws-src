@@ -80,7 +80,13 @@
         "cstdarg": "cpp",
         "cinttypes": "cpp",
         "__hash_table": "cpp",
-        "execution": "cpp"
+        "execution": "cpp",
+        "any": "cpp",
+        "hash_map": "cpp",
+        "hash_set": "cpp",
+        "list": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp"
     },
     "python.testing.unittestArgs": [
         "-v",

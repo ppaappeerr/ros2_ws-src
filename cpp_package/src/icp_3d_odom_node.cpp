@@ -14,7 +14,6 @@
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Transform.h>
 #include <tf2_ros/transform_broadcaster.h>
-#include <tf2_eigen/tf2_eigen.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
 
 #include <message_filters/subscriber.h>
@@ -28,18 +27,19 @@
 class ICP3DOdomNode : public rclcpp::Node
 {
 public:
-    ICP3DOdomNode() : Node("icp_3d_odom_cpp")
+    ICP3DOdomNode() : Node("icp_3d_odom_node")
     {
-        // 파라미터
+        // 🔥 최적화된 파라미터 설정
         this->declare_parameter<std::string>("odom_frame", "odom");
         this->declare_parameter<std::string>("base_frame", "base_link");
         this->declare_parameter<double>("scan_voxel_size", 0.05);
         this->declare_parameter<double>("submap_voxel_size", 0.1);
-        this->declare_parameter<double>("max_correspondence_distance", 0.2);
+        this->declare_parameter<double>("max_correspondence_distance", 0.25);
         this->declare_parameter<int>("max_iterations", 50);
         this->declare_parameter<int>("submap_keyframes", 20);
-        this->declare_parameter<double>("keyframe_threshold_dist", 0.5);
-        this->declare_parameter<double>("keyframe_threshold_rot", 0.2); // radians
+        this->declare_parameter<double>("keyframe_threshold_dist", 0.4);
+        this->declare_parameter<double>("keyframe_threshold_rot", 0.15);
+        this->declare_parameter<double>("fitness_score_threshold", 0.2);
         
         odom_frame_ = this->get_parameter("odom_frame").as_string();
         base_frame_ = this->get_parameter("base_frame").as_string();
@@ -48,6 +48,7 @@ public:
         submap_keyframes_ = this->get_parameter("submap_keyframes").as_int();
         keyframe_threshold_dist_ = this->get_parameter("keyframe_threshold_dist").as_double();
         keyframe_threshold_rot_ = this->get_parameter("keyframe_threshold_rot").as_double();
+        fitness_score_threshold_ = this->get_parameter("fitness_score_threshold").as_double();
 
         auto qos = rclcpp::QoS(rclcpp::KeepLast(10));
 
@@ -63,6 +64,7 @@ public:
         submap_pub_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/submap", qos);
         tf_broadcaster_ = std::make_shared<tf2_ros::TransformBroadcaster>(this);
 
+        // 🔥 최적화된 ICP 설정
         icp_.setMaxCorrespondenceDistance(this->get_parameter("max_correspondence_distance").as_double());
         icp_.setTransformationEpsilon(1e-9);
         icp_.setEuclideanFitnessEpsilon(1e-9);
@@ -72,7 +74,7 @@ public:
         last_keyframe_pose_.setIdentity();
         last_scan_time_ = rclcpp::Time(0, 0, this->get_clock()->get_clock_type());
 
-        RCLCPP_INFO(this->get_logger(), "Scan-to-Map Odometry with Keyframes started.");
+        RCLCPP_INFO(this->get_logger(), "Optimized Scan-to-Map Odometry started (keyframes: %d)", submap_keyframes_);
     }
 
 private:
@@ -83,7 +85,9 @@ private:
     void scanImuCallback(const sensor_msgs::msg::LaserScan::ConstSharedPtr& scan_msg, 
                          const sensor_msgs::msg::Imu::ConstSharedPtr& imu_msg)
     {
-        (void)imu_msg;  // 🔥 경고 제거
+        (void)imu_msg;  // 경고 제거
+        
+        auto start_time = std::chrono::high_resolution_clock::now();
         
         PointCloudPtr current_scan = createCorrectedCloud(scan_msg);
         if(!current_scan || current_scan->points.empty()){
@@ -93,20 +97,31 @@ private:
         if (keyframe_deque_.empty()) {
             addKeyframe(current_scan, current_pose_);
             last_scan_time_ = scan_msg->header.stamp;
-            RCLCPP_INFO(this->get_logger(), "First keyframe added.");
+            publishOdometry(scan_msg->header.stamp, current_pose_);
+            publishTf(scan_msg->header.stamp, current_pose_);
+            RCLCPP_INFO(this->get_logger(), "First keyframe added: %zu points", current_scan->points.size());
             return;
         }
         
-        Eigen::Matrix4f initial_guess = Eigen::Matrix4f::Identity();
-        integrateImuRotation(scan_msg->header.stamp, initial_guess);
+        // 💡 [BUG FIX] 1. IMU로 상대적인 움직임 예측
+        Eigen::Matrix4f relative_imu_transform = Eigen::Matrix4f::Identity();
+        integrateImuRotation(scan_msg->header.stamp, relative_imu_transform);
 
+        // 💡 [BUG FIX] 2. 이전 포즈에 상대 움직임을 더해 현재 포즈를 추정
+        Eigen::Matrix4f predicted_pose = current_pose_ * relative_imu_transform;
+
+        // 💡 [BUG FIX] 3. 추정한 글로벌 포즈를 ICP 초기값으로 사용
         icp_.setInputSource(current_scan);
         icp_.setInputTarget(submap_cloud_);
         PointCloud aligned_cloud;
-        icp_.align(aligned_cloud, initial_guess);
+        icp_.align(aligned_cloud, predicted_pose);
 
-        if (icp_.hasConverged()) {
+        if (icp_.hasConverged() && icp_.getFitnessScore() < fitness_score_threshold_) {
+            // 💡 [BUG FIX] 4. ICP 결과물(정합된 글로벌 포즈)을 현재 포즈로 업데이트
             current_pose_ = icp_.getFinalTransformation();
+            
+            auto end_time = std::chrono::high_resolution_clock::now();
+            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
             
             publishOdometry(scan_msg->header.stamp, current_pose_);
             publishTf(scan_msg->header.stamp, current_pose_);
@@ -114,28 +129,41 @@ private:
             if (isNewKeyframe(current_pose_)) {
                 addKeyframe(current_scan, current_pose_);
             }
+            
+            if (duration.count() > 50) {
+                RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)", 
+                           duration.count(), icp_.getFitnessScore());
+            }
         } else {
-            RCLCPP_WARN(this->get_logger(), "ICP did not converge.");
+            // 정합 실패 시, IMU 예측값만으로 임시 업데이트 (Odom이 멈추는 것을 방지)
+            current_pose_ = predicted_pose;
+            publishOdometry(scan_msg->header.stamp, current_pose_);
+            publishTf(scan_msg->header.stamp, current_pose_);
+            RCLCPP_WARN(this->get_logger(), "ICP failed or poor fitness: %.3f. Using IMU prediction.", 
+                       icp_.getFitnessScore());
         }
+        
         last_scan_time_ = scan_msg->header.stamp;
     }
 
     void addKeyframe(const PointCloudPtr& scan, const Eigen::Matrix4f& pose) {
+        // 🔥 월드 좌표로 변환
         PointCloudPtr scan_world(new PointCloud);
         pcl::transformPointCloud(*scan, *scan_world, pose);
         keyframe_deque_.push_back(scan_world);
 
+        // 🔥 슬라이딩 윈도우 관리
         if (keyframe_deque_.size() > (size_t)submap_keyframes_) {
             keyframe_deque_.pop_front();
         }
         
-        // 슬라이딩 윈도우 방식으로 서브맵 업데이트
+        // 🔥 서브맵 재구성
         PointCloudPtr new_submap(new PointCloud);
         for(const auto& frame : keyframe_deque_){
             *new_submap += *frame;
         }
         
-        // 서브맵 다운샘플링
+        // 🔥 서브맵 다운샘플링
         pcl::VoxelGrid<PointType> voxel_filter;
         voxel_filter.setInputCloud(new_submap);
         voxel_filter.setLeafSize(submap_voxel_size_, submap_voxel_size_, submap_voxel_size_);
@@ -144,12 +172,15 @@ private:
         
         last_keyframe_pose_ = pose;
 
-        // 디버깅용 서브맵 발행
+        // 🔥 서브맵 발행
         sensor_msgs::msg::PointCloud2 submap_msg;
         pcl::toROSMsg(*submap_cloud_, submap_msg);
         submap_msg.header.stamp = this->now();
         submap_msg.header.frame_id = odom_frame_;
         submap_pub_->publish(submap_msg);
+        
+        RCLCPP_INFO(this->get_logger(), "New keyframe: %zu frames, submap: %zu points", 
+                   keyframe_deque_.size(), submap_cloud_->points.size());
     }
     
     bool isNewKeyframe(const Eigen::Matrix4f& pose) {
@@ -157,7 +188,8 @@ private:
         Eigen::Matrix3f rot_diff_mat = last_keyframe_pose_.block<3,3>(0,0).transpose() * pose.block<3,3>(0,0);
         Eigen::AngleAxisf rot_diff_angle_axis(rot_diff_mat);
 
-        return trans_diff.norm() > keyframe_threshold_dist_ || std::abs(rot_diff_angle_axis.angle()) > keyframe_threshold_rot_;
+        return trans_diff.norm() > keyframe_threshold_dist_ || 
+               std::abs(rot_diff_angle_axis.angle()) > keyframe_threshold_rot_;
     }
 
     void imuBufferCallback(const sensor_msgs::msg::Imu::ConstSharedPtr& msg) {
@@ -166,8 +198,7 @@ private:
         if (imu_buffer_.size() > 400) imu_buffer_.pop_front();
     }
 
-    // 🔥 수정: IMU Pre-integration - tf2 변환 함수 사용 안함
-    void integrateImuRotation(const rclcpp::Time& current_scan_time, Eigen::Matrix4f& initial_guess) {
+    void integrateImuRotation(const rclcpp::Time& current_scan_time, Eigen::Matrix4f& relative_transform) {
         std::lock_guard<std::mutex> lock(imu_buffer_mutex_);
         if (imu_buffer_.empty() || rclcpp::Time(imu_buffer_.front().header.stamp) > last_scan_time_) return;
         
@@ -181,7 +212,7 @@ private:
             
             if (time0 >= last_scan_time_ && time1 <= current_scan_time) {
                 double dt = (time1 - time0).seconds();
-                if (dt > 0.0 && dt < 0.1) {  // 유효한 시간 간격만 사용
+                if (dt > 0.0 && dt < 0.1) {
                     tf2::Vector3 ang_vel(
                         (imu0.angular_velocity.x + imu1.angular_velocity.x) / 2.0,
                         (imu0.angular_velocity.y + imu1.angular_velocity.y) / 2.0,
@@ -194,29 +225,37 @@ private:
             }
         }
         
-        // 🔥 수정: tf2::Quaternion을 직접 Eigen::Matrix3f로 변환
+        // 🔥 회전 변화량을 상대 변환 행렬에 적용
         tf2::Matrix3x3 rotation_matrix;
         rotation_matrix.setRotation(orientation_change);
         
-        initial_guess(0,0) = rotation_matrix[0][0]; initial_guess(0,1) = rotation_matrix[0][1]; initial_guess(0,2) = rotation_matrix[0][2];
-        initial_guess(1,0) = rotation_matrix[1][0]; initial_guess(1,1) = rotation_matrix[1][1]; initial_guess(1,2) = rotation_matrix[1][2];
-        initial_guess(2,0) = rotation_matrix[2][0]; initial_guess(2,1) = rotation_matrix[2][1]; initial_guess(2,2) = rotation_matrix[2][2];
+        Eigen::Matrix3f rot_change;
+        rot_change(0,0) = rotation_matrix[0][0]; rot_change(0,1) = rotation_matrix[0][1]; rot_change(0,2) = rotation_matrix[0][2];
+        rot_change(1,0) = rotation_matrix[1][0]; rot_change(1,1) = rotation_matrix[1][1]; rot_change(1,2) = rotation_matrix[1][2];
+        rot_change(2,0) = rotation_matrix[2][0]; rot_change(2,1) = rotation_matrix[2][1]; rot_change(2,2) = rotation_matrix[2][2];
+        
+        relative_transform.block<3,3>(0,0) = rot_change;
     }
 
     PointCloudPtr createCorrectedCloud(const sensor_msgs::msg::LaserScan::ConstSharedPtr& scan_msg) {
         PointCloudPtr cloud(new PointCloud());
         rclcpp::Time scan_start_time = scan_msg->header.stamp;
+        
         for (size_t i = 0; i < scan_msg->ranges.size(); ++i) {
             float range = scan_msg->ranges[i];
             if (std::isinf(range) || std::isnan(range) || range < scan_msg->range_min || range > scan_msg->range_max) continue;
+            
             rclcpp::Time point_time = scan_start_time + rclcpp::Duration::from_seconds(i * scan_msg->time_increment);
             tf2::Quaternion orientation;
             if (!interpolateImu(point_time, orientation)) continue; 
+            
             float angle = scan_msg->angle_min + i * scan_msg->angle_increment;
             tf2::Vector3 point_lidar_frame(range * cos(angle), range * sin(angle), 0.0);
             tf2::Vector3 point_base_frame = tf2::quatRotate(orientation, point_lidar_frame);
             cloud->points.emplace_back(point_base_frame.x(), point_base_frame.y(), point_base_frame.z());
         }
+        
+        // 🔥 다운샘플링
         PointCloudPtr cloud_downsampled(new PointCloud());
         pcl::VoxelGrid<PointType> sor;
         sor.setInputCloud(cloud);
@@ -228,10 +267,14 @@ private:
     bool interpolateImu(const rclcpp::Time& time, tf2::Quaternion& output_orientation) {
         std::lock_guard<std::mutex> lock(imu_buffer_mutex_);
         if (imu_buffer_.size() < 2) return false;
+        
         auto it = std::lower_bound(imu_buffer_.begin(), imu_buffer_.end(), time, 
             [](const sensor_msgs::msg::Imu& imu, const rclcpp::Time& t) { return rclcpp::Time(imu.header.stamp) < t; });
+        
         if (it == imu_buffer_.begin() || it == imu_buffer_.end()) return false;
-        const auto& after = *it; const auto& before = *(it - 1);
+        
+        const auto& after = *it; 
+        const auto& before = *(it - 1);
         double dt = (rclcpp::Time(after.header.stamp) - rclcpp::Time(before.header.stamp)).seconds();
         if (dt <= 0.0) return false;
         
@@ -245,7 +288,6 @@ private:
         return true;
     }
 
-    // 🔥 수정: Eigen::Matrix4f를 직접 geometry_msgs::Pose로 변환
     void publishOdometry(const rclcpp::Time& stamp, const Eigen::Matrix4f& pose) {
         nav_msgs::msg::Odometry odom_msg;
         odom_msg.header.stamp = stamp;
@@ -270,7 +312,6 @@ private:
         odom_pub_->publish(odom_msg);
     }
 
-    // 🔥 수정: Eigen::Matrix4f를 직접 geometry_msgs::Transform으로 변환
     void publishTf(const rclcpp::Time& stamp, const Eigen::Matrix4f& pose) {
         geometry_msgs::msg::TransformStamped tf_stamped;
         tf_stamped.header.stamp = stamp;
@@ -300,6 +341,7 @@ private:
     double scan_voxel_size_, submap_voxel_size_;
     int submap_keyframes_;
     double keyframe_threshold_dist_, keyframe_threshold_rot_;
+    double fitness_score_threshold_;
 
     message_filters::Subscriber<sensor_msgs::msg::LaserScan> scan_sub_;
     message_filters::Subscriber<sensor_msgs::msg::Imu> imu_sub_;

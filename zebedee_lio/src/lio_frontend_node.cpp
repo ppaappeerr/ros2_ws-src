@@ -2,18 +2,23 @@
 #include <sensor_msgs/msg/point_cloud2.hpp>
 #include <sensor_msgs/msg/imu.hpp>
 #include <nav_msgs/msg/odometry.hpp>
+#include <std_msgs/msg/header.hpp>
 #include <tf2_ros/transform_broadcaster.h>
 #include <geometry_msgs/msg/transform_stamped.hpp>
 
 #include "zebedee_lio/submap_manager.hpp"
 
 #include <pcl/registration/icp.h>
+#include <pcl/filters/voxel_grid.h>
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/common/transforms.h>
+#include <pcl/point_types.h>
+#include <pcl/point_cloud.h>
 
 #include <Eigen/Geometry>
 
-using namespace std::chrono_literals;
+using PointType = pcl::PointXYZ;
+using PointCloud = pcl::PointCloud<PointType>;
 
 class LioFrontendNode : public rclcpp::Node
 {
@@ -22,21 +27,27 @@ public:
   {
     RCLCPP_INFO(this->get_logger(), "LIO Frontend Node Started.");
 
-    this->declare_parameter<double>("submap.sliding_window_size", 10.0);
-    this->declare_parameter<double>("submap.voxel_leaf_size", 0.2);
-    double sliding_window_size = this->get_parameter("submap.sliding_window_size").as_double();
-    double voxel_leaf_size = this->get_parameter("submap.voxel_leaf_size").as_double();
+    // 파라미터 선언
+    this->declare_parameter<double>("submap.sliding_window_size", 15.0);
+    this->declare_parameter<double>("submap.voxel_leaf_size", 0.25);
+    this->declare_parameter<double>("icp.voxel_leaf_size", 0.4);
 
-    submap_manager_ = std::make_unique<zebedee_lio::SubmapManager>(sliding_window_size, voxel_leaf_size);
-    RCLCPP_INFO(this->get_logger(), "SubmapManager initialized with window size: %.2f, voxel size: %.2f",
-                sliding_window_size, voxel_leaf_size);
+    double sliding_window_size = this->get_parameter("submap.sliding_window_size").as_double();
+    double submap_voxel_size = this->get_parameter("submap.voxel_leaf_size").as_double();
+    double icp_voxel_size = this->get_parameter("icp.voxel_leaf_size").as_double();
+
+    submap_manager_ = std::make_unique<zebedee_lio::SubmapManager>(sliding_window_size, submap_voxel_size);
+    RCLCPP_INFO(this->get_logger(), "SubmapManager initialized.");
+
+    // ICP 최적화를 위한 VoxelGrid 필터 초기화
+    icp_voxel_filter_.setLeafSize(icp_voxel_size, icp_voxel_size, icp_voxel_size);
+    RCLCPP_INFO(this->get_logger(), "ICP Voxel Filter initialized with leaf size: %.2f", icp_voxel_size);
 
     auto qos = rclcpp::QoS(rclcpp::KeepLast(5)).best_effort();
 
     pointcloud_sub_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
       "/points_3d", 10, std::bind(&LioFrontendNode::pointcloudCallback, this, std::placeholders::_1));
 
-    // 🚨 [에러 수정] 메시지 타입을 C++ 형식에 맞게 `::`로 수정
     imu_sub_ = this->create_subscription<sensor_msgs::msg::Imu>(
       "/imu/data", qos, std::bind(&LioFrontendNode::imuCallback, this, std::placeholders::_1));
 
@@ -68,50 +79,51 @@ private:
     PointCloud::Ptr current_cloud(new PointCloud());
     pcl::fromROSMsg(*msg, *current_cloud);
 
-    if (current_cloud->empty()) {
-      RCLCPP_WARN(this->get_logger(), "Received empty point cloud.");
-      return;
-    }
+    if (current_cloud->empty()) return;
+
+    // 입력 스캔 다운샘플링
+    PointCloud::Ptr filtered_cloud(new PointCloud());
+    icp_voxel_filter_.setInputCloud(current_cloud);
+    icp_voxel_filter_.filter(*filtered_cloud);
 
     if (!is_initialized_)
     {
-      submap_manager_->addPointCloud(current_cloud);
+      submap_manager_->addPointCloud(filtered_cloud);
       is_initialized_ = true;
-      RCLCPP_INFO(this->get_logger(), "System Initialized with first scan.");
+      RCLCPP_INFO(this->get_logger(), "System Initialized.");
       publishSubmap(msg->header);
       return;
     }
 
     PointCloud::Ptr submap = submap_manager_->getSubmap();
     if (submap->size() < 10) {
-      RCLCPP_WARN(this->get_logger(), "Submap has too few points (%ld). Skipping frame.", submap->size());
-      submap_manager_->addPointCloud(current_cloud);
-      return;
+        submap_manager_->addPointCloud(filtered_cloud);
+        return;
     }
-    
-    PointCloud::Ptr transformed_current_cloud(new PointCloud());
-    pcl::transformPointCloud(*current_cloud, *transformed_current_cloud, current_pose_.cast<float>());
-    
-    icp_.setInputSource(transformed_current_cloud);
-    icp_.setInputTarget(submap);
-    
-    // 🚨 [경고 제거] 사용하지 않는 변수 삭제
+
+    // ICP의 Target이 될 서브맵도 다운샘플링
+    PointCloud::Ptr submap_downsampled(new PointCloud());
+    icp_voxel_filter_.setInputCloud(submap);
+    icp_voxel_filter_.filter(*submap_downsampled);
+
+    // ICP 정합 실행
+    icp_.setInputSource(filtered_cloud);
+    icp_.setInputTarget(submap_downsampled);
+
+    Eigen::Matrix4f initial_guess = current_pose_.cast<float>();
     PointCloud::Ptr aligned_cloud(new PointCloud());
-    icp_.align(*aligned_cloud);
+    icp_.align(*aligned_cloud, initial_guess);
 
     if (!icp_.hasConverged())
     {
-      RCLCPP_WARN(this->get_logger(), "ICP failed to converge. Fitness score: %f", icp_.getFitnessScore());
+      RCLCPP_WARN(this->get_logger(), "ICP failed to converge.");
       return;
     }
 
-    Eigen::Matrix4d relative_transformation = icp_.getFinalTransformation().cast<double>();
-    current_pose_ = relative_transformation * current_pose_;
-
+    // 결과 누적 및 맵 업데이트
+    current_pose_ = icp_.getFinalTransformation().cast<double>();
     submap_manager_->addPointCloud(aligned_cloud);
-
-    Eigen::Vector3d current_position = current_pose_.block<3, 1>(0, 3);
-    submap_manager_->updateSlidingWindow(current_position);
+    submap_manager_->updateSlidingWindow(current_pose_.block<3,1>(0,3));
 
     publishOdometryAndTF(msg->header);
     publishSubmap(msg->header);
@@ -156,6 +168,7 @@ private:
       submap_pub_->publish(submap_msg);
   }
 
+  // 멤버 변수
   rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr pointcloud_sub_;
   rclcpp::Subscription<sensor_msgs::msg::Imu>::SharedPtr imu_sub_;
   rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometry_pub_;
@@ -164,6 +177,7 @@ private:
 
   std::unique_ptr<zebedee_lio::SubmapManager> submap_manager_;
   pcl::IterativeClosestPoint<PointType, PointType> icp_;
+  pcl::VoxelGrid<PointType> icp_voxel_filter_;
   
   bool is_initialized_;
   Eigen::Matrix4d current_pose_;

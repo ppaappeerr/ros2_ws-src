@@ -6,69 +6,65 @@ namespace zebedee_lio
 SubmapManager::SubmapManager(double sliding_window_size, double voxel_leaf_size) 
 : sliding_window_size_(sliding_window_size), voxel_leaf_size_(voxel_leaf_size)
 {
-  ikd_tree_ = std::make_shared<KD_TREE<PointType>>(voxel_leaf_size_);
+  // Initialize submap point cloud and filters
+  submap_cloud_ = std::make_shared<PointCloud>();
+  voxel_grid_filter_.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
 }
 
 SubmapManager::~SubmapManager() {}
 
-void SubmapManager::updateSlidingWindow(const Eigen::Vector3d& current_position) 
+void SubmapManager::addPointCloud(const PointCloud::Ptr& cloud_in)
 {
-  // 🚨 [에러 수정] ikd-Tree가 요구하는 PointVector 타입 사용
-  PointVector all_points;
-  ikd_tree_->flatten(ikd_tree_->Root_Node, all_points, NOT_RECORD);
-
-  if (all_points.empty()) {
+  if (cloud_in->points.empty()) {
     return;
   }
   
-  PointVector points_to_keep;
-  points_to_keep.reserve(all_points.size());
-
-  for (const auto& pt : all_points) {
-    float dist_x = pt.x - current_position.x();
-    float dist_y = pt.y - current_position.y();
-    float dist_z = pt.z - current_position.z();
-    if (std::abs(dist_x) < sliding_window_size_ &&
-        std::abs(dist_y) < sliding_window_size_ &&
-        std::abs(dist_z) < sliding_window_size_)
-    {
-      points_to_keep.push_back(pt);
-    }
-  }
+  // Add new points to existing submap
+  *submap_cloud_ += *cloud_in;
   
-  // 🚨 [에러 수정] Clear() 함수 대신 reset()으로 트리 재구성
-  if (points_to_keep.size() < 1) { // 유지할 포인트가 없으면 비어있는 트리로 초기화
-      ikd_tree_.reset(new KD_TREE<PointType>(voxel_leaf_size_));
-  } else {
-      ikd_tree_.reset(new KD_TREE<PointType>(voxel_leaf_size_));
-      ikd_tree_->Build(points_to_keep);
-  }
+  // Downsample entire submap to maintain consistent point density
+  PointCloud::Ptr filtered_cloud(new PointCloud());
+  voxel_grid_filter_.setInputCloud(submap_cloud_);
+  voxel_grid_filter_.filter(*filtered_cloud);
+  submap_cloud_ = filtered_cloud;
 }
 
-void SubmapManager::addPointCloud(const PointCloud::Ptr& cloud_to_add) 
+void SubmapManager::updateSlidingWindow(const Eigen::Vector3d& current_position) 
 {
-  if (cloud_to_add->points.empty()) 
-  {
+  if (submap_cloud_->points.empty()) {
     return;
   }
-  // 🚨 [에러 수정] Build 함수에 맞게 PointCloud의 points 벡터를 직접 전달
-  ikd_tree_->Build(cloud_to_add->points);
+  
+  // Set CropBox filter region centered on current position
+  Eigen::Vector4f min_pt, max_pt;
+  min_pt << static_cast<float>(current_position.x() - sliding_window_size_),
+            static_cast<float>(current_position.y() - sliding_window_size_),
+            static_cast<float>(current_position.z() - sliding_window_size_),
+            1.0f;
+  max_pt << static_cast<float>(current_position.x() + sliding_window_size_),
+            static_cast<float>(current_position.y() + sliding_window_size_),
+            static_cast<float>(current_position.z() + sliding_window_size_),
+            1.0f;
+            
+  crop_box_filter_.setMin(min_pt);
+  crop_box_filter_.setMax(max_pt);
+  
+  // Use CropBox filter to efficiently remove points outside sliding window
+  PointCloud::Ptr cropped_cloud(new PointCloud());
+  crop_box_filter_.setInputCloud(submap_cloud_);
+  crop_box_filter_.filter(*cropped_cloud);
+  submap_cloud_ = cropped_cloud;
 }
 
 PointCloud::Ptr SubmapManager::getSubmap() 
 {
-  PointCloud::Ptr submap_cloud(new PointCloud());
-  PointVector submap_points;
-  ikd_tree_->flatten(ikd_tree_->Root_Node, submap_points, NOT_RECORD);
-  
-  // PointVector를 PointCloud로 변환
-  submap_cloud->points = submap_points;
-  return submap_cloud;
+  return submap_cloud_;
 }
 
-KD_TREE<PointType>::Ptr SubmapManager::getTree() 
-{
-  return ikd_tree_;
-}
+// ikd-Tree functionality replaced with PCL-based approach
+// KD_TREE<PointType>::Ptr SubmapManager::getTree() 
+// {
+//   return nullptr; 
+// }
 
 }
