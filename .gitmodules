@@ -1,3 +1,6 @@
 [submodule "zebedee_lio/ikd-Tree"]
 	path = zebedee_lio/ikd-Tree
 	url = https://github.com/hku-mars/ikd-Tree.git
+[submodule "imusensor"]
+	path = imusensor
+	url = https://github.com/niru-5/imusensor
