@@ -16,7 +16,12 @@ setup(
         (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
 
-    install_requires=['setuptools', 'tf_transformations'],
+    install_requires=[
+        'setuptools', 
+        'tf_transformations',
+        'numpy',      # 🔥 추가
+        'open3d'      # 🔥 추가
+    ],
     zip_safe=True,
     maintainer='jaden',
     maintainer_email='you@example.com',
@@ -35,8 +40,8 @@ setup(
             'sweep_node = sweep_builder.sweep_node:main',
             'accumulator_node = sweep_builder.accumulator_node:main',
             'preproc_front_filter_node = sweep_builder.preproc_front_filter_node:main',
-            #'lidar_imu_to_pointcloud_front_node = sweep_builder.lidar_imu_to_pointcloud_front_node:main',
-            'lidar_imu_to_pointcloud_front = sweep_builder.lidar_imu_filtered_to_pointcloud_front:main',  # 수정
+            'lidar_imu_to_pointcloud_front = sweep_builder.lidar_imu_filtered_to_pointcloud_front:main',
+            'dynamic_obstacle_processor = sweep_builder.dynamic_obstacle_processor:main',  # 🔥 추가
         ],
     },
 )

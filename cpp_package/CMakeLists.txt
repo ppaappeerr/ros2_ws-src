@@ -85,6 +85,11 @@ ament_target_dependencies(haptic_driver_node
   rclcpp std_msgs
 )
 
+add_executable(sweep_builder_node src/sweep_builder_node.cpp) # <--- 이 줄 추가
+ament_target_dependencies(sweep_builder_node
+  rclcpp sensor_msgs nav_msgs geometry_msgs std_msgs tf2_ros tf2_geometry_msgs tf2_eigen Eigen3 pcl_ros pcl_conversions
+)
+
 # 메시지와 노드 연결
 rosidl_get_typesupport_target(cpp_typesupport_target ${PROJECT_NAME} "rosidl_typesupport_cpp")
 target_link_libraries(obstacle_evaluator_node "${cpp_typesupport_target}")
@@ -99,6 +104,7 @@ install(TARGETS
   obstacle_evaluator_node
   navigation_hint_node
   haptic_driver_node  # 🔥 C++ 버전으로 변경
+  sweep_builder_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
