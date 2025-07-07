@@ -1,122 +1,109 @@
-import rclpy, collections, time
+import rclpy
 from rclpy.node import Node
-from sensor_msgs.msg import PointCloud2, Imu, PointField
+from sensor_msgs.msg import PointCloud2, PointField
 from std_msgs.msg import Header
-from std_srvs.srv import Empty
 import sensor_msgs_py.point_cloud2 as pc2
 from tf2_ros import TransformListener, Buffer
-from scipy.spatial.transform import Rotation as R
+from rclpy.duration import Duration
 import numpy as np
+import time
 
-class SweepAccumulator(Node):
+# ★★★★★ [수정] ★★★★★
+# 잘못된 라이브러리 대신, 올바른 TF2 변환 라이브러리를 import 합니다.
+import tf2_sensor_msgs
+
+class SweepAccumulatorNode(Node):
     def __init__(self):
-        super().__init__('sweep_accumulator')
+        super().__init__('sweep_accumulator_node')
 
-        # ───── 파라미터 ─────────────────────────────────────────────
-        self.declare_parameter('in_pc_topic',  'points_3d')
-        self.declare_parameter('imu_topic',    '/imu/data')
-        self.declare_parameter('sweep_size',    4000)      # points per sweep
-        self.declare_parameter('buffer_secs',      1.0)    # N 초간 링버퍼
-        self.declare_parameter('voxel_leaf',     0.1)     # [m] 누적 맵 voxel
+        self.declare_parameter('input_topic', 'points_3d')
+        self.declare_parameter('output_topic', 'sweep_cloud')
+        self.declare_parameter('target_frame', 'odom')
+        self.declare_parameter('source_frame', 'laser')
+        self.declare_parameter('sweep_size', 4000)
 
-        self.in_pc_topic  = self.get_parameter('in_pc_topic').value
-        self.imu_topic    = self.get_parameter('imu_topic').value
-        self.sweep_pts    = self.get_parameter('sweep_size').value
-        self.buffer_secs  = self.get_parameter('buffer_secs').value
-        self.voxel_leaf   = self.get_parameter('voxel_leaf').value
-
-        # ───── 구독/발행 ────────────────────────────────────────────
-        self.sub_pc  = self.create_subscription(PointCloud2,
-                                                self.in_pc_topic,
-                                                self.pc_cb, 10)
-        self.sub_imu = self.create_subscription(Imu,
-                                                self.imu_topic,
-                                                self.imu_cb, 50)
-
-        self.pub_sweep = self.create_publisher(PointCloud2, 'sweep_cloud', 10)
-        self.pub_map   = self.create_publisher(PointCloud2, 'map_cloud',   3)
-
-        self.srv_reset = self.create_service(Empty, 'reset_map', self.reset_cb)
-
-        # ───── 내부 버퍼 ────────────────────────────────────────────
-        self.ring   = collections.deque()          # (stamp, N×3 np.ndarray)
-        self.map_pc = np.empty((0, 3), np.float32)
-
-        self.last_yaw = 0.0
-        self.tf_buf = Buffer()
-        self.tf_lst = TransformListener(self.tf_buf, self)
-
-        self.timer = self.create_timer(0.1, self.flush_map)
-
-    # ────────────────────────────────────────────────────────────────
-    def imu_cb(self, msg: Imu):
-        q = msg.orientation
-        # z‑yaw only
-        self.last_yaw = R.from_quat([q.x, q.y, q.z, q.w]).as_euler('zyx')[0]
-
-    # ────────────────────────────────────────────────────────────────
-    def pc_cb(self, msg: PointCloud2):
-        pts = np.array([[p[0], p[1], p[2]] for p in
-                        pc2.read_points(msg, field_names=("x","y","z"), skip_nans=True)],
-                       dtype=np.float32)
-        if pts.shape[0] == 0:
-            return
-
-        # LiDAR frame → base_link 회전(roll/pitch 이미 제거, yaw만 적용)
-        Rz = R.from_euler('z', self.last_yaw).as_matrix()
-        pts_bl = (Rz @ pts.T).T
-
-        # ── 링버퍼 업데이트
-        self.ring.append((msg.header.stamp.sec + msg.header.stamp.nanosec*1e-9, pts_bl))
-        while self.ring and (time.time() - self.ring[0][0]) > self.buffer_secs:
-            self.ring.popleft()
-
-        # ── 누적 맵 추가 (Voxel down‑sample)
-        self.map_pc = np.vstack((self.map_pc, pts_bl))
-        if self.map_pc.shape[0] > 1e6:      # safety clip
-            self.map_pc = self.map_pc[-500000:]
-
-        # ── 퍼블리시 (ring이 비어있지 않을 때만)
-        if self.ring:  # 추가된 체크
-            ring_points = np.vstack([p for _,p in self.ring])
-            self.pub_sweep.publish(self.np2msg(ring_points, msg.header, 'base_link'))
-
-    # ────────────────────────────────────────────────────────────────
-    def flush_map(self):
-        if self.map_pc.shape[0] == 0:
-            return
-        # voxel filter
-        step = int(max(1, self.voxel_leaf / 0.01))
-        pc_ds = self.map_pc[::step]
-        stamp = self.get_clock().now().to_msg()
-        # header = Header(stamp=stamp, frame_id='map')
-        # self.pub_map.publish(self.np2msg(pc_ds, header, 'map'))
+        self.input_topic = self.get_parameter('input_topic').value
+        self.output_topic = self.get_parameter('output_topic').value
+        self.target_frame = self.get_parameter('target_frame').value
+        self.source_frame = self.get_parameter('source_frame').value
+        self.sweep_pts = self.get_parameter('sweep_size').value
         
-        # frame_id를 'map'에서 'odom' 또는 'base_link'로 변경
-        self.pub_map.publish(self.np2msg(pc_ds, Header(stamp=stamp, frame_id='laser'), 'laser'))
+        self.tf_buffer = Buffer()
+        self.tf_listener = TransformListener(self.tf_buffer, self)
 
-    # ────────────────────────────────────────────────────────────────
-    def reset_cb(self, req, resp):
-        self.map_pc = np.empty((0,3), np.float32)
-        self.get_logger().info("Accumulated map cleared")
-        return resp
+        self.pub_sweep = self.create_publisher(PointCloud2, self.output_topic, 10)
+        
+        self.point_buffer = []
+        self.last_stamp = None
+        self.sub_pc = None
 
-    def np2msg(self, pts: np.ndarray, hdr, frame) -> PointCloud2:
-        hdr.frame_id = frame
+        self.get_logger().info(f"'{self.get_name()}' started.")
+        
+    def wait_for_transform(self):
+        self.get_logger().info(f"Waiting for transform from '{self.target_frame}' to '{self.source_frame}'...")
+        while rclpy.ok():
+            try:
+                self.tf_buffer.can_transform(self.target_frame, self.source_frame, rclpy.time.Time(), timeout=Duration(seconds=2.0))
+                self.get_logger().info("Transform is now available!")
+                return True
+            except Exception as e:
+                self.get_logger().warn(f"Still waiting for transform: {e}")
+        return False
+
+    def start_subscription(self):
+        self.sub_pc = self.create_subscription(PointCloud2, self.input_topic, self.pc_callback, 10)
+        self.get_logger().info(f"Subscribing to '{self.input_topic}'...")
+
+    def pc_callback(self, msg: PointCloud2):
+        try:
+            transform = self.tf_buffer.lookup_transform(
+                self.target_frame, msg.header.frame_id, msg.header.stamp,
+                timeout=Duration(seconds=0.1)
+            )
+        except Exception as e:
+            self.get_logger().warn(f"Transform lookup failed in callback: {e}")
+            return
+
+        # ★★★★★ [수정] ★★★★★
+        # pc2.do_transform_cloud 대신, 올바른 tf2_sensor_msgs 라이브러리의 함수를 사용합니다.
+        cloud_in_odom_frame = tf2_sensor_msgs.do_transform_cloud(msg, transform)
+        
+        points_in_odom = pc2.read_points_numpy(cloud_in_odom_frame, field_names=('x', 'y', 'z'))
+        
+        self.point_buffer.extend(points_in_odom)
+        self.last_stamp = msg.header.stamp
+
+        if len(self.point_buffer) >= self.sweep_pts:
+            self.publish_sweep()
+
+    def publish_sweep(self):
+        points_to_publish = np.array(self.point_buffer[:self.sweep_pts], dtype=np.float32)
+        self.point_buffer = self.point_buffer[self.sweep_pts:]
+
+        header = Header(stamp=self.last_stamp, frame_id=self.target_frame)
         fields = [
             PointField(name='x', offset=0, datatype=PointField.FLOAT32, count=1),
             PointField(name='y', offset=4, datatype=PointField.FLOAT32, count=1),
-            PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1)
+            PointField(name='z', offset=8, datatype=PointField.FLOAT32, count=1),
         ]
-        return pc2.create_cloud(hdr, fields, pts)
-        return pc2.create_cloud(hdr, fields, pts)
+        
+        sweep_msg = pc2.create_cloud(header, fields, points_to_publish)
+        self.pub_sweep.publish(sweep_msg)
 
 def main(args=None):
     rclpy.init(args=args)
-    node = SweepAccumulator()
-    rclpy.spin(node)
-    node.destroy_node()
-    rclpy.shutdown()
+    node = SweepAccumulatorNode()
+    
+    # 별도의 스레드에서 실행할 필요 없이, main 스레드에서 순차적으로 실행해도 됩니다.
+    if node.wait_for_transform():
+        node.start_subscription()
+        try:
+            rclpy.spin(node)
+        except KeyboardInterrupt:
+            pass
+        finally:
+            node.destroy_node()
+            rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

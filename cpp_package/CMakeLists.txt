@@ -85,9 +85,21 @@ ament_target_dependencies(haptic_driver_node
   rclcpp std_msgs
 )
 
-add_executable(sweep_builder_node src/sweep_builder_node.cpp) # <--- 이 줄 추가
-ament_target_dependencies(sweep_builder_node
-  rclcpp sensor_msgs nav_msgs geometry_msgs std_msgs tf2_ros tf2_geometry_msgs tf2_eigen Eigen3 pcl_ros pcl_conversions
+add_executable(deskew_node src/deskew_node.cpp)
+ament_target_dependencies(deskew_node
+    rclcpp
+    sensor_msgs
+    pcl_conversions
+    tf2
+    tf2_geometry_msgs
+)
+
+# obstacle_detector_node 추가
+add_executable(obstacle_detector_node src/obstacle_detector_node.cpp)
+ament_target_dependencies(obstacle_detector_node
+    rclcpp
+    sensor_msgs
+    pcl_conversions
 )
 
 # 메시지와 노드 연결
@@ -104,7 +116,8 @@ install(TARGETS
   obstacle_evaluator_node
   navigation_hint_node
   haptic_driver_node  # 🔥 C++ 버전으로 변경
-  sweep_builder_node
+  deskew_node
+  obstacle_detector_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
