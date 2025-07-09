@@ -1,0 +1,27 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from cpp_package/msg/ObstacleFeedback.msg
+// generated code does not contain a copyright notice
+
+#include "std_msgs/msg/Header.idl"
+
+module cpp_package {
+  module msg {
+    struct ObstacleFeedback {
+      std_msgs::msg::Header header;
+
+      float min_left;
+
+      float min_center;
+
+      float min_right;
+
+      @verbatim (language="comment", text=
+        "0=Safe,1=Warn,2=Danger")
+      uint8 level_left;
+
+      uint8 level_center;
+
+      uint8 level_right;
+    };
+  };
+};

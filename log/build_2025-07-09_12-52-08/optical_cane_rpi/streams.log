@@ -1,0 +1,27 @@
+[1.483s] Invoking command in '/home/p/ros2_ws/src/optical_cane_rpi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data
+[1.969s] running egg_info
+[2.007s] writing ../build/optical_cane_rpi/optical_cane_rpi.egg-info/PKG-INFO
+[2.007s] writing dependency_links to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/dependency_links.txt
+[2.009s] writing entry points to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/entry_points.txt
+[2.009s] writing requirements to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/requires.txt
+[2.010s] writing top-level names to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/top_level.txt
+[2.088s] reading manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[2.089s] writing manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[2.089s] running build
+[2.089s] running build_py
+[2.089s] copying optical_cane_rpi/pointcloud_generator.py -> /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi
+[2.090s] running install
+[2.100s] running install_lib
+[2.137s] copying /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi/pointcloud_generator.py -> /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi
+[2.138s] byte-compiling /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi/pointcloud_generator.py to pointcloud_generator.cpython-312.pyc
+[2.140s] running install_data
+[2.140s] running install_egg_info
+[2.181s] removing '/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi-0.0.0-py3.12.egg-info' (and everything under it)
+[2.181s] Copying ../build/optical_cane_rpi/optical_cane_rpi.egg-info to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi-0.0.0-py3.12.egg-info
+[2.183s] running install_scripts
+[2.415s] Installing imu_subscriber script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.415s] Installing lidar_subscriber script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.417s] Installing optical_cane_rpi script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.418s] Installing pointcloud_generator script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.418s] writing list of installed files to '/home/p/ros2_ws/src/build/optical_cane_rpi/install.log'
+[2.503s] Invoked command in '/home/p/ros2_ws/src/optical_cane_rpi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data

@@ -1,0 +1,56 @@
+CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  CMake variable FLANN_ROOT is set to:
+
+    /usr
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+  CMakeLists.txt:29 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at CMakeLists.txt:31 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  CMake variable PCL_ROOT is set to:
+
+    /usr
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171,
+                 from /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:1:
+/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp: In member function ‘void ICP3DOdomNode::scanImuCallback(const sensor_msgs::msg::LaserScan_<std::allocator<void> >::ConstSharedPtr&, const sensor_msgs::msg::Imu_<std::allocator<void> >::ConstSharedPtr&)’:
+/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:49: warning: format ‘%f’ expects argument of type ‘double’, but argument 5 has type ‘std::chrono::duration<long int, std::ratio<1, 1000> >::rep’ {aka ‘long int’} [-Wformat=]
+  134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",
+      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  135 |                            duration.count(), icp_.getFitnessScore());
+      |                            ~~~~~~~~~~~~~~~~      
+      |                                          |
+      |                                          std::chrono::duration<long int, std::ratio<1, 1000> >::rep {aka long int}
+/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:70: note: format string is defined here
+  134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",
+      |                                                                   ~~~^
+      |                                                                      |
+      |                                                                      double
+      |                                                                   %.1ld
+/home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp: In member function ‘void ObstacleDetectorNode::cloud_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)’:
+/home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp:54:43: warning: comparison of integer expressions of different signedness: ‘std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type’ {aka ‘long unsigned int’} and ‘int64_t’ {aka ‘long int’} [-Wsign-compare]
+   54 |         if (cloud_filtered->points.size() < this->get_parameter("min_points_for_plane").as_int()) {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

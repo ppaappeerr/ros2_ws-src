@@ -1,0 +1,2473 @@
+[0.000000] (-) TimerEvent: {}
+[0.000141] (-) JobUnselected: {'identifier': 'cartographer'}
+[0.000298] (-) JobUnselected: {'identifier': 'cartographer_ros'}
+[0.000322] (-) JobUnselected: {'identifier': 'cartographer_ros_msgs'}
+[0.000613] (-) JobUnselected: {'identifier': 'cartographer_rviz'}
+[0.000943] (-) JobUnselected: {'identifier': 'mpu9250'}
+[0.000967] (-) JobUnselected: {'identifier': 'optical_cane_rpi'}
+[0.000985] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.001031] (-) JobUnselected: {'identifier': 'sweep_builder'}
+[0.001051] (cpp_package) JobQueued: {'identifier': 'cpp_package', 'dependencies': OrderedDict()}
+[0.001076] (cpp_package) JobStarted: {'identifier': 'cpp_package'}
+[0.020556] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'cmake'}
+[0.021364] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '/home/p/ros2_ws/src/cpp_package', '-DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cpp_package'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62737 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/gemini_interfaces/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-76b27a40-9e32-4c27-8bb0-61557fab0005.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-7c6492186b.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 62737 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_pkg/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_interfaces/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[0.099685] (-) TimerEvent: {}
+[0.199928] (-) TimerEvent: {}
+[0.300163] (-) TimerEvent: {}
+[0.400441] (-) TimerEvent: {}
+[0.402165] (cpp_package) StdoutLine: {'line': b'-- The C compiler identification is GNU 13.3.0\n'}
+[0.500559] (-) TimerEvent: {}
+[0.600807] (-) TimerEvent: {}
+[0.701050] (-) TimerEvent: {}
+[0.801285] (-) TimerEvent: {}
+[0.808278] (cpp_package) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 13.3.0\n'}
+[0.856154] (cpp_package) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.901414] (-) TimerEvent: {}
+[1.001697] (-) TimerEvent: {}
+[1.067775] (cpp_package) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.082781] (cpp_package) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[1.083701] (cpp_package) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.085174] (cpp_package) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.101136] (cpp_package) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[1.101821] (-) TimerEvent: {}
+[1.201988] (-) TimerEvent: {}
+[1.302242] (-) TimerEvent: {}
+[1.315620] (cpp_package) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[1.330586] (cpp_package) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[1.331106] (cpp_package) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[1.331766] (cpp_package) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[1.351192] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[1.402351] (-) TimerEvent: {}
+[1.502577] (-) TimerEvent: {}
+[1.602806] (-) TimerEvent: {}
+[1.646927] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[1.702905] (-) TimerEvent: {}
+[1.803118] (-) TimerEvent: {}
+[1.903323] (-) TimerEvent: {}
+[1.948496] (cpp_package) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[2.003444] (-) TimerEvent: {}
+[2.091421] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[2.103564] (-) TimerEvent: {}
+[2.137459] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[2.194007] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.203662] (-) TimerEvent: {}
+[2.247500] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[2.303770] (-) TimerEvent: {}
+[2.403975] (-) TimerEvent: {}
+[2.457437] (cpp_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[2.470655] (cpp_package) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[2.504056] (-) TimerEvent: {}
+[2.604261] (-) TimerEvent: {}
+[2.704498] (-) TimerEvent: {}
+[2.713824] (cpp_package) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  \n'}
+[2.748807] (cpp_package) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") \n'}
+[2.787986] (cpp_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.804604] (-) TimerEvent: {}
+[2.904815] (-) TimerEvent: {}
+[2.976345] (cpp_package) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[3.004939] (-) TimerEvent: {}
+[3.105241] (-) TimerEvent: {}
+[3.114093] (cpp_package) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[3.170968] (cpp_package) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[3.205340] (-) TimerEvent: {}
+[3.305572] (-) TimerEvent: {}
+[3.405783] (-) TimerEvent: {}
+[3.491005] (cpp_package) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)\n'}
+[3.505883] (-) TimerEvent: {}
+[3.542690] (cpp_package) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[3.546223] (cpp_package) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[3.546470] (cpp_package) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[3.557436] (cpp_package) StdoutLine: {'line': b'-- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)\n'}
+[3.573574] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[3.606132] (-) TimerEvent: {}
+[3.625643] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[3.644010] (cpp_package) StdoutLine: {'line': b'-- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)\n'}
+[3.706214] (-) TimerEvent: {}
+[3.806432] (-) TimerEvent: {}
+[3.848767] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[3.849099] (cpp_package) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[3.849213] (cpp_package) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[3.849306] (cpp_package) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[3.849418] (cpp_package) StderrLine: {'line': b'\n'}
+[3.849514] (cpp_package) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[3.849602] (cpp_package) StderrLine: {'line': b'\n'}
+[3.849687] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[3.849772] (cpp_package) StderrLine: {'line': b'\n'}
+[3.849856] (cpp_package) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[3.849943] (cpp_package) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[3.850028] (cpp_package) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[3.850112] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[3.850197] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[3.850282] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[3.850394] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[3.850492] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[3.850600] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[3.850702] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)\n'}
+[3.850807] (cpp_package) StderrLine: {'line': b'  CMakeLists.txt:29 (find_package)\n'}
+[3.850900] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[3.850989] (cpp_package) StderrLine: {'line': b'\n'}
+[3.854591] (cpp_package) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[3.906548] (-) TimerEvent: {}
+[4.006799] (-) TimerEvent: {}
+[4.107047] (-) TimerEvent: {}
+[4.207289] (-) TimerEvent: {}
+[4.307550] (-) TimerEvent: {}
+[4.407759] (-) TimerEvent: {}
+[4.507975] (-) TimerEvent: {}
+[4.519788] (cpp_package) StdoutLine: {'line': b'-- Found OpenMP_CXX: -fopenmp (found version "4.5") \n'}
+[4.520249] (cpp_package) StdoutLine: {'line': b'-- Found OpenMP: TRUE (found version "4.5") found components: CXX \n'}
+[4.608100] (-) TimerEvent: {}
+[4.708325] (-) TimerEvent: {}
+[4.808587] (-) TimerEvent: {}
+[4.908825] (-) TimerEvent: {}
+[5.009070] (-) TimerEvent: {}
+[5.109330] (-) TimerEvent: {}
+[5.209597] (-) TimerEvent: {}
+[5.309876] (-) TimerEvent: {}
+[5.410105] (-) TimerEvent: {}
+[5.510327] (-) TimerEvent: {}
+[5.610582] (-) TimerEvent: {}
+[5.710823] (-) TimerEvent: {}
+[5.811066] (-) TimerEvent: {}
+[5.911318] (-) TimerEvent: {}
+[6.011604] (-) TimerEvent: {}
+[6.111868] (-) TimerEvent: {}
+[6.212100] (-) TimerEvent: {}
+[6.312331] (-) TimerEvent: {}
+[6.412610] (-) TimerEvent: {}
+[6.512933] (-) TimerEvent: {}
+[6.613253] (-) TimerEvent: {}
+[6.713480] (-) TimerEvent: {}
+[6.813731] (-) TimerEvent: {}
+[6.913982] (-) TimerEvent: {}
+[7.014228] (-) TimerEvent: {}
+[7.114491] (-) TimerEvent: {}
+[7.214728] (-) TimerEvent: {}
+[7.314967] (-) TimerEvent: {}
+[7.415189] (-) TimerEvent: {}
+[7.515428] (-) TimerEvent: {}
+[7.615666] (-) TimerEvent: {}
+[7.715935] (-) TimerEvent: {}
+[7.816175] (-) TimerEvent: {}
+[7.916429] (-) TimerEvent: {}
+[8.016652] (-) TimerEvent: {}
+[8.116880] (-) TimerEvent: {}
+[8.217132] (-) TimerEvent: {}
+[8.295334] (cpp_package) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[8.317235] (-) TimerEvent: {}
+[8.357443] (cpp_package) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.27\n'}
+[8.417361] (-) TimerEvent: {}
+[8.438843] (cpp_package) StdoutLine: {'line': b'-- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  \n'}
+[8.440966] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[8.517460] (-) TimerEvent: {}
+[8.567515] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[8.575126] (cpp_package) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[8.597749] (cpp_package) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  \n'}
+[8.617535] (-) TimerEvent: {}
+[8.624731] (cpp_package) StdoutLine: {'line': b'-- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") \n'}
+[8.717660] (-) TimerEvent: {}
+[8.817895] (-) TimerEvent: {}
+[8.918161] (-) TimerEvent: {}
+[9.018446] (-) TimerEvent: {}
+[9.118660] (-) TimerEvent: {}
+[9.218887] (-) TimerEvent: {}
+[9.319132] (-) TimerEvent: {}
+[9.328525] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[9.339874] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[9.419253] (-) TimerEvent: {}
+[9.519497] (-) TimerEvent: {}
+[9.620201] (-) TimerEvent: {}
+[9.720453] (-) TimerEvent: {}
+[9.820691] (-) TimerEvent: {}
+[9.920946] (-) TimerEvent: {}
+[10.021187] (-) TimerEvent: {}
+[10.053288] (cpp_package) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[10.121317] (-) TimerEvent: {}
+[10.221774] (-) TimerEvent: {}
+[10.322463] (-) TimerEvent: {}
+[10.422724] (-) TimerEvent: {}
+[10.522958] (-) TimerEvent: {}
+[10.623229] (-) TimerEvent: {}
+[10.723487] (-) TimerEvent: {}
+[10.758319] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[10.823633] (-) TimerEvent: {}
+[10.923889] (-) TimerEvent: {}
+[11.024302] (-) TimerEvent: {}
+[11.124609] (-) TimerEvent: {}
+[11.224827] (-) TimerEvent: {}
+[11.325041] (-) TimerEvent: {}
+[11.425279] (-) TimerEvent: {}
+[11.463498] (cpp_package) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  \n'}
+[11.465245] (cpp_package) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  \n'}
+[11.466907] (cpp_package) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  \n'}
+[11.468546] (cpp_package) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  \n'}
+[11.470205] (cpp_package) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[11.471849] (cpp_package) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  \n'}
+[11.472544] (cpp_package) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.14  \n'}
+[11.473133] (cpp_package) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.14  \n'}
+[11.474733] (cpp_package) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  \n'}
+[11.476473] (cpp_package) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  \n'}
+[11.478203] (cpp_package) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  \n'}
+[11.479864] (cpp_package) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  \n'}
+[11.481698] (cpp_package) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  \n'}
+[11.483519] (cpp_package) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  \n'}
+[11.485287] (cpp_package) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  \n'}
+[11.487148] (cpp_package) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  \n'}
+[11.488920] (cpp_package) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  \n'}
+[11.490635] (cpp_package) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  \n'}
+[11.492541] (cpp_package) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  \n'}
+[11.494187] (cpp_package) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  \n'}
+[11.495529] (cpp_package) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  \n'}
+[11.496108] (cpp_package) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.14  \n'}
+[11.498359] (cpp_package) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  \n'}
+[11.502582] (cpp_package) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  \n'}
+[11.503236] (cpp_package) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  \n'}
+[11.525456] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at CMakeLists.txt:31 (find_package):\n'}
+[11.525744] (-) TimerEvent: {}
+[11.525771] (cpp_package) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[11.525866] (cpp_package) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[11.525951] (cpp_package) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[11.526032] (cpp_package) StderrLine: {'line': b'\n'}
+[11.526115] (cpp_package) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[11.526196] (cpp_package) StderrLine: {'line': b'\n'}
+[11.526275] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[11.526352] (cpp_package) StderrLine: {'line': b'\n'}
+[11.526457] (cpp_package) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[11.526545] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[11.526625] (cpp_package) StderrLine: {'line': b'\n'}
+[11.625885] (-) TimerEvent: {}
+[11.726117] (-) TimerEvent: {}
+[11.826362] (-) TimerEvent: {}
+[11.926614] (-) TimerEvent: {}
+[12.026817] (-) TimerEvent: {}
+[12.127049] (-) TimerEvent: {}
+[12.227351] (-) TimerEvent: {}
+[12.327712] (-) TimerEvent: {}
+[12.427928] (-) TimerEvent: {}
+[12.528174] (-) TimerEvent: {}
+[12.628556] (-) TimerEvent: {}
+[12.662611] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[12.728639] (-) TimerEvent: {}
+[12.828846] (-) TimerEvent: {}
+[12.929087] (-) TimerEvent: {}
+[13.029421] (-) TimerEvent: {}
+[13.129691] (-) TimerEvent: {}
+[13.229923] (-) TimerEvent: {}
+[13.330141] (-) TimerEvent: {}
+[13.430425] (-) TimerEvent: {}
+[13.530668] (-) TimerEvent: {}
+[13.630890] (-) TimerEvent: {}
+[13.731115] (-) TimerEvent: {}
+[13.831403] (-) TimerEvent: {}
+[13.931691] (-) TimerEvent: {}
+[14.031936] (-) TimerEvent: {}
+[14.079069] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[14.132039] (-) TimerEvent: {}
+[14.232277] (-) TimerEvent: {}
+[14.332525] (-) TimerEvent: {}
+[14.432728] (-) TimerEvent: {}
+[14.532983] (-) TimerEvent: {}
+[14.619216] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[14.632126] (cpp_package) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[14.633031] (-) TimerEvent: {}
+[14.733189] (-) TimerEvent: {}
+[14.833452] (-) TimerEvent: {}
+[14.880123] (cpp_package) StdoutLine: {'line': b'-- Found PythonExtra: /usr/bin/python3  \n'}
+[14.933572] (-) TimerEvent: {}
+[15.033801] (-) TimerEvent: {}
+[15.134027] (-) TimerEvent: {}
+[15.234274] (-) TimerEvent: {}
+[15.334628] (-) TimerEvent: {}
+[15.435029] (-) TimerEvent: {}
+[15.535244] (-) TimerEvent: {}
+[15.635477] (-) TimerEvent: {}
+[15.735701] (-) TimerEvent: {}
+[15.835985] (-) TimerEvent: {}
+[15.936817] (-) TimerEvent: {}
+[16.037107] (-) TimerEvent: {}
+[16.138484] (-) TimerEvent: {}
+[16.238721] (-) TimerEvent: {}
+[16.338972] (-) TimerEvent: {}
+[16.439235] (-) TimerEvent: {}
+[16.539461] (-) TimerEvent: {}
+[16.639683] (-) TimerEvent: {}
+[16.739964] (-) TimerEvent: {}
+[16.840264] (-) TimerEvent: {}
+[16.910514] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[16.940368] (-) TimerEvent: {}
+[17.040607] (-) TimerEvent: {}
+[17.140839] (-) TimerEvent: {}
+[17.241093] (-) TimerEvent: {}
+[17.341360] (-) TimerEvent: {}
+[17.429899] (cpp_package) StdoutLine: {'line': b'-- Configuring done (17.4s)\n'}
+[17.441433] (-) TimerEvent: {}
+[17.541623] (-) TimerEvent: {}
+[17.641842] (-) TimerEvent: {}
+[17.742069] (-) TimerEvent: {}
+[17.842313] (-) TimerEvent: {}
+[17.942590] (-) TimerEvent: {}
+[18.042840] (-) TimerEvent: {}
+[18.143067] (-) TimerEvent: {}
+[18.243293] (-) TimerEvent: {}
+[18.343526] (-) TimerEvent: {}
+[18.443759] (-) TimerEvent: {}
+[18.543966] (-) TimerEvent: {}
+[18.644172] (-) TimerEvent: {}
+[18.744406] (-) TimerEvent: {}
+[18.760021] (cpp_package) StdoutLine: {'line': b'-- Generating done (1.2s)\n'}
+[18.844586] (-) TimerEvent: {}
+[18.873161] (cpp_package) StdoutLine: {'line': b'-- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package\n'}
+[18.938544] (cpp_package) CommandEnded: {'returncode': 0}
+[18.939863] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'build'}
+[18.941098] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/p/ros2_ws/src/build/cpp_package', '--', '-j4', '-l4'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62737 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/gemini_interfaces/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-76b27a40-9e32-4c27-8bb0-61557fab0005.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-7c6492186b.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 62737 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_pkg/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_interfaces/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[18.944646] (-) TimerEvent: {}
+[19.046482] (-) TimerEvent: {}
+[19.068710] (cpp_package) StdoutLine: {'line': b'[  1%] Building CXX object CMakeFiles/pointcloud_formatter_node.dir/src/pointcloud_formatter_node.cpp.o\n'}
+[19.071509] (cpp_package) StdoutLine: {'line': b'[  2%] Building CXX object CMakeFiles/icp_3d_odom_node.dir/src/icp_3d_odom_node.cpp.o\n'}
+[19.077341] (cpp_package) StdoutLine: {'line': b'[  3%] Generating type hashes for ROS interfaces\n'}
+[19.107138] (cpp_package) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_copy_cpp_package\n'}
+[19.146642] (-) TimerEvent: {}
+[19.159114] (cpp_package) StdoutLine: {'line': b'[  5%] Building CXX object CMakeFiles/front_cloud_filter_node.dir/src/front_cloud_filter_node.cpp.o\n'}
+[19.246753] (-) TimerEvent: {}
+[19.346983] (-) TimerEvent: {}
+[19.447218] (-) TimerEvent: {}
+[19.547456] (-) TimerEvent: {}
+[19.647684] (-) TimerEvent: {}
+[19.749051] (-) TimerEvent: {}
+[19.849316] (-) TimerEvent: {}
+[19.939705] (cpp_package) StdoutLine: {'line': b'[  5%] Built target cpp_package__rosidl_generator_type_description\n'}
+[19.950301] (-) TimerEvent: {}
+[19.992848] (cpp_package) StdoutLine: {'line': b'[  6%] Building CXX object CMakeFiles/deskew_node.dir/src/deskew_node.cpp.o\n'}
+[20.050428] (-) TimerEvent: {}
+[20.151027] (-) TimerEvent: {}
+[20.251360] (-) TimerEvent: {}
+[20.351851] (-) TimerEvent: {}
+[20.452080] (-) TimerEvent: {}
+[20.552307] (-) TimerEvent: {}
+[20.652550] (-) TimerEvent: {}
+[20.752786] (-) TimerEvent: {}
+[20.855513] (-) TimerEvent: {}
+[20.955771] (-) TimerEvent: {}
+[21.056026] (-) TimerEvent: {}
+[21.156257] (-) TimerEvent: {}
+[21.256616] (-) TimerEvent: {}
+[21.357057] (-) TimerEvent: {}
+[21.457283] (-) TimerEvent: {}
+[21.557536] (-) TimerEvent: {}
+[21.657790] (-) TimerEvent: {}
+[21.758312] (-) TimerEvent: {}
+[21.859294] (-) TimerEvent: {}
+[21.959584] (-) TimerEvent: {}
+[22.059852] (-) TimerEvent: {}
+[22.160112] (-) TimerEvent: {}
+[22.260367] (-) TimerEvent: {}
+[22.360619] (-) TimerEvent: {}
+[22.460866] (-) TimerEvent: {}
+[22.561094] (-) TimerEvent: {}
+[22.661340] (-) TimerEvent: {}
+[22.761596] (-) TimerEvent: {}
+[22.861867] (-) TimerEvent: {}
+[22.962174] (-) TimerEvent: {}
+[23.062481] (-) TimerEvent: {}
+[23.163119] (-) TimerEvent: {}
+[23.263372] (-) TimerEvent: {}
+[23.364579] (-) TimerEvent: {}
+[23.464874] (-) TimerEvent: {}
+[23.565154] (-) TimerEvent: {}
+[23.665419] (-) TimerEvent: {}
+[23.765666] (-) TimerEvent: {}
+[23.865893] (-) TimerEvent: {}
+[23.966129] (-) TimerEvent: {}
+[24.066559] (-) TimerEvent: {}
+[24.166807] (-) TimerEvent: {}
+[24.267064] (-) TimerEvent: {}
+[24.367301] (-) TimerEvent: {}
+[24.467565] (-) TimerEvent: {}
+[24.567803] (-) TimerEvent: {}
+[24.668049] (-) TimerEvent: {}
+[24.769369] (-) TimerEvent: {}
+[24.869631] (-) TimerEvent: {}
+[24.969851] (-) TimerEvent: {}
+[25.070086] (-) TimerEvent: {}
+[25.170311] (-) TimerEvent: {}
+[25.270576] (-) TimerEvent: {}
+[25.371512] (-) TimerEvent: {}
+[25.471866] (-) TimerEvent: {}
+[25.572267] (-) TimerEvent: {}
+[25.672564] (-) TimerEvent: {}
+[25.772869] (-) TimerEvent: {}
+[25.873356] (-) TimerEvent: {}
+[25.974562] (-) TimerEvent: {}
+[26.075145] (-) TimerEvent: {}
+[26.175427] (-) TimerEvent: {}
+[26.277470] (-) TimerEvent: {}
+[26.377743] (-) TimerEvent: {}
+[26.478000] (-) TimerEvent: {}
+[26.578402] (-) TimerEvent: {}
+[26.679722] (-) TimerEvent: {}
+[26.782540] (-) TimerEvent: {}
+[26.882896] (-) TimerEvent: {}
+[26.983640] (-) TimerEvent: {}
+[27.086488] (-) TimerEvent: {}
+[27.186757] (-) TimerEvent: {}
+[27.287042] (-) TimerEvent: {}
+[27.387309] (-) TimerEvent: {}
+[27.489749] (-) TimerEvent: {}
+[27.590009] (-) TimerEvent: {}
+[27.690294] (-) TimerEvent: {}
+[27.790595] (-) TimerEvent: {}
+[27.890847] (-) TimerEvent: {}
+[27.993484] (-) TimerEvent: {}
+[28.093778] (-) TimerEvent: {}
+[28.194055] (-) TimerEvent: {}
+[28.294476] (-) TimerEvent: {}
+[28.394987] (-) TimerEvent: {}
+[28.496905] (-) TimerEvent: {}
+[28.597186] (-) TimerEvent: {}
+[28.697479] (-) TimerEvent: {}
+[28.797726] (-) TimerEvent: {}
+[28.899667] (-) TimerEvent: {}
+[28.999953] (-) TimerEvent: {}
+[29.100249] (-) TimerEvent: {}
+[29.202684] (-) TimerEvent: {}
+[29.302933] (-) TimerEvent: {}
+[29.404595] (-) TimerEvent: {}
+[29.504854] (-) TimerEvent: {}
+[29.607472] (-) TimerEvent: {}
+[29.707719] (-) TimerEvent: {}
+[29.807968] (-) TimerEvent: {}
+[29.908418] (-) TimerEvent: {}
+[30.010483] (-) TimerEvent: {}
+[30.110755] (-) TimerEvent: {}
+[30.211015] (-) TimerEvent: {}
+[30.311299] (-) TimerEvent: {}
+[30.411590] (-) TimerEvent: {}
+[30.512602] (-) TimerEvent: {}
+[30.612861] (-) TimerEvent: {}
+[30.714473] (-) TimerEvent: {}
+[30.816473] (-) TimerEvent: {}
+[30.916726] (-) TimerEvent: {}
+[31.016987] (-) TimerEvent: {}
+[31.117252] (-) TimerEvent: {}
+[31.220648] (-) TimerEvent: {}
+[31.320898] (-) TimerEvent: {}
+[31.421176] (-) TimerEvent: {}
+[31.521462] (-) TimerEvent: {}
+[31.621912] (-) TimerEvent: {}
+[31.722167] (-) TimerEvent: {}
+[31.822998] (-) TimerEvent: {}
+[31.925479] (-) TimerEvent: {}
+[32.025741] (-) TimerEvent: {}
+[32.126000] (-) TimerEvent: {}
+[32.226227] (-) TimerEvent: {}
+[32.326473] (-) TimerEvent: {}
+[32.428675] (-) TimerEvent: {}
+[32.528909] (-) TimerEvent: {}
+[32.629156] (-) TimerEvent: {}
+[32.729428] (-) TimerEvent: {}
+[32.829692] (-) TimerEvent: {}
+[32.930450] (-) TimerEvent: {}
+[33.032480] (-) TimerEvent: {}
+[33.132748] (-) TimerEvent: {}
+[33.233190] (-) TimerEvent: {}
+[33.333652] (-) TimerEvent: {}
+[33.435717] (-) TimerEvent: {}
+[33.536105] (-) TimerEvent: {}
+[33.636405] (-) TimerEvent: {}
+[33.738495] (-) TimerEvent: {}
+[33.838790] (-) TimerEvent: {}
+[33.939063] (-) TimerEvent: {}
+[34.039355] (-) TimerEvent: {}
+[34.139881] (-) TimerEvent: {}
+[34.240556] (-) TimerEvent: {}
+[34.342503] (-) TimerEvent: {}
+[34.442810] (-) TimerEvent: {}
+[34.548481] (-) TimerEvent: {}
+[34.648737] (-) TimerEvent: {}
+[34.748997] (-) TimerEvent: {}
+[34.849273] (-) TimerEvent: {}
+[34.949785] (-) TimerEvent: {}
+[35.051665] (-) TimerEvent: {}
+[35.154479] (-) TimerEvent: {}
+[35.254738] (-) TimerEvent: {}
+[35.354991] (-) TimerEvent: {}
+[35.455256] (-) TimerEvent: {}
+[35.556534] (-) TimerEvent: {}
+[35.659625] (-) TimerEvent: {}
+[35.759882] (-) TimerEvent: {}
+[35.861158] (-) TimerEvent: {}
+[35.962474] (-) TimerEvent: {}
+[36.062731] (-) TimerEvent: {}
+[36.164169] (-) TimerEvent: {}
+[36.264489] (-) TimerEvent: {}
+[36.366527] (-) TimerEvent: {}
+[36.466796] (-) TimerEvent: {}
+[36.567487] (-) TimerEvent: {}
+[36.670472] (-) TimerEvent: {}
+[36.770747] (-) TimerEvent: {}
+[36.871017] (-) TimerEvent: {}
+[36.971299] (-) TimerEvent: {}
+[37.071751] (-) TimerEvent: {}
+[37.173530] (-) TimerEvent: {}
+[37.273809] (-) TimerEvent: {}
+[37.374096] (-) TimerEvent: {}
+[37.474362] (-) TimerEvent: {}
+[37.576484] (-) TimerEvent: {}
+[37.676827] (-) TimerEvent: {}
+[37.777231] (-) TimerEvent: {}
+[37.877481] (-) TimerEvent: {}
+[37.977960] (-) TimerEvent: {}
+[38.078258] (-) TimerEvent: {}
+[38.180231] (-) TimerEvent: {}
+[38.280529] (-) TimerEvent: {}
+[38.380799] (-) TimerEvent: {}
+[38.481071] (-) TimerEvent: {}
+[38.581344] (-) TimerEvent: {}
+[38.682478] (cpp_package) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24,\n'}
+[38.682799] (-) TimerEvent: {}
+[38.682828] (cpp_package) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27,\n'}
+[38.682949] (cpp_package) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171,\n'}
+[38.683070] (cpp_package) StderrLine: {'line': b'                 from /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:1:\n'}
+[38.683167] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp: In member function \xe2\x80\x98void ICP3DOdomNode::scanImuCallback(const sensor_msgs::msg::LaserScan_<std::allocator<void> >::ConstSharedPtr&, const sensor_msgs::msg::Imu_<std::allocator<void> >::ConstSharedPtr&)\xe2\x80\x99:\n'}
+[38.683274] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:49: warning: format \xe2\x80\x98%f\xe2\x80\x99 expects argument of type \xe2\x80\x98double\xe2\x80\x99, but argument 5 has type \xe2\x80\x98std::chrono::duration<long int, std::ratio<1, 1000> >::rep\xe2\x80\x99 {aka \xe2\x80\x98long int\xe2\x80\x99} [-Wformat=]\n'}
+[38.683418] (cpp_package) StderrLine: {'line': b'  134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",\n'}
+[38.683597] (cpp_package) StderrLine: {'line': b'      |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[38.683752] (cpp_package) StderrLine: {'line': b'  135 |                            duration.count(), icp_.getFitnessScore());\n'}
+[38.683908] (cpp_package) StderrLine: {'line': b'      |                            ~~~~~~~~~~~~~~~~      \n'}
+[38.684062] (cpp_package) StderrLine: {'line': b'      |                                          |\n'}
+[38.684224] (cpp_package) StderrLine: {'line': b'      |                                          std::chrono::duration<long int, std::ratio<1, 1000> >::rep {aka long int}\n'}
+[38.684355] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:70: note: format string is defined here\n'}
+[38.684493] (cpp_package) StderrLine: {'line': b'  134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",\n'}
+[38.684596] (cpp_package) StderrLine: {'line': b'      |                                                                   ~~~^\n'}
+[38.684695] (cpp_package) StderrLine: {'line': b'      |                                                                      |\n'}
+[38.684793] (cpp_package) StderrLine: {'line': b'      |                                                                      double\n'}
+[38.684911] (cpp_package) StderrLine: {'line': b'      |                                                                   %.1ld\n'}
+[38.785512] (-) TimerEvent: {}
+[38.887563] (-) TimerEvent: {}
+[38.988463] (-) TimerEvent: {}
+[39.088729] (-) TimerEvent: {}
+[39.189145] (-) TimerEvent: {}
+[39.291662] (-) TimerEvent: {}
+[39.391923] (-) TimerEvent: {}
+[39.492188] (-) TimerEvent: {}
+[39.592473] (-) TimerEvent: {}
+[39.692727] (-) TimerEvent: {}
+[39.794483] (-) TimerEvent: {}
+[39.894752] (-) TimerEvent: {}
+[39.995005] (-) TimerEvent: {}
+[40.095668] (-) TimerEvent: {}
+[40.195936] (-) TimerEvent: {}
+[40.298494] (-) TimerEvent: {}
+[40.398757] (-) TimerEvent: {}
+[40.499040] (-) TimerEvent: {}
+[40.599485] (-) TimerEvent: {}
+[40.699902] (-) TimerEvent: {}
+[40.802242] (-) TimerEvent: {}
+[40.902580] (-) TimerEvent: {}
+[41.002890] (-) TimerEvent: {}
+[41.103158] (-) TimerEvent: {}
+[41.205646] (-) TimerEvent: {}
+[41.305927] (-) TimerEvent: {}
+[41.406200] (-) TimerEvent: {}
+[41.506472] (-) TimerEvent: {}
+[41.606884] (-) TimerEvent: {}
+[41.709473] (-) TimerEvent: {}
+[41.811469] (-) TimerEvent: {}
+[41.911717] (-) TimerEvent: {}
+[42.011966] (-) TimerEvent: {}
+[42.112690] (-) TimerEvent: {}
+[42.215513] (-) TimerEvent: {}
+[42.315874] (-) TimerEvent: {}
+[42.416136] (-) TimerEvent: {}
+[42.516456] (-) TimerEvent: {}
+[42.617639] (-) TimerEvent: {}
+[42.720551] (-) TimerEvent: {}
+[42.820813] (-) TimerEvent: {}
+[42.921126] (-) TimerEvent: {}
+[43.021477] (-) TimerEvent: {}
+[43.124484] (-) TimerEvent: {}
+[43.224760] (-) TimerEvent: {}
+[43.325438] (-) TimerEvent: {}
+[43.425717] (-) TimerEvent: {}
+[43.528468] (-) TimerEvent: {}
+[43.628722] (-) TimerEvent: {}
+[43.728991] (-) TimerEvent: {}
+[43.829265] (-) TimerEvent: {}
+[43.929579] (-) TimerEvent: {}
+[44.031420] (-) TimerEvent: {}
+[44.131690] (-) TimerEvent: {}
+[44.233489] (-) TimerEvent: {}
+[44.333768] (-) TimerEvent: {}
+[44.444590] (-) TimerEvent: {}
+[44.545086] (-) TimerEvent: {}
+[44.645501] (-) TimerEvent: {}
+[44.745790] (-) TimerEvent: {}
+[44.848648] (-) TimerEvent: {}
+[44.948979] (-) TimerEvent: {}
+[45.049307] (-) TimerEvent: {}
+[45.149617] (-) TimerEvent: {}
+[45.249880] (-) TimerEvent: {}
+[45.350290] (-) TimerEvent: {}
+[45.454131] (-) TimerEvent: {}
+[45.554405] (-) TimerEvent: {}
+[45.654663] (-) TimerEvent: {}
+[45.755164] (-) TimerEvent: {}
+[45.855488] (-) TimerEvent: {}
+[45.955997] (-) TimerEvent: {}
+[46.058524] (-) TimerEvent: {}
+[46.160588] (-) TimerEvent: {}
+[46.261098] (-) TimerEvent: {}
+[46.361425] (-) TimerEvent: {}
+[46.461671] (-) TimerEvent: {}
+[46.561944] (-) TimerEvent: {}
+[46.664144] (-) TimerEvent: {}
+[46.764435] (-) TimerEvent: {}
+[46.867491] (-) TimerEvent: {}
+[46.967808] (-) TimerEvent: {}
+[47.068132] (-) TimerEvent: {}
+[47.168433] (-) TimerEvent: {}
+[47.269766] (-) TimerEvent: {}
+[47.370041] (-) TimerEvent: {}
+[47.470489] (-) TimerEvent: {}
+[47.570966] (-) TimerEvent: {}
+[47.676721] (-) TimerEvent: {}
+[47.777004] (-) TimerEvent: {}
+[47.877288] (-) TimerEvent: {}
+[47.977583] (-) TimerEvent: {}
+[48.080496] (-) TimerEvent: {}
+[48.180799] (-) TimerEvent: {}
+[48.281070] (-) TimerEvent: {}
+[48.381349] (-) TimerEvent: {}
+[48.481787] (-) TimerEvent: {}
+[48.583483] (-) TimerEvent: {}
+[48.683759] (-) TimerEvent: {}
+[48.784022] (-) TimerEvent: {}
+[48.884305] (-) TimerEvent: {}
+[48.985791] (-) TimerEvent: {}
+[49.086060] (-) TimerEvent: {}
+[49.186329] (-) TimerEvent: {}
+[49.286620] (-) TimerEvent: {}
+[49.387647] (-) TimerEvent: {}
+[49.487909] (-) TimerEvent: {}
+[49.588196] (-) TimerEvent: {}
+[49.689880] (-) TimerEvent: {}
+[49.790158] (-) TimerEvent: {}
+[49.890435] (-) TimerEvent: {}
+[49.990710] (-) TimerEvent: {}
+[50.093723] (-) TimerEvent: {}
+[50.194004] (-) TimerEvent: {}
+[50.294280] (-) TimerEvent: {}
+[50.394736] (-) TimerEvent: {}
+[50.495209] (-) TimerEvent: {}
+[50.596710] (-) TimerEvent: {}
+[50.696998] (-) TimerEvent: {}
+[50.797840] (-) TimerEvent: {}
+[50.898100] (-) TimerEvent: {}
+[51.000672] (-) TimerEvent: {}
+[51.100975] (-) TimerEvent: {}
+[51.202666] (-) TimerEvent: {}
+[51.302930] (-) TimerEvent: {}
+[51.403329] (-) TimerEvent: {}
+[51.503832] (-) TimerEvent: {}
+[51.604181] (-) TimerEvent: {}
+[51.704640] (-) TimerEvent: {}
+[51.807494] (-) TimerEvent: {}
+[51.907779] (-) TimerEvent: {}
+[52.008040] (-) TimerEvent: {}
+[52.108305] (-) TimerEvent: {}
+[52.208624] (-) TimerEvent: {}
+[52.308938] (-) TimerEvent: {}
+[52.409213] (-) TimerEvent: {}
+[52.509492] (-) TimerEvent: {}
+[52.609768] (-) TimerEvent: {}
+[52.710080] (-) TimerEvent: {}
+[52.811722] (-) TimerEvent: {}
+[52.912156] (-) TimerEvent: {}
+[53.012486] (-) TimerEvent: {}
+[53.112746] (-) TimerEvent: {}
+[53.213808] (-) TimerEvent: {}
+[53.258757] (cpp_package) StdoutLine: {'line': b'[  7%] Linking CXX executable front_cloud_filter_node\n'}
+[53.313948] (-) TimerEvent: {}
+[53.414213] (-) TimerEvent: {}
+[53.517491] (-) TimerEvent: {}
+[53.617795] (-) TimerEvent: {}
+[53.719056] (-) TimerEvent: {}
+[53.819367] (-) TimerEvent: {}
+[53.920515] (-) TimerEvent: {}
+[54.021041] (-) TimerEvent: {}
+[54.121305] (-) TimerEvent: {}
+[54.222733] (-) TimerEvent: {}
+[54.323448] (-) TimerEvent: {}
+[54.425529] (-) TimerEvent: {}
+[54.525877] (-) TimerEvent: {}
+[54.626266] (-) TimerEvent: {}
+[54.726956] (-) TimerEvent: {}
+[54.827464] (-) TimerEvent: {}
+[54.927941] (-) TimerEvent: {}
+[55.028251] (-) TimerEvent: {}
+[55.130811] (-) TimerEvent: {}
+[55.231984] (-) TimerEvent: {}
+[55.332227] (-) TimerEvent: {}
+[55.432471] (-) TimerEvent: {}
+[55.533575] (-) TimerEvent: {}
+[55.636525] (-) TimerEvent: {}
+[55.736810] (-) TimerEvent: {}
+[55.837055] (-) TimerEvent: {}
+[55.937499] (-) TimerEvent: {}
+[56.037993] (-) TimerEvent: {}
+[56.140475] (-) TimerEvent: {}
+[56.240734] (-) TimerEvent: {}
+[56.341630] (-) TimerEvent: {}
+[56.447487] (-) TimerEvent: {}
+[56.547786] (-) TimerEvent: {}
+[56.648168] (-) TimerEvent: {}
+[56.748707] (-) TimerEvent: {}
+[56.849466] (-) TimerEvent: {}
+[56.950743] (-) TimerEvent: {}
+[57.051163] (-) TimerEvent: {}
+[57.151441] (-) TimerEvent: {}
+[57.251684] (-) TimerEvent: {}
+[57.351895] (-) TimerEvent: {}
+[57.452122] (-) TimerEvent: {}
+[57.552356] (-) TimerEvent: {}
+[57.652614] (-) TimerEvent: {}
+[57.752841] (-) TimerEvent: {}
+[57.853058] (-) TimerEvent: {}
+[57.953277] (-) TimerEvent: {}
+[58.053474] (-) TimerEvent: {}
+[58.153727] (-) TimerEvent: {}
+[58.253958] (-) TimerEvent: {}
+[58.354224] (-) TimerEvent: {}
+[58.454473] (-) TimerEvent: {}
+[58.554725] (-) TimerEvent: {}
+[58.654964] (-) TimerEvent: {}
+[58.757614] (-) TimerEvent: {}
+[58.858123] (-) TimerEvent: {}
+[58.959683] (-) TimerEvent: {}
+[59.059960] (-) TimerEvent: {}
+[59.160241] (-) TimerEvent: {}
+[59.260538] (-) TimerEvent: {}
+[59.360809] (-) TimerEvent: {}
+[59.461241] (-) TimerEvent: {}
+[59.561681] (-) TimerEvent: {}
+[59.662370] (-) TimerEvent: {}
+[59.764490] (-) TimerEvent: {}
+[59.864791] (-) TimerEvent: {}
+[59.965154] (-) TimerEvent: {}
+[60.065495] (-) TimerEvent: {}
+[60.165828] (-) TimerEvent: {}
+[60.268523] (-) TimerEvent: {}
+[60.368821] (-) TimerEvent: {}
+[60.384699] (cpp_package) StdoutLine: {'line': b'[  9%] Linking CXX executable pointcloud_formatter_node\n'}
+[60.469121] (-) TimerEvent: {}
+[60.569654] (-) TimerEvent: {}
+[60.702783] (-) TimerEvent: {}
+[60.803304] (-) TimerEvent: {}
+[60.904501] (-) TimerEvent: {}
+[61.005038] (-) TimerEvent: {}
+[61.113639] (-) TimerEvent: {}
+[61.157510] (cpp_package) StdoutLine: {'line': b'[ 10%] Linking CXX executable deskew_node\n'}
+[61.217560] (-) TimerEvent: {}
+[61.318011] (-) TimerEvent: {}
+[61.418505] (-) TimerEvent: {}
+[61.519546] (-) TimerEvent: {}
+[61.622602] (-) TimerEvent: {}
+[61.724601] (-) TimerEvent: {}
+[61.825162] (-) TimerEvent: {}
+[61.928053] (-) TimerEvent: {}
+[62.029659] (-) TimerEvent: {}
+[62.131459] (-) TimerEvent: {}
+[62.233482] (-) TimerEvent: {}
+[62.333772] (-) TimerEvent: {}
+[62.434107] (-) TimerEvent: {}
+[62.534874] (-) TimerEvent: {}
+[62.636599] (-) TimerEvent: {}
+[62.738772] (-) TimerEvent: {}
+[62.839143] (-) TimerEvent: {}
+[62.938269] (cpp_package) StdoutLine: {'line': b'[ 10%] Built target front_cloud_filter_node\n'}
+[62.941431] (-) TimerEvent: {}
+[63.043671] (-) TimerEvent: {}
+[63.133449] (cpp_package) StdoutLine: {'line': b'[ 11%] Building CXX object CMakeFiles/obstacle_detector_node.dir/src/obstacle_detector_node.cpp.o\n'}
+[63.143706] (-) TimerEvent: {}
+[63.243923] (-) TimerEvent: {}
+[63.345642] (-) TimerEvent: {}
+[63.446127] (-) TimerEvent: {}
+[63.546722] (-) TimerEvent: {}
+[63.649646] (-) TimerEvent: {}
+[63.750280] (-) TimerEvent: {}
+[63.852568] (-) TimerEvent: {}
+[63.953157] (-) TimerEvent: {}
+[64.054847] (-) TimerEvent: {}
+[64.155521] (-) TimerEvent: {}
+[64.256502] (-) TimerEvent: {}
+[64.356818] (-) TimerEvent: {}
+[64.458759] (-) TimerEvent: {}
+[64.559664] (-) TimerEvent: {}
+[64.660120] (-) TimerEvent: {}
+[64.762147] (-) TimerEvent: {}
+[64.865286] (-) TimerEvent: {}
+[64.965726] (-) TimerEvent: {}
+[65.067320] (-) TimerEvent: {}
+[65.167708] (-) TimerEvent: {}
+[65.268512] (-) TimerEvent: {}
+[65.369984] (-) TimerEvent: {}
+[65.470826] (-) TimerEvent: {}
+[65.572215] (-) TimerEvent: {}
+[65.747808] (-) TimerEvent: {}
+[65.849094] (-) TimerEvent: {}
+[65.950584] (-) TimerEvent: {}
+[66.051203] (-) TimerEvent: {}
+[66.109009] (cpp_package) StdoutLine: {'line': b'[ 11%] Built target deskew_node\n'}
+[66.151846] (-) TimerEvent: {}
+[66.183182] (cpp_package) StdoutLine: {'line': b'[ 13%] Building CXX object CMakeFiles/point_cloud_sweeper_cpp_node.dir/src/point_cloud_sweeper_cpp_node.cpp.o\n'}
+[66.254495] (-) TimerEvent: {}
+[66.266152] (cpp_package) StdoutLine: {'line': b'[ 13%] Built target pointcloud_formatter_node\n'}
+[66.347961] (cpp_package) StdoutLine: {'line': b'[ 14%] Building CXX object CMakeFiles/point_cloud_accumulator_cpp_node.dir/src/point_cloud_accumulator_cpp_node.cpp.o\n'}
+[66.354609] (-) TimerEvent: {}
+[66.454896] (-) TimerEvent: {}
+[66.555176] (-) TimerEvent: {}
+[66.657473] (-) TimerEvent: {}
+[66.758339] (-) TimerEvent: {}
+[66.858593] (-) TimerEvent: {}
+[66.959059] (-) TimerEvent: {}
+[67.059907] (-) TimerEvent: {}
+[67.160176] (-) TimerEvent: {}
+[67.261949] (-) TimerEvent: {}
+[67.362224] (-) TimerEvent: {}
+[67.464940] (-) TimerEvent: {}
+[67.565217] (-) TimerEvent: {}
+[67.665688] (-) TimerEvent: {}
+[67.766317] (-) TimerEvent: {}
+[67.866877] (-) TimerEvent: {}
+[67.967477] (-) TimerEvent: {}
+[68.067874] (-) TimerEvent: {}
+[68.168726] (-) TimerEvent: {}
+[68.269146] (-) TimerEvent: {}
+[68.371474] (-) TimerEvent: {}
+[68.471707] (-) TimerEvent: {}
+[68.571926] (-) TimerEvent: {}
+[68.672163] (-) TimerEvent: {}
+[68.772986] (-) TimerEvent: {}
+[68.873275] (-) TimerEvent: {}
+[68.973560] (-) TimerEvent: {}
+[69.075651] (-) TimerEvent: {}
+[69.175912] (-) TimerEvent: {}
+[69.276170] (-) TimerEvent: {}
+[69.376482] (-) TimerEvent: {}
+[69.476937] (-) TimerEvent: {}
+[69.578516] (-) TimerEvent: {}
+[69.679000] (-) TimerEvent: {}
+[69.779472] (-) TimerEvent: {}
+[69.882761] (-) TimerEvent: {}
+[69.983054] (-) TimerEvent: {}
+[70.083332] (-) TimerEvent: {}
+[70.183646] (-) TimerEvent: {}
+[70.283945] (-) TimerEvent: {}
+[70.384247] (-) TimerEvent: {}
+[70.484488] (-) TimerEvent: {}
+[70.584781] (-) TimerEvent: {}
+[70.689210] (-) TimerEvent: {}
+[70.789481] (-) TimerEvent: {}
+[70.889741] (-) TimerEvent: {}
+[70.990040] (-) TimerEvent: {}
+[71.091498] (-) TimerEvent: {}
+[71.191782] (-) TimerEvent: {}
+[71.294478] (-) TimerEvent: {}
+[71.394751] (-) TimerEvent: {}
+[71.495026] (-) TimerEvent: {}
+[71.595320] (-) TimerEvent: {}
+[71.695803] (-) TimerEvent: {}
+[71.796612] (-) TimerEvent: {}
+[71.896899] (-) TimerEvent: {}
+[71.998639] (-) TimerEvent: {}
+[72.098910] (-) TimerEvent: {}
+[72.200476] (-) TimerEvent: {}
+[72.303494] (-) TimerEvent: {}
+[72.403782] (-) TimerEvent: {}
+[72.504074] (-) TimerEvent: {}
+[72.604490] (-) TimerEvent: {}
+[72.706491] (-) TimerEvent: {}
+[72.806767] (-) TimerEvent: {}
+[72.907035] (-) TimerEvent: {}
+[73.007469] (-) TimerEvent: {}
+[73.107897] (-) TimerEvent: {}
+[73.209654] (-) TimerEvent: {}
+[73.309932] (-) TimerEvent: {}
+[73.410199] (-) TimerEvent: {}
+[73.512493] (-) TimerEvent: {}
+[73.612861] (-) TimerEvent: {}
+[73.713139] (-) TimerEvent: {}
+[73.813591] (-) TimerEvent: {}
+[73.915703] (-) TimerEvent: {}
+[74.015972] (-) TimerEvent: {}
+[74.116376] (-) TimerEvent: {}
+[74.216778] (-) TimerEvent: {}
+[74.319646] (-) TimerEvent: {}
+[74.420041] (-) TimerEvent: {}
+[74.522509] (-) TimerEvent: {}
+[74.622827] (-) TimerEvent: {}
+[74.723127] (-) TimerEvent: {}
+[74.823425] (-) TimerEvent: {}
+[74.926522] (-) TimerEvent: {}
+[75.026793] (-) TimerEvent: {}
+[75.127568] (-) TimerEvent: {}
+[75.227848] (-) TimerEvent: {}
+[75.330544] (-) TimerEvent: {}
+[75.430862] (-) TimerEvent: {}
+[75.531285] (-) TimerEvent: {}
+[75.631715] (-) TimerEvent: {}
+[75.732172] (-) TimerEvent: {}
+[75.834644] (-) TimerEvent: {}
+[75.934921] (-) TimerEvent: {}
+[76.035207] (-) TimerEvent: {}
+[76.135484] (-) TimerEvent: {}
+[76.235760] (-) TimerEvent: {}
+[76.338707] (-) TimerEvent: {}
+[76.439043] (-) TimerEvent: {}
+[76.539496] (-) TimerEvent: {}
+[76.641535] (-) TimerEvent: {}
+[76.741847] (-) TimerEvent: {}
+[76.842177] (-) TimerEvent: {}
+[76.944843] (-) TimerEvent: {}
+[77.047868] (-) TimerEvent: {}
+[77.148191] (-) TimerEvent: {}
+[77.248493] (-) TimerEvent: {}
+[77.348798] (-) TimerEvent: {}
+[77.453519] (-) TimerEvent: {}
+[77.553812] (-) TimerEvent: {}
+[77.654155] (-) TimerEvent: {}
+[77.754464] (-) TimerEvent: {}
+[77.857503] (-) TimerEvent: {}
+[77.957802] (-) TimerEvent: {}
+[78.058044] (-) TimerEvent: {}
+[78.158335] (-) TimerEvent: {}
+[78.258635] (-) TimerEvent: {}
+[78.285053] (cpp_package) StdoutLine: {'line': b'[ 15%] Linking CXX executable icp_3d_odom_node\n'}
+[78.358858] (-) TimerEvent: {}
+[78.461862] (-) TimerEvent: {}
+[78.562182] (-) TimerEvent: {}
+[78.662458] (-) TimerEvent: {}
+[78.762912] (-) TimerEvent: {}
+[78.865698] (-) TimerEvent: {}
+[78.965949] (-) TimerEvent: {}
+[79.068516] (-) TimerEvent: {}
+[79.168905] (-) TimerEvent: {}
+[79.269422] (-) TimerEvent: {}
+[79.369869] (-) TimerEvent: {}
+[79.472516] (-) TimerEvent: {}
+[79.573008] (-) TimerEvent: {}
+[79.673612] (-) TimerEvent: {}
+[79.775701] (-) TimerEvent: {}
+[79.875986] (-) TimerEvent: {}
+[79.976277] (-) TimerEvent: {}
+[80.076663] (-) TimerEvent: {}
+[80.178465] (-) TimerEvent: {}
+[80.278832] (-) TimerEvent: {}
+[80.381495] (-) TimerEvent: {}
+[80.481973] (-) TimerEvent: {}
+[80.582490] (-) TimerEvent: {}
+[80.691622] (-) TimerEvent: {}
+[80.799479] (-) TimerEvent: {}
+[80.838094] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp: In member function \xe2\x80\x98void ObstacleDetectorNode::cloud_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[80.880184] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp:54:43: warning: comparison of integer expressions of different signedness: \xe2\x80\x98std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type\xe2\x80\x99 {aka \xe2\x80\x98long unsigned int\xe2\x80\x99} and \xe2\x80\x98int64_t\xe2\x80\x99 {aka \xe2\x80\x98long int\xe2\x80\x99} [-Wsign-compare]\n'}
+[80.880816] (cpp_package) StderrLine: {'line': b'   54 |         if (cloud_filtered->points.size() < this->get_parameter("min_points_for_plane").as_int()) {\n'}
+[80.881113] (cpp_package) StderrLine: {'line': b'      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[80.903521] (-) TimerEvent: {}
+[81.003843] (-) TimerEvent: {}
+[81.104149] (-) TimerEvent: {}
+[81.204505] (-) TimerEvent: {}
+[81.307764] (-) TimerEvent: {}
+[81.408168] (-) TimerEvent: {}
+[81.508648] (-) TimerEvent: {}
+[81.609033] (-) TimerEvent: {}
+[81.712181] (-) TimerEvent: {}
+[81.812607] (-) TimerEvent: {}
+[81.912884] (-) TimerEvent: {}
+[82.013216] (-) TimerEvent: {}
+[82.114486] (-) TimerEvent: {}
+[82.214768] (-) TimerEvent: {}
+[82.315169] (-) TimerEvent: {}
+[82.416519] (-) TimerEvent: {}
+[82.518581] (-) TimerEvent: {}
+[82.619122] (-) TimerEvent: {}
+[82.719617] (-) TimerEvent: {}
+[82.822426] (-) TimerEvent: {}
+[82.922842] (-) TimerEvent: {}
+[83.023228] (-) TimerEvent: {}
+[83.123776] (-) TimerEvent: {}
+[83.226558] (-) TimerEvent: {}
+[83.327092] (-) TimerEvent: {}
+[83.428495] (-) TimerEvent: {}
+[83.528766] (-) TimerEvent: {}
+[83.630492] (-) TimerEvent: {}
+[83.730896] (-) TimerEvent: {}
+[83.832799] (-) TimerEvent: {}
+[83.935520] (-) TimerEvent: {}
+[84.035884] (-) TimerEvent: {}
+[84.136730] (-) TimerEvent: {}
+[84.238581] (-) TimerEvent: {}
+[84.338856] (-) TimerEvent: {}
+[84.439139] (-) TimerEvent: {}
+[84.539448] (-) TimerEvent: {}
+[84.641492] (-) TimerEvent: {}
+[84.741778] (-) TimerEvent: {}
+[84.842072] (-) TimerEvent: {}
+[84.942368] (-) TimerEvent: {}
+[85.042962] (-) TimerEvent: {}
+[85.145809] (-) TimerEvent: {}
+[85.246093] (-) TimerEvent: {}
+[85.346563] (-) TimerEvent: {}
+[85.448765] (-) TimerEvent: {}
+[85.549208] (-) TimerEvent: {}
+[85.649606] (-) TimerEvent: {}
+[85.753537] (-) TimerEvent: {}
+[85.853998] (-) TimerEvent: {}
+[85.954871] (-) TimerEvent: {}
+[86.057511] (-) TimerEvent: {}
+[86.157895] (-) TimerEvent: {}
+[86.258248] (-) TimerEvent: {}
+[86.359633] (-) TimerEvent: {}
+[86.459995] (-) TimerEvent: {}
+[86.560355] (-) TimerEvent: {}
+[86.662224] (-) TimerEvent: {}
+[86.766585] (-) TimerEvent: {}
+[86.867060] (-) TimerEvent: {}
+[86.967463] (-) TimerEvent: {}
+[87.069550] (-) TimerEvent: {}
+[87.169919] (-) TimerEvent: {}
+[87.270261] (-) TimerEvent: {}
+[87.373732] (-) TimerEvent: {}
+[87.474024] (-) TimerEvent: {}
+[87.575806] (-) TimerEvent: {}
+[87.676144] (-) TimerEvent: {}
+[87.777528] (-) TimerEvent: {}
+[87.877779] (-) TimerEvent: {}
+[87.980485] (-) TimerEvent: {}
+[88.080760] (-) TimerEvent: {}
+[88.181012] (-) TimerEvent: {}
+[88.281254] (-) TimerEvent: {}
+[88.381472] (-) TimerEvent: {}
+[88.484527] (-) TimerEvent: {}
+[88.554367] (cpp_package) StdoutLine: {'line': b'[ 15%] Built target icp_3d_odom_node\n'}
+[88.584672] (-) TimerEvent: {}
+[88.619161] (cpp_package) StdoutLine: {'line': b'[ 17%] Building CXX object CMakeFiles/point_cloud_voxel_filter_cpp_node.dir/src/point_cloud_voxel_filter_cpp_node.cpp.o\n'}
+[88.686479] (-) TimerEvent: {}
+[88.786748] (-) TimerEvent: {}
+[88.887024] (-) TimerEvent: {}
+[88.987463] (-) TimerEvent: {}
+[89.089691] (-) TimerEvent: {}
+[89.190075] (-) TimerEvent: {}
+[89.290481] (-) TimerEvent: {}
+[89.391254] (-) TimerEvent: {}
+[89.491586] (-) TimerEvent: {}
+[89.594492] (-) TimerEvent: {}
+[89.694820] (-) TimerEvent: {}
+[89.795144] (-) TimerEvent: {}
+[89.895452] (-) TimerEvent: {}
+[89.995862] (-) TimerEvent: {}
+[90.098671] (-) TimerEvent: {}
+[90.198961] (-) TimerEvent: {}
+[90.299230] (-) TimerEvent: {}
+[90.399491] (-) TimerEvent: {}
+[90.499755] (-) TimerEvent: {}
+[90.600040] (-) TimerEvent: {}
+[90.700917] (-) TimerEvent: {}
+[90.801498] (-) TimerEvent: {}
+[90.901771] (-) TimerEvent: {}
+[91.004657] (-) TimerEvent: {}
+[91.105020] (-) TimerEvent: {}
+[91.206916] (-) TimerEvent: {}
+[91.307190] (-) TimerEvent: {}
+[91.407461] (-) TimerEvent: {}
+[91.510513] (-) TimerEvent: {}
+[91.610777] (-) TimerEvent: {}
+[91.711054] (-) TimerEvent: {}
+[91.811335] (-) TimerEvent: {}
+[91.912579] (-) TimerEvent: {}
+[92.015485] (-) TimerEvent: {}
+[92.115772] (-) TimerEvent: {}
+[92.216025] (-) TimerEvent: {}
+[92.316292] (-) TimerEvent: {}
+[92.416586] (-) TimerEvent: {}
+[92.516926] (-) TimerEvent: {}
+[92.618504] (-) TimerEvent: {}
+[92.718765] (-) TimerEvent: {}
+[92.819042] (-) TimerEvent: {}
+[92.919304] (-) TimerEvent: {}
+[93.021496] (-) TimerEvent: {}
+[93.121712] (-) TimerEvent: {}
+[93.221986] (-) TimerEvent: {}
+[93.322274] (-) TimerEvent: {}
+[93.424737] (-) TimerEvent: {}
+[93.527194] (-) TimerEvent: {}
+[93.627635] (-) TimerEvent: {}
+[93.728063] (-) TimerEvent: {}
+[93.829370] (-) TimerEvent: {}
+[93.931673] (-) TimerEvent: {}
+[94.031964] (-) TimerEvent: {}
+[94.132271] (-) TimerEvent: {}
+[94.235668] (-) TimerEvent: {}
+[94.335937] (-) TimerEvent: {}
+[94.436224] (-) TimerEvent: {}
+[94.536482] (-) TimerEvent: {}
+[94.636752] (-) TimerEvent: {}
+[94.737042] (-) TimerEvent: {}
+[94.837971] (-) TimerEvent: {}
+[94.938246] (-) TimerEvent: {}
+[95.039988] (-) TimerEvent: {}
+[95.141692] (-) TimerEvent: {}
+[95.241968] (-) TimerEvent: {}
+[95.342227] (-) TimerEvent: {}
+[95.442492] (-) TimerEvent: {}
+[95.543989] (-) TimerEvent: {}
+[95.644583] (-) TimerEvent: {}
+[95.745248] (-) TimerEvent: {}
+[95.847697] (-) TimerEvent: {}
+[95.947956] (-) TimerEvent: {}
+[96.050516] (-) TimerEvent: {}
+[96.150812] (-) TimerEvent: {}
+[96.251069] (-) TimerEvent: {}
+[96.351362] (-) TimerEvent: {}
+[96.451700] (-) TimerEvent: {}
+[96.552653] (-) TimerEvent: {}
+[96.654505] (-) TimerEvent: {}
+[96.754943] (-) TimerEvent: {}
+[96.855441] (-) TimerEvent: {}
+[96.888332] (cpp_package) StdoutLine: {'line': b'[ 18%] Linking CXX executable obstacle_detector_node\n'}
+[96.955570] (-) TimerEvent: {}
+[97.056494] (-) TimerEvent: {}
+[97.156992] (-) TimerEvent: {}
+[97.258616] (-) TimerEvent: {}
+[97.364563] (-) TimerEvent: {}
+[97.464945] (-) TimerEvent: {}
+[97.565278] (-) TimerEvent: {}
+[97.667607] (-) TimerEvent: {}
+[97.769654] (-) TimerEvent: {}
+[97.871911] (-) TimerEvent: {}
+[97.972583] (-) TimerEvent: {}
+[98.072962] (-) TimerEvent: {}
+[98.173812] (-) TimerEvent: {}
+[98.274245] (-) TimerEvent: {}
+[98.376434] (-) TimerEvent: {}
+[98.477084] (-) TimerEvent: {}
+[98.578966] (-) TimerEvent: {}
+[98.680022] (-) TimerEvent: {}
+[98.781616] (-) TimerEvent: {}
+[98.884615] (-) TimerEvent: {}
+[98.985268] (-) TimerEvent: {}
+[99.089830] (-) TimerEvent: {}
+[99.190255] (-) TimerEvent: {}
+[99.291178] (-) TimerEvent: {}
+[99.394649] (-) TimerEvent: {}
+[99.495302] (-) TimerEvent: {}
+[99.525493] (cpp_package) StdoutLine: {'line': b'[ 19%] Linking CXX executable point_cloud_sweeper_cpp_node\n'}
+[99.595600] (-) TimerEvent: {}
+[99.697646] (-) TimerEvent: {}
+[99.798283] (-) TimerEvent: {}
+[99.900961] (-) TimerEvent: {}
+[100.004090] (-) TimerEvent: {}
+[100.104909] (-) TimerEvent: {}
+[100.206000] (-) TimerEvent: {}
+[100.309440] (-) TimerEvent: {}
+[100.410514] (-) TimerEvent: {}
+[100.514529] (-) TimerEvent: {}
+[100.615036] (-) TimerEvent: {}
+[100.715668] (-) TimerEvent: {}
+[100.816189] (-) TimerEvent: {}
+[100.917369] (-) TimerEvent: {}
+[101.019557] (-) TimerEvent: {}
+[101.122986] (-) TimerEvent: {}
+[101.223360] (-) TimerEvent: {}
+[101.324099] (-) TimerEvent: {}
+[101.426490] (-) TimerEvent: {}
+[101.528636] (-) TimerEvent: {}
+[101.628951] (-) TimerEvent: {}
+[101.695878] (cpp_package) StdoutLine: {'line': b'[ 21%] Linking CXX executable point_cloud_accumulator_cpp_node\n'}
+[101.731504] (-) TimerEvent: {}
+[101.831958] (-) TimerEvent: {}
+[101.932551] (-) TimerEvent: {}
+[102.034842] (-) TimerEvent: {}
+[102.135337] (-) TimerEvent: {}
+[102.235669] (-) TimerEvent: {}
+[102.336508] (-) TimerEvent: {}
+[102.438091] (-) TimerEvent: {}
+[102.515051] (cpp_package) StdoutLine: {'line': b'[ 21%] Built target obstacle_detector_node\n'}
+[102.538428] (-) TimerEvent: {}
+[102.640548] (-) TimerEvent: {}
+[102.740976] (-) TimerEvent: {}
+[102.841611] (-) TimerEvent: {}
+[102.943636] (-) TimerEvent: {}
+[103.044246] (-) TimerEvent: {}
+[103.146829] (-) TimerEvent: {}
+[103.247288] (-) TimerEvent: {}
+[103.300559] (cpp_package) StdoutLine: {'line': b'[ 21%] Built target point_cloud_sweeper_cpp_node\n'}
+[103.347593] (-) TimerEvent: {}
+[103.448161] (-) TimerEvent: {}
+[103.548786] (-) TimerEvent: {}
+[103.649140] (-) TimerEvent: {}
+[103.749491] (-) TimerEvent: {}
+[103.849821] (-) TimerEvent: {}
+[103.950096] (-) TimerEvent: {}
+[104.050448] (-) TimerEvent: {}
+[104.150725] (-) TimerEvent: {}
+[104.159496] (cpp_package) StdoutLine: {'line': b'[ 21%] Built target point_cloud_accumulator_cpp_node\n'}
+[104.250853] (-) TimerEvent: {}
+[104.351090] (-) TimerEvent: {}
+[104.451352] (-) TimerEvent: {}
+[104.552066] (-) TimerEvent: {}
+[104.652319] (-) TimerEvent: {}
+[104.752567] (-) TimerEvent: {}
+[104.852883] (-) TimerEvent: {}
+[104.953190] (-) TimerEvent: {}
+[105.053428] (-) TimerEvent: {}
+[105.153661] (-) TimerEvent: {}
+[105.253888] (-) TimerEvent: {}
+[105.354113] (-) TimerEvent: {}
+[105.454344] (-) TimerEvent: {}
+[105.554600] (-) TimerEvent: {}
+[105.654842] (-) TimerEvent: {}
+[105.755082] (-) TimerEvent: {}
+[105.855307] (-) TimerEvent: {}
+[105.955560] (-) TimerEvent: {}
+[106.055810] (-) TimerEvent: {}
+[106.156045] (-) TimerEvent: {}
+[106.256285] (-) TimerEvent: {}
+[106.356541] (-) TimerEvent: {}
+[106.456798] (-) TimerEvent: {}
+[106.557067] (-) TimerEvent: {}
+[106.657300] (-) TimerEvent: {}
+[106.757540] (-) TimerEvent: {}
+[106.857773] (-) TimerEvent: {}
+[106.958014] (-) TimerEvent: {}
+[107.058240] (-) TimerEvent: {}
+[107.158474] (-) TimerEvent: {}
+[107.258853] (-) TimerEvent: {}
+[107.359244] (-) TimerEvent: {}
+[107.459483] (-) TimerEvent: {}
+[107.559732] (-) TimerEvent: {}
+[107.659969] (-) TimerEvent: {}
+[107.760199] (-) TimerEvent: {}
+[107.860438] (-) TimerEvent: {}
+[107.960664] (-) TimerEvent: {}
+[108.061060] (-) TimerEvent: {}
+[108.161323] (-) TimerEvent: {}
+[108.261550] (-) TimerEvent: {}
+[108.361779] (-) TimerEvent: {}
+[108.462035] (-) TimerEvent: {}
+[108.562295] (-) TimerEvent: {}
+[108.662532] (-) TimerEvent: {}
+[108.762753] (-) TimerEvent: {}
+[108.862978] (-) TimerEvent: {}
+[108.963209] (-) TimerEvent: {}
+[109.063449] (-) TimerEvent: {}
+[109.163686] (-) TimerEvent: {}
+[109.263929] (-) TimerEvent: {}
+[109.364171] (-) TimerEvent: {}
+[109.464429] (-) TimerEvent: {}
+[109.564669] (-) TimerEvent: {}
+[109.664926] (-) TimerEvent: {}
+[109.765164] (-) TimerEvent: {}
+[109.865407] (-) TimerEvent: {}
+[109.965663] (-) TimerEvent: {}
+[110.065956] (-) TimerEvent: {}
+[110.166213] (-) TimerEvent: {}
+[110.216428] (cpp_package) StdoutLine: {'line': b'[ 22%] Building CXX object CMakeFiles/point_count_sweeper_node.dir/src/point_count_sweeper_node.cpp.o\n'}
+[110.266333] (-) TimerEvent: {}
+[110.366584] (-) TimerEvent: {}
+[110.466836] (-) TimerEvent: {}
+[110.567093] (-) TimerEvent: {}
+[110.667340] (-) TimerEvent: {}
+[110.768824] (-) TimerEvent: {}
+[110.869057] (-) TimerEvent: {}
+[110.969302] (-) TimerEvent: {}
+[111.069726] (-) TimerEvent: {}
+[111.169999] (-) TimerEvent: {}
+[111.270251] (-) TimerEvent: {}
+[111.370504] (-) TimerEvent: {}
+[111.470735] (-) TimerEvent: {}
+[111.570978] (-) TimerEvent: {}
+[111.671253] (-) TimerEvent: {}
+[111.771518] (-) TimerEvent: {}
+[111.871782] (-) TimerEvent: {}
+[111.972033] (-) TimerEvent: {}
+[112.072327] (-) TimerEvent: {}
+[112.172647] (-) TimerEvent: {}
+[112.254949] (cpp_package) StdoutLine: {'line': b'[ 23%] Building CXX object CMakeFiles/point_cloud_statistical_outlier_remover_cpp_node.dir/src/point_cloud_statistical_outlier_remover_cpp_node.cpp.o\n'}
+[112.272783] (-) TimerEvent: {}
+[112.374496] (-) TimerEvent: {}
+[112.474929] (-) TimerEvent: {}
+[112.575361] (-) TimerEvent: {}
+[112.676497] (-) TimerEvent: {}
+[112.776747] (-) TimerEvent: {}
+[112.877713] (-) TimerEvent: {}
+[112.978002] (-) TimerEvent: {}
+[113.078276] (-) TimerEvent: {}
+[113.178571] (-) TimerEvent: {}
+[113.279689] (-) TimerEvent: {}
+[113.379945] (-) TimerEvent: {}
+[113.480353] (-) TimerEvent: {}
+[113.581037] (-) TimerEvent: {}
+[113.681462] (-) TimerEvent: {}
+[113.781776] (-) TimerEvent: {}
+[113.882033] (-) TimerEvent: {}
+[113.982469] (-) TimerEvent: {}
+[114.084485] (-) TimerEvent: {}
+[114.184763] (-) TimerEvent: {}
+[114.286577] (-) TimerEvent: {}
+[114.306165] (cpp_package) StdoutLine: {'line': b'[ 25%] Building CXX object CMakeFiles/point_cloud_passthrough_filter_cpp_node.dir/src/point_cloud_passthrough_filter_cpp_node.cpp.o\n'}
+[114.386698] (-) TimerEvent: {}
+[114.487667] (-) TimerEvent: {}
+[114.588082] (-) TimerEvent: {}
+[114.688530] (-) TimerEvent: {}
+[114.790484] (-) TimerEvent: {}
+[114.890745] (-) TimerEvent: {}
+[114.991009] (-) TimerEvent: {}
+[115.094475] (-) TimerEvent: {}
+[115.194744] (-) TimerEvent: {}
+[115.295019] (-) TimerEvent: {}
+[115.395338] (-) TimerEvent: {}
+[115.495650] (-) TimerEvent: {}
+[115.597470] (-) TimerEvent: {}
+[115.697713] (-) TimerEvent: {}
+[115.799872] (-) TimerEvent: {}
+[115.900253] (-) TimerEvent: {}
+[116.000786] (-) TimerEvent: {}
+[116.102649] (-) TimerEvent: {}
+[116.202925] (-) TimerEvent: {}
+[116.303200] (-) TimerEvent: {}
+[116.403486] (-) TimerEvent: {}
+[116.505558] (-) TimerEvent: {}
+[116.605848] (-) TimerEvent: {}
+[116.706147] (-) TimerEvent: {}
+[116.809481] (-) TimerEvent: {}
+[116.909987] (-) TimerEvent: {}
+[117.016249] (-) TimerEvent: {}
+[117.116481] (-) TimerEvent: {}
+[117.216735] (-) TimerEvent: {}
+[117.317027] (-) TimerEvent: {}
+[117.417476] (-) TimerEvent: {}
+[117.466086] (cpp_package) StdoutLine: {'line': b'[ 26%] Linking CXX executable point_cloud_voxel_filter_cpp_node\n'}
+[117.517681] (-) TimerEvent: {}
+[117.619540] (-) TimerEvent: {}
+[117.720081] (-) TimerEvent: {}
+[117.823535] (-) TimerEvent: {}
+[117.923942] (-) TimerEvent: {}
+[118.024438] (-) TimerEvent: {}
+[118.124937] (-) TimerEvent: {}
+[118.226540] (-) TimerEvent: {}
+[118.328933] (-) TimerEvent: {}
+[118.436211] (-) TimerEvent: {}
+[118.536645] (-) TimerEvent: {}
+[118.639491] (-) TimerEvent: {}
+[118.739785] (-) TimerEvent: {}
+[118.840061] (-) TimerEvent: {}
+[118.940337] (-) TimerEvent: {}
+[119.040804] (-) TimerEvent: {}
+[119.144012] (-) TimerEvent: {}
+[119.244604] (-) TimerEvent: {}
+[119.346611] (-) TimerEvent: {}
+[119.448858] (-) TimerEvent: {}
+[119.549569] (-) TimerEvent: {}
+[119.651563] (-) TimerEvent: {}
+[119.752011] (-) TimerEvent: {}
+[119.853510] (-) TimerEvent: {}
+[119.953852] (-) TimerEvent: {}
+[120.061535] (-) TimerEvent: {}
+[120.165536] (-) TimerEvent: {}
+[120.266540] (-) TimerEvent: {}
+[120.367108] (-) TimerEvent: {}
+[120.469484] (-) TimerEvent: {}
+[120.570465] (-) TimerEvent: {}
+[120.670782] (-) TimerEvent: {}
+[120.772528] (-) TimerEvent: {}
+[120.872997] (-) TimerEvent: {}
+[120.973475] (-) TimerEvent: {}
+[121.073730] (-) TimerEvent: {}
+[121.094844] (cpp_package) StdoutLine: {'line': b'[ 26%] Built target point_cloud_voxel_filter_cpp_node\n'}
+[121.174540] (-) TimerEvent: {}
+[121.276744] (-) TimerEvent: {}
+[121.377031] (-) TimerEvent: {}
+[121.477317] (-) TimerEvent: {}
+[121.582473] (-) TimerEvent: {}
+[121.682749] (-) TimerEvent: {}
+[121.783030] (-) TimerEvent: {}
+[121.884017] (-) TimerEvent: {}
+[121.984274] (-) TimerEvent: {}
+[122.084702] (-) TimerEvent: {}
+[122.186506] (-) TimerEvent: {}
+[122.286925] (-) TimerEvent: {}
+[122.387196] (-) TimerEvent: {}
+[122.488501] (-) TimerEvent: {}
+[122.588774] (-) TimerEvent: {}
+[122.689040] (-) TimerEvent: {}
+[122.789288] (-) TimerEvent: {}
+[122.892666] (-) TimerEvent: {}
+[122.992935] (-) TimerEvent: {}
+[123.093205] (-) TimerEvent: {}
+[123.193480] (-) TimerEvent: {}
+[123.293937] (-) TimerEvent: {}
+[123.394235] (-) TimerEvent: {}
+[123.494499] (-) TimerEvent: {}
+[123.596510] (-) TimerEvent: {}
+[123.696827] (-) TimerEvent: {}
+[123.797139] (-) TimerEvent: {}
+[123.897456] (-) TimerEvent: {}
+[123.998001] (-) TimerEvent: {}
+[124.098260] (-) TimerEvent: {}
+[124.198684] (-) TimerEvent: {}
+[124.298940] (-) TimerEvent: {}
+[124.400507] (-) TimerEvent: {}
+[124.500771] (-) TimerEvent: {}
+[124.601017] (-) TimerEvent: {}
+[124.701649] (-) TimerEvent: {}
+[124.802516] (-) TimerEvent: {}
+[124.903629] (-) TimerEvent: {}
+[125.004008] (-) TimerEvent: {}
+[125.104268] (-) TimerEvent: {}
+[125.204700] (-) TimerEvent: {}
+[125.304960] (-) TimerEvent: {}
+[125.405245] (-) TimerEvent: {}
+[125.505544] (-) TimerEvent: {}
+[125.605796] (-) TimerEvent: {}
+[125.706205] (-) TimerEvent: {}
+[125.806484] (-) TimerEvent: {}
+[125.906734] (-) TimerEvent: {}
+[126.007159] (-) TimerEvent: {}
+[126.108015] (-) TimerEvent: {}
+[126.208293] (-) TimerEvent: {}
+[126.308735] (-) TimerEvent: {}
+[126.410524] (-) TimerEvent: {}
+[126.510792] (-) TimerEvent: {}
+[126.611056] (-) TimerEvent: {}
+[126.711483] (-) TimerEvent: {}
+[126.811992] (-) TimerEvent: {}
+[126.912257] (-) TimerEvent: {}
+[127.015797] (-) TimerEvent: {}
+[127.116068] (-) TimerEvent: {}
+[127.216354] (-) TimerEvent: {}
+[127.318559] (-) TimerEvent: {}
+[127.419786] (-) TimerEvent: {}
+[127.526485] (-) TimerEvent: {}
+[127.626750] (-) TimerEvent: {}
+[127.727012] (-) TimerEvent: {}
+[127.827422] (-) TimerEvent: {}
+[127.929494] (-) TimerEvent: {}
+[128.029762] (-) TimerEvent: {}
+[128.130181] (-) TimerEvent: {}
+[128.232669] (-) TimerEvent: {}
+[128.332949] (-) TimerEvent: {}
+[128.433233] (-) TimerEvent: {}
+[128.534470] (-) TimerEvent: {}
+[128.634726] (-) TimerEvent: {}
+[128.736178] (-) TimerEvent: {}
+[128.836474] (-) TimerEvent: {}
+[128.936759] (-) TimerEvent: {}
+[129.037036] (-) TimerEvent: {}
+[129.137333] (-) TimerEvent: {}
+[129.237619] (-) TimerEvent: {}
+[129.337894] (-) TimerEvent: {}
+[129.438190] (-) TimerEvent: {}
+[129.542435] (-) TimerEvent: {}
+[129.642731] (-) TimerEvent: {}
+[129.743502] (-) TimerEvent: {}
+[129.843784] (-) TimerEvent: {}
+[129.946520] (-) TimerEvent: {}
+[130.046845] (-) TimerEvent: {}
+[130.147116] (-) TimerEvent: {}
+[130.247406] (-) TimerEvent: {}
+[130.350882] (-) TimerEvent: {}
+[130.451207] (-) TimerEvent: {}
+[130.551483] (-) TimerEvent: {}
+[130.652292] (-) TimerEvent: {}
+[130.752621] (-) TimerEvent: {}
+[130.852879] (-) TimerEvent: {}
+[130.953871] (-) TimerEvent: {}
+[131.054237] (-) TimerEvent: {}
+[131.156500] (-) TimerEvent: {}
+[131.257302] (-) TimerEvent: {}
+[131.357994] (-) TimerEvent: {}
+[131.458633] (-) TimerEvent: {}
+[131.560644] (-) TimerEvent: {}
+[131.660958] (-) TimerEvent: {}
+[131.761229] (-) TimerEvent: {}
+[131.862620] (-) TimerEvent: {}
+[131.963268] (-) TimerEvent: {}
+[132.065792] (-) TimerEvent: {}
+[132.167508] (-) TimerEvent: {}
+[132.267997] (-) TimerEvent: {}
+[132.369266] (-) TimerEvent: {}
+[132.469563] (-) TimerEvent: {}
+[132.569821] (-) TimerEvent: {}
+[132.670276] (-) TimerEvent: {}
+[132.770630] (-) TimerEvent: {}
+[132.871098] (-) TimerEvent: {}
+[132.971585] (-) TimerEvent: {}
+[133.072044] (-) TimerEvent: {}
+[133.172321] (-) TimerEvent: {}
+[133.273514] (-) TimerEvent: {}
+[133.373758] (-) TimerEvent: {}
+[133.474010] (-) TimerEvent: {}
+[133.575050] (-) TimerEvent: {}
+[133.675489] (-) TimerEvent: {}
+[133.775752] (-) TimerEvent: {}
+[133.875991] (-) TimerEvent: {}
+[133.976216] (-) TimerEvent: {}
+[134.076457] (-) TimerEvent: {}
+[134.176681] (-) TimerEvent: {}
+[134.276935] (-) TimerEvent: {}
+[134.377204] (-) TimerEvent: {}
+[134.477486] (-) TimerEvent: {}
+[134.579494] (-) TimerEvent: {}
+[134.679796] (-) TimerEvent: {}
+[134.780092] (-) TimerEvent: {}
+[134.880354] (-) TimerEvent: {}
+[134.982502] (-) TimerEvent: {}
+[135.082818] (-) TimerEvent: {}
+[135.183116] (-) TimerEvent: {}
+[135.283463] (-) TimerEvent: {}
+[135.385700] (-) TimerEvent: {}
+[135.485941] (-) TimerEvent: {}
+[135.525248] (cpp_package) StdoutLine: {'line': b'[ 27%] Linking CXX executable point_count_sweeper_node\n'}
+[135.586129] (-) TimerEvent: {}
+[135.687055] (-) TimerEvent: {}
+[135.787512] (-) TimerEvent: {}
+[135.887784] (-) TimerEvent: {}
+[135.992756] (-) TimerEvent: {}
+[136.093147] (-) TimerEvent: {}
+[136.194841] (-) TimerEvent: {}
+[136.295137] (-) TimerEvent: {}
+[136.395439] (-) TimerEvent: {}
+[136.496673] (-) TimerEvent: {}
+[136.597085] (-) TimerEvent: {}
+[136.699511] (-) TimerEvent: {}
+[136.799839] (-) TimerEvent: {}
+[136.901408] (-) TimerEvent: {}
+[137.001740] (-) TimerEvent: {}
+[137.102097] (-) TimerEvent: {}
+[137.202753] (-) TimerEvent: {}
+[137.303270] (-) TimerEvent: {}
+[137.403564] (-) TimerEvent: {}
+[137.503872] (-) TimerEvent: {}
+[137.605471] (-) TimerEvent: {}
+[137.705735] (-) TimerEvent: {}
+[137.735433] (cpp_package) StdoutLine: {'line': b'[ 27%] Built target point_count_sweeper_node\n'}
+[137.805857] (-) TimerEvent: {}
+[137.906094] (-) TimerEvent: {}
+[138.006325] (-) TimerEvent: {}
+[138.106577] (-) TimerEvent: {}
+[138.206822] (-) TimerEvent: {}
+[138.307111] (-) TimerEvent: {}
+[138.407443] (-) TimerEvent: {}
+[138.507725] (-) TimerEvent: {}
+[138.607981] (-) TimerEvent: {}
+[138.648274] (cpp_package) StdoutLine: {'line': b'[ 28%] Linking CXX executable point_cloud_statistical_outlier_remover_cpp_node\n'}
+[138.708161] (-) TimerEvent: {}
+[138.808935] (-) TimerEvent: {}
+[138.909288] (-) TimerEvent: {}
+[139.012559] (-) TimerEvent: {}
+[139.113316] (-) TimerEvent: {}
+[139.213907] (-) TimerEvent: {}
+[139.314504] (-) TimerEvent: {}
+[139.414911] (-) TimerEvent: {}
+[139.515235] (-) TimerEvent: {}
+[139.615870] (-) TimerEvent: {}
+[139.716599] (-) TimerEvent: {}
+[139.817082] (-) TimerEvent: {}
+[139.917426] (-) TimerEvent: {}
+[140.018060] (-) TimerEvent: {}
+[140.119230] (-) TimerEvent: {}
+[140.219595] (-) TimerEvent: {}
+[140.320047] (-) TimerEvent: {}
+[140.421038] (-) TimerEvent: {}
+[140.521574] (-) TimerEvent: {}
+[140.621889] (-) TimerEvent: {}
+[140.722627] (-) TimerEvent: {}
+[140.823298] (-) TimerEvent: {}
+[140.924525] (-) TimerEvent: {}
+[141.024895] (-) TimerEvent: {}
+[141.125230] (-) TimerEvent: {}
+[141.192249] (cpp_package) StdoutLine: {'line': b'[ 30%] Linking CXX executable point_cloud_passthrough_filter_cpp_node\n'}
+[141.225368] (-) TimerEvent: {}
+[141.325784] (-) TimerEvent: {}
+[141.426369] (-) TimerEvent: {}
+[141.526908] (-) TimerEvent: {}
+[141.625474] (cpp_package) StdoutLine: {'line': b'[ 30%] Built target point_cloud_statistical_outlier_remover_cpp_node\n'}
+[141.627084] (-) TimerEvent: {}
+[141.727457] (-) TimerEvent: {}
+[141.827904] (-) TimerEvent: {}
+[141.928353] (-) TimerEvent: {}
+[142.028791] (-) TimerEvent: {}
+[142.131460] (-) TimerEvent: {}
+[142.231814] (-) TimerEvent: {}
+[142.332284] (-) TimerEvent: {}
+[142.432634] (-) TimerEvent: {}
+[142.533006] (-) TimerEvent: {}
+[142.633460] (-) TimerEvent: {}
+[142.734037] (-) TimerEvent: {}
+[142.834626] (-) TimerEvent: {}
+[142.935166] (-) TimerEvent: {}
+[143.035442] (-) TimerEvent: {}
+[143.135751] (-) TimerEvent: {}
+[143.236051] (-) TimerEvent: {}
+[143.336359] (-) TimerEvent: {}
+[143.436612] (-) TimerEvent: {}
+[143.536953] (-) TimerEvent: {}
+[143.637371] (-) TimerEvent: {}
+[143.684329] (cpp_package) StdoutLine: {'line': b'[ 30%] Built target point_cloud_passthrough_filter_cpp_node\n'}
+[143.729277] (cpp_package) StdoutLine: {'line': b'[ 31%] Generating C++ code for ROS interfaces\n'}
+[143.737437] (-) TimerEvent: {}
+[143.837638] (-) TimerEvent: {}
+[143.937880] (-) TimerEvent: {}
+[144.038111] (-) TimerEvent: {}
+[144.138425] (-) TimerEvent: {}
+[144.238672] (-) TimerEvent: {}
+[144.338927] (-) TimerEvent: {}
+[144.439162] (-) TimerEvent: {}
+[144.539407] (-) TimerEvent: {}
+[144.639648] (-) TimerEvent: {}
+[144.739905] (-) TimerEvent: {}
+[144.764446] (cpp_package) StdoutLine: {'line': b'[ 32%] Generating C code for ROS interfaces\n'}
+[144.840060] (-) TimerEvent: {}
+[144.940281] (-) TimerEvent: {}
+[145.040498] (-) TimerEvent: {}
+[145.140707] (-) TimerEvent: {}
+[145.240929] (-) TimerEvent: {}
+[145.341171] (-) TimerEvent: {}
+[145.441501] (-) TimerEvent: {}
+[145.541795] (-) TimerEvent: {}
+[145.642019] (-) TimerEvent: {}
+[145.660741] (cpp_package) StdoutLine: {'line': b'[ 32%] Built target cpp_package__cpp\n'}
+[145.742141] (-) TimerEvent: {}
+[145.834067] (cpp_package) StdoutLine: {'line': b'[ 35%] Building CXX object CMakeFiles/stable_ground_detector_node.dir/src/stable_ground_detector_node.cpp.o\n'}
+[145.834454] (cpp_package) StdoutLine: {'line': b'[ 35%] Building CXX object CMakeFiles/z_variance_sweeper_node.dir/src/z_variance_sweeper_node.cpp.o\n'}
+[145.842280] (-) TimerEvent: {}
+[145.942527] (-) TimerEvent: {}
+[146.043210] (-) TimerEvent: {}
+[146.143496] (-) TimerEvent: {}
+[146.243876] (-) TimerEvent: {}
+[146.344285] (-) TimerEvent: {}
+[146.446235] (-) TimerEvent: {}
+[146.476556] (cpp_package) StdoutLine: {'line': b'[ 36%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__description.c.o\n'}
+[146.546370] (-) TimerEvent: {}
+[146.646872] (-) TimerEvent: {}
+[146.747243] (-) TimerEvent: {}
+[146.764339] (cpp_package) StdoutLine: {'line': b'[ 38%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__functions.c.o\n'}
+[146.847761] (-) TimerEvent: {}
+[146.948482] (-) TimerEvent: {}
+[147.023593] (cpp_package) StdoutLine: {'line': b'[ 39%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__type_support.c.o\n'}
+[147.051605] (-) TimerEvent: {}
+[147.113461] (cpp_package) StdoutLine: {'line': b'[ 40%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__description.c.o\n'}
+[147.151765] (-) TimerEvent: {}
+[147.211214] (cpp_package) StdoutLine: {'line': b'[ 42%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__functions.c.o\n'}
+[147.251862] (-) TimerEvent: {}
+[147.343048] (cpp_package) StdoutLine: {'line': b'[ 43%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__type_support.c.o\n'}
+[147.351993] (-) TimerEvent: {}
+[147.431766] (cpp_package) StdoutLine: {'line': b'[ 44%] Linking C shared library libcpp_package__rosidl_generator_c.so\n'}
+[147.452119] (-) TimerEvent: {}
+[147.552439] (-) TimerEvent: {}
+[147.636877] (cpp_package) StdoutLine: {'line': b'[ 44%] Built target cpp_package__rosidl_generator_c\n'}
+[147.652683] (-) TimerEvent: {}
+[147.754461] (-) TimerEvent: {}
+[147.854793] (-) TimerEvent: {}
+[147.955178] (-) TimerEvent: {}
+[148.055453] (-) TimerEvent: {}
+[148.155943] (-) TimerEvent: {}
+[148.256247] (-) TimerEvent: {}
+[148.356555] (-) TimerEvent: {}
+[148.456840] (-) TimerEvent: {}
+[148.557109] (-) TimerEvent: {}
+[148.657372] (-) TimerEvent: {}
+[148.757733] (-) TimerEvent: {}
+[148.835980] (cpp_package) StdoutLine: {'line': b'[ 46%] Generating C++ type support dispatch for ROS interfaces\n'}
+[148.857866] (-) TimerEvent: {}
+[148.958165] (-) TimerEvent: {}
+[149.058596] (-) TimerEvent: {}
+[149.158873] (-) TimerEvent: {}
+[149.263561] (-) TimerEvent: {}
+[149.363882] (-) TimerEvent: {}
+[149.464171] (-) TimerEvent: {}
+[149.564472] (-) TimerEvent: {}
+[149.577075] (cpp_package) StdoutLine: {'line': b'[ 47%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cpp_package/msg/obstacle_feedback__type_support.cpp.o\n'}
+[149.664603] (-) TimerEvent: {}
+[149.765011] (-) TimerEvent: {}
+[149.865334] (-) TimerEvent: {}
+[149.967584] (-) TimerEvent: {}
+[150.067870] (-) TimerEvent: {}
+[150.168138] (-) TimerEvent: {}
+[150.268453] (-) TimerEvent: {}
+[150.369722] (-) TimerEvent: {}
+[150.376679] (cpp_package) StdoutLine: {'line': b'[ 48%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cpp_package/msg/nav_hint__type_support.cpp.o\n'}
+[150.469831] (-) TimerEvent: {}
+[150.570258] (-) TimerEvent: {}
+[150.670567] (-) TimerEvent: {}
+[150.772478] (-) TimerEvent: {}
+[150.872760] (-) TimerEvent: {}
+[150.973172] (-) TimerEvent: {}
+[151.001604] (cpp_package) StdoutLine: {'line': b'[ 50%] Linking CXX shared library libcpp_package__rosidl_typesupport_cpp.so\n'}
+[151.074579] (-) TimerEvent: {}
+[151.160445] (cpp_package) StdoutLine: {'line': b'[ 50%] Built target cpp_package__rosidl_typesupport_cpp\n'}
+[151.174725] (-) TimerEvent: {}
+[151.232474] (cpp_package) StdoutLine: {'line': b'[ 51%] Generating C type support for eProsima Fast-RTPS\n'}
+[151.274915] (-) TimerEvent: {}
+[151.376469] (-) TimerEvent: {}
+[151.476720] (-) TimerEvent: {}
+[151.578457] (-) TimerEvent: {}
+[151.678840] (-) TimerEvent: {}
+[151.780473] (-) TimerEvent: {}
+[151.880716] (-) TimerEvent: {}
+[151.980959] (-) TimerEvent: {}
+[152.044622] (cpp_package) StdoutLine: {'line': b'running egg_info\n'}
+[152.045113] (cpp_package) StdoutLine: {'line': b'creating cpp_package.egg-info\n'}
+[152.084187] (-) TimerEvent: {}
+[152.113290] (cpp_package) StdoutLine: {'line': b'writing cpp_package.egg-info/PKG-INFO\n'}
+[152.114328] (cpp_package) StdoutLine: {'line': b'[ 52%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cpp_package/msg/detail/obstacle_feedback__type_support_c.cpp.o\n'}
+[152.114961] (cpp_package) StdoutLine: {'line': b'writing dependency_links to cpp_package.egg-info/dependency_links.txt\n'}
+[152.117986] (cpp_package) StdoutLine: {'line': b'writing top-level names to cpp_package.egg-info/top_level.txt\n'}
+[152.118168] (cpp_package) StdoutLine: {'line': b"writing manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[152.184396] (-) TimerEvent: {}
+[152.286470] (-) TimerEvent: {}
+[152.345504] (cpp_package) StdoutLine: {'line': b"reading manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[152.345747] (cpp_package) StdoutLine: {'line': b"writing manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[152.386611] (-) TimerEvent: {}
+[152.446400] (cpp_package) StdoutLine: {'line': b'[ 52%] Built target ament_cmake_python_build_cpp_package_egg\n'}
+[152.470398] (cpp_package) StdoutLine: {'line': b'[ 53%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cpp_package/msg/detail/nav_hint__type_support_c.cpp.o\n'}
+[152.490832] (-) TimerEvent: {}
+[152.591128] (-) TimerEvent: {}
+[152.694532] (-) TimerEvent: {}
+[152.794825] (-) TimerEvent: {}
+[152.895111] (-) TimerEvent: {}
+[152.995628] (-) TimerEvent: {}
+[153.095921] (-) TimerEvent: {}
+[153.199492] (-) TimerEvent: {}
+[153.299796] (-) TimerEvent: {}
+[153.400118] (-) TimerEvent: {}
+[153.500421] (-) TimerEvent: {}
+[153.600696] (-) TimerEvent: {}
+[153.617127] (cpp_package) StdoutLine: {'line': b'[ 55%] Generating C++ type support for eProsima Fast-RTPS\n'}
+[153.636188] (cpp_package) StdoutLine: {'line': b'[ 56%] Linking CXX shared library libcpp_package__rosidl_typesupport_fastrtps_c.so\n'}
+[153.700812] (-) TimerEvent: {}
+[153.801085] (-) TimerEvent: {}
+[153.904669] (-) TimerEvent: {}
+[153.920194] (cpp_package) StdoutLine: {'line': b'[ 56%] Built target cpp_package__rosidl_typesupport_fastrtps_c\n'}
+[154.004787] (-) TimerEvent: {}
+[154.037681] (cpp_package) StdoutLine: {'line': b'[ 57%] Generating C introspection for ROS interfaces\n'}
+[154.104908] (-) TimerEvent: {}
+[154.216249] (-) TimerEvent: {}
+[154.318551] (-) TimerEvent: {}
+[154.418808] (-) TimerEvent: {}
+[154.519062] (-) TimerEvent: {}
+[154.565810] (cpp_package) StdoutLine: {'line': b'[ 59%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cpp_package/msg/detail/dds_fastrtps/obstacle_feedback__type_support.cpp.o\n'}
+[154.620222] (-) TimerEvent: {}
+[154.720616] (-) TimerEvent: {}
+[154.822677] (-) TimerEvent: {}
+[154.922964] (-) TimerEvent: {}
+[154.926629] (cpp_package) StdoutLine: {'line': b'[ 60%] Building C object CMakeFiles/cpp_package__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cpp_package/msg/detail/obstacle_feedback__type_support.c.o\n'}
+[155.023125] (-) TimerEvent: {}
+[155.124493] (-) TimerEvent: {}
+[155.136604] (cpp_package) StdoutLine: {'line': b'[ 61%] Building C object CMakeFiles/cpp_package__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cpp_package/msg/detail/nav_hint__type_support.c.o\n'}
+[155.225725] (-) TimerEvent: {}
+[155.235836] (cpp_package) StdoutLine: {'line': b'[ 63%] Linking C shared library libcpp_package__rosidl_typesupport_introspection_c.so\n'}
+[155.326162] (-) TimerEvent: {}
+[155.331338] (cpp_package) StdoutLine: {'line': b'[ 63%] Built target cpp_package__rosidl_typesupport_introspection_c\n'}
+[155.358921] (cpp_package) StdoutLine: {'line': b'[ 64%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cpp_package/msg/detail/dds_fastrtps/nav_hint__type_support.cpp.o\n'}
+[155.427490] (-) TimerEvent: {}
+[155.527782] (-) TimerEvent: {}
+[155.628254] (-) TimerEvent: {}
+[155.688552] (cpp_package) StdoutLine: {'line': b'[ 65%] Generating C type support dispatch for ROS interfaces\n'}
+[155.728487] (-) TimerEvent: {}
+[155.831493] (-) TimerEvent: {}
+[155.931761] (-) TimerEvent: {}
+[156.032024] (-) TimerEvent: {}
+[156.132287] (-) TimerEvent: {}
+[156.232548] (-) TimerEvent: {}
+[156.332814] (-) TimerEvent: {}
+[156.433087] (-) TimerEvent: {}
+[156.453127] (cpp_package) StdoutLine: {'line': b'[ 67%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_c.dir/rosidl_typesupport_c/cpp_package/msg/obstacle_feedback__type_support.cpp.o\n'}
+[156.533710] (-) TimerEvent: {}
+[156.589663] (cpp_package) StdoutLine: {'line': b'[ 68%] Linking CXX shared library libcpp_package__rosidl_typesupport_fastrtps_cpp.so\n'}
+[156.599510] (cpp_package) StdoutLine: {'line': b'[ 69%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_c.dir/rosidl_typesupport_c/cpp_package/msg/nav_hint__type_support.cpp.o\n'}
+[156.633830] (-) TimerEvent: {}
+[156.704806] (cpp_package) StdoutLine: {'line': b'[ 71%] Linking CXX shared library libcpp_package__rosidl_typesupport_c.so\n'}
+[156.733969] (-) TimerEvent: {}
+[156.834289] (-) TimerEvent: {}
+[156.839136] (cpp_package) StdoutLine: {'line': b'[ 71%] Built target cpp_package__rosidl_typesupport_c\n'}
+[156.857732] (cpp_package) StdoutLine: {'line': b'[ 71%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp\n'}
+[156.873768] (cpp_package) StdoutLine: {'line': b'[ 72%] Generating C++ introspection for ROS interfaces\n'}
+[156.922799] (cpp_package) StdoutLine: {'line': b'[ 73%] Building CXX object CMakeFiles/obstacle_evaluator_node.dir/src/obstacle_evaluator_node.cpp.o\n'}
+[156.937466] (-) TimerEvent: {}
+[157.037727] (-) TimerEvent: {}
+[157.137980] (-) TimerEvent: {}
+[157.238243] (-) TimerEvent: {}
+[157.338471] (-) TimerEvent: {}
+[157.438710] (-) TimerEvent: {}
+[157.538971] (-) TimerEvent: {}
+[157.547761] (cpp_package) StdoutLine: {'line': b'[ 75%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cpp_package/msg/detail/obstacle_feedback__type_support.cpp.o\n'}
+[157.639095] (-) TimerEvent: {}
+[157.741694] (-) TimerEvent: {}
+[157.841951] (-) TimerEvent: {}
+[157.942230] (-) TimerEvent: {}
+[158.042478] (-) TimerEvent: {}
+[158.142893] (-) TimerEvent: {}
+[158.244492] (-) TimerEvent: {}
+[158.250857] (cpp_package) StdoutLine: {'line': b'[ 76%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cpp_package/msg/detail/nav_hint__type_support.cpp.o\n'}
+[158.344615] (-) TimerEvent: {}
+[158.446257] (-) TimerEvent: {}
+[158.548474] (-) TimerEvent: {}
+[158.648722] (-) TimerEvent: {}
+[158.748983] (-) TimerEvent: {}
+[158.851478] (-) TimerEvent: {}
+[158.914262] (cpp_package) StdoutLine: {'line': b'[ 77%] Linking CXX shared library libcpp_package__rosidl_typesupport_introspection_cpp.so\n'}
+[158.951608] (-) TimerEvent: {}
+[159.051865] (-) TimerEvent: {}
+[159.126048] (cpp_package) StdoutLine: {'line': b'[ 77%] Built target cpp_package__rosidl_typesupport_introspection_cpp\n'}
+[159.152012] (-) TimerEvent: {}
+[159.183720] (cpp_package) StdoutLine: {'line': b'[ 78%] Building CXX object CMakeFiles/navigation_hint_node.dir/src/navigation_hint_node.cpp.o\n'}
+[159.252188] (-) TimerEvent: {}
+[159.352764] (-) TimerEvent: {}
+[159.455473] (-) TimerEvent: {}
+[159.555778] (-) TimerEvent: {}
+[159.657471] (-) TimerEvent: {}
+[159.757927] (-) TimerEvent: {}
+[159.858357] (-) TimerEvent: {}
+[159.959727] (-) TimerEvent: {}
+[160.064133] (-) TimerEvent: {}
+[160.164427] (-) TimerEvent: {}
+[160.264705] (-) TimerEvent: {}
+[160.365139] (-) TimerEvent: {}
+[160.465616] (-) TimerEvent: {}
+[160.566078] (-) TimerEvent: {}
+[160.668694] (-) TimerEvent: {}
+[160.768984] (-) TimerEvent: {}
+[160.870630] (-) TimerEvent: {}
+[160.970858] (-) TimerEvent: {}
+[161.071149] (-) TimerEvent: {}
+[161.172231] (-) TimerEvent: {}
+[161.273476] (-) TimerEvent: {}
+[161.373734] (-) TimerEvent: {}
+[161.474004] (-) TimerEvent: {}
+[161.574298] (-) TimerEvent: {}
+[161.676492] (-) TimerEvent: {}
+[161.776772] (-) TimerEvent: {}
+[161.877038] (-) TimerEvent: {}
+[161.977473] (-) TimerEvent: {}
+[162.078689] (-) TimerEvent: {}
+[162.178964] (-) TimerEvent: {}
+[162.281497] (-) TimerEvent: {}
+[162.381775] (-) TimerEvent: {}
+[162.482146] (-) TimerEvent: {}
+[162.582478] (-) TimerEvent: {}
+[162.682752] (-) TimerEvent: {}
+[162.783037] (-) TimerEvent: {}
+[162.884479] (-) TimerEvent: {}
+[162.986698] (-) TimerEvent: {}
+[163.086961] (-) TimerEvent: {}
+[163.187217] (-) TimerEvent: {}
+[163.288758] (-) TimerEvent: {}
+[163.390481] (-) TimerEvent: {}
+[163.490740] (-) TimerEvent: {}
+[163.590997] (-) TimerEvent: {}
+[163.692474] (-) TimerEvent: {}
+[163.793574] (-) TimerEvent: {}
+[163.893855] (-) TimerEvent: {}
+[164.006526] (-) TimerEvent: {}
+[164.106798] (-) TimerEvent: {}
+[164.207075] (-) TimerEvent: {}
+[164.307358] (-) TimerEvent: {}
+[164.407693] (-) TimerEvent: {}
+[164.508006] (-) TimerEvent: {}
+[164.609483] (-) TimerEvent: {}
+[164.709735] (-) TimerEvent: {}
+[164.810004] (-) TimerEvent: {}
+[164.910427] (-) TimerEvent: {}
+[165.012481] (-) TimerEvent: {}
+[165.112752] (-) TimerEvent: {}
+[165.213010] (-) TimerEvent: {}
+[165.316493] (-) TimerEvent: {}
+[165.416754] (-) TimerEvent: {}
+[165.517038] (-) TimerEvent: {}
+[165.617350] (-) TimerEvent: {}
+[165.719482] (-) TimerEvent: {}
+[165.819757] (-) TimerEvent: {}
+[165.920042] (-) TimerEvent: {}
+[166.020746] (-) TimerEvent: {}
+[166.122481] (-) TimerEvent: {}
+[166.222758] (-) TimerEvent: {}
+[166.323131] (-) TimerEvent: {}
+[166.424459] (-) TimerEvent: {}
+[166.525505] (-) TimerEvent: {}
+[166.627694] (-) TimerEvent: {}
+[166.727964] (-) TimerEvent: {}
+[166.828364] (-) TimerEvent: {}
+[166.928631] (-) TimerEvent: {}
+[167.028899] (-) TimerEvent: {}
+[167.136480] (-) TimerEvent: {}
+[167.241481] (-) TimerEvent: {}
+[167.341774] (-) TimerEvent: {}
+[167.442066] (-) TimerEvent: {}
+[167.542375] (-) TimerEvent: {}
+[167.642838] (-) TimerEvent: {}
+[167.744473] (-) TimerEvent: {}
+[167.844752] (-) TimerEvent: {}
+[167.945030] (-) TimerEvent: {}
+[168.045317] (-) TimerEvent: {}
+[168.148660] (-) TimerEvent: {}
+[168.248923] (-) TimerEvent: {}
+[168.349191] (-) TimerEvent: {}
+[168.449481] (-) TimerEvent: {}
+[168.549736] (-) TimerEvent: {}
+[168.650011] (-) TimerEvent: {}
+[168.751480] (-) TimerEvent: {}
+[168.851770] (-) TimerEvent: {}
+[168.952041] (-) TimerEvent: {}
+[169.052320] (-) TimerEvent: {}
+[169.154489] (-) TimerEvent: {}
+[169.258494] (-) TimerEvent: {}
+[169.358768] (-) TimerEvent: {}
+[169.459050] (-) TimerEvent: {}
+[169.559349] (-) TimerEvent: {}
+[169.661534] (-) TimerEvent: {}
+[169.761828] (-) TimerEvent: {}
+[169.862253] (-) TimerEvent: {}
+[169.962963] (-) TimerEvent: {}
+[170.066159] (-) TimerEvent: {}
+[170.166439] (-) TimerEvent: {}
+[170.267841] (-) TimerEvent: {}
+[170.374655] (-) TimerEvent: {}
+[170.475501] (-) TimerEvent: {}
+[170.575774] (-) TimerEvent: {}
+[170.678234] (-) TimerEvent: {}
+[170.778503] (-) TimerEvent: {}
+[170.878782] (-) TimerEvent: {}
+[170.979016] (-) TimerEvent: {}
+[171.079256] (-) TimerEvent: {}
+[171.179515] (-) TimerEvent: {}
+[171.280487] (-) TimerEvent: {}
+[171.382472] (-) TimerEvent: {}
+[171.482758] (-) TimerEvent: {}
+[171.583097] (-) TimerEvent: {}
+[171.683438] (-) TimerEvent: {}
+[171.783695] (-) TimerEvent: {}
+[171.884134] (-) TimerEvent: {}
+[171.985483] (-) TimerEvent: {}
+[172.085938] (-) TimerEvent: {}
+[172.186871] (-) TimerEvent: {}
+[172.288671] (-) TimerEvent: {}
+[172.389054] (-) TimerEvent: {}
+[172.489449] (-) TimerEvent: {}
+[172.592658] (-) TimerEvent: {}
+[172.690458] (cpp_package) StdoutLine: {'line': b'[ 80%] Linking CXX executable stable_ground_detector_node\n'}
+[172.695566] (-) TimerEvent: {}
+[172.795849] (-) TimerEvent: {}
+[172.896151] (-) TimerEvent: {}
+[172.997526] (-) TimerEvent: {}
+[173.099773] (-) TimerEvent: {}
+[173.200193] (-) TimerEvent: {}
+[173.303142] (-) TimerEvent: {}
+[173.403582] (-) TimerEvent: {}
+[173.503881] (-) TimerEvent: {}
+[173.604910] (-) TimerEvent: {}
+[173.641226] (cpp_package) StdoutLine: {'line': b'[ 81%] Linking CXX executable z_variance_sweeper_node\n'}
+[173.709725] (-) TimerEvent: {}
+[173.810226] (-) TimerEvent: {}
+[173.911637] (-) TimerEvent: {}
+[174.013766] (-) TimerEvent: {}
+[174.115363] (-) TimerEvent: {}
+[174.216602] (-) TimerEvent: {}
+[174.319489] (-) TimerEvent: {}
+[174.420107] (-) TimerEvent: {}
+[174.520591] (-) TimerEvent: {}
+[174.620940] (-) TimerEvent: {}
+[174.725649] (-) TimerEvent: {}
+[174.826504] (-) TimerEvent: {}
+[174.927269] (-) TimerEvent: {}
+[175.040695] (-) TimerEvent: {}
+[175.144533] (-) TimerEvent: {}
+[175.244947] (-) TimerEvent: {}
+[175.350626] (-) TimerEvent: {}
+[175.451244] (-) TimerEvent: {}
+[175.552005] (-) TimerEvent: {}
+[175.653829] (-) TimerEvent: {}
+[175.757015] (-) TimerEvent: {}
+[175.859566] (-) TimerEvent: {}
+[175.960112] (-) TimerEvent: {}
+[176.062626] (-) TimerEvent: {}
+[176.163484] (-) TimerEvent: {}
+[176.267868] (-) TimerEvent: {}
+[176.368579] (-) TimerEvent: {}
+[176.472531] (-) TimerEvent: {}
+[176.572921] (-) TimerEvent: {}
+[176.673233] (-) TimerEvent: {}
+[176.774508] (-) TimerEvent: {}
+[176.874840] (-) TimerEvent: {}
+[176.977517] (-) TimerEvent: {}
+[177.077828] (-) TimerEvent: {}
+[177.178091] (-) TimerEvent: {}
+[177.260784] (cpp_package) StdoutLine: {'line': b'[ 81%] Built target stable_ground_detector_node\n'}
+[177.278256] (-) TimerEvent: {}
+[177.363767] (cpp_package) StdoutLine: {'line': b'[ 81%] Built target z_variance_sweeper_node\n'}
+[177.378391] (-) TimerEvent: {}
+[177.478648] (-) TimerEvent: {}
+[177.581480] (-) TimerEvent: {}
+[177.681719] (-) TimerEvent: {}
+[177.781968] (-) TimerEvent: {}
+[177.882203] (-) TimerEvent: {}
+[177.982458] (-) TimerEvent: {}
+[178.085542] (-) TimerEvent: {}
+[178.185866] (-) TimerEvent: {}
+[178.286109] (-) TimerEvent: {}
+[178.386398] (-) TimerEvent: {}
+[178.486662] (-) TimerEvent: {}
+[178.586910] (-) TimerEvent: {}
+[178.687158] (-) TimerEvent: {}
+[178.787412] (-) TimerEvent: {}
+[178.887652] (-) TimerEvent: {}
+[178.987893] (-) TimerEvent: {}
+[179.088134] (-) TimerEvent: {}
+[179.188373] (-) TimerEvent: {}
+[179.288620] (-) TimerEvent: {}
+[179.388856] (-) TimerEvent: {}
+[179.489087] (-) TimerEvent: {}
+[179.589323] (-) TimerEvent: {}
+[179.689577] (-) TimerEvent: {}
+[179.789828] (-) TimerEvent: {}
+[179.890086] (-) TimerEvent: {}
+[179.990351] (-) TimerEvent: {}
+[180.090652] (-) TimerEvent: {}
+[180.190890] (-) TimerEvent: {}
+[180.291114] (-) TimerEvent: {}
+[180.391342] (-) TimerEvent: {}
+[180.491603] (-) TimerEvent: {}
+[180.591892] (-) TimerEvent: {}
+[180.692197] (-) TimerEvent: {}
+[180.792590] (-) TimerEvent: {}
+[180.892925] (-) TimerEvent: {}
+[180.993176] (-) TimerEvent: {}
+[181.093463] (-) TimerEvent: {}
+[181.193745] (-) TimerEvent: {}
+[181.296532] (-) TimerEvent: {}
+[181.396846] (-) TimerEvent: {}
+[181.497136] (-) TimerEvent: {}
+[181.597392] (-) TimerEvent: {}
+[181.617658] (cpp_package) StdoutLine: {'line': b'[ 82%] Linking CXX executable navigation_hint_node\n'}
+[181.698279] (-) TimerEvent: {}
+[181.798748] (-) TimerEvent: {}
+[181.899188] (-) TimerEvent: {}
+[181.999737] (-) TimerEvent: {}
+[182.100082] (-) TimerEvent: {}
+[182.200376] (-) TimerEvent: {}
+[182.300666] (-) TimerEvent: {}
+[182.400909] (-) TimerEvent: {}
+[182.489054] (cpp_package) StdoutLine: {'line': b'[ 82%] Built target navigation_hint_node\n'}
+[182.501024] (-) TimerEvent: {}
+[182.601248] (-) TimerEvent: {}
+[182.701472] (-) TimerEvent: {}
+[182.801689] (-) TimerEvent: {}
+[182.901904] (-) TimerEvent: {}
+[183.002128] (-) TimerEvent: {}
+[183.102347] (-) TimerEvent: {}
+[183.202599] (-) TimerEvent: {}
+[183.302836] (-) TimerEvent: {}
+[183.403068] (-) TimerEvent: {}
+[183.503299] (-) TimerEvent: {}
+[183.603530] (-) TimerEvent: {}
+[183.703750] (-) TimerEvent: {}
+[183.803965] (-) TimerEvent: {}
+[183.904193] (-) TimerEvent: {}
+[184.004448] (-) TimerEvent: {}
+[184.104698] (-) TimerEvent: {}
+[184.205452] (-) TimerEvent: {}
+[184.305664] (-) TimerEvent: {}
+[184.405882] (-) TimerEvent: {}
+[184.506133] (-) TimerEvent: {}
+[184.606406] (-) TimerEvent: {}
+[184.706623] (-) TimerEvent: {}
+[184.806840] (-) TimerEvent: {}
+[184.907182] (-) TimerEvent: {}
+[185.007665] (-) TimerEvent: {}
+[185.107908] (-) TimerEvent: {}
+[185.208148] (-) TimerEvent: {}
+[185.308413] (-) TimerEvent: {}
+[185.408705] (-) TimerEvent: {}
+[185.508992] (-) TimerEvent: {}
+[185.609257] (-) TimerEvent: {}
+[185.709531] (-) TimerEvent: {}
+[185.809782] (-) TimerEvent: {}
+[185.910022] (-) TimerEvent: {}
+[186.010283] (-) TimerEvent: {}
+[186.110637] (-) TimerEvent: {}
+[186.211031] (-) TimerEvent: {}
+[186.311273] (-) TimerEvent: {}
+[186.411520] (-) TimerEvent: {}
+[186.497748] (cpp_package) StdoutLine: {'line': b'[ 84%] Linking CXX executable obstacle_evaluator_node\n'}
+[186.511814] (-) TimerEvent: {}
+[186.612234] (-) TimerEvent: {}
+[186.712528] (-) TimerEvent: {}
+[186.812881] (-) TimerEvent: {}
+[186.913599] (-) TimerEvent: {}
+[187.014123] (-) TimerEvent: {}
+[187.114721] (-) TimerEvent: {}
+[187.215420] (-) TimerEvent: {}
+[187.316336] (-) TimerEvent: {}
+[187.416781] (-) TimerEvent: {}
+[187.517108] (-) TimerEvent: {}
+[187.617477] (-) TimerEvent: {}
+[187.718119] (-) TimerEvent: {}
+[187.818739] (-) TimerEvent: {}
+[187.919064] (-) TimerEvent: {}
+[188.019373] (-) TimerEvent: {}
+[188.119783] (-) TimerEvent: {}
+[188.220054] (-) TimerEvent: {}
+[188.280522] (cpp_package) StdoutLine: {'line': b'[ 84%] Built target obstacle_evaluator_node\n'}
+[188.320214] (-) TimerEvent: {}
+[188.327856] (cpp_package) StdoutLine: {'line': b'[ 85%] Building CXX object CMakeFiles/haptic_driver_node.dir/src/haptic_driver_node.cpp.o\n'}
+[188.329451] (cpp_package) StdoutLine: {'line': b'[ 85%] Built target cpp_package\n'}
+[188.377061] (cpp_package) StdoutLine: {'line': b'[ 86%] Generating Python code for ROS interfaces\n'}
+[188.420322] (-) TimerEvent: {}
+[188.520704] (-) TimerEvent: {}
+[188.621153] (-) TimerEvent: {}
+[188.721372] (-) TimerEvent: {}
+[188.821732] (-) TimerEvent: {}
+[188.922587] (-) TimerEvent: {}
+[189.024541] (-) TimerEvent: {}
+[189.071073] (cpp_package) StdoutLine: {'line': b'[ 86%] Built target cpp_package__py\n'}
+[189.123567] (cpp_package) StdoutLine: {'line': b'[ 88%] Building C object CMakeFiles/cpp_package__rosidl_generator_py.dir/rosidl_generator_py/cpp_package/msg/_obstacle_feedback_s.c.o\n'}
+[189.124639] (-) TimerEvent: {}
+[189.126126] (cpp_package) StdoutLine: {'line': b'[ 89%] Building C object CMakeFiles/cpp_package__rosidl_generator_py.dir/rosidl_generator_py/cpp_package/msg/_nav_hint_s.c.o\n'}
+[189.224778] (-) TimerEvent: {}
+[189.325202] (-) TimerEvent: {}
+[189.425565] (-) TimerEvent: {}
+[189.451700] (cpp_package) StdoutLine: {'line': b'[ 90%] Linking C shared library libcpp_package__rosidl_generator_py.so\n'}
+[189.525690] (-) TimerEvent: {}
+[189.590989] (cpp_package) StdoutLine: {'line': b'[ 90%] Built target cpp_package__rosidl_generator_py\n'}
+[189.625801] (-) TimerEvent: {}
+[189.707429] (cpp_package) StdoutLine: {'line': b'[ 93%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_introspection_c.c.o\n'}
+[189.707823] (cpp_package) StdoutLine: {'line': b'[ 93%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_fastrtps_c.c.o\n'}
+[189.726075] (-) TimerEvent: {}
+[189.826417] (-) TimerEvent: {}
+[189.927849] (-) TimerEvent: {}
+[189.935483] (cpp_package) StdoutLine: {'line': b'[ 94%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so\n'}
+[189.946478] (cpp_package) StdoutLine: {'line': b'[ 96%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so\n'}
+[190.027985] (-) TimerEvent: {}
+[190.058891] (cpp_package) StdoutLine: {'line': b'[ 96%] Built target cpp_package_s__rosidl_typesupport_introspection_c\n'}
+[190.103919] (cpp_package) StdoutLine: {'line': b'[ 96%] Built target cpp_package_s__rosidl_typesupport_fastrtps_c\n'}
+[190.128264] (-) TimerEvent: {}
+[190.180285] (cpp_package) StdoutLine: {'line': b'[ 97%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_c.c.o\n'}
+[190.228361] (-) TimerEvent: {}
+[190.328625] (-) TimerEvent: {}
+[190.394463] (cpp_package) StdoutLine: {'line': b'[ 98%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_c.so\n'}
+[190.428782] (-) TimerEvent: {}
+[190.476172] (cpp_package) StdoutLine: {'line': b'[ 98%] Built target cpp_package_s__rosidl_typesupport_c\n'}
+[190.529078] (-) TimerEvent: {}
+[190.629493] (-) TimerEvent: {}
+[190.729737] (-) TimerEvent: {}
+[190.829990] (-) TimerEvent: {}
+[190.930403] (-) TimerEvent: {}
+[191.030747] (-) TimerEvent: {}
+[191.130980] (-) TimerEvent: {}
+[191.231215] (-) TimerEvent: {}
+[191.331464] (-) TimerEvent: {}
+[191.431710] (-) TimerEvent: {}
+[191.531938] (-) TimerEvent: {}
+[191.632171] (-) TimerEvent: {}
+[191.732418] (-) TimerEvent: {}
+[191.832651] (-) TimerEvent: {}
+[191.932887] (-) TimerEvent: {}
+[192.033118] (-) TimerEvent: {}
+[192.133391] (-) TimerEvent: {}
+[192.233629] (-) TimerEvent: {}
+[192.333864] (-) TimerEvent: {}
+[192.434087] (-) TimerEvent: {}
+[192.534323] (-) TimerEvent: {}
+[192.634579] (-) TimerEvent: {}
+[192.734816] (-) TimerEvent: {}
+[192.835046] (-) TimerEvent: {}
+[192.935273] (-) TimerEvent: {}
+[193.035499] (-) TimerEvent: {}
+[193.135726] (-) TimerEvent: {}
+[193.235960] (-) TimerEvent: {}
+[193.336202] (-) TimerEvent: {}
+[193.436453] (-) TimerEvent: {}
+[193.536685] (-) TimerEvent: {}
+[193.636921] (-) TimerEvent: {}
+[193.737162] (-) TimerEvent: {}
+[193.837492] (-) TimerEvent: {}
+[193.937759] (-) TimerEvent: {}
+[194.037980] (-) TimerEvent: {}
+[194.138206] (-) TimerEvent: {}
+[194.238440] (-) TimerEvent: {}
+[194.338672] (-) TimerEvent: {}
+[194.438903] (-) TimerEvent: {}
+[194.539170] (-) TimerEvent: {}
+[194.639476] (-) TimerEvent: {}
+[194.739723] (-) TimerEvent: {}
+[194.839947] (-) TimerEvent: {}
+[194.940184] (-) TimerEvent: {}
+[195.040432] (-) TimerEvent: {}
+[195.140678] (-) TimerEvent: {}
+[195.240930] (-) TimerEvent: {}
+[195.341176] (-) TimerEvent: {}
+[195.441438] (-) TimerEvent: {}
+[195.541671] (-) TimerEvent: {}
+[195.641912] (-) TimerEvent: {}
+[195.742155] (-) TimerEvent: {}
+[195.842436] (-) TimerEvent: {}
+[195.942693] (-) TimerEvent: {}
+[196.042954] (-) TimerEvent: {}
+[196.143183] (-) TimerEvent: {}
+[196.243417] (-) TimerEvent: {}
+[196.343637] (-) TimerEvent: {}
+[196.443856] (-) TimerEvent: {}
+[196.544077] (-) TimerEvent: {}
+[196.644297] (-) TimerEvent: {}
+[196.744543] (-) TimerEvent: {}
+[196.844911] (-) TimerEvent: {}
+[196.945250] (-) TimerEvent: {}
+[197.045477] (-) TimerEvent: {}
+[197.145695] (-) TimerEvent: {}
+[197.245912] (-) TimerEvent: {}
+[197.346125] (-) TimerEvent: {}
+[197.446342] (-) TimerEvent: {}
+[197.546588] (-) TimerEvent: {}
+[197.646808] (-) TimerEvent: {}
+[197.747037] (-) TimerEvent: {}
+[197.847257] (-) TimerEvent: {}
+[197.947490] (-) TimerEvent: {}
+[198.047706] (-) TimerEvent: {}
+[198.147934] (-) TimerEvent: {}
+[198.248167] (-) TimerEvent: {}
+[198.348422] (-) TimerEvent: {}
+[198.448647] (-) TimerEvent: {}
+[198.548867] (-) TimerEvent: {}
+[198.649085] (-) TimerEvent: {}
+[198.749300] (-) TimerEvent: {}
+[198.849537] (-) TimerEvent: {}
+[198.949755] (-) TimerEvent: {}
+[199.049970] (-) TimerEvent: {}
+[199.150196] (-) TimerEvent: {}
+[199.250435] (-) TimerEvent: {}
+[199.350673] (-) TimerEvent: {}
+[199.450929] (-) TimerEvent: {}
+[199.551174] (-) TimerEvent: {}
+[199.651426] (-) TimerEvent: {}
+[199.751695] (-) TimerEvent: {}
+[199.851998] (-) TimerEvent: {}
+[199.953487] (-) TimerEvent: {}
+[200.053809] (-) TimerEvent: {}
+[200.154191] (-) TimerEvent: {}
+[200.254496] (-) TimerEvent: {}
+[200.354870] (-) TimerEvent: {}
+[200.455205] (-) TimerEvent: {}
+[200.536733] (cpp_package) StdoutLine: {'line': b'[100%] Linking CXX executable haptic_driver_node\n'}
+[200.555311] (-) TimerEvent: {}
+[200.655592] (-) TimerEvent: {}
+[200.755908] (-) TimerEvent: {}
+[200.856370] (-) TimerEvent: {}
+[200.956861] (-) TimerEvent: {}
+[201.057159] (-) TimerEvent: {}
+[201.157476] (-) TimerEvent: {}
+[201.232823] (cpp_package) StdoutLine: {'line': b'[100%] Built target haptic_driver_node\n'}
+[201.257612] (-) TimerEvent: {}
+[201.259083] (cpp_package) CommandEnded: {'returncode': 0}
+[201.261433] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'install'}
+[201.283981] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/p/ros2_ws/src/build/cpp_package'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62737 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/gemini_interfaces/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-76b27a40-9e32-4c27-8bb0-61557fab0005.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-7c6492186b.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 62737 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_pkg/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_interfaces/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[201.305686] (cpp_package) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[201.306091] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/rosidl_interfaces/cpp_package\n'}
+[201.306660] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.json\n'}
+[201.306844] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.json\n'}
+[201.306990] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.307135] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.307285] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_c__visibility_control.h\n'}
+[201.307450] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.307597] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__description.c\n'}
+[201.307781] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c\n'}
+[201.307888] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.h\n'}
+[201.308011] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.h\n'}
+[201.308142] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.c\n'}
+[201.308317] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.h\n'}
+[201.308427] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.h\n'}
+[201.308566] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.h\n'}
+[201.308684] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c\n'}
+[201.308814] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__description.c\n'}
+[201.308942] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.c\n'}
+[201.309075] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.h\n'}
+[201.309203] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.h\n'}
+[201.309333] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.h\n'}
+[201.309504] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.sh\n'}
+[201.310013] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.dsv\n'}
+[201.310623] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_c.so\n'}
+[201.311316] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_c.so" to ""\n'}
+[201.311639] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.311790] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.311884] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[201.311977] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.312068] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_c.h\n'}
+[201.312221] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_c.h\n'}
+[201.312314] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_c.so\n'}
+[201.312646] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[201.312823] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.312948] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.313107] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.hpp\n'}
+[201.313201] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.hpp\n'}
+[201.313290] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.313463] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__traits.hpp\n'}
+[201.313567] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__traits.hpp\n'}
+[201.313743] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.hpp\n'}
+[201.313957] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__builder.hpp\n'}
+[201.314061] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.hpp\n'}
+[201.314152] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__builder.hpp\n'}
+[201.314318] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.hpp\n'}
+[201.314481] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.hpp\n'}
+[201.314668] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[201.314764] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.314854] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.314942] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.315030] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/dds_fastrtps\n'}
+[201.315184] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[201.315277] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[201.315361] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[201.315463] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_cpp.so\n'}
+[201.315851] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[201.316000] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.316126] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.316234] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.316324] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_c.h\n'}
+[201.316483] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c\n'}
+[201.316611] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_c.h\n'}
+[201.316700] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c\n'}
+[201.316834] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[201.316970] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_c.so\n'}
+[201.317509] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_c.so" to ""\n'}
+[201.317669] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_c.so\n'}
+[201.318286] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_c.so" to ""\n'}
+[201.318423] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[201.318632] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[201.318733] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[201.318826] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.cpp\n'}
+[201.318916] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.cpp\n'}
+[201.319123] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_cpp.hpp\n'}
+[201.319218] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_cpp.hpp\n'}
+[201.319316] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_cpp.so\n'}
+[201.319779] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[201.319925] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_cpp.so\n'}
+[201.320541] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_cpp.so" to ""\n'}
+[201.320699] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.sh\n'}
+[201.321047] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.dsv\n'}
+[201.321487] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info\n'}
+[201.321671] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/dependency_links.txt\n'}
+[201.321811] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/PKG-INFO\n'}
+[201.321937] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/top_level.txt\n'}
+[201.322067] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/SOURCES.txt\n'}
+[201.322245] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package\n'}
+[201.322408] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so\n'}
+[201.322683] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[201.322832] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py\n'}
+[201.322963] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so\n'}
+[201.323221] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg\n'}
+[201.323354] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint.py\n'}
+[201.323506] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback_s.c\n'}
+[201.323638] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint_s.c\n'}
+[201.323765] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/__init__.py\n'}
+[201.323884] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback.py\n'}
+[201.324013] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_c.c\n'}
+[201.324154] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so\n'}
+[201.324492] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[201.357698] (-) TimerEvent: {}
+[201.400088] (cpp_package) StdoutLine: {'line': b"Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package'...\n"}
+[201.400454] (cpp_package) StdoutLine: {'line': b"Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py'...\n"}
+[201.400659] (cpp_package) StdoutLine: {'line': b"Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg'...\n"}
+[201.400783] (cpp_package) StdoutLine: {'line': b"Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/__init__.py'...\n"}
+[201.400891] (cpp_package) StdoutLine: {'line': b"Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint.py'...\n"}
+[201.401004] (cpp_package) StdoutLine: {'line': b"Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback.py'...\n"}
+[201.413647] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so\n'}
+[201.414144] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[201.414556] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so\n'}
+[201.415147] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so" to ""\n'}
+[201.415541] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so\n'}
+[201.416089] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so" to ""\n'}
+[201.416358] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_py.so\n'}
+[201.416892] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_py.so" to ""\n'}
+[201.417092] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.idl\n'}
+[201.417273] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.idl\n'}
+[201.417456] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.msg\n'}
+[201.417643] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.msg\n'}
+[201.417834] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node\n'}
+[201.442329] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node" to ""\n'}
+[201.442629] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node\n'}
+[201.457857] (-) TimerEvent: {}
+[201.460442] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node" to ""\n'}
+[201.460736] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node\n'}
+[201.470614] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node" to ""\n'}
+[201.470841] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_evaluator_node\n'}
+[201.483177] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_evaluator_node" to ""\n'}
+[201.483482] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/navigation_hint_node\n'}
+[201.494637] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/navigation_hint_node" to ""\n'}
+[201.494902] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/haptic_driver_node\n'}
+[201.504699] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/haptic_driver_node" to ""\n'}
+[201.504991] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/deskew_node\n'}
+[201.520645] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/deskew_node" to ""\n'}
+[201.520840] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_detector_node\n'}
+[201.531403] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_detector_node" to ""\n'}
+[201.531648] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node\n'}
+[201.543687] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node" to ""\n'}
+[201.543940] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_accumulator_cpp_node\n'}
+[201.554827] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_accumulator_cpp_node" to ""\n'}
+[201.555094] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_voxel_filter_cpp_node\n'}
+[201.557941] (-) TimerEvent: {}
+[201.565492] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_voxel_filter_cpp_node" to ""\n'}
+[201.565748] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_passthrough_filter_cpp_node\n'}
+[201.575798] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_passthrough_filter_cpp_node" to ""\n'}
+[201.576087] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_statistical_outlier_remover_cpp_node\n'}
+[201.587979] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_statistical_outlier_remover_cpp_node" to ""\n'}
+[201.588257] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node\n'}
+[201.599120] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node" to ""\n'}
+[201.599374] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node\n'}
+[201.609342] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node" to ""\n'}
+[201.610487] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node\n'}
+[201.621233] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node" to ""\n'}
+[201.621545] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch\n'}
+[201.621640] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py\n'}
+[201.622960] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py\n'}
+[201.623450] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py\n'}
+[201.624072] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/package_run_dependencies/cpp_package\n'}
+[201.624729] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/parent_prefix_path/cpp_package\n'}
+[201.625150] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.sh\n'}
+[201.625679] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.dsv\n'}
+[201.626182] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.sh\n'}
+[201.626688] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.dsv\n'}
+[201.627189] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.bash\n'}
+[201.627610] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.sh\n'}
+[201.628082] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.zsh\n'}
+[201.628529] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.dsv\n'}
+[201.628933] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.dsv\n'}
+[201.629419] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/packages/cpp_package\n'}
+[201.629676] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport.cmake\n'}
+[201.630410] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport-noconfig.cmake\n'}
+[201.630967] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[201.631485] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[201.632013] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cppExport.cmake\n'}
+[201.632576] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[201.633231] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[201.633772] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport.cmake\n'}
+[201.634300] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[201.635366] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport.cmake\n'}
+[201.635533] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[201.636169] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[201.636713] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[201.637251] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport.cmake\n'}
+[201.637904] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[201.638471] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport.cmake\n'}
+[201.639032] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport-noconfig.cmake\n'}
+[201.639547] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake-extras.cmake\n'}
+[201.640105] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[201.640672] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[201.641214] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[201.641754] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[201.642313] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[201.642845] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[201.643385] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig.cmake\n'}
+[201.643878] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig-version.cmake\n'}
+[201.644407] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.xml\n'}
+[201.649258] (cpp_package) CommandEnded: {'returncode': 0}
+[201.658063] (-) TimerEvent: {}
+[201.708688] (cpp_package) JobEnded: {'identifier': 'cpp_package', 'rc': 0}
+[201.709605] (-) EventReactorShutdown: {}

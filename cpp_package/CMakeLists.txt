@@ -108,6 +108,46 @@ target_link_libraries(obstacle_evaluator_node "${cpp_typesupport_target}")
 target_link_libraries(navigation_hint_node "${cpp_typesupport_target}")
 target_link_libraries(haptic_driver_node "${cpp_typesupport_target}")
 
+# PointCloud Sweeper Cpp Node
+add_executable(point_cloud_sweeper_cpp_node src/point_cloud_sweeper_cpp_node.cpp)
+ament_target_dependencies(point_cloud_sweeper_cpp_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_cloud_sweeper_cpp_node ${PCL_LIBRARIES})
+
+# PointCloud Accumulator Cpp Node
+add_executable(point_cloud_accumulator_cpp_node src/point_cloud_accumulator_cpp_node.cpp)
+ament_target_dependencies(point_cloud_accumulator_cpp_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_cloud_accumulator_cpp_node ${PCL_LIBRARIES})
+
+# PointCloud Voxel Filter Cpp Node
+add_executable(point_cloud_voxel_filter_cpp_node src/point_cloud_voxel_filter_cpp_node.cpp)
+ament_target_dependencies(point_cloud_voxel_filter_cpp_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_cloud_voxel_filter_cpp_node ${PCL_LIBRARIES})
+
+# PointCloud PassThrough Filter Cpp Node
+add_executable(point_cloud_passthrough_filter_cpp_node src/point_cloud_passthrough_filter_cpp_node.cpp)
+ament_target_dependencies(point_cloud_passthrough_filter_cpp_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_cloud_passthrough_filter_cpp_node ${PCL_LIBRARIES})
+
+# PointCloud Statistical Outlier Remover Cpp Node
+add_executable(point_cloud_statistical_outlier_remover_cpp_node src/point_cloud_statistical_outlier_remover_cpp_node.cpp)
+ament_target_dependencies(point_cloud_statistical_outlier_remover_cpp_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_cloud_statistical_outlier_remover_cpp_node ${PCL_LIBRARIES})
+
+# PointCloud Point Count Sweeper Cpp Node
+add_executable(point_count_sweeper_node src/point_count_sweeper_node.cpp)
+ament_target_dependencies(point_count_sweeper_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(point_count_sweeper_node ${PCL_LIBRARIES})
+
+# PointCloud Z-Variance Sweeper Cpp Node
+add_executable(z_variance_sweeper_node src/z_variance_sweeper_node.cpp)
+ament_target_dependencies(z_variance_sweeper_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(z_variance_sweeper_node ${PCL_LIBRARIES})
+
+# Stable Ground Detector Node
+add_executable(stable_ground_detector_node src/stable_ground_detector_node.cpp)
+ament_target_dependencies(stable_ground_detector_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(stable_ground_detector_node ${PCL_LIBRARIES})
+
 # 실행 파일 설치
 install(TARGETS
   icp_3d_odom_node
@@ -118,6 +158,14 @@ install(TARGETS
   haptic_driver_node  # 🔥 C++ 버전으로 변경
   deskew_node
   obstacle_detector_node
+  point_cloud_sweeper_cpp_node
+  point_cloud_accumulator_cpp_node
+  point_cloud_voxel_filter_cpp_node
+  point_cloud_passthrough_filter_cpp_node
+  point_cloud_statistical_outlier_remover_cpp_node
+  point_count_sweeper_node
+  z_variance_sweeper_node
+  stable_ground_detector_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

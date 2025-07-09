@@ -1,0 +1,12 @@
+{
+  "package_name": "cpp_package",
+  "output_dir": "/home/p/ros2_ws/src/build/cpp_package/rosidl_generator_type_description/cpp_package",
+  "idl_tuples": [
+    "/home/p/ros2_ws/src/build/cpp_package/rosidl_adapter/cpp_package:msg/ObstacleFeedback.idl",
+    "/home/p/ros2_ws/src/build/cpp_package/rosidl_adapter/cpp_package:msg/NavHint.idl"
+  ],
+  "include_paths": [
+    "std_msgs:/opt/ros/jazzy/share/std_msgs",
+    "builtin_interfaces:/opt/ros/jazzy/share/builtin_interfaces"
+  ]
+}

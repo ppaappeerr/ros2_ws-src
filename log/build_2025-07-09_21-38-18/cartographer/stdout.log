@@ -1,0 +1,210 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Build type: Release
+파일 /home/p/ros2_ws/src/build/cartographer/AllFiles.cmake와(과) -이(가) 다릅니다
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Found GMock: gmock_main  
+-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: iostreams 
+-- Found AMD headers in: /usr/include/suitesparse
+-- Found AMD library: /usr/lib/aarch64-linux-gnu/libamd.so
+-- Found CAMD headers in: /usr/include/suitesparse
+-- Found CAMD library: /usr/lib/aarch64-linux-gnu/libcamd.so
+-- Found CCOLAMD headers in: /usr/include/suitesparse
+-- Found CCOLAMD library: /usr/lib/aarch64-linux-gnu/libccolamd.so
+-- Found CHOLMOD headers in: /usr/include/suitesparse
+-- Found CHOLMOD library: /usr/lib/aarch64-linux-gnu/libcholmod.so
+-- Found COLAMD headers in: /usr/include/suitesparse
+-- Found COLAMD library: /usr/lib/aarch64-linux-gnu/libcolamd.so
+-- Found SPQR headers in: /usr/include/suitesparse
+-- Found SPQR library: /usr/lib/aarch64-linux-gnu/libspqr.so
+-- Found Config headers in: /usr/include/suitesparse
+-- Found Config library: /usr/lib/aarch64-linux-gnu/libsuitesparseconfig.so
+-- Found Intel Thread Building Blocks (TBB) library (2021.11 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+-- Looking for shm_open in rt
+-- Looking for shm_open in rt - found
+-- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+-- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+-- Found SuiteSparse: /usr/include/suitesparse (found suitable version "7.6.1", minimum required is "7.6.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+-- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+-- Found required Ceres dependency: glog
+-- Found required Ceres dependency: gflags
+-- Found Ceres version: 2.2.0 installed in: /usr with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, SchurSpecializations]
+-- Found Lua: /usr/lib/aarch64-linux-gnu/liblua5.2.so;/usr/lib/aarch64-linux-gnu/libm.so (found version "5.2.4") 
+-- Found Protobuf: /usr/lib/aarch64-linux-gnu/libprotobuf.so (found suitable version "3.21.12", minimum required is "3.0.0") 
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+-- Checking for one of the modules 'cairo>=1.12.16'
+-- Found Sphinx: /usr/bin/sphinx-build  
+-- Configuring done (5.6s)
+-- Generating done (0.6s)
+-- Build files have been written to: /home/p/ros2_ws/src/build/cartographer
+[  0%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/transform/proto/transform.proto
+[  0%] Building documentation.
+[  1%] Building CXX object googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[  1%] Built target cartographer_detect_changes
+[  1%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/common/proto/ceres_solver_options.proto
+[  1%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/ground_truth/proto/relations.proto
+[  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/cell_limits_2d.proto
+[  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/connected_components.proto
+[  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/grid_2d.proto
+[  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/grid_2d_options.proto
+[  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/hybrid_grid.proto
+[  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/local_trajectory_builder_options_2d.proto
+[  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/local_trajectory_builder_options_3d.proto
+[  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/map_builder_options.proto
+[  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/map_limits.proto
+[  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/motion_filter_options.proto
+[  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/normal_estimation_options_2d.proto
+[  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_extrapolator_options.proto
+[  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph.proto
+[  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph/constraint_builder_options.proto
+[  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph/optimization_problem_options.proto
+[  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph_options.proto
+[  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/probability_grid.proto
+[  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/probability_grid_range_data_inserter_options_2d.proto
+[  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/range_data_inserter_options.proto
+[  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/range_data_inserter_options_3d.proto
+[  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/ceres_scan_matcher_options_2d.proto
+[  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/ceres_scan_matcher_options_3d.proto
+[  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/fast_correlative_scan_matcher_options_2d.proto
+[  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/fast_correlative_scan_matcher_options_3d.proto
+[  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/real_time_correlative_scan_matcher_options.proto
+[  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/serialization.proto
+[  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submap.proto
+[  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submap_visualization.proto
+[  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submaps_options_2d.proto
+[  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submaps_options_3d.proto
+[  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory.proto
+[  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory_builder_options.proto
+[ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory_node_data.proto
+[ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/tsdf_2d.proto
+[ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/tsdf_range_data_inserter_options_2d.proto
+[ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/sensor/proto/adaptive_voxel_filter_options.proto
+[ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/transform/proto/timestamped_transform.proto
+[ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/sensor/proto/sensor.proto
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/configuration_file_resolver.cc.o
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/fixed_ratio_sampler.cc.o
+Running Sphinx v7.2.6
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/histogram.cc.o
+making output directory... done
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/internal/ceres_solver_options.cc.o
+building [mo]: targets for 0 po files that are out of date
+writing output... 
+building [html]: targets for 6 source files that are out of date
+updating environment: [new config] 6 added, 0 changed, 0 removed
+[2Kreading sources... [ 17%] configuration[2Kreading sources... [ 33%] cost_functions[2Kreading sources... [ 50%] evaluation[2Kreading sources... [ 67%] index[2Kreading sources... [ 83%] pbstream_migration[2Kreading sources... [100%] terminology
+looking for now-outdated files... none found
+pickling environment... done
+checking consistency... done
+preparing documents... done
+copying assets... copying static files... done
+copying extra files... done
+done
+[2Kwriting output... [ 17%] configuration[2Kwriting output... [ 33%] cost_functions[2Kwriting output... [ 50%] evaluation[2Kwriting output... [ 67%] index[2Kwriting output... [ 83%] pbstream_migration[2Kwriting output... [100%] terminology
+generating indices... genindex done
+writing additional pages... search done
+[2Kcopying images... [ 50%] autogenerate_groundtruth.png[2Kcopying images... [100%] high_level_system_overview.png
+dumping search index in English (code: en)... done
+dumping object inventory... done
+build succeeded.
+
+The HTML pages are in html.
+[ 12%] Built target build_doc
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/lua_parameter_dictionary.cc.o
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/task.cc.o
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/thread_pool.cc.o
+[ 12%] Linking CXX static library ../lib/libgtest.a
+[ 12%] Built target gtest
+[ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/ground_truth/autogenerate_ground_truth.cc.o
+[ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/time.cc.o
+[ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/ground_truth/relations_text_file.cc.o
+[ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/color.cc.o
+[ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/coloring_points_processor.cc.o
+[ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/counting_points_processor.cc.o
+[ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/draw_trajectories.cc.o
+[ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/file_writer.cc.o
+[ 15%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/fixed_ratio_sampling_points_processor.cc.o
+[ 15%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/frame_id_filtering_points_processor.cc.o
+[ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/internal/testing/thread_pool_for_testing.cc.o
+[ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/hybrid_grid_points_processor.cc.o
+[ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/image.cc.o
+[ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/intensity_to_color_points_processor.cc.o
+[ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/mapping_state_serialization.cc.o
+[ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/pbstream_info.cc.o
+[ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/pbstream_migrate.cc.o
+[ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/min_max_range_filtering_points_processor.cc.o
+[ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/in_memory_proto_stream.cc.o
+[ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/outlier_removing_points_processor.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/ply_writing_points_processor.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/points_batch.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/points_processor_pipeline_builder.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/pcd_writing_points_processor.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/probability_grid_points_processor.cc.o
+[ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/proto_stream_deserializer.cc.o
+[ 20%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/proto_stream.cc.o
+[ 20%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/serialization_format_migration.cc.o
+[ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/submap_painter.cc.o
+[ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/vertical_range_filtering_points_processor.cc.o
+[ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/xray_points_processor.cc.o
+[ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/xyz_writing_points_processor.cc.o
+[ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/grid_2d.cc.o
+[ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/probability_grid.cc.o
+[ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/submap_2d.cc.o
+[ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.cc.o
+[ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/3d/range_data_inserter_3d.cc.o
+[ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/3d/submap_3d.cc.o
+[ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/detect_floors.cc.o
+[ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/imu_tracker.cc.o
+[ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_slam_result_2d.cc.o
+[ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc.o
+[ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_trajectory_builder_options_2d.cc.o
+[ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/normal_estimation_2d.cc.o
+[ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/overlapping_submaps_trimmer_2d.cc.o
+[ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/pose_graph_2d.cc.o
+[ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/ray_to_pixel_mask.cc.o
+[ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc.o
+[ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/correlative_scan_matcher_2d.cc.o
+[ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc.o
+[ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/occupied_space_cost_function_2d.cc.o
+[ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc.o
+[ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/tsdf_match_cost_function_2d.cc.o
+[ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsdf_2d.cc.o
+[ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsd_value_converter.cc.o
+[ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc.o
+[ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_slam_result_3d.cc.o
+[ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_trajectory_builder_3d.cc.o
+[ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_trajectory_builder_options_3d.cc.o
+[ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/pose_graph_3d.cc.o
+[ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/ceres_scan_matcher_3d.cc.o
+[ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/fast_correlative_scan_matcher_3d.cc.o
+[ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/intensity_cost_function_3d.cc.o
+[ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/low_resolution_matcher.cc.o
+[ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/precomputation_grid_3d.cc.o
+[ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/real_time_correlative_scan_matcher_3d.cc.o
+[ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/rotational_scan_matcher.cc.o
+[ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/collated_trajectory_builder.cc.o
+[ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/connected_components.cc.o
+[ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder.cc.o
+[ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder_2d.cc.o
+[ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder_3d.cc.o
+[ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/eigen_quaterniond_from_two_vectors.cc.o
+[ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/global_trajectory_builder.cc.o
+[ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/imu_based_pose_extrapolator.cc.o
+[ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/motion_filter.cc.o
+[ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/ceres_pose.cc.o
+[ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc.o
+[ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_2d.cc.o
+[ 34%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_3d.cc.o
+[ 34%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_options.cc.o

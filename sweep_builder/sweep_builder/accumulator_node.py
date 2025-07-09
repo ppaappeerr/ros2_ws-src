@@ -11,7 +11,7 @@ class AccumulatorNode(Node):
         super().__init__('accumulator_node')
 
         # ───── 파라미터 ─────────────────────────────────────────────
-        self.declare_parameter('in_pc_topic',  'corrected_cloud')  # sweep 노드에서 받음
+        self.declare_parameter('in_pc_topic',  'sweep_cloud')  # sweep 노드에서 받음
         self.declare_parameter('voxel_leaf',     0.1)          # [m] 누적 맵 voxel
 
         self.in_pc_topic  = self.get_parameter('in_pc_topic').value

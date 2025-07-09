@@ -1,0 +1,7 @@
+{
+  "package_name": "cpp_package",
+  "non_idl_tuples": [
+    "/home/p/ros2_ws/src/cpp_package:msg/ObstacleFeedback.msg",
+    "/home/p/ros2_ws/src/cpp_package:msg/NavHint.msg"
+  ]
+}

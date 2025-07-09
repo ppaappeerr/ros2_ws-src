@@ -1,0 +1,451 @@
+[0.217s] Invoking command in '/home/p/ros2_ws/src/build/cartographer': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/p/ros2_ws/src/cartographer -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cartographer
+[0.906s] -- The C compiler identification is GNU 13.3.0
+[1.203s] -- The CXX compiler identification is GNU 13.3.0
+[1.353s] -- Detecting C compiler ABI info
+[1.686s] -- Detecting C compiler ABI info - done
+[1.707s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.710s] -- Detecting C compile features
+[1.722s] -- Detecting C compile features - done
+[1.797s] -- Detecting CXX compiler ABI info
+[2.064s] -- Detecting CXX compiler ABI info - done
+[2.080s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.081s] -- Detecting CXX compile features
+[2.081s] -- Detecting CXX compile features - done
+[2.095s] -- Build type: Release
+[2.168s] 파일 /home/p/ros2_ws/src/build/cartographer/AllFiles.cmake와(과) -이(가) 다릅니다
+[2.803s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.815s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[3.037s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[3.040s] -- Found Threads: TRUE  
+[3.051s] -- Found GMock: gmock_main  
+[3.319s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found version "1.83.0") found components: iostreams 
+[4.738s] -- Found AMD headers in: /usr/include/suitesparse
+[4.742s] -- Found AMD library: /usr/lib/aarch64-linux-gnu/libamd.so
+[4.744s] -- Found CAMD headers in: /usr/include/suitesparse
+[4.747s] -- Found CAMD library: /usr/lib/aarch64-linux-gnu/libcamd.so
+[4.748s] -- Found CCOLAMD headers in: /usr/include/suitesparse
+[4.752s] -- Found CCOLAMD library: /usr/lib/aarch64-linux-gnu/libccolamd.so
+[4.754s] -- Found CHOLMOD headers in: /usr/include/suitesparse
+[4.756s] -- Found CHOLMOD library: /usr/lib/aarch64-linux-gnu/libcholmod.so
+[4.758s] -- Found COLAMD headers in: /usr/include/suitesparse
+[4.766s] -- Found COLAMD library: /usr/lib/aarch64-linux-gnu/libcolamd.so
+[4.775s] -- Found SPQR headers in: /usr/include/suitesparse
+[4.775s] -- Found SPQR library: /usr/lib/aarch64-linux-gnu/libspqr.so
+[4.775s] -- Found Config headers in: /usr/include/suitesparse
+[4.775s] -- Found Config library: /usr/lib/aarch64-linux-gnu/libsuitesparseconfig.so
+[4.824s] -- Found Intel Thread Building Blocks (TBB) library (2021.11 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+[4.824s] -- Looking for shm_open in rt
+[5.065s] -- Looking for shm_open in rt - found
+[5.065s] -- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+[5.106s] -- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+[5.108s] -- Found SuiteSparse: /usr/include/suitesparse (found suitable version "7.6.1", minimum required is "7.6.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+[5.162s] -- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+[5.229s] -- Found required Ceres dependency: glog
+[5.230s] -- Found required Ceres dependency: gflags
+[5.235s] -- Found Ceres version: 2.2.0 installed in: /usr with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, SchurSpecializations]
+[5.270s] -- Found Lua: /usr/lib/aarch64-linux-gnu/liblua5.2.so;/usr/lib/aarch64-linux-gnu/libm.so (found version "5.2.4") 
+[5.534s] -- Found Protobuf: /usr/lib/aarch64-linux-gnu/libprotobuf.so (found suitable version "3.21.12", minimum required is "3.0.0") 
+[5.544s] -- Found PkgConfig: /usr/bin/pkg-config (found version "1.8.1") 
+[5.544s] -- Checking for one of the modules 'cairo>=1.12.16'
+[5.742s] -- Found Sphinx: /usr/bin/sphinx-build  
+[5.862s] -- Configuring done (5.6s)
+[6.508s] -- Generating done (0.6s)
+[6.680s] -- Build files have been written to: /home/p/ros2_ws/src/build/cartographer
+[6.736s] Invoked command in '/home/p/ros2_ws/src/build/cartographer' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/p/ros2_ws/src/cartographer -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cartographer
+[6.737s] Invoking command in '/home/p/ros2_ws/src/build/cartographer': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cartographer -- -j4 -l4
+[6.908s] [  0%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/transform/proto/transform.proto
+[6.930s] [  0%] Building documentation.
+[6.943s] [  1%] Building CXX object googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.o
+[6.958s] [  1%] Built target cartographer_detect_changes
+[6.978s] [  1%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/common/proto/ceres_solver_options.proto
+[7.026s] [  1%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/ground_truth/proto/relations.proto
+[7.060s] [  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/cell_limits_2d.proto
+[7.111s] [  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/connected_components.proto
+[7.111s] [  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/grid_2d.proto
+[7.176s] [  2%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/grid_2d_options.proto
+[7.188s] [  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/hybrid_grid.proto
+[7.230s] [  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/local_trajectory_builder_options_2d.proto
+[7.232s] [  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/local_trajectory_builder_options_3d.proto
+[7.303s] [  3%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/map_builder_options.proto
+[7.361s] [  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/map_limits.proto
+[7.407s] [  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/motion_filter_options.proto
+[7.410s] [  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/normal_estimation_options_2d.proto
+[7.441s] [  4%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_extrapolator_options.proto
+[7.445s] [  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph.proto
+[7.473s] [  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph/constraint_builder_options.proto
+[7.515s] [  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph/optimization_problem_options.proto
+[7.516s] [  5%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/pose_graph_options.proto
+[7.551s] [  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/probability_grid.proto
+[7.560s] [  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/probability_grid_range_data_inserter_options_2d.proto
+[7.585s] [  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/range_data_inserter_options.proto
+[7.596s] [  6%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/range_data_inserter_options_3d.proto
+[7.615s] [  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/ceres_scan_matcher_options_2d.proto
+[7.625s] [  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/ceres_scan_matcher_options_3d.proto
+[7.650s] [  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/fast_correlative_scan_matcher_options_2d.proto
+[7.662s] [  7%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/fast_correlative_scan_matcher_options_3d.proto
+[7.684s] [  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/scan_matching/real_time_correlative_scan_matcher_options.proto
+[7.704s] [  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/serialization.proto
+[7.718s] [  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submap.proto
+[7.763s] [  8%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submap_visualization.proto
+[7.813s] [  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submaps_options_2d.proto
+[7.842s] [  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/submaps_options_3d.proto
+[7.872s] [  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory.proto
+[7.873s] [  9%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory_builder_options.proto
+[7.915s] [ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/trajectory_node_data.proto
+[7.949s] [ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/tsdf_2d.proto
+[7.996s] [ 10%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/mapping/proto/tsdf_range_data_inserter_options_2d.proto
+[8.000s] [ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/sensor/proto/adaptive_voxel_filter_options.proto
+[8.040s] [ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/transform/proto/timestamped_transform.proto
+[8.041s] [ 11%] Running C++ protocol buffer compiler on /home/p/ros2_ws/src/cartographer/cartographer/sensor/proto/sensor.proto
+[8.654s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/configuration_file_resolver.cc.o
+[8.655s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/fixed_ratio_sampler.cc.o
+[16.070s] Running Sphinx v7.2.6
+[17.963s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/histogram.cc.o
+[20.550s] making output directory... done
+[20.815s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/internal/ceres_solver_options.cc.o
+[20.835s] building [mo]: targets for 0 po files that are out of date
+[20.836s] writing output... 
+[20.987s] building [html]: targets for 6 source files that are out of date
+[20.987s] updating environment: [new config] 6 added, 0 changed, 0 removed
+[21.981s] [2Kreading sources... [ 17%] configuration[2Kreading sources... [ 33%] cost_functions[2Kreading sources... [ 50%] evaluation[2Kreading sources... [ 67%] index[2Kreading sources... [ 83%] pbstream_migration[2Kreading sources... [100%] terminology
+[21.988s] looking for now-outdated files... none found
+[22.021s] pickling environment... done
+[22.024s] checking consistency... done
+[22.036s] preparing documents... done
+[22.185s] copying assets... copying static files... done
+[22.198s] copying extra files... done
+[22.198s] done
+[22.826s] [2Kwriting output... [ 17%] configuration[2Kwriting output... [ 33%] cost_functions[2Kwriting output... [ 50%] evaluation[2Kwriting output... [ 67%] index[2Kwriting output... [ 83%] pbstream_migration[2Kwriting output... [100%] terminology
+[22.875s] generating indices... genindex done
+[22.925s] writing additional pages... search done
+[22.948s] [2Kcopying images... [ 50%] autogenerate_groundtruth.png[2Kcopying images... [100%] high_level_system_overview.png
+[22.950s] dumping search index in English (code: en)... done
+[22.956s] dumping object inventory... done
+[22.956s] build succeeded.
+[22.956s] 
+[22.956s] The HTML pages are in html.
+[24.108s] [ 12%] Built target build_doc
+[36.155s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/lua_parameter_dictionary.cc.o
+[44.342s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/task.cc.o
+[48.850s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/thread_pool.cc.o
+[50.731s] [ 12%] Linking CXX static library ../lib/libgtest.a
+[52.643s] [ 12%] Built target gtest
+[53.133s] [ 12%] Building CXX object CMakeFiles/cartographer.dir/cartographer/ground_truth/autogenerate_ground_truth.cc.o
+[59.724s] [ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/time.cc.o
+[61.879s] [ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/ground_truth/relations_text_file.cc.o
+[67.186s] [ 13%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/color.cc.o
+[71.445s] [ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/coloring_points_processor.cc.o
+[77.479s] [ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/counting_points_processor.cc.o
+[83.353s] [ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/draw_trajectories.cc.o
+[89.401s] [ 14%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/file_writer.cc.o
+[91.520s] [ 15%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/fixed_ratio_sampling_points_processor.cc.o
+[92.548s] [ 15%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/frame_id_filtering_points_processor.cc.o
+[93.605s] [ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/common/internal/testing/thread_pool_for_testing.cc.o
+[99.737s] [ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/hybrid_grid_points_processor.cc.o
+[100.659s] [ 16%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/image.cc.o
+[101.110s] [ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/intensity_to_color_points_processor.cc.o
+[111.807s] [ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/mapping_state_serialization.cc.o
+[120.077s] [ 17%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/pbstream_info.cc.o
+[124.950s] [ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/pbstream_migrate.cc.o
+[126.973s] [ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/min_max_range_filtering_points_processor.cc.o
+[129.005s] [ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/internal/in_memory_proto_stream.cc.o
+[129.246s] [ 18%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/outlier_removing_points_processor.cc.o
+[138.462s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/ply_writing_points_processor.cc.o
+[144.771s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/points_batch.cc.o
+[146.796s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/points_processor_pipeline_builder.cc.o
+[147.826s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/pcd_writing_points_processor.cc.o
+[152.975s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/probability_grid_points_processor.cc.o
+[161.768s] [ 19%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/proto_stream_deserializer.cc.o
+[162.678s] [ 20%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/proto_stream.cc.o
+[163.711s] [ 20%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/serialization_format_migration.cc.o
+[169.446s] [ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/submap_painter.cc.o
+[169.856s] [ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/vertical_range_filtering_points_processor.cc.o
+[176.943s] [ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/xray_points_processor.cc.o
+[177.081s] [ 21%] Building CXX object CMakeFiles/cartographer.dir/cartographer/io/xyz_writing_points_processor.cc.o
+[183.366s] [ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/grid_2d.cc.o
+[184.072s] [ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/probability_grid.cc.o
+[192.553s] [ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/submap_2d.cc.o
+[193.576s] [ 22%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/2d/probability_grid_range_data_inserter_2d.cc.o
+[194.345s] [ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/3d/range_data_inserter_3d.cc.o
+[200.857s] [ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/3d/submap_3d.cc.o
+[201.391s] [ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/detect_floors.cc.o
+[201.994s] [ 23%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/imu_tracker.cc.o
+[208.765s] [ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_slam_result_2d.cc.o
+[209.385s] [ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc.o
+[214.910s] [ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/local_trajectory_builder_options_2d.cc.o
+[216.293s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[216.293s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22,
+[216.294s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/submap_2d.h:25,
+[216.295s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.h:24,
+[216.295s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:17:
+[216.295s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[216.295s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:97:44:   required from here
+[216.295s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[216.295s]    68 |   Rotation2D rotation() const { return rotation_; }
+[216.295s]       |              ^~~~~~~~
+[216.736s] In file included from /usr/include/eigen3/Eigen/Geometry:41,
+[216.736s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24:
+[216.736s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::cast() const [with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>]’:
+[216.736s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64:   required from ‘cartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::cast() const [with OtherType = float; FloatType = double]’
+[216.737s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:248:74:   required from here
+[216.741s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[216.741s]   142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type cast() const
+[216.741s]       |                                                                                                             ^~~~
+[217.386s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘static Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::Identity() [with _Scalar = double]’:
+[217.386s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74:   required from ‘cartographer::transform::Rigid2<FloatType>::Rigid2() [with FloatType = double]’
+[217.387s] /usr/include/c++/13/bits/unique_ptr.h:1070:30:   required from ‘std::__detail::__unique_ptr_t<_Tp> std::make_unique(_Args&& ...) [with _Tp = cartographer::transform::Rigid2<double>; _Args = {}; __detail::__unique_ptr_t<_Tp> = __detail::__unique_ptr_t<cartographer::transform::Rigid2<double> >]’
+[217.387s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/local_trajectory_builder_2d.cc:84:64:   required from here
+[217.387s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:152:46: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[217.387s]   152 |   EIGEN_DEVICE_FUNC static inline Rotation2D Identity() { return Rotation2D(0); }
+[217.387s]       |                                              ^~~~~~~~
+[218.676s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In member function ‘cartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::cast() const [with OtherType = float; FloatType = double]’:
+[218.676s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[218.676s]    63 |                              rotation_.template cast<OtherType>());
+[218.676s]       |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[219.483s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In constructor ‘cartographer::transform::Rigid2<FloatType>::Rigid2() [with FloatType = double]’:
+[219.483s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:40:74: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[219.484s]    40 |   Rigid2() : translation_(Vector::Zero()), rotation_(Rotation2D::Identity()) {}
+[219.484s]       |                                                      ~~~~~~~~~~~~~~~~~~~~^~
+[219.610s] [ 24%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/normal_estimation_2d.cc.o
+[219.669s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In member function ‘cartographer::transform::Rigid2<OtherType> cartographer::transform::Rigid2<FloatType>::cast() const [with OtherType = float; FloatType = double]’:
+[219.670s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:63:64: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[219.670s]    63 |                              rotation_.template cast<OtherType>());
+[219.670s]       |                              ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[219.814s] /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h: In function ‘cartographer::transform::Rigid3<FloatType> cartographer::transform::Embed3D(const Rigid2<FloatType>&) [with T = double]’:
+[219.814s] /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[219.816s]   113 |       Eigen::AngleAxis<T>(transform.rotation().angle(),
+[219.816s]       |                           ~~~~~~~~~~~~~~~~~~^~
+[219.825s] /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h: In function ‘cartographer::transform::Rigid3<FloatType> cartographer::transform::Embed3D(const Rigid2<FloatType>&) [with T = float]’:
+[219.825s] /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:113:45: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[219.825s]   113 |       Eigen::AngleAxis<T>(transform.rotation().angle(),
+[219.825s]       |                           ~~~~~~~~~~~~~~~~~~^~
+[221.557s] [ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/overlapping_submaps_trimmer_2d.cc.o
+[222.615s] [ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/pose_graph_2d.cc.o
+[226.269s] [ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/ray_to_pixel_mask.cc.o
+[231.662s] In file included from /usr/include/eigen3/Eigen/Geometry:41,
+[231.662s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.h:29,
+[231.662s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.cc:17:
+[231.662s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::inverse() const [with _Scalar = double]’:
+[231.662s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:75:50:   required from ‘cartographer::transform::Rigid2<FloatType> cartographer::transform::Rigid2<FloatType>::inverse() const [with FloatType = double]’
+[231.663s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/pose_graph_2d.cc:112:74:   required from here
+[231.663s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:98:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[231.663s]    98 |   EIGEN_DEVICE_FUNC inline Rotation2D inverse() const { return Rotation2D(-m_angle); }
+[231.663s]       |                                       ^~~~~~~
+[232.231s] [ 25%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc.o
+[232.615s] [ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/correlative_scan_matcher_2d.cc.o
+[238.286s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28,
+[238.287s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22,
+[238.288s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.h:25,
+[238.288s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc:17:
+[238.288s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[238.288s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/ceres_scan_matcher_2d.cc:71:66:   required from here
+[238.288s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[238.288s]    68 |   Rotation2D rotation() const { return rotation_; }
+[238.288s]       |              ^~~~~~~~
+[239.750s] [ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc.o
+[240.661s] [ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/occupied_space_cost_function_2d.cc.o
+[245.598s] [ 26%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc.o
+[245.894s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.h:33,
+[245.895s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:17:
+[245.896s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[245.896s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:235:77:   required from here
+[245.896s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[245.896s]    68 |   Rotation2D rotation() const { return rotation_; }
+[245.896s]       |              ^~~~~~~~
+[245.896s] In file included from /usr/include/eigen3/Eigen/Geometry:41,
+[245.896s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24:
+[245.896s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::cast() const [with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>]’:
+[245.897s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39:   required from here
+[245.900s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[245.901s]   142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type cast() const
+[245.901s]       |                                                                                                             ^~~~
+[245.911s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::operator*(const Eigen::Rotation2D<Scalar>&) const [with _Scalar = double]’:
+[245.911s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:258:73:   required from here
+[245.912s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[245.912s]   101 |   EIGEN_DEVICE_FUNC inline Rotation2D operator*(const Rotation2D& other) const
+[245.912s]       |                                       ^~~~~~~~
+[246.709s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc: In member function ‘bool cartographer::mapping::scan_matching::FastCorrelativeScanMatcher2D::MatchWithSearchParameters(cartographer::mapping::scan_matching::SearchParameters, const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, float, float*, cartographer::transform::Rigid2d*) const’:
+[246.709s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[246.709s]   239 |           initial_rotation.cast<float>().angle(), Eigen::Vector3f::UnitZ())));
+[246.710s]       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[246.710s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:258:26: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[246.710s]   258 |         initial_rotation * Eigen::Rotation2Dd(best_candidate.orientation));
+[246.710s]       |         ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[246.710s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In member function ‘typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::cast() const [with NewScalarType = float; _Scalar = double]’:
+[246.710s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[246.711s]   142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type cast() const
+[246.711s]       |                                                                                                             ^~~~
+[246.724s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In member function ‘Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::operator*(const Eigen::Rotation2D<Scalar>&) const [with _Scalar = double]’:
+[246.724s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[246.724s]   101 |   EIGEN_DEVICE_FUNC inline Rotation2D operator*(const Rotation2D& other) const
+[246.725s]       |                                       ^~~~~~~~
+[247.310s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc: In member function ‘bool cartographer::mapping::scan_matching::FastCorrelativeScanMatcher2D::MatchWithSearchParameters(cartographer::mapping::scan_matching::SearchParameters, const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, float, float*, cartographer::transform::Rigid2d*) const’:
+[247.310s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:239:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[247.311s]   239 |           initial_rotation.cast<float>().angle(), Eigen::Vector3f::UnitZ())));
+[247.311s]       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[247.313s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/fast_correlative_scan_matcher_2d.cc:235:77: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[247.313s]   235 |   const Eigen::Rotation2Dd initial_rotation = initial_pose_estimate.rotation();
+[247.313s]       |                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[248.673s] [ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/scan_matching/tsdf_match_cost_function_2d.cc.o
+[251.712s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[251.713s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[251.713s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[251.713s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[251.713s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[251.713s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[251.714s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28,
+[251.714s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22,
+[251.714s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.h:44,
+[251.714s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:17:
+[251.714s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[251.714s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:123:77:   required from here
+[251.715s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[251.718s]    68 |   Rotation2D rotation() const { return rotation_; }
+[251.718s]       |              ^~~~~~~~
+[251.719s] In file included from /usr/include/eigen3/Eigen/Geometry:41,
+[251.719s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:24:
+[251.719s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::cast() const [with NewScalarType = float; _Scalar = double; typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type = Eigen::Rotation2D<float>]’:
+[251.719s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39:   required from here
+[251.719s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[251.719s]   142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type cast() const
+[251.720s]       |                                                                                                             ^~~~
+[251.763s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In instantiation of ‘Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::operator*(const Eigen::Rotation2D<Scalar>&) const [with _Scalar = double]’:
+[251.764s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:147:71:   required from here
+[251.764s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[251.764s]   101 |   EIGEN_DEVICE_FUNC inline Rotation2D operator*(const Rotation2D& other) const
+[251.764s]       |                                       ^~~~~~~~
+[252.338s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc: In member function ‘double cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::Match(const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, const cartographer::mapping::Grid2D&, cartographer::transform::Rigid2d*) const’:
+[252.339s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.339s]   127 |           initial_rotation.cast<float>().angle(), Eigen::Vector3f::UnitZ())));
+[252.339s]       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[252.339s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:147:24: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.339s]   147 |       initial_rotation * Eigen::Rotation2Dd(best_candidate.orientation));
+[252.339s]       |       ~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[252.340s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In member function ‘typename Eigen::internal::cast_return_type<Eigen::Rotation2D<Scalar>, Eigen::Rotation2D<NewScalarType> >::type Eigen::Rotation2D<Scalar>::cast() const [with NewScalarType = float; _Scalar = double]’:
+[252.340s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:142:109: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.340s]   142 |   EIGEN_DEVICE_FUNC inline typename internal::cast_return_type<Rotation2D,Rotation2D<NewScalarType> >::type cast() const
+[252.340s]       |                                                                                                             ^~~~
+[252.351s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h: In member function ‘Eigen::Rotation2D<Scalar> Eigen::Rotation2D<Scalar>::operator*(const Eigen::Rotation2D<Scalar>&) const [with _Scalar = double]’:
+[252.351s] /usr/include/eigen3/Eigen/src/Geometry/Rotation2D.h:101:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.352s]   101 |   EIGEN_DEVICE_FUNC inline Rotation2D operator*(const Rotation2D& other) const
+[252.352s]       |                                       ^~~~~~~~
+[252.356s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc: In function ‘float cartographer::mapping::scan_matching::{anonymous}::ComputeCandidateScore(const cartographer::mapping::TSDF2D&, const cartographer::mapping::scan_matching::DiscreteScan2D&, int, int)’:
+[252.356s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:47:47: note: parameter passing for argument of type ‘std::pair<float, float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.356s]    47 |         tsdf.GetTSDAndWeight(proposed_xy_index);
+[252.356s]       |                                               ^
+[252.532s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc: In member function ‘double cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::Match(const cartographer::transform::Rigid2d&, const cartographer::sensor::PointCloud&, const cartographer::mapping::Grid2D&, cartographer::transform::Rigid2d*) const’:
+[252.532s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:127:39: note: parameter passing for argument of type ‘Eigen::Rotation2D<float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.532s]   127 |           initial_rotation.cast<float>().angle(), Eigen::Vector3f::UnitZ())));
+[252.532s]       |           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[252.533s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:123:77: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.533s]   123 |   const Eigen::Rotation2Dd initial_rotation = initial_pose_estimate.rotation();
+[252.533s]       |                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~
+[252.575s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc: In member function ‘void cartographer::mapping::scan_matching::RealTimeCorrelativeScanMatcher2D::ScoreCandidates(const cartographer::mapping::Grid2D&, const std::vector<std::vector<Eigen::Array<int, 2, 1> > >&, const cartographer::mapping::scan_matching::SearchParameters&, std::vector<cartographer::mapping::scan_matching::Candidate2D>*) const’:
+[252.576s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/scan_matching/real_time_correlative_scan_matcher_2d.cc:151:6: note: parameter passing for argument of type ‘std::pair<float, float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[252.576s]   151 | void RealTimeCorrelativeScanMatcher2D::ScoreCandidates(
+[252.576s]       |      ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[256.848s] [ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsdf_2d.cc.o
+[257.086s] [ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsd_value_converter.cc.o
+[258.114s] [ 27%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc.o
+[261.855s] [ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_slam_result_3d.cc.o
+[262.390s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d.cc: In member function ‘std::pair<float, float> cartographer::mapping::TSDF2D::GetTSDAndWeight(const Eigen::Array2i&) const’:
+[262.390s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_2d.cc:89:39: note: parameter passing for argument of type ‘std::pair<float, float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[262.390s]    89 |     const Eigen::Array2i& cell_index) const {
+[262.390s]       |                                       ^~~~~
+[266.048s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc: In member function ‘void cartographer::mapping::TSDFRangeDataInserter2D::UpdateCell(const Eigen::Array2i&, float, float, cartographer::mapping::TSDF2D*) const’:
+[266.048s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/2d/tsdf_range_data_inserter_2d.cc:231:76: note: parameter passing for argument of type ‘std::pair<float, float>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[266.049s]   231 |   const std::pair<float, float> tsd_and_weight = tsdf->GetTSDAndWeight(cell);
+[266.049s]       |                                                                            ^
+[267.369s] [ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_trajectory_builder_3d.cc.o
+[268.145s] [ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/local_trajectory_builder_options_3d.cc.o
+[272.690s] [ 28%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/pose_graph_3d.cc.o
+[276.614s] [ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/ceres_scan_matcher_3d.cc.o
+[280.346s] [ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/fast_correlative_scan_matcher_3d.cc.o
+[290.104s] [ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/intensity_cost_function_3d.cc.o
+[291.724s] [ 29%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/low_resolution_matcher.cc.o
+[295.099s] [ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/precomputation_grid_3d.cc.o
+[298.915s] [ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/real_time_correlative_scan_matcher_3d.cc.o
+[300.557s] [ 30%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/3d/scan_matching/rotational_scan_matcher.cc.o
+[302.381s] [ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/collated_trajectory_builder.cc.o
+[307.554s] [ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/connected_components.cc.o
+[308.478s] [ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder.cc.o
+[313.027s] [ 31%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder_2d.cc.o
+[316.972s] [ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/constraints/constraint_builder_3d.cc.o
+[316.987s] [ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/eigen_quaterniond_from_two_vectors.cc.o
+[321.154s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[321.155s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/map_limits.h:28,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/grid_2d.h:22,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/2d/submap_2d.h:25,
+[321.156s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.h:35,
+[321.157s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.cc:17:
+[321.160s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[321.160s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:94:19:   required from ‘cartographer::transform::Rigid2<FloatType> cartographer::transform::operator*(const Rigid2<FloatType>&, const Rigid2<FloatType>&) [with FloatType = double]’
+[321.160s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/constraints/constraint_builder_2d.cc:197:36:   required from here
+[321.160s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[321.161s]    68 |   Rotation2D rotation() const { return rotation_; }
+[321.161s]       |              ^~~~~~~~
+[324.658s] [ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/global_trajectory_builder.cc.o
+[329.521s] [ 32%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/imu_based_pose_extrapolator.cc.o
+[329.925s] [ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/motion_filter.cc.o
+[336.372s] [ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/ceres_pose.cc.o
+[336.483s] [ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc.o
+[342.224s] [ 33%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_2d.cc.o
+[343.123s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/submaps.h:30,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_interface.h:25,
+[343.124s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.h:20,
+[343.125s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc:17:
+[343.125s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[343.125s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/cost_functions/spa_cost_function_2d.cc:90:45:   required from here
+[343.125s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[343.125s]    68 |   Rotation2D rotation() const { return rotation_; }
+[343.125s]       |              ^~~~~~~~
+[345.772s] [ 34%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_3d.cc.o
+[350.416s] In file included from /home/p/ros2_ws/src/cartographer/cartographer/transform/transform.h:26,
+[350.417s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/rangefinder_point.h:24,
+[350.417s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/point_cloud.h:24,
+[350.417s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/compressed_point_cloud.h:25,
+[350.417s]                  from /home/p/ros2_ws/src/cartographer/cartographer/sensor/range_data.h:21,
+[350.417s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/trajectory_node.h:27,
+[350.418s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/submaps.h:30,
+[350.418s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/pose_graph_interface.h:25,
+[350.418s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_interface.h:28,
+[350.418s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.h:31,
+[350.418s]                  from /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.cc:17:
+[350.419s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[350.422s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:71:45:   required from ‘double cartographer::transform::Rigid2<FloatType>::normalized_angle() const [with FloatType = double]’
+[350.422s] /home/p/ros2_ws/src/cartographer/cartographer/mapping/internal/optimization/optimization_problem_2d.cc:80:33:   required from here
+[350.422s] /home/p/ros2_ws/src/cartographer/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[350.422s]    68 |   Rotation2D rotation() const { return rotation_; }
+[350.422s]       |              ^~~~~~~~
+[354.126s] [ 34%] Building CXX object CMakeFiles/cartographer.dir/cartographer/mapping/internal/optimization/optimization_problem_options.cc.o

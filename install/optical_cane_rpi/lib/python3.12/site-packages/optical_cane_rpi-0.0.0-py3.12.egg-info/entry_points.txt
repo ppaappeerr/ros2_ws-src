@@ -1,0 +1,8 @@
+[console_scripts]
+feedback_generator = optical_cane_rpi.feedback_generator:main
+imu_subscriber = optical_cane_rpi.imu_subscriber:main
+lidar_subscriber = optical_cane_rpi.lidar_subscriber:main
+obstacle_segmenter = optical_cane_rpi.obstacle_segmenter:main
+optical_cane_rpi = optical_cane_rpi.optical_cane_rpi:main
+pointcloud_generator = optical_cane_rpi.pointcloud_generator:main
+serial_publisher = optical_cane_rpi.serial_publisher:main

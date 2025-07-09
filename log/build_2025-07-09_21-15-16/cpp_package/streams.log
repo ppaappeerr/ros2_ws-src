@@ -1,0 +1,457 @@
+[0.022s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/p/ros2_ws/src/cpp_package -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cpp_package
+[0.401s] -- The C compiler identification is GNU 13.3.0
+[0.807s] -- The CXX compiler identification is GNU 13.3.0
+[0.855s] -- Detecting C compiler ABI info
+[1.067s] -- Detecting C compiler ABI info - done
+[1.082s] -- Check for working C compiler: /usr/bin/cc - skipped
+[1.083s] -- Detecting C compile features
+[1.084s] -- Detecting C compile features - done
+[1.100s] -- Detecting CXX compiler ABI info
+[1.315s] -- Detecting CXX compiler ABI info - done
+[1.330s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.330s] -- Detecting CXX compile features
+[1.331s] -- Detecting CXX compile features - done
+[1.350s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.646s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.948s] -- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+[2.090s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.137s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.193s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.247s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.457s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[2.470s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[2.713s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[2.748s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[2.787s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.975s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[3.113s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[3.170s] -- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[3.490s] -- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[3.542s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[3.545s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[3.545s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[3.556s] -- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)
+[3.573s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[3.625s] -- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[3.643s] -- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)
+[3.848s] CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[3.848s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[3.848s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[3.848s]   cmake_policy command to set the policy and suppress this warning.
+[3.848s] 
+[3.848s]   CMake variable FLANN_ROOT is set to:
+[3.849s] 
+[3.849s]     /usr
+[3.849s] 
+[3.849s]   For compatibility, find_package is ignoring the variable, but code in a
+[3.849s]   .cmake module might still use it.
+[3.849s] Call Stack (most recent call first):
+[3.849s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[3.849s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[3.849s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[3.849s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[3.849s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[3.850s]   /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[3.850s]   /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[3.850s]   CMakeLists.txt:29 (find_package)
+[3.850s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.850s] 
+[3.854s] -- Found flann version 1.9.2
+[4.519s] -- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+[4.519s] -- Found OpenMP: TRUE (found version "4.5") found components: CXX 
+[8.294s] -- Checking for module 'libusb-1.0'
+[8.357s] --   Found libusb-1.0, version 1.0.27
+[8.438s] -- Found libusb: /usr/lib/aarch64-linux-gnu/libusb-1.0.so  
+[8.440s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.567s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[8.574s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[8.597s] -- Found ZLIB: /usr/lib/aarch64-linux-gnu/libz.so (found version "1.3")  
+[8.624s] -- Found PNG: /usr/lib/aarch64-linux-gnu/libpng.so (found version "1.6.43") 
+[9.328s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[9.339s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[10.052s] -- Found Qhull version 8.0.2
+[10.757s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[11.463s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[11.464s] -- Found PCL_KDTREE: /usr/lib/aarch64-linux-gnu/libpcl_kdtree.so  
+[11.466s] -- Found PCL_OCTREE: /usr/lib/aarch64-linux-gnu/libpcl_octree.so  
+[11.467s] -- Found PCL_SEARCH: /usr/lib/aarch64-linux-gnu/libpcl_search.so  
+[11.469s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/aarch64-linux-gnu/libpcl_sample_consensus.so  
+[11.471s] -- Found PCL_FILTERS: /usr/lib/aarch64-linux-gnu/libpcl_filters.so  
+[11.471s] -- Found PCL_2D: /usr/include/pcl-1.14  
+[11.472s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.14  
+[11.474s] -- Found PCL_IO: /usr/lib/aarch64-linux-gnu/libpcl_io.so  
+[11.475s] -- Found PCL_FEATURES: /usr/lib/aarch64-linux-gnu/libpcl_features.so  
+[11.477s] -- Found PCL_ML: /usr/lib/aarch64-linux-gnu/libpcl_ml.so  
+[11.479s] -- Found PCL_SEGMENTATION: /usr/lib/aarch64-linux-gnu/libpcl_segmentation.so  
+[11.481s] -- Found PCL_VISUALIZATION: /usr/lib/aarch64-linux-gnu/libpcl_visualization.so  
+[11.482s] -- Found PCL_SURFACE: /usr/lib/aarch64-linux-gnu/libpcl_surface.so  
+[11.484s] -- Found PCL_REGISTRATION: /usr/lib/aarch64-linux-gnu/libpcl_registration.so  
+[11.486s] -- Found PCL_KEYPOINTS: /usr/lib/aarch64-linux-gnu/libpcl_keypoints.so  
+[11.488s] -- Found PCL_TRACKING: /usr/lib/aarch64-linux-gnu/libpcl_tracking.so  
+[11.490s] -- Found PCL_RECOGNITION: /usr/lib/aarch64-linux-gnu/libpcl_recognition.so  
+[11.491s] -- Found PCL_STEREO: /usr/lib/aarch64-linux-gnu/libpcl_stereo.so  
+[11.493s] -- Found PCL_APPS: /usr/lib/aarch64-linux-gnu/libpcl_apps.so  
+[11.494s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.14  
+[11.495s] -- Found PCL_MODELER: /usr/include/pcl-1.14  
+[11.497s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.14  
+[11.502s] -- Found PCL_OUTOFCORE: /usr/lib/aarch64-linux-gnu/libpcl_outofcore.so  
+[11.502s] -- Found PCL_PEOPLE: /usr/lib/aarch64-linux-gnu/libpcl_people.so  
+[11.525s] CMake Warning (dev) at CMakeLists.txt:31 (find_package):
+[11.525s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[11.525s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[11.525s]   command to set the policy and suppress this warning.
+[11.525s] 
+[11.525s]   CMake variable PCL_ROOT is set to:
+[11.525s] 
+[11.525s]     /usr
+[11.525s] 
+[11.525s]   For compatibility, CMake is ignoring the variable.
+[11.525s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[11.526s] 
+[12.662s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[14.078s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[14.618s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[14.631s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[14.880s] -- Found PythonExtra: /usr/bin/python3  
+[16.910s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[17.429s] -- Configuring done (17.4s)
+[18.759s] -- Generating done (1.2s)
+[18.872s] -- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package
+[18.938s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/p/ros2_ws/src/cpp_package -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cpp_package
+[18.940s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[19.068s] [  1%] Building CXX object CMakeFiles/pointcloud_formatter_node.dir/src/pointcloud_formatter_node.cpp.o
+[19.071s] [  2%] Building CXX object CMakeFiles/icp_3d_odom_node.dir/src/icp_3d_odom_node.cpp.o
+[19.080s] [  3%] Generating type hashes for ROS interfaces
+[19.106s] [  3%] Built target ament_cmake_python_copy_cpp_package
+[19.158s] [  5%] Building CXX object CMakeFiles/front_cloud_filter_node.dir/src/front_cloud_filter_node.cpp.o
+[19.939s] [  5%] Built target cpp_package__rosidl_generator_type_description
+[19.992s] [  6%] Building CXX object CMakeFiles/deskew_node.dir/src/deskew_node.cpp.o
+[38.682s] In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/logging.hpp:24,
+[38.682s]                  from /opt/ros/jazzy/include/rclcpp/rclcpp/copy_all_parameter_values.hpp:27,
+[38.682s]                  from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:171,
+[38.682s]                  from /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:1:
+[38.682s] /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp: In member function ‘void ICP3DOdomNode::scanImuCallback(const sensor_msgs::msg::LaserScan_<std::allocator<void> >::ConstSharedPtr&, const sensor_msgs::msg::Imu_<std::allocator<void> >::ConstSharedPtr&)’:
+[38.682s] /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:49: warning: format ‘%f’ expects argument of type ‘double’, but argument 5 has type ‘std::chrono::duration<long int, std::ratio<1, 1000> >::rep’ {aka ‘long int’} [-Wformat=]
+[38.682s]   134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",
+[38.683s]       |                                                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[38.683s]   135 |                            duration.count(), icp_.getFitnessScore());
+[38.683s]       |                            ~~~~~~~~~~~~~~~~      
+[38.683s]       |                                          |
+[38.683s]       |                                          std::chrono::duration<long int, std::ratio<1, 1000> >::rep {aka long int}
+[38.683s] /home/p/ros2_ws/src/cpp_package/src/icp_3d_odom_node.cpp:134:70: note: format string is defined here
+[38.683s]   134 |                 RCLCPP_WARN(this->get_logger(), "Slow processing: %.1fms (fitness: %.3f)",
+[38.684s]       |                                                                   ~~~^
+[38.684s]       |                                                                      |
+[38.684s]       |                                                                      double
+[38.684s]       |                                                                   %.1ld
+[53.260s] [  7%] Linking CXX executable front_cloud_filter_node
+[60.386s] [  9%] Linking CXX executable pointcloud_formatter_node
+[61.157s] [ 10%] Linking CXX executable deskew_node
+[62.940s] [ 10%] Built target front_cloud_filter_node
+[63.133s] [ 11%] Building CXX object CMakeFiles/obstacle_detector_node.dir/src/obstacle_detector_node.cpp.o
+[66.108s] [ 11%] Built target deskew_node
+[66.185s] [ 13%] Building CXX object CMakeFiles/point_cloud_sweeper_cpp_node.dir/src/point_cloud_sweeper_cpp_node.cpp.o
+[66.265s] [ 13%] Built target pointcloud_formatter_node
+[66.347s] [ 14%] Building CXX object CMakeFiles/point_cloud_accumulator_cpp_node.dir/src/point_cloud_accumulator_cpp_node.cpp.o
+[78.284s] [ 15%] Linking CXX executable icp_3d_odom_node
+[80.879s] /home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp: In member function ‘void ObstacleDetectorNode::cloud_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)’:
+[80.880s] /home/p/ros2_ws/src/cpp_package/src/obstacle_detector_node.cpp:54:43: warning: comparison of integer expressions of different signedness: ‘std::vector<pcl::PointXYZ, Eigen::aligned_allocator<pcl::PointXYZ> >::size_type’ {aka ‘long unsigned int’} and ‘int64_t’ {aka ‘long int’} [-Wsign-compare]
+[80.880s]    54 |         if (cloud_filtered->points.size() < this->get_parameter("min_points_for_plane").as_int()) {
+[80.880s]       |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[88.554s] [ 15%] Built target icp_3d_odom_node
+[88.618s] [ 17%] Building CXX object CMakeFiles/point_cloud_voxel_filter_cpp_node.dir/src/point_cloud_voxel_filter_cpp_node.cpp.o
+[96.888s] [ 18%] Linking CXX executable obstacle_detector_node
+[99.525s] [ 19%] Linking CXX executable point_cloud_sweeper_cpp_node
+[101.695s] [ 21%] Linking CXX executable point_cloud_accumulator_cpp_node
+[102.514s] [ 21%] Built target obstacle_detector_node
+[103.300s] [ 21%] Built target point_cloud_sweeper_cpp_node
+[104.159s] [ 21%] Built target point_cloud_accumulator_cpp_node
+[110.216s] [ 22%] Building CXX object CMakeFiles/point_count_sweeper_node.dir/src/point_count_sweeper_node.cpp.o
+[112.254s] [ 23%] Building CXX object CMakeFiles/point_cloud_statistical_outlier_remover_cpp_node.dir/src/point_cloud_statistical_outlier_remover_cpp_node.cpp.o
+[114.305s] [ 25%] Building CXX object CMakeFiles/point_cloud_passthrough_filter_cpp_node.dir/src/point_cloud_passthrough_filter_cpp_node.cpp.o
+[117.466s] [ 26%] Linking CXX executable point_cloud_voxel_filter_cpp_node
+[121.094s] [ 26%] Built target point_cloud_voxel_filter_cpp_node
+[135.524s] [ 27%] Linking CXX executable point_count_sweeper_node
+[137.735s] [ 27%] Built target point_count_sweeper_node
+[138.647s] [ 28%] Linking CXX executable point_cloud_statistical_outlier_remover_cpp_node
+[141.191s] [ 30%] Linking CXX executable point_cloud_passthrough_filter_cpp_node
+[141.625s] [ 30%] Built target point_cloud_statistical_outlier_remover_cpp_node
+[143.683s] [ 30%] Built target point_cloud_passthrough_filter_cpp_node
+[143.728s] [ 31%] Generating C++ code for ROS interfaces
+[144.764s] [ 32%] Generating C code for ROS interfaces
+[145.660s] [ 32%] Built target cpp_package__cpp
+[145.833s] [ 35%] Building CXX object CMakeFiles/stable_ground_detector_node.dir/src/stable_ground_detector_node.cpp.o
+[145.833s] [ 35%] Building CXX object CMakeFiles/z_variance_sweeper_node.dir/src/z_variance_sweeper_node.cpp.o
+[146.476s] [ 36%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__description.c.o
+[146.764s] [ 38%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__functions.c.o
+[147.023s] [ 39%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/obstacle_feedback__type_support.c.o
+[147.113s] [ 40%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__description.c.o
+[147.210s] [ 42%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__functions.c.o
+[147.342s] [ 43%] Building C object CMakeFiles/cpp_package__rosidl_generator_c.dir/rosidl_generator_c/cpp_package/msg/detail/nav_hint__type_support.c.o
+[147.431s] [ 44%] Linking C shared library libcpp_package__rosidl_generator_c.so
+[147.636s] [ 44%] Built target cpp_package__rosidl_generator_c
+[148.836s] [ 46%] Generating C++ type support dispatch for ROS interfaces
+[149.576s] [ 47%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cpp_package/msg/obstacle_feedback__type_support.cpp.o
+[150.376s] [ 48%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/cpp_package/msg/nav_hint__type_support.cpp.o
+[151.001s] [ 50%] Linking CXX shared library libcpp_package__rosidl_typesupport_cpp.so
+[151.160s] [ 50%] Built target cpp_package__rosidl_typesupport_cpp
+[151.232s] [ 51%] Generating C type support for eProsima Fast-RTPS
+[152.044s] running egg_info
+[152.044s] creating cpp_package.egg-info
+[152.112s] writing cpp_package.egg-info/PKG-INFO
+[152.113s] [ 52%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cpp_package/msg/detail/obstacle_feedback__type_support_c.cpp.o
+[152.117s] writing dependency_links to cpp_package.egg-info/dependency_links.txt
+[152.117s] writing top-level names to cpp_package.egg-info/top_level.txt
+[152.117s] writing manifest file 'cpp_package.egg-info/SOURCES.txt'
+[152.345s] reading manifest file 'cpp_package.egg-info/SOURCES.txt'
+[152.345s] writing manifest file 'cpp_package.egg-info/SOURCES.txt'
+[152.445s] [ 52%] Built target ament_cmake_python_build_cpp_package_egg
+[152.470s] [ 53%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/cpp_package/msg/detail/nav_hint__type_support_c.cpp.o
+[153.616s] [ 55%] Generating C++ type support for eProsima Fast-RTPS
+[153.635s] [ 56%] Linking CXX shared library libcpp_package__rosidl_typesupport_fastrtps_c.so
+[153.919s] [ 56%] Built target cpp_package__rosidl_typesupport_fastrtps_c
+[154.039s] [ 57%] Generating C introspection for ROS interfaces
+[154.565s] [ 59%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cpp_package/msg/detail/dds_fastrtps/obstacle_feedback__type_support.cpp.o
+[154.926s] [ 60%] Building C object CMakeFiles/cpp_package__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cpp_package/msg/detail/obstacle_feedback__type_support.c.o
+[155.136s] [ 61%] Building C object CMakeFiles/cpp_package__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/cpp_package/msg/detail/nav_hint__type_support.c.o
+[155.235s] [ 63%] Linking C shared library libcpp_package__rosidl_typesupport_introspection_c.so
+[155.331s] [ 63%] Built target cpp_package__rosidl_typesupport_introspection_c
+[155.358s] [ 64%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/cpp_package/msg/detail/dds_fastrtps/nav_hint__type_support.cpp.o
+[155.688s] [ 65%] Generating C type support dispatch for ROS interfaces
+[156.452s] [ 67%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_c.dir/rosidl_typesupport_c/cpp_package/msg/obstacle_feedback__type_support.cpp.o
+[156.589s] [ 68%] Linking CXX shared library libcpp_package__rosidl_typesupport_fastrtps_cpp.so
+[156.599s] [ 69%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_c.dir/rosidl_typesupport_c/cpp_package/msg/nav_hint__type_support.cpp.o
+[156.704s] [ 71%] Linking CXX shared library libcpp_package__rosidl_typesupport_c.so
+[156.839s] [ 71%] Built target cpp_package__rosidl_typesupport_c
+[156.857s] [ 71%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp
+[156.873s] [ 72%] Generating C++ introspection for ROS interfaces
+[156.922s] [ 73%] Building CXX object CMakeFiles/obstacle_evaluator_node.dir/src/obstacle_evaluator_node.cpp.o
+[157.547s] [ 75%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cpp_package/msg/detail/obstacle_feedback__type_support.cpp.o
+[158.250s] [ 76%] Building CXX object CMakeFiles/cpp_package__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/cpp_package/msg/detail/nav_hint__type_support.cpp.o
+[158.913s] [ 77%] Linking CXX shared library libcpp_package__rosidl_typesupport_introspection_cpp.so
+[159.125s] [ 77%] Built target cpp_package__rosidl_typesupport_introspection_cpp
+[159.183s] [ 78%] Building CXX object CMakeFiles/navigation_hint_node.dir/src/navigation_hint_node.cpp.o
+[172.690s] [ 80%] Linking CXX executable stable_ground_detector_node
+[173.641s] [ 81%] Linking CXX executable z_variance_sweeper_node
+[177.260s] [ 81%] Built target stable_ground_detector_node
+[177.363s] [ 81%] Built target z_variance_sweeper_node
+[181.617s] [ 82%] Linking CXX executable navigation_hint_node
+[182.488s] [ 82%] Built target navigation_hint_node
+[186.497s] [ 84%] Linking CXX executable obstacle_evaluator_node
+[188.280s] [ 84%] Built target obstacle_evaluator_node
+[188.327s] [ 85%] Building CXX object CMakeFiles/haptic_driver_node.dir/src/haptic_driver_node.cpp.o
+[188.329s] [ 85%] Built target cpp_package
+[188.376s] [ 86%] Generating Python code for ROS interfaces
+[189.070s] [ 86%] Built target cpp_package__py
+[189.123s] [ 88%] Building C object CMakeFiles/cpp_package__rosidl_generator_py.dir/rosidl_generator_py/cpp_package/msg/_obstacle_feedback_s.c.o
+[189.125s] [ 89%] Building C object CMakeFiles/cpp_package__rosidl_generator_py.dir/rosidl_generator_py/cpp_package/msg/_nav_hint_s.c.o
+[189.451s] [ 90%] Linking C shared library libcpp_package__rosidl_generator_py.so
+[189.590s] [ 90%] Built target cpp_package__rosidl_generator_py
+[189.707s] [ 93%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_introspection_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_introspection_c.c.o
+[189.707s] [ 93%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_fastrtps_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_fastrtps_c.c.o
+[189.935s] [ 94%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so
+[189.946s] [ 96%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so
+[190.058s] [ 96%] Built target cpp_package_s__rosidl_typesupport_introspection_c
+[190.103s] [ 96%] Built target cpp_package_s__rosidl_typesupport_fastrtps_c
+[190.179s] [ 97%] Building C object CMakeFiles/cpp_package_s__rosidl_typesupport_c.dir/rosidl_generator_py/cpp_package/_cpp_package_s.ep.rosidl_typesupport_c.c.o
+[190.394s] [ 98%] Linking C shared module rosidl_generator_py/cpp_package/cpp_package_s__rosidl_typesupport_c.so
+[190.475s] [ 98%] Built target cpp_package_s__rosidl_typesupport_c
+[200.536s] [100%] Linking CXX executable haptic_driver_node
+[201.232s] [100%] Built target haptic_driver_node
+[201.259s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[201.283s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package
+[201.305s] -- Install configuration: ""
+[201.305s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/rosidl_interfaces/cpp_package
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.json
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.json
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_c__visibility_control.h
+[201.306s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__description.c
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.h
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.h
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.c
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.h
+[201.307s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.h
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.h
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__description.c
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.c
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.h
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.h
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.h
+[201.308s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.sh
+[201.309s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.dsv
+[201.310s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_c.so
+[201.310s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_c.so" to ""
+[201.311s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.311s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.311s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[201.311s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.311s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_c.h
+[201.311s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_c.h
+[201.311s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_c.so
+[201.312s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_c.so" to ""
+[201.312s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.312s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.312s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.hpp
+[201.312s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.hpp
+[201.312s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.312s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__traits.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__traits.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__builder.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__builder.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.hpp
+[201.313s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.hpp
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_cpp__visibility_control.hpp
+[201.314s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.314s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.314s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/dds_fastrtps
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_cpp.hpp
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_cpp.hpp
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[201.314s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_cpp.so
+[201.315s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_cpp.so" to ""
+[201.315s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.315s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.315s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.315s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_c.h
+[201.315s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c
+[201.316s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_c.h
+[201.316s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c
+[201.316s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[201.316s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_c.so
+[201.316s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_c.so" to ""
+[201.317s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_c.so
+[201.317s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_c.so" to ""
+[201.317s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package
+[201.318s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg
+[201.318s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail
+[201.318s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.cpp
+[201.318s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.cpp
+[201.318s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_cpp.hpp
+[201.318s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_cpp.hpp
+[201.318s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_cpp.so
+[201.319s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_cpp.so" to ""
+[201.319s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_cpp.so
+[201.320s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_cpp.so" to ""
+[201.320s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.sh
+[201.320s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.dsv
+[201.320s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/dependency_links.txt
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/PKG-INFO
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/top_level.txt
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/SOURCES.txt
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package
+[201.321s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_fastrtps_c.c
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint.py
+[201.322s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback_s.c
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint_s.c
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/__init__.py
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback.py
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_c.c
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so
+[201.323s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_introspection_c.c
+[201.399s] Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package'...
+[201.399s] Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py'...
+[201.400s] Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg'...
+[201.400s] Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/__init__.py'...
+[201.400s] Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint.py'...
+[201.400s] Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback.py'...
+[201.413s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so
+[201.413s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so" to ""
+[201.414s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so
+[201.414s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so" to ""
+[201.415s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so
+[201.415s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so" to ""
+[201.415s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_py.so
+[201.416s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_py.so" to ""
+[201.416s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.idl
+[201.416s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.idl
+[201.416s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.msg
+[201.417s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.msg
+[201.417s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node
+[201.441s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node" to ""
+[201.442s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node
+[201.460s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node" to ""
+[201.460s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node
+[201.470s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node" to ""
+[201.470s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_evaluator_node
+[201.482s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_evaluator_node" to ""
+[201.482s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/navigation_hint_node
+[201.494s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/navigation_hint_node" to ""
+[201.494s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/haptic_driver_node
+[201.504s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/haptic_driver_node" to ""
+[201.504s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/deskew_node
+[201.520s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/deskew_node" to ""
+[201.520s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_detector_node
+[201.530s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_detector_node" to ""
+[201.531s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node
+[201.543s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node" to ""
+[201.543s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_accumulator_cpp_node
+[201.554s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_accumulator_cpp_node" to ""
+[201.554s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_voxel_filter_cpp_node
+[201.565s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_voxel_filter_cpp_node" to ""
+[201.565s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_passthrough_filter_cpp_node
+[201.575s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_passthrough_filter_cpp_node" to ""
+[201.575s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_statistical_outlier_remover_cpp_node
+[201.587s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_statistical_outlier_remover_cpp_node" to ""
+[201.587s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node
+[201.598s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node" to ""
+[201.598s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node
+[201.608s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node" to ""
+[201.610s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node
+[201.620s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node" to ""
+[201.620s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch
+[201.621s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
+[201.622s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
+[201.622s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py
+[201.623s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/package_run_dependencies/cpp_package
+[201.624s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/parent_prefix_path/cpp_package
+[201.624s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.sh
+[201.625s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.dsv
+[201.625s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.sh
+[201.626s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.dsv
+[201.626s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.bash
+[201.627s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.sh
+[201.627s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.zsh
+[201.627s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.dsv
+[201.628s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.dsv
+[201.628s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/packages/cpp_package
+[201.629s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport.cmake
+[201.629s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport-noconfig.cmake
+[201.630s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport.cmake
+[201.630s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[201.631s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cppExport.cmake
+[201.632s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport.cmake
+[201.632s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[201.633s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport.cmake
+[201.633s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[201.634s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport.cmake
+[201.634s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport-noconfig.cmake
+[201.635s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport.cmake
+[201.636s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[201.636s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport.cmake
+[201.637s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport-noconfig.cmake
+[201.637s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport.cmake
+[201.638s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport-noconfig.cmake
+[201.638s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake-extras.cmake
+[201.639s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_dependencies-extras.cmake
+[201.640s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_include_directories-extras.cmake
+[201.640s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_libraries-extras.cmake
+[201.641s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_targets-extras.cmake
+[201.641s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[201.642s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[201.642s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig.cmake
+[201.643s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig-version.cmake
+[201.643s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.xml
+[201.648s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package

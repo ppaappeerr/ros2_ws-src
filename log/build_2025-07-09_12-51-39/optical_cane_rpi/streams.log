@@ -1,0 +1,42 @@
+[1.565s] Invoking command in '/home/p/ros2_ws/src/optical_cane_rpi': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data
+[2.061s] running egg_info
+[2.061s] creating ../build/optical_cane_rpi/optical_cane_rpi.egg-info
+[2.097s] writing ../build/optical_cane_rpi/optical_cane_rpi.egg-info/PKG-INFO
+[2.097s] writing dependency_links to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/dependency_links.txt
+[2.097s] writing entry points to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/entry_points.txt
+[2.098s] writing requirements to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/requires.txt
+[2.098s] writing top-level names to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/top_level.txt
+[2.098s] writing manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[2.173s] reading manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[2.173s] writing manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[2.174s] running build
+[2.174s] running build_py
+[2.174s] creating /home/p/ros2_ws/src/build/optical_cane_rpi/build
+[2.174s] creating /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib
+[2.174s] creating /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi
+[2.174s] copying optical_cane_rpi/lidar_subscriber.py -> /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi
+[2.174s] copying optical_cane_rpi/imu_subscriber.py -> /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi
+[2.175s] copying optical_cane_rpi/__init__.py -> /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi
+[2.175s] running install
+[2.184s] running install_lib
+[2.224s] creating /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi
+[2.224s] copying /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi/lidar_subscriber.py -> /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi
+[2.224s] copying /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi/imu_subscriber.py -> /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi
+[2.224s] copying /home/p/ros2_ws/src/build/optical_cane_rpi/build/lib/optical_cane_rpi/__init__.py -> /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi
+[2.225s] byte-compiling /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi/lidar_subscriber.py to lidar_subscriber.cpython-312.pyc
+[2.226s] byte-compiling /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi/imu_subscriber.py to imu_subscriber.cpython-312.pyc
+[2.226s] byte-compiling /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi/__init__.py to __init__.cpython-312.pyc
+[2.227s] running install_data
+[2.227s] creating /home/p/ros2_ws/src/install/optical_cane_rpi/share/ament_index
+[2.227s] creating /home/p/ros2_ws/src/install/optical_cane_rpi/share/ament_index/resource_index
+[2.227s] creating /home/p/ros2_ws/src/install/optical_cane_rpi/share/ament_index/resource_index/packages
+[2.227s] copying resource/optical_cane_rpi -> /home/p/ros2_ws/src/install/optical_cane_rpi/share/ament_index/resource_index/packages
+[2.227s] copying package.xml -> /home/p/ros2_ws/src/install/optical_cane_rpi/share/optical_cane_rpi
+[2.228s] running install_egg_info
+[2.274s] Copying ../build/optical_cane_rpi/optical_cane_rpi.egg-info to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi-0.0.0-py3.12.egg-info
+[2.277s] running install_scripts
+[2.517s] Installing imu_subscriber script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.517s] Installing lidar_subscriber script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.517s] Installing optical_cane_rpi script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[2.517s] writing list of installed files to '/home/p/ros2_ws/src/build/optical_cane_rpi/install.log'
+[2.614s] Invoked command in '/home/p/ros2_ws/src/optical_cane_rpi' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data
