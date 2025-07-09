@@ -1,0 +1,123 @@
+[0.020s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.079s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.126s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[0.271s] -- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.312s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.326s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.346s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.367s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.454s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.456s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[0.566s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.653s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[0.728s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[0.775s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[0.815s] -- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[0.972s] -- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+[0.976s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[0.978s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[0.980s] -- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)
+[0.986s] -- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+[0.998s] -- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+[1.001s] -- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)
+[1.073s] CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[1.073s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[1.073s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[1.073s]   cmake_policy command to set the policy and suppress this warning.
+[1.073s] 
+[1.073s]   CMake variable FLANN_ROOT is set to:
+[1.073s] 
+[1.074s]     /usr
+[1.074s] 
+[1.074s]   For compatibility, find_package is ignoring the variable, but code in a
+[1.074s]   .cmake module might still use it.
+[1.074s] Call Stack (most recent call first):
+[1.074s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[1.074s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[1.074s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[1.074s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.075s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[1.075s]   /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[1.075s]   /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[1.075s]   CMakeLists.txt:30 (find_package)
+[1.075s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[1.075s] 
+[1.075s] -- Found flann version 1.9.2
+[1.816s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.828s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.833s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[2.607s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[2.619s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.315s] -- Found Qhull version 8.0.2
+[4.034s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.777s] CMake Warning (dev) at CMakeLists.txt:32 (find_package):
+[4.777s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[4.778s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[4.778s]   command to set the policy and suppress this warning.
+[4.778s] 
+[4.778s]   CMake variable PCL_ROOT is set to:
+[4.778s] 
+[4.778s]     /usr
+[4.778s] 
+[4.778s]   For compatibility, CMake is ignoring the variable.
+[4.778s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[4.778s] 
+[5.288s] -- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+[5.666s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[5.825s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[5.827s] -- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+[6.524s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+[6.825s] -- Configuring done (6.8s)
+[7.750s] -- Generating done (0.8s)
+[7.872s] -- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package
+[8.072s] [  1%] Built target cpp_package__rosidl_generator_type_description
+[8.097s] [  3%] Built target pointcloud_formatter_node
+[8.110s] [  3%] Built target ament_cmake_python_copy_cpp_package
+[8.123s] [  6%] Built target icp_3d_odom_node
+[8.178s] [  8%] Built target front_cloud_filter_node
+[8.232s] [ 11%] Built target deskew_node
+[8.242s] [ 14%] Built target point_cloud_sweeper_cpp_node
+[8.257s] [ 16%] Built target obstacle_detector_node
+[8.283s] [ 19%] Built target point_cloud_accumulator_cpp_node
+[8.343s] [ 21%] Built target point_cloud_voxel_filter_cpp_node
+[8.378s] [ 24%] Built target point_cloud_passthrough_filter_cpp_node
+[8.406s] [ 26%] Built target point_count_sweeper_node
+[8.421s] [ 29%] Built target point_cloud_statistical_outlier_remover_cpp_node
+[8.464s] [ 32%] Built target z_variance_sweeper_node
+[8.491s] [ 33%] Building CXX object CMakeFiles/ground_plane_fitter_node.dir/src/ground_plane_fitter_node.cpp.o
+[8.503s] [ 34%] Built target cpp_package__cpp
+[8.525s] [ 35%] Building CXX object CMakeFiles/stable_ground_detector_node.dir/src/stable_ground_detector_node.cpp.o
+[8.562s] [ 46%] Built target cpp_package__rosidl_generator_c
+[8.677s] [ 51%] Built target cpp_package__rosidl_typesupport_cpp
+[8.795s] [ 56%] Built target cpp_package__rosidl_typesupport_fastrtps_c
+[8.911s] [ 61%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp
+[9.020s] [ 66%] Built target cpp_package__rosidl_typesupport_introspection_c
+[9.101s] [ 71%] Built target cpp_package__rosidl_typesupport_c
+[9.217s] [ 76%] Built target cpp_package__rosidl_typesupport_introspection_cpp
+[9.222s] running egg_info
+[9.338s] writing cpp_package.egg-info/PKG-INFO
+[9.338s] writing dependency_links to cpp_package.egg-info/dependency_links.txt
+[9.338s] writing top-level names to cpp_package.egg-info/top_level.txt
+[9.362s] [ 79%] Built target obstacle_evaluator_node
+[9.466s] [ 82%] Built target navigation_hint_node
+[9.580s] reading manifest file 'cpp_package.egg-info/SOURCES.txt'
+[9.585s] writing manifest file 'cpp_package.egg-info/SOURCES.txt'
+[9.585s] [ 84%] Built target haptic_driver_node
+[9.712s] [ 84%] Built target cpp_package
+[9.789s] [ 84%] Built target ament_cmake_python_build_cpp_package_egg
+[9.831s] [ 85%] Built target cpp_package__py
+[9.961s] [ 89%] Built target cpp_package__rosidl_generator_py
+[10.047s] [ 92%] Built target cpp_package_s__rosidl_typesupport_fastrtps_c
+[10.054s] [ 94%] Built target cpp_package_s__rosidl_typesupport_introspection_c
+[10.114s] [ 97%] Built target cpp_package_s__rosidl_typesupport_c
+[12.155s] /home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:13:10: fatal error: tf2/LinearMath/Quaternion.h: 그런 파일이나 디렉터리가 없습니다
+[12.156s]    13 | #include <tf2/LinearMath/Quaternion.h>
+[12.156s]       |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[12.156s] compilation terminated.
+[12.189s] gmake[2]: *** [CMakeFiles/ground_plane_fitter_node.dir/build.make:76: CMakeFiles/ground_plane_fitter_node.dir/src/ground_plane_fitter_node.cpp.o] 오류 1
+[12.189s] gmake[1]: *** [CMakeFiles/Makefile2:1077: CMakeFiles/ground_plane_fitter_node.dir/all] 오류 2
+[12.190s] gmake[1]: *** 끝나지 않은 작업을 기다리고 있습니다....
+[27.992s] [ 98%] Linking CXX executable stable_ground_detector_node
+[30.401s] [ 98%] Built target stable_ground_detector_node
+[30.403s] gmake: *** [Makefile:146: all] 오류 2
+[30.409s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4

@@ -15,6 +15,7 @@ find_package(sensor_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(visualization_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
@@ -28,7 +29,7 @@ find_package(rosidl_default_generators REQUIRED)
 # PCL 패키지
 find_package(pcl_ros REQUIRED)
 find_package(pcl_conversions REQUIRED)
-find_package(PCL REQUIRED COMPONENTS common io filters registration)
+find_package(PCL REQUIRED COMPONENTS common io filters registration segmentation)
 
 # 메시지 파일 등록
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -79,7 +80,7 @@ ament_target_dependencies(navigation_hint_node
   rclcpp std_msgs
 )
 
-# 🔥 Haptic Driver Node (C++ 버전)
+# Haptic Driver Node (C++ 버전)
 add_executable(haptic_driver_node src/haptic_driver_node.cpp)
 ament_target_dependencies(haptic_driver_node
   rclcpp std_msgs
@@ -148,6 +149,45 @@ add_executable(stable_ground_detector_node src/stable_ground_detector_node.cpp)
 ament_target_dependencies(stable_ground_detector_node rclcpp sensor_msgs pcl_conversions)
 target_link_libraries(stable_ground_detector_node ${PCL_LIBRARIES})
 
+# Ground Plane Fitter Node
+add_executable(ground_plane_fitter_node src/ground_plane_fitter_node.cpp)
+ament_target_dependencies(ground_plane_fitter_node rclcpp sensor_msgs pcl_conversions visualization_msgs tf2 tf2_ros)
+target_link_libraries(ground_plane_fitter_node ${PCL_LIBRARIES})
+target_link_libraries(ground_plane_fitter_node "${cpp_typesupport_target}")
+
+# Ground Plane Fitter Node (No Voxel)
+add_executable(ground_plane_fitter_no_voxel_node src/ground_plane_fitter_no_voxel_node.cpp)
+ament_target_dependencies(ground_plane_fitter_no_voxel_node rclcpp sensor_msgs pcl_conversions visualization_msgs tf2 tf2_ros)
+target_link_libraries(ground_plane_fitter_no_voxel_node ${PCL_LIBRARIES})
+target_link_libraries(ground_plane_fitter_no_voxel_node "${cpp_typesupport_target}")
+
+# Ground Plane Fitter Node (Lock Plane)
+add_executable(ground_plane_fitter_lock_plane_node src/ground_plane_fitter_lock_plane_node.cpp)
+ament_target_dependencies(ground_plane_fitter_lock_plane_node rclcpp sensor_msgs pcl_conversions visualization_msgs tf2 tf2_ros)
+target_link_libraries(ground_plane_fitter_lock_plane_node ${PCL_LIBRARIES})
+target_link_libraries(ground_plane_fitter_lock_plane_node "${cpp_typesupport_target}")
+
+# Stable Ground Fitter Node (Final Version)
+add_executable(stable_ground_fitter_node src/stable_ground_fitter_node.cpp)
+ament_target_dependencies(stable_ground_fitter_node rclcpp sensor_msgs pcl_conversions visualization_msgs tf2 tf2_ros)
+target_link_libraries(stable_ground_fitter_node ${PCL_LIBRARIES})
+target_link_libraries(stable_ground_fitter_node "${cpp_typesupport_target}")
+
+# Projected Ground Detector Node
+add_executable(projected_ground_detector_node src/projected_ground_detector_node.cpp)
+ament_target_dependencies(projected_ground_detector_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(projected_ground_detector_node ${PCL_LIBRARIES})
+
+# Height Ground Detector Node
+add_executable(height_ground_detector_node src/height_ground_detector_node.cpp)
+ament_target_dependencies(height_ground_detector_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(height_ground_detector_node ${PCL_LIBRARIES})
+
+# IMU Odometry Node
+add_executable(imu_odometry_node src/imu_odometry_node.cpp)
+ament_target_dependencies(imu_odometry_node rclcpp sensor_msgs nav_msgs tf2_geometry_msgs)
+target_link_libraries(imu_odometry_node ${PCL_LIBRARIES})
+
 # 실행 파일 설치
 install(TARGETS
   icp_3d_odom_node
@@ -155,7 +195,7 @@ install(TARGETS
   front_cloud_filter_node
   obstacle_evaluator_node
   navigation_hint_node
-  haptic_driver_node  # 🔥 C++ 버전으로 변경
+  haptic_driver_node
   deskew_node
   obstacle_detector_node
   point_cloud_sweeper_cpp_node
@@ -166,6 +206,13 @@ install(TARGETS
   point_count_sweeper_node
   z_variance_sweeper_node
   stable_ground_detector_node
+  ground_plane_fitter_node
+  ground_plane_fitter_no_voxel_node
+  ground_plane_fitter_lock_plane_node
+  stable_ground_fitter_node
+  projected_ground_detector_node
+  height_ground_detector_node
+  imu_odometry_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

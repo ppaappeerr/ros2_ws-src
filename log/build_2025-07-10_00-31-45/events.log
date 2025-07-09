@@ -1,0 +1,544 @@
+[0.000000] (-) TimerEvent: {}
+[0.000148] (-) JobUnselected: {'identifier': 'cartographer'}
+[0.000316] (-) JobUnselected: {'identifier': 'cartographer_ros'}
+[0.000340] (-) JobUnselected: {'identifier': 'cartographer_ros_msgs'}
+[0.000412] (-) JobUnselected: {'identifier': 'cartographer_rviz'}
+[0.000633] (-) JobUnselected: {'identifier': 'mpu9250'}
+[0.000652] (-) JobUnselected: {'identifier': 'optical_cane_rpi'}
+[0.000796] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.000815] (-) JobUnselected: {'identifier': 'sweep_builder'}
+[0.001062] (cpp_package) JobQueued: {'identifier': 'cpp_package', 'dependencies': OrderedDict()}
+[0.001130] (cpp_package) JobStarted: {'identifier': 'cpp_package'}
+[0.014196] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'cmake'}
+[0.016064] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'build'}
+[0.017449] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/p/ros2_ws/src/build/cpp_package', '--', '-j4', '-l4'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62737 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/gemini_interfaces/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-76b27a40-9e32-4c27-8bb0-61557fab0005.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-7c6492186b.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 62737 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_pkg/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_interfaces/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[0.077837] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.099621] (-) TimerEvent: {}
+[0.124768] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.199736] (-) TimerEvent: {}
+[0.274053] (cpp_package) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.299850] (-) TimerEvent: {}
+[0.312473] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.325346] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.342363] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.363558] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.399981] (-) TimerEvent: {}
+[0.447128] (cpp_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.449588] (cpp_package) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.500102] (-) TimerEvent: {}
+[0.551446] (cpp_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.600227] (-) TimerEvent: {}
+[0.638421] (cpp_package) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.700350] (-) TimerEvent: {}
+[0.712336] (cpp_package) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[0.746920] (cpp_package) StdoutLine: {'line': b'-- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)\n'}
+[0.782137] (cpp_package) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[0.800459] (-) TimerEvent: {}
+[0.900675] (-) TimerEvent: {}
+[0.926327] (cpp_package) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)\n'}
+[0.931566] (cpp_package) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[0.933770] (cpp_package) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.936186] (cpp_package) StdoutLine: {'line': b'-- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)\n'}
+[0.942137] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.954374] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.956624] (cpp_package) StdoutLine: {'line': b'-- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)\n'}
+[1.000782] (-) TimerEvent: {}
+[1.031351] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[1.031694] (cpp_package) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[1.031796] (cpp_package) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[1.031886] (cpp_package) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[1.032014] (cpp_package) StderrLine: {'line': b'\n'}
+[1.032102] (cpp_package) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[1.032182] (cpp_package) StderrLine: {'line': b'\n'}
+[1.032261] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[1.032339] (cpp_package) StderrLine: {'line': b'\n'}
+[1.032539] (cpp_package) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[1.032635] (cpp_package) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[1.032718] (cpp_package) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.032797] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[1.032877] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[1.032978] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[1.033061] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[1.033140] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[1.033221] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[1.033299] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)\n'}
+[1.033377] (cpp_package) StderrLine: {'line': b'  CMakeLists.txt:30 (find_package)\n'}
+[1.033455] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.033532] (cpp_package) StderrLine: {'line': b'\n'}
+[1.033607] (cpp_package) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[1.100912] (-) TimerEvent: {}
+[1.201149] (-) TimerEvent: {}
+[1.301393] (-) TimerEvent: {}
+[1.401634] (-) TimerEvent: {}
+[1.501871] (-) TimerEvent: {}
+[1.602111] (-) TimerEvent: {}
+[1.702325] (-) TimerEvent: {}
+[1.757826] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[1.771000] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[1.776277] (cpp_package) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[1.802441] (-) TimerEvent: {}
+[1.902997] (-) TimerEvent: {}
+[2.003230] (-) TimerEvent: {}
+[2.103464] (-) TimerEvent: {}
+[2.203701] (-) TimerEvent: {}
+[2.303944] (-) TimerEvent: {}
+[2.404175] (-) TimerEvent: {}
+[2.504391] (-) TimerEvent: {}
+[2.538158] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.551340] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.604506] (-) TimerEvent: {}
+[2.704750] (-) TimerEvent: {}
+[2.805156] (-) TimerEvent: {}
+[2.905470] (-) TimerEvent: {}
+[3.005677] (-) TimerEvent: {}
+[3.105887] (-) TimerEvent: {}
+[3.206139] (-) TimerEvent: {}
+[3.238494] (cpp_package) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[3.306265] (-) TimerEvent: {}
+[3.406507] (-) TimerEvent: {}
+[3.506766] (-) TimerEvent: {}
+[3.606974] (-) TimerEvent: {}
+[3.707188] (-) TimerEvent: {}
+[3.807445] (-) TimerEvent: {}
+[3.907702] (-) TimerEvent: {}
+[3.947821] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[4.007825] (-) TimerEvent: {}
+[4.108068] (-) TimerEvent: {}
+[4.208999] (-) TimerEvent: {}
+[4.309320] (-) TimerEvent: {}
+[4.409561] (-) TimerEvent: {}
+[4.509772] (-) TimerEvent: {}
+[4.610009] (-) TimerEvent: {}
+[4.687733] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at CMakeLists.txt:32 (find_package):\n'}
+[4.688046] (cpp_package) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[4.688147] (cpp_package) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[4.688235] (cpp_package) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[4.688317] (cpp_package) StderrLine: {'line': b'\n'}
+[4.688397] (cpp_package) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[4.688477] (cpp_package) StderrLine: {'line': b'\n'}
+[4.688557] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[4.688635] (cpp_package) StderrLine: {'line': b'\n'}
+[4.688712] (cpp_package) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[4.688792] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[4.688873] (cpp_package) StderrLine: {'line': b'\n'}
+[4.710115] (-) TimerEvent: {}
+[4.810320] (-) TimerEvent: {}
+[4.910522] (-) TimerEvent: {}
+[5.010737] (-) TimerEvent: {}
+[5.110966] (-) TimerEvent: {}
+[5.186688] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[5.211210] (-) TimerEvent: {}
+[5.311520] (-) TimerEvent: {}
+[5.411771] (-) TimerEvent: {}
+[5.512005] (-) TimerEvent: {}
+[5.559271] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.612112] (-) TimerEvent: {}
+[5.704559] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.706496] (cpp_package) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[5.712254] (-) TimerEvent: {}
+[5.812574] (-) TimerEvent: {}
+[5.912842] (-) TimerEvent: {}
+[6.013126] (-) TimerEvent: {}
+[6.113377] (-) TimerEvent: {}
+[6.197915] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[6.215185] (-) TimerEvent: {}
+[6.315418] (-) TimerEvent: {}
+[6.415636] (-) TimerEvent: {}
+[6.515850] (-) TimerEvent: {}
+[6.545192] (cpp_package) StdoutLine: {'line': b'-- Configuring done (6.5s)\n'}
+[6.615969] (-) TimerEvent: {}
+[6.716194] (-) TimerEvent: {}
+[6.816395] (-) TimerEvent: {}
+[6.916994] (-) TimerEvent: {}
+[7.017218] (-) TimerEvent: {}
+[7.117492] (-) TimerEvent: {}
+[7.218997] (-) TimerEvent: {}
+[7.319230] (-) TimerEvent: {}
+[7.419472] (-) TimerEvent: {}
+[7.519703] (-) TimerEvent: {}
+[7.568367] (cpp_package) StdoutLine: {'line': b'-- Generating done (0.9s)\n'}
+[7.619815] (-) TimerEvent: {}
+[7.689706] (cpp_package) StdoutLine: {'line': b'-- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package\n'}
+[7.719986] (-) TimerEvent: {}
+[7.821253] (-) TimerEvent: {}
+[7.854262] (cpp_package) StdoutLine: {'line': b'[  1%] Built target cpp_package__rosidl_generator_type_description\n'}
+[7.908220] (cpp_package) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_cpp_package\n'}
+[7.916165] (cpp_package) StdoutLine: {'line': b'[  3%] Built target pointcloud_formatter_node\n'}
+[7.921395] (-) TimerEvent: {}
+[7.934275] (cpp_package) StdoutLine: {'line': b'[  5%] Built target icp_3d_odom_node\n'}
+[7.996828] (cpp_package) StdoutLine: {'line': b'[  7%] Built target front_cloud_filter_node\n'}
+[8.021526] (-) TimerEvent: {}
+[8.053390] (cpp_package) StdoutLine: {'line': b'[ 10%] Built target deskew_node\n'}
+[8.053962] (cpp_package) StdoutLine: {'line': b'[ 12%] Built target obstacle_detector_node\n'}
+[8.064296] (cpp_package) StdoutLine: {'line': b'[ 14%] Built target point_cloud_sweeper_cpp_node\n'}
+[8.123111] (-) TimerEvent: {}
+[8.126806] (cpp_package) StdoutLine: {'line': b'[ 17%] Built target point_cloud_accumulator_cpp_node\n'}
+[8.152032] (cpp_package) StdoutLine: {'line': b'[ 19%] Built target point_cloud_voxel_filter_cpp_node\n'}
+[8.167783] (cpp_package) StdoutLine: {'line': b'[ 21%] Built target point_cloud_statistical_outlier_remover_cpp_node\n'}
+[8.176209] (cpp_package) StdoutLine: {'line': b'[ 23%] Built target point_cloud_passthrough_filter_cpp_node\n'}
+[8.223214] (-) TimerEvent: {}
+[8.240454] (cpp_package) StdoutLine: {'line': b'[ 26%] Built target point_count_sweeper_node\n'}
+[8.274349] (cpp_package) StdoutLine: {'line': b'[ 28%] Built target z_variance_sweeper_node\n'}
+[8.284277] (cpp_package) StdoutLine: {'line': b'[ 30%] Built target projected_ground_detector_node\n'}
+[8.296347] (cpp_package) StdoutLine: {'line': b'[ 32%] Built target stable_ground_detector_node\n'}
+[8.323336] (-) TimerEvent: {}
+[8.334850] (cpp_package) StdoutLine: {'line': b'[ 34%] Building CXX object CMakeFiles/imu_odometry_node.dir/src/imu_odometry_node.cpp.o\n'}
+[8.342264] (cpp_package) StdoutLine: {'line': b'[ 35%] Built target cpp_package__cpp\n'}
+[8.397784] (cpp_package) StdoutLine: {'line': b'[ 37%] Built target height_ground_detector_node\n'}
+[8.402312] (cpp_package) StdoutLine: {'line': b'[ 46%] Built target cpp_package__rosidl_generator_c\n'}
+[8.423438] (-) TimerEvent: {}
+[8.496130] (cpp_package) StdoutLine: {'line': b'[ 51%] Built target cpp_package__rosidl_typesupport_fastrtps_c\n'}
+[8.515368] (cpp_package) StdoutLine: {'line': b'[ 55%] Built target cpp_package__rosidl_typesupport_cpp\n'}
+[8.523545] (-) TimerEvent: {}
+[8.579984] (cpp_package) StdoutLine: {'line': b'[ 60%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp\n'}
+[8.612545] (cpp_package) StdoutLine: {'line': b'[ 64%] Built target cpp_package__rosidl_typesupport_introspection_c\n'}
+[8.623663] (-) TimerEvent: {}
+[8.675266] (cpp_package) StdoutLine: {'line': b'[ 69%] Built target cpp_package__rosidl_typesupport_c\n'}
+[8.724022] (cpp_package) StdoutLine: {'line': b'[ 73%] Built target cpp_package__rosidl_typesupport_introspection_cpp\n'}
+[8.724286] (-) TimerEvent: {}
+[8.779108] (cpp_package) StdoutLine: {'line': b'[ 76%] Built target obstacle_evaluator_node\n'}
+[8.824468] (-) TimerEvent: {}
+[8.856968] (cpp_package) StdoutLine: {'line': b'[ 78%] Built target navigation_hint_node\n'}
+[8.877426] (cpp_package) StdoutLine: {'line': b'[ 80%] Built target haptic_driver_node\n'}
+[8.887125] (cpp_package) StdoutLine: {'line': b'running egg_info\n'}
+[8.926003] (-) TimerEvent: {}
+[8.990016] (cpp_package) StdoutLine: {'line': b'writing cpp_package.egg-info/PKG-INFO\n'}
+[8.991223] (cpp_package) StdoutLine: {'line': b'writing dependency_links to cpp_package.egg-info/dependency_links.txt\n'}
+[8.992225] (cpp_package) StdoutLine: {'line': b'writing top-level names to cpp_package.egg-info/top_level.txt\n'}
+[9.014948] (cpp_package) StdoutLine: {'line': b'[ 82%] Built target ground_plane_fitter_no_voxel_node\n'}
+[9.019029] (cpp_package) StdoutLine: {'line': b'[ 85%] Built target ground_plane_fitter_node\n'}
+[9.026152] (-) TimerEvent: {}
+[9.111190] (cpp_package) StdoutLine: {'line': b'[ 85%] Built target cpp_package\n'}
+[9.126266] (-) TimerEvent: {}
+[9.179048] (cpp_package) StdoutLine: {'line': b'[ 86%] Built target cpp_package__py\n'}
+[9.206201] (cpp_package) StdoutLine: {'line': b'[ 88%] Built target ground_plane_fitter_lock_plane_node\n'}
+[9.226376] (-) TimerEvent: {}
+[9.239973] (cpp_package) StdoutLine: {'line': b"reading manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[9.240358] (cpp_package) StdoutLine: {'line': b"writing manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[9.302084] (cpp_package) StdoutLine: {'line': b'[ 92%] Built target cpp_package__rosidl_generator_py\n'}
+[9.326558] (-) TimerEvent: {}
+[9.394895] (cpp_package) StdoutLine: {'line': b'[ 92%] Built target ament_cmake_python_build_cpp_package_egg\n'}
+[9.413836] (cpp_package) StdoutLine: {'line': b'[ 94%] Built target cpp_package_s__rosidl_typesupport_introspection_c\n'}
+[9.426679] (-) TimerEvent: {}
+[9.436745] (cpp_package) StdoutLine: {'line': b'[ 96%] Built target cpp_package_s__rosidl_typesupport_fastrtps_c\n'}
+[9.456286] (cpp_package) StdoutLine: {'line': b'[ 98%] Built target cpp_package_s__rosidl_typesupport_c\n'}
+[9.526801] (-) TimerEvent: {}
+[9.627062] (-) TimerEvent: {}
+[9.727333] (-) TimerEvent: {}
+[9.827592] (-) TimerEvent: {}
+[9.927803] (-) TimerEvent: {}
+[10.031047] (-) TimerEvent: {}
+[10.131297] (-) TimerEvent: {}
+[10.231526] (-) TimerEvent: {}
+[10.331921] (-) TimerEvent: {}
+[10.432165] (-) TimerEvent: {}
+[10.532394] (-) TimerEvent: {}
+[10.632626] (-) TimerEvent: {}
+[10.732853] (-) TimerEvent: {}
+[10.833081] (-) TimerEvent: {}
+[10.933311] (-) TimerEvent: {}
+[11.033568] (-) TimerEvent: {}
+[11.133808] (-) TimerEvent: {}
+[11.234034] (-) TimerEvent: {}
+[11.334267] (-) TimerEvent: {}
+[11.434509] (-) TimerEvent: {}
+[11.534743] (-) TimerEvent: {}
+[11.634973] (-) TimerEvent: {}
+[11.735197] (-) TimerEvent: {}
+[11.835434] (-) TimerEvent: {}
+[11.935665] (-) TimerEvent: {}
+[12.035910] (-) TimerEvent: {}
+[12.136147] (-) TimerEvent: {}
+[12.236439] (-) TimerEvent: {}
+[12.336687] (-) TimerEvent: {}
+[12.436923] (-) TimerEvent: {}
+[12.537147] (-) TimerEvent: {}
+[12.637373] (-) TimerEvent: {}
+[12.737594] (-) TimerEvent: {}
+[12.837815] (-) TimerEvent: {}
+[12.938047] (-) TimerEvent: {}
+[13.038273] (-) TimerEvent: {}
+[13.138500] (-) TimerEvent: {}
+[13.238722] (-) TimerEvent: {}
+[13.338949] (-) TimerEvent: {}
+[13.439166] (-) TimerEvent: {}
+[13.539444] (-) TimerEvent: {}
+[13.639737] (-) TimerEvent: {}
+[13.739966] (-) TimerEvent: {}
+[13.840184] (-) TimerEvent: {}
+[13.940406] (-) TimerEvent: {}
+[14.040648] (-) TimerEvent: {}
+[14.140879] (-) TimerEvent: {}
+[14.241104] (-) TimerEvent: {}
+[14.341326] (-) TimerEvent: {}
+[14.441549] (-) TimerEvent: {}
+[14.541769] (-) TimerEvent: {}
+[14.641992] (-) TimerEvent: {}
+[14.742214] (-) TimerEvent: {}
+[14.842439] (-) TimerEvent: {}
+[14.942670] (-) TimerEvent: {}
+[15.043038] (-) TimerEvent: {}
+[15.143323] (-) TimerEvent: {}
+[15.243550] (-) TimerEvent: {}
+[15.343773] (-) TimerEvent: {}
+[15.443993] (-) TimerEvent: {}
+[15.544219] (-) TimerEvent: {}
+[15.644443] (-) TimerEvent: {}
+[15.744663] (-) TimerEvent: {}
+[15.844890] (-) TimerEvent: {}
+[15.945127] (-) TimerEvent: {}
+[16.045358] (-) TimerEvent: {}
+[16.145606] (-) TimerEvent: {}
+[16.245827] (-) TimerEvent: {}
+[16.346057] (-) TimerEvent: {}
+[16.446277] (-) TimerEvent: {}
+[16.546502] (-) TimerEvent: {}
+[16.646721] (-) TimerEvent: {}
+[16.746970] (-) TimerEvent: {}
+[16.847210] (-) TimerEvent: {}
+[16.947426] (-) TimerEvent: {}
+[17.047646] (-) TimerEvent: {}
+[17.147875] (-) TimerEvent: {}
+[17.248108] (-) TimerEvent: {}
+[17.348316] (-) TimerEvent: {}
+[17.448520] (-) TimerEvent: {}
+[17.548729] (-) TimerEvent: {}
+[17.651993] (-) TimerEvent: {}
+[17.752249] (-) TimerEvent: {}
+[17.852480] (-) TimerEvent: {}
+[17.952717] (-) TimerEvent: {}
+[18.052945] (-) TimerEvent: {}
+[18.153160] (-) TimerEvent: {}
+[18.253375] (-) TimerEvent: {}
+[18.355984] (-) TimerEvent: {}
+[18.456203] (-) TimerEvent: {}
+[18.556409] (-) TimerEvent: {}
+[18.656707] (-) TimerEvent: {}
+[18.756993] (-) TimerEvent: {}
+[18.857198] (-) TimerEvent: {}
+[18.957411] (-) TimerEvent: {}
+[19.059006] (-) TimerEvent: {}
+[19.159246] (-) TimerEvent: {}
+[19.259463] (-) TimerEvent: {}
+[19.359685] (-) TimerEvent: {}
+[19.459897] (-) TimerEvent: {}
+[19.560130] (-) TimerEvent: {}
+[19.660335] (-) TimerEvent: {}
+[19.760552] (-) TimerEvent: {}
+[19.860779] (-) TimerEvent: {}
+[19.962978] (-) TimerEvent: {}
+[20.063197] (-) TimerEvent: {}
+[20.163404] (-) TimerEvent: {}
+[20.263615] (-) TimerEvent: {}
+[20.363829] (-) TimerEvent: {}
+[20.464061] (-) TimerEvent: {}
+[20.564287] (-) TimerEvent: {}
+[20.664516] (-) TimerEvent: {}
+[20.764751] (-) TimerEvent: {}
+[20.865002] (-) TimerEvent: {}
+[20.965251] (-) TimerEvent: {}
+[21.065497] (-) TimerEvent: {}
+[21.165739] (-) TimerEvent: {}
+[21.265998] (-) TimerEvent: {}
+[21.366275] (-) TimerEvent: {}
+[21.466589] (-) TimerEvent: {}
+[21.566974] (-) TimerEvent: {}
+[21.667292] (-) TimerEvent: {}
+[21.762147] (cpp_package) StdoutLine: {'line': b'[100%] Linking CXX executable imu_odometry_node\n'}
+[21.767408] (-) TimerEvent: {}
+[21.867716] (-) TimerEvent: {}
+[21.968095] (-) TimerEvent: {}
+[22.068433] (-) TimerEvent: {}
+[22.168768] (-) TimerEvent: {}
+[22.269200] (-) TimerEvent: {}
+[22.369589] (-) TimerEvent: {}
+[22.469888] (-) TimerEvent: {}
+[22.570167] (-) TimerEvent: {}
+[22.670486] (-) TimerEvent: {}
+[22.770951] (-) TimerEvent: {}
+[22.871355] (-) TimerEvent: {}
+[22.971853] (-) TimerEvent: {}
+[23.072462] (-) TimerEvent: {}
+[23.172864] (-) TimerEvent: {}
+[23.273101] (-) TimerEvent: {}
+[23.373306] (-) TimerEvent: {}
+[23.389878] (cpp_package) StdoutLine: {'line': b'[100%] Built target imu_odometry_node\n'}
+[23.416011] (cpp_package) CommandEnded: {'returncode': 0}
+[23.416984] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'install'}
+[23.435800] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/p/ros2_ws/src/build/cpp_package'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 62737 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/gemini_interfaces/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-76b27a40-9e32-4c27-8bb0-61557fab0005.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '4', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-7c6492186b.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 62737 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_pkg/lib/python3.12/site-packages:/home/p/ros2_ws/install/gemini_interfaces/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/gemini_pkg:/home/p/ros2_ws/install/gemini_interfaces:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[23.454646] (cpp_package) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[23.455044] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/rosidl_interfaces/cpp_package\n'}
+[23.455155] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.json\n'}
+[23.455248] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.json\n'}
+[23.455340] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.455432] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.455520] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_c__visibility_control.h\n'}
+[23.455607] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.455779] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__description.c\n'}
+[23.455875] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c\n'}
+[23.456050] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.h\n'}
+[23.456165] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.h\n'}
+[23.456261] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__functions.c\n'}
+[23.456341] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.h\n'}
+[23.456419] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.h\n'}
+[23.456500] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.h\n'}
+[23.456579] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c\n'}
+[23.456657] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__description.c\n'}
+[23.456736] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.c\n'}
+[23.456814] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__functions.h\n'}
+[23.456891] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.h\n'}
+[23.456990] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.h\n'}
+[23.457230] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.sh\n'}
+[23.457346] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/library_path.dsv\n'}
+[23.457450] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_c.so\n'}
+[23.457555] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.457834] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.458097] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[23.458254] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.458337] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_c.h\n'}
+[23.458424] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_c.h\n'}
+[23.458510] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_c.so\n'}
+[23.458595] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.458805] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.458962] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/obstacle_feedback.hpp\n'}
+[23.459182] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/nav_hint.hpp\n'}
+[23.459299] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.459390] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__traits.hpp\n'}
+[23.459477] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__traits.hpp\n'}
+[23.459564] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.hpp\n'}
+[23.459651] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__builder.hpp\n'}
+[23.459736] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__struct.hpp\n'}
+[23.459821] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__builder.hpp\n'}
+[23.460018] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__struct.hpp\n'}
+[23.460101] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.hpp\n'}
+[23.460184] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[23.460284] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.460372] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.460458] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.460631] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/dds_fastrtps\n'}
+[23.460724] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[23.460810] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[23.460896] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[23.461073] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_fastrtps_cpp.so\n'}
+[23.461156] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.461236] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.461340] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.461431] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_c.h\n'}
+[23.461528] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.c\n'}
+[23.461616] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_c.h\n'}
+[23.461778] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.c\n'}
+[23.461865] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[23.462023] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_c.so\n'}
+[23.462113] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_c.so\n'}
+[23.462199] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package\n'}
+[23.462285] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg\n'}
+[23.462368] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail\n'}
+[23.462452] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__type_support.cpp\n'}
+[23.462536] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__type_support.cpp\n'}
+[23.462710] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/obstacle_feedback__rosidl_typesupport_introspection_cpp.hpp\n'}
+[23.462797] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/include/cpp_package/cpp_package/msg/detail/nav_hint__rosidl_typesupport_introspection_cpp.hpp\n'}
+[23.462875] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_introspection_cpp.so\n'}
+[23.462973] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_typesupport_cpp.so\n'}
+[23.463055] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.sh\n'}
+[23.463134] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/pythonpath.dsv\n'}
+[23.463210] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info\n'}
+[23.463287] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/dependency_links.txt\n'}
+[23.463366] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/PKG-INFO\n'}
+[23.463443] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/top_level.txt\n'}
+[23.463520] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package-0.0.1-py3.12.egg-info/SOURCES.txt\n'}
+[23.463607] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package\n'}
+[23.463699] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so\n'}
+[23.463780] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[23.463861] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py\n'}
+[23.463970] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so\n'}
+[23.464056] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg\n'}
+[23.464133] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint.py\n'}
+[23.464210] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback_s.c\n'}
+[23.464287] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_nav_hint_s.c\n'}
+[23.464366] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/__init__.py\n'}
+[23.464450] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg/_obstacle_feedback.py\n'}
+[23.464528] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_c.c\n'}
+[23.464605] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so\n'}
+[23.464686] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/_cpp_package_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[23.473434] (-) TimerEvent: {}
+[23.523171] (cpp_package) StdoutLine: {'line': b"Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package'...\n"}
+[23.523509] (cpp_package) StdoutLine: {'line': b"Compiling '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/__init__.py'...\n"}
+[23.523643] (cpp_package) StdoutLine: {'line': b"Listing '/home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/msg'...\n"}
+[23.536258] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_fastrtps_c.so\n'}
+[23.536652] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_introspection_c.so\n'}
+[23.536993] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/python3.12/site-packages/cpp_package/cpp_package_s__rosidl_typesupport_c.so\n'}
+[23.537528] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/libcpp_package__rosidl_generator_py.so\n'}
+[23.537842] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.idl\n'}
+[23.538011] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.idl\n'}
+[23.538097] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.msg\n'}
+[23.538240] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.msg\n'}
+[23.538322] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node\n'}
+[23.538720] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node\n'}
+[23.539254] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node\n'}
+[23.539723] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_evaluator_node\n'}
+[23.540296] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/navigation_hint_node\n'}
+[23.540878] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/haptic_driver_node\n'}
+[23.541368] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/deskew_node\n'}
+[23.541863] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/obstacle_detector_node\n'}
+[23.542403] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node\n'}
+[23.542953] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_accumulator_cpp_node\n'}
+[23.543479] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_voxel_filter_cpp_node\n'}
+[23.544039] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_passthrough_filter_cpp_node\n'}
+[23.544568] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_statistical_outlier_remover_cpp_node\n'}
+[23.545107] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node\n'}
+[23.545628] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node\n'}
+[23.546238] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node\n'}
+[23.546841] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_node\n'}
+[23.547447] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_no_voxel_node\n'}
+[23.548250] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_lock_plane_node\n'}
+[23.548958] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/projected_ground_detector_node\n'}
+[23.549531] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/height_ground_detector_node\n'}
+[23.549884] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/imu_odometry_node\n'}
+[23.561065] (cpp_package) StdoutLine: {'line': b'-- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/imu_odometry_node" to ""\n'}
+[23.561756] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch\n'}
+[23.562133] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py\n'}
+[23.562268] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py\n'}
+[23.562380] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py\n'}
+[23.562479] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/package_run_dependencies/cpp_package\n'}
+[23.562582] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/parent_prefix_path/cpp_package\n'}
+[23.562696] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.sh\n'}
+[23.562803] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.dsv\n'}
+[23.562898] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.sh\n'}
+[23.563032] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.dsv\n'}
+[23.563128] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.bash\n'}
+[23.563221] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.sh\n'}
+[23.563316] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.zsh\n'}
+[23.563407] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.dsv\n'}
+[23.563502] (cpp_package) StdoutLine: {'line': b'-- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.dsv\n'}
+[23.563855] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/packages/cpp_package\n'}
+[23.564027] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport.cmake\n'}
+[23.564134] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cExport-noconfig.cmake\n'}
+[23.564224] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[23.564307] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[23.564387] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_cppExport.cmake\n'}
+[23.564471] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[23.564560] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[23.564652] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport.cmake\n'}
+[23.564744] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[23.564831] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport.cmake\n'}
+[23.564990] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[23.565120] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[23.565234] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[23.565353] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport.cmake\n'}
+[23.565464] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_package__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[23.565767] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport.cmake\n'}
+[23.565930] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/export_cpp_package__rosidl_generator_pyExport-noconfig.cmake\n'}
+[23.566069] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake-extras.cmake\n'}
+[23.566171] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[23.566262] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[23.566362] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[23.566454] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[23.566550] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[23.566669] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[23.566775] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig.cmake\n'}
+[23.566872] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig-version.cmake\n'}
+[23.567000] (cpp_package) StdoutLine: {'line': b'-- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.xml\n'}
+[23.568421] (cpp_package) CommandEnded: {'returncode': 0}
+[23.573518] (-) TimerEvent: {}
+[23.612430] (cpp_package) JobEnded: {'identifier': 'cpp_package', 'rc': 0}
+[23.613411] (-) EventReactorShutdown: {}

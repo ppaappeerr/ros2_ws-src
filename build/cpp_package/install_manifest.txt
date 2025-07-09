@@ -93,6 +93,13 @@
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_count_sweeper_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/z_variance_sweeper_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_detector_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_no_voxel_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_lock_plane_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/projected_ground_detector_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/height_ground_detector_node
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/imu_odometry_node
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py

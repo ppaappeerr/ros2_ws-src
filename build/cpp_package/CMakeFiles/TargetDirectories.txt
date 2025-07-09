@@ -32,6 +32,13 @@
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/point_count_sweeper_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/z_variance_sweeper_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/stable_ground_detector_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/ground_plane_fitter_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/ground_plane_fitter_no_voxel_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/ground_plane_fitter_lock_plane_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/stable_ground_fitter_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/projected_ground_detector_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/height_ground_detector_node.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/imu_odometry_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/test.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/edit_cache.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/rebuild_cache.dir

@@ -1910,3 +1910,2019 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:29 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0bb97/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0bb97.dir/build.make CMakeFiles/cmTC_0bb97.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL' 들어감
+        Building C object CMakeFiles/cmTC_0bb97.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_0bb97.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL/test_mpi.c
+        Linking C executable cmTC_0bb97
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0bb97.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_0bb97.dir/test_mpi.c.o -o cmTC_0bb97  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ng5QrL' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:29 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6a12c/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6a12c.dir/build.make CMakeFiles/cmTC_6a12c.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU' 들어감
+        Building C object CMakeFiles/cmTC_6a12c.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_6a12c.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU/test_mpi.c
+        Linking C executable cmTC_6a12c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6a12c.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_6a12c.dir/test_mpi.c.o -o cmTC_6a12c  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-9an7eU' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:29 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_41c4b/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_41c4b.dir/build.make CMakeFiles/cmTC_41c4b.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh' 들어감
+        Building C object CMakeFiles/cmTC_41c4b.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_41c4b.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh/test_mpi.c
+        Linking C executable cmTC_41c4b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_41c4b.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_41c4b.dir/test_mpi.c.o -o cmTC_41c4b  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-YHgUmh' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:29 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a448a/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a448a.dir/build.make CMakeFiles/cmTC_a448a.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T' 들어감
+        Building C object CMakeFiles/cmTC_a448a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_a448a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T/test_mpi.c
+        Linking C executable cmTC_a448a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a448a.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_a448a.dir/test_mpi.c.o -o cmTC_a448a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-P9bD2T' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:29 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_382dc/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_382dc.dir/build.make CMakeFiles/cmTC_382dc.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao' 들어감
+        Building C object CMakeFiles/cmTC_382dc.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_382dc.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao/test_mpi.c
+        Linking C executable cmTC_382dc
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_382dc.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_382dc.dir/test_mpi.c.o -o cmTC_382dc  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ayh6Ao' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cc190/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cc190.dir/build.make CMakeFiles/cmTC_cc190.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk' 들어감
+        Building C object CMakeFiles/cmTC_cc190.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_cc190.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk/test_mpi.c
+        Linking C executable cmTC_cc190
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cc190.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_cc190.dir/test_mpi.c.o -o cmTC_cc190  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-yxpPWk' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_772a3/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_772a3.dir/build.make CMakeFiles/cmTC_772a3.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv' 들어감
+        Building C object CMakeFiles/cmTC_772a3.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_772a3.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv/test_mpi.c
+        Linking C executable cmTC_772a3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_772a3.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_772a3.dir/test_mpi.c.o -o cmTC_772a3  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qszmLv' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6e6db/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6e6db.dir/build.make CMakeFiles/cmTC_6e6db.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9' 들어감
+        Building C object CMakeFiles/cmTC_6e6db.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_6e6db.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9/test_mpi.c
+        Linking C executable cmTC_6e6db
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6e6db.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_6e6db.dir/test_mpi.c.o -o cmTC_6e6db  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VCF0g9' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5c23b/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5c23b.dir/build.make CMakeFiles/cmTC_5c23b.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG' 들어감
+        Building C object CMakeFiles/cmTC_5c23b.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_5c23b.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG/test_mpi.c
+        Linking C executable cmTC_5c23b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5c23b.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_5c23b.dir/test_mpi.c.o -o cmTC_5c23b  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-anp4vG' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_84062/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_84062.dir/build.make CMakeFiles/cmTC_84062.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW' 들어감
+        Building C object CMakeFiles/cmTC_84062.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_84062.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW/test_mpi.c
+        Linking C executable cmTC_84062
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_84062.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_84062.dir/test_mpi.c.o -o cmTC_84062  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-lz2MXW' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_becf2/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_becf2.dir/build.make CMakeFiles/cmTC_becf2.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL' 들어감
+        Building C object CMakeFiles/cmTC_becf2.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_becf2.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL/test_mpi.c
+        Linking C executable cmTC_becf2
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_becf2.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_becf2.dir/test_mpi.c.o -o cmTC_becf2  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-Lv9odL' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1cd2e/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1cd2e.dir/build.make CMakeFiles/cmTC_1cd2e.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX' 들어감
+        Building C object CMakeFiles/cmTC_1cd2e.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_1cd2e.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX/test_mpi.c
+        Linking C executable cmTC_1cd2e
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1cd2e.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_1cd2e.dir/test_mpi.c.o -o cmTC_1cd2e  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hpy7NX' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0d95d/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0d95d.dir/build.make CMakeFiles/cmTC_0d95d.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1' 들어감
+        Building C object CMakeFiles/cmTC_0d95d.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_0d95d.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1/test_mpi.c
+        Linking C executable cmTC_0d95d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0d95d.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_0d95d.dir/test_mpi.c.o -o cmTC_0d95d  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-aLuqA1' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_61c24/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_61c24.dir/build.make CMakeFiles/cmTC_61c24.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j' 들어감
+        Building C object CMakeFiles/cmTC_61c24.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_61c24.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j/test_mpi.c
+        Linking C executable cmTC_61c24
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_61c24.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_61c24.dir/test_mpi.c.o -o cmTC_61c24  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-BKkw3j' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8c762/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8c762.dir/build.make CMakeFiles/cmTC_8c762.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY' 들어감
+        Building C object CMakeFiles/cmTC_8c762.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_8c762.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY/test_mpi.c
+        Linking C executable cmTC_8c762
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c762.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_8c762.dir/test_mpi.c.o -o cmTC_8c762  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mk4hZY' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_860b7/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_860b7.dir/build.make CMakeFiles/cmTC_860b7.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI' 들어감
+        Building C object CMakeFiles/cmTC_860b7.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_860b7.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI/test_mpi.c
+        Linking C executable cmTC_860b7
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_860b7.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_860b7.dir/test_mpi.c.o -o cmTC_860b7  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-DiKfZI' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4e5be/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4e5be.dir/build.make CMakeFiles/cmTC_4e5be.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT' 들어감
+        Building C object CMakeFiles/cmTC_4e5be.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_4e5be.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT/test_mpi.c
+        Linking C executable cmTC_4e5be
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4e5be.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_4e5be.dir/test_mpi.c.o -o cmTC_4e5be  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-gZRiYT' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_49ecd/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_49ecd.dir/build.make CMakeFiles/cmTC_49ecd.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws' 들어감
+        Building C object CMakeFiles/cmTC_49ecd.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_49ecd.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws/test_mpi.c
+        Linking C executable cmTC_49ecd
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_49ecd.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_49ecd.dir/test_mpi.c.o -o cmTC_49ecd  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-u0X6Ws' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5ff87/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5ff87.dir/build.make CMakeFiles/cmTC_5ff87.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp' 들어감
+        Building C object CMakeFiles/cmTC_5ff87.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_5ff87.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp/test_mpi.c
+        Linking C executable cmTC_5ff87
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5ff87.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_5ff87.dir/test_mpi.c.o -o cmTC_5ff87  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-0JeQBp' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d62d8/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d62d8.dir/build.make CMakeFiles/cmTC_d62d8.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt' 들어감
+        Building C object CMakeFiles/cmTC_d62d8.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_d62d8.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt/test_mpi.c
+        Linking C executable cmTC_d62d8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d62d8.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_d62d8.dir/test_mpi.c.o -o cmTC_d62d8  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-By5Ozt' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8c2c3/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8c2c3.dir/build.make CMakeFiles/cmTC_8c2c3.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u' 들어감
+        Building C object CMakeFiles/cmTC_8c2c3.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_8c2c3.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u/test_mpi.c
+        Linking C executable cmTC_8c2c3
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8c2c3.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_8c2c3.dir/test_mpi.c.o -o cmTC_8c2c3  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-vcbK9u' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_fc60b/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_fc60b.dir/build.make CMakeFiles/cmTC_fc60b.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh' 들어감
+        Building C object CMakeFiles/cmTC_fc60b.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_fc60b.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh/test_mpi.c
+        Linking C executable cmTC_fc60b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc60b.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_fc60b.dir/test_mpi.c.o -o cmTC_fc60b  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-1W8QHh' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_986c9/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_986c9.dir/build.make CMakeFiles/cmTC_986c9.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX' 들어감
+        Building C object CMakeFiles/cmTC_986c9.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_986c9.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX/test_mpi.c
+        Linking C executable cmTC_986c9
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_986c9.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_986c9.dir/test_mpi.c.o -o cmTC_986c9  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-5A6HAX' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_fe3c1/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_fe3c1.dir/build.make CMakeFiles/cmTC_fe3c1.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin' 들어감
+        Building C object CMakeFiles/cmTC_fe3c1.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_fe3c1.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin/test_mpi.c
+        Linking C executable cmTC_fe3c1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fe3c1.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_fe3c1.dir/test_mpi.c.o -o cmTC_fe3c1  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hUzNin' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ca24c/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ca24c.dir/build.make CMakeFiles/cmTC_ca24c.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR' 들어감
+        Building C object CMakeFiles/cmTC_ca24c.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_ca24c.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR/test_mpi.c
+        Linking C executable cmTC_ca24c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca24c.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_ca24c.dir/test_mpi.c.o -o cmTC_ca24c  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-QurnCR' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_16d41/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_16d41.dir/build.make CMakeFiles/cmTC_16d41.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B' 들어감
+        Building C object CMakeFiles/cmTC_16d41.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_16d41.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B/test_mpi.c
+        Linking C executable cmTC_16d41
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16d41.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_16d41.dir/test_mpi.c.o -o cmTC_16d41  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VBrz9B' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_1c80a/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_1c80a.dir/build.make CMakeFiles/cmTC_1c80a.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG' 들어감
+        Building C object CMakeFiles/cmTC_1c80a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_1c80a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG/test_mpi.c
+        Linking C executable cmTC_1c80a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1c80a.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_1c80a.dir/test_mpi.c.o -o cmTC_1c80a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-wmiQsG' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cbef0/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cbef0.dir/build.make CMakeFiles/cmTC_cbef0.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81' 들어감
+        Building C object CMakeFiles/cmTC_cbef0.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_cbef0.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81/test_mpi.c
+        Linking C executable cmTC_cbef0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cbef0.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_cbef0.dir/test_mpi.c.o -o cmTC_cbef0  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-UZyj81' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_93d81/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_93d81.dir/build.make CMakeFiles/cmTC_93d81.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx' 들어감
+        Building C object CMakeFiles/cmTC_93d81.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_93d81.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx/test_mpi.c
+        Linking C executable cmTC_93d81
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93d81.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_93d81.dir/test_mpi.c.o -o cmTC_93d81  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-8AmEnx' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2ef81/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2ef81.dir/build.make CMakeFiles/cmTC_2ef81.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE' 들어감
+        Building C object CMakeFiles/cmTC_2ef81.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_2ef81.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE/test_mpi.c
+        Linking C executable cmTC_2ef81
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2ef81.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_2ef81.dir/test_mpi.c.o -o cmTC_2ef81  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-OcCObE' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3152b/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3152b.dir/build.make CMakeFiles/cmTC_3152b.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM' 들어감
+        Building C object CMakeFiles/cmTC_3152b.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_3152b.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM/test_mpi.c
+        Linking C executable cmTC_3152b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3152b.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_3152b.dir/test_mpi.c.o -o cmTC_3152b  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-eUnHmM' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2d3c0/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2d3c0.dir/build.make CMakeFiles/cmTC_2d3c0.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k' 들어감
+        Building C object CMakeFiles/cmTC_2d3c0.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_2d3c0.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k/test_mpi.c
+        Linking C executable cmTC_2d3c0
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2d3c0.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_2d3c0.dir/test_mpi.c.o -o cmTC_2d3c0  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-hROb5k' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0c090/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0c090.dir/build.make CMakeFiles/cmTC_0c090.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO' 들어감
+        Building C object CMakeFiles/cmTC_0c090.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_0c090.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO/test_mpi.c
+        Linking C executable cmTC_0c090
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c090.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_0c090.dir/test_mpi.c.o -o cmTC_0c090  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-mbLPHO' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_85cb1/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_85cb1.dir/build.make CMakeFiles/cmTC_85cb1.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1' 들어감
+        Building C object CMakeFiles/cmTC_85cb1.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_85cb1.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1/test_mpi.c
+        Linking C executable cmTC_85cb1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_85cb1.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_85cb1.dir/test_mpi.c.o -o cmTC_85cb1  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-ub9OS1' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a3b3a/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a3b3a.dir/build.make CMakeFiles/cmTC_a3b3a.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4' 들어감
+        Building C object CMakeFiles/cmTC_a3b3a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_a3b3a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4/test_mpi.c
+        Linking C executable cmTC_a3b3a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a3b3a.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_a3b3a.dir/test_mpi.c.o -o cmTC_a3b3a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-qxRsP4' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e725a/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e725a.dir/build.make CMakeFiles/cmTC_e725a.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc' 들어감
+        Building C object CMakeFiles/cmTC_e725a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_e725a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc/test_mpi.c
+        Linking C executable cmTC_e725a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e725a.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_e725a.dir/test_mpi.c.o -o cmTC_e725a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-dHnyPc' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_00a0f/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_00a0f.dir/build.make CMakeFiles/cmTC_00a0f.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89' 들어감
+        Building C object CMakeFiles/cmTC_00a0f.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_00a0f.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89/test_mpi.c
+        Linking C executable cmTC_00a0f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_00a0f.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_00a0f.dir/test_mpi.c.o -o cmTC_00a0f  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-fm1z89' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2f38a/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2f38a.dir/build.make CMakeFiles/cmTC_2f38a.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C' 들어감
+        Building C object CMakeFiles/cmTC_2f38a.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_2f38a.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C/test_mpi.c
+        Linking C executable cmTC_2f38a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2f38a.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_2f38a.dir/test_mpi.c.o -o cmTC_2f38a  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-VNuR4C' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f06be/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f06be.dir/build.make CMakeFiles/cmTC_f06be.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY' 들어감
+        Building C object CMakeFiles/cmTC_f06be.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_f06be.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY/test_mpi.c
+        Linking C executable cmTC_f06be
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f06be.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_f06be.dir/test_mpi.c.o -o cmTC_f06be  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-7rp7SY' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f686d/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f686d.dir/build.make CMakeFiles/cmTC_f686d.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44' 들어감
+        Building C object CMakeFiles/cmTC_f686d.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_f686d.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44/test_mpi.c
+        Linking C executable cmTC_f686d
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f686d.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_f686d.dir/test_mpi.c.o -o cmTC_f686d  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JYwi44' 나감
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_3db82/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_3db82.dir/build.make CMakeFiles/cmTC_3db82.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN' 들어감
+        Building C object CMakeFiles/cmTC_3db82.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_3db82.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN/test_mpi.c
+        Linking C executable cmTC_3db82
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3db82.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_3db82.dir/test_mpi.c.o -o cmTC_3db82  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-XkYhGN' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_973b5/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_973b5.dir/build.make CMakeFiles/cmTC_973b5.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm' 들어감
+        Building C object CMakeFiles/cmTC_973b5.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_973b5.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm/test_mpi.c
+        Linking C executable cmTC_973b5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_973b5.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_973b5.dir/test_mpi.c.o -o cmTC_973b5  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-trvnCm' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_309ef/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_309ef.dir/build.make CMakeFiles/cmTC_309ef.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU' 들어감
+        Building C object CMakeFiles/cmTC_309ef.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_309ef.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU/test_mpi.c
+        Linking C executable cmTC_309ef
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_309ef.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_309ef.dir/test_mpi.c.o -o cmTC_309ef  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-WE77YU' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5b3fc/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5b3fc.dir/build.make CMakeFiles/cmTC_5b3fc.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8' 들어감
+        Building C object CMakeFiles/cmTC_5b3fc.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_5b3fc.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8/test_mpi.c
+        Linking C executable cmTC_5b3fc
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5b3fc.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_5b3fc.dir/test_mpi.c.o -o cmTC_5b3fc  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-JSoJw8' 나감
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1278 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1322 (_MPI_try_staged_settings)"
+      - "/usr/share/cmake-3.28/Modules/FindMPI.cmake:1645 (_MPI_check_lang_works)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/VTK-vtk-module-find-packages.cmake:397 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/vtk-config.cmake:150 (include)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:275 (find_package)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:324 (find_VTK)"
+      - "/usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:567 (find_external_library)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)"
+      - "/opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)"
+      - "CMakeLists.txt:30 (find_package)"
+    description: "The MPI test test_mpi for C in mode normal"
+    directories:
+      source: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt"
+      binary: "/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1/patches/99;/usr/lib/aarch64-linux-gnu/cmake/vtk-9.1;/opt/ros/jazzy/share/eigen3_cmake_module/cmake/Modules;/opt/ros/jazzy/share/fastrtps_cmake_module/cmake/Modules;/usr/lib/aarch64-linux-gnu/cmake/pcl/Modules"
+    buildResult:
+      variable: "MPI_RESULT_C_test_mpi_normal"
+      cached: true
+      stdout: |
+        Change Dir: '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5e2cb/fast
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt' 들어감
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5e2cb.dir/build.make CMakeFiles/cmTC_5e2cb.dir/build
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt' 들어감
+        Building C object CMakeFiles/cmTC_5e2cb.dir/test_mpi.c.o
+        /usr/bin/cc  -isystem /usr/lib/aarch64-linux-gnu/openmpi/include -isystem /usr/lib/aarch64-linux-gnu/openmpi/include/openmpi  -o CMakeFiles/cmTC_5e2cb.dir/test_mpi.c.o -c /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt/test_mpi.c
+        Linking C executable cmTC_5e2cb
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5e2cb.dir/link.txt --verbose=1
+        /usr/bin/cc -L/usr/lib/aarch64-linux-gnu/openmpi/lib CMakeFiles/cmTC_5e2cb.dir/test_mpi.c.o -o cmTC_5e2cb  /usr/lib/aarch64-linux-gnu/libmpi.so 
+        gmake[2]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt' 나감
+        gmake[1]: 디렉터리 '/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/CMakeScratch/TryCompile-jPp7Mt' 나감
+        
+      exitCode: 0
+...
