@@ -1,0 +1,8 @@
+parent_frame: "map"
+child_frame: "base_link"
+publish_rate: 20.0
+stabilization_time: 1.0
+invert_roll: false
+invert_pitch: false
+invert_yaw: false
+maintain_orientation: false
