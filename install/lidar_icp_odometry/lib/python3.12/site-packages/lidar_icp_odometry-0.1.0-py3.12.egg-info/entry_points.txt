@@ -1,5 +1,0 @@
-[console_scripts]
-icp_odom_node = lidar_icp_odometry.icp_odom_node:main
-
-[launch_frontend.launch_extension]
-pylaunch = launch

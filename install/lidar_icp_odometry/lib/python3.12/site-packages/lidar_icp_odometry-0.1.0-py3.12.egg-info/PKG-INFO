@@ -1,7 +1,0 @@
-Metadata-Version: 2.1
-Name: lidar-icp-odometry
-Version: 0.1.0
-Summary: ICP based odometry estimation
-Maintainer: Your Name
-Maintainer-email: your_email@example.com
-License: Apache-2.0
