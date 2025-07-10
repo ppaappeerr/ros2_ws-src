@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "cpp_package/msg/detail/obstacle_feedback__type_support.h"
-#include "rosidl_typesupport_interface/macros.h"
-#include "cpp_package/msg/detail/obstacle_feedback__functions.h"
 #include "cpp_package/msg/detail/obstacle_feedback__struct.h"
+#include "cpp_package/msg/detail/obstacle_feedback__functions.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "cpp_package/msg/detail/obstacle_feedback__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

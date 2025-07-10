@@ -1,0 +1,13 @@
+[console_scripts]
+accumulator_node = sweep_builder.accumulator_node:main
+dynamic_obstacle_processor = sweep_builder.dynamic_obstacle_processor:main
+ground_aligned_scan_node = sweep_builder.ground_aligned_scan_node:main
+leveled_scan_node = sweep_builder.leveled_scan_node:main
+lidar_imu_filtered_to_pointcloud = sweep_builder.lidar_imu_filtered_to_pointcloud:main
+lidar_imu_to_pointcloud = sweep_builder.lidar_imu_to_pointcloud:main
+lidar_imu_to_pointcloud_front = sweep_builder.lidar_imu_filtered_to_pointcloud_front:main
+point_preprocessor_node = sweep_builder.point_preprocessor_node:main
+preproc_front_filter_node = sweep_builder.preproc_front_filter_node:main
+sweep_accmulator_node = sweep_builder.sweep_accumulator_node:main
+sweep_node = sweep_builder.sweep_node:main
+sweep_xy_filter_node = sweep_builder.sweep_xy_filter_node:main

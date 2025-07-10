@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "cartographer_ros_msgs/msg/detail/submap_entry__functions.h"
-#include "cartographer_ros_msgs/msg/detail/submap_entry__type_support.h"
 #include "cartographer_ros_msgs/msg/detail/submap_entry__struct.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "cartographer_ros_msgs/msg/detail/submap_entry__type_support.h"
+#include "cartographer_ros_msgs/msg/detail/submap_entry__functions.h"
 
 #ifdef __cplusplus
 extern "C"

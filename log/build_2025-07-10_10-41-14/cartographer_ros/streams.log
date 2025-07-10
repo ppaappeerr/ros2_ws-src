@@ -1,0 +1,203 @@
+[0.039s] Invoking command in '/home/p/ros2_ws/src/build/cartographer_ros': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/cartographer_ros/cartographer_ros -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cartographer_ros
+[0.177s] -- The C compiler identification is GNU 13.3.0
+[0.318s] -- The CXX compiler identification is GNU 13.3.0
+[0.352s] -- Detecting C compiler ABI info
+[0.948s] -- Detecting C compiler ABI info - done
+[0.966s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.966s] -- Detecting C compile features
+[0.967s] -- Detecting C compile features - done
+[0.986s] -- Detecting CXX compiler ABI info
+[1.247s] -- Detecting CXX compiler ABI info - done
+[1.263s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[1.263s] -- Detecting CXX compile features
+[1.264s] -- Detecting CXX compile features - done
+[1.336s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[1.656s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[2.045s] -- Found builtin_interfaces: 2.0.2 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+[2.170s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[2.216s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.281s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.340s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[2.604s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[2.819s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[2.821s] -- Found Threads: TRUE  
+[3.923s] -- Found AMD headers in: /usr/include/suitesparse
+[3.931s] -- Found AMD library: /usr/lib/aarch64-linux-gnu/libamd.so
+[3.937s] -- Found CAMD headers in: /usr/include/suitesparse
+[3.938s] -- Found CAMD library: /usr/lib/aarch64-linux-gnu/libcamd.so
+[3.941s] -- Found CCOLAMD headers in: /usr/include/suitesparse
+[3.945s] -- Found CCOLAMD library: /usr/lib/aarch64-linux-gnu/libccolamd.so
+[3.947s] -- Found CHOLMOD headers in: /usr/include/suitesparse
+[3.950s] -- Found CHOLMOD library: /usr/lib/aarch64-linux-gnu/libcholmod.so
+[3.952s] -- Found COLAMD headers in: /usr/include/suitesparse
+[3.955s] -- Found COLAMD library: /usr/lib/aarch64-linux-gnu/libcolamd.so
+[3.957s] -- Found SPQR headers in: /usr/include/suitesparse
+[3.960s] -- Found SPQR library: /usr/lib/aarch64-linux-gnu/libspqr.so
+[3.963s] -- Found Config headers in: /usr/include/suitesparse
+[3.967s] -- Found Config library: /usr/lib/aarch64-linux-gnu/libsuitesparseconfig.so
+[3.980s] -- Found Intel Thread Building Blocks (TBB) library (2021.11 / ) include location: . Assuming SuiteSparseQR was compiled with TBB.
+[3.980s] -- Looking for shm_open in rt
+[4.189s] -- Looking for shm_open in rt - found
+[4.189s] -- Adding librt to SuiteSparse_config libraries (required on Linux & Unix [not OSX] if SuiteSparse is compiled with timing).
+[4.208s] -- Could NOT find METIS (missing: METIS_INCLUDE_DIR METIS_LIBRARY) 
+[4.210s] -- Found SuiteSparse: /usr/include/suitesparse (found suitable version "7.6.1", minimum required is "7.6.1") found components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config 
+[4.228s] -- Found required Ceres dependency: Eigen version 3.4.0 in /usr/share/eigen3/cmake
+[4.253s] -- Found required Ceres dependency: glog
+[4.254s] -- Found required Ceres dependency: gflags
+[4.256s] -- Found Ceres version: 2.2.0 installed in: /usr with components: [EigenSparse, SparseLinearAlgebraLibrary, LAPACK, SuiteSparse, SchurSpecializations]
+[4.279s] -- Found cartographer_ros_msgs: 2.0.9003 (/home/p/ros2_ws/src/install/cartographer_ros_msgs/share/cartographer_ros_msgs/cmake)
+[4.565s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.83.0/BoostConfig.cmake (found suitable version "1.83.0", minimum required is "1.65.0") found components: system filesystem iostreams serialization 
+[4.566s] -- looking for PCL_COMMON
+[4.568s] -- Found PCL_COMMON: /usr/lib/aarch64-linux-gnu/libpcl_common.so  
+[4.569s] -- Found PCL: pcl_common;Boost::system;Boost::filesystem;Boost::iostreams;Boost::serialization  
+[4.579s] -- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+[4.635s] -- Found pcl_conversions: 2.6.2 (/opt/ros/jazzy/share/pcl_conversions/cmake)
+[4.807s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[4.819s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[5.039s] -- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[5.125s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[5.191s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[5.503s] -- Found rosbag2_cpp: 0.26.7 (/opt/ros/jazzy/share/rosbag2_cpp/cmake)
+[5.610s] -- Setting yaml-cpp_DIR to: '/opt/ros/jazzy/share/yaml_cpp_vendor/cmake/../../../opt/yaml_cpp_vendor/share/cmake/yaml-cpp'
+[5.629s] -- Found tf2: 0.36.12 (/opt/ros/jazzy/share/tf2/cmake)
+[5.645s] -- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)
+[5.907s] -- Found urdf: 2.10.0 (/opt/ros/jazzy/share/urdf/cmake)
+[5.957s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[6.463s] -- Configuring done (6.4s)
+[6.920s] -- Generating done (0.4s)
+[6.975s] -- Build files have been written to: /home/p/ros2_ws/src/build/cartographer_ros
+[7.012s] Invoked command in '/home/p/ros2_ws/src/build/cartographer_ros' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/p/ros2_ws/src/cartographer_ros/cartographer_ros -DCMAKE_INSTALL_PREFIX=/home/p/ros2_ws/src/install/cartographer_ros
+[7.014s] Invoking command in '/home/p/ros2_ws/src/build/cartographer_ros': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/src/build/cartographer_ros -- -j4 -l4
+[7.180s] [  2%] Building CXX object CMakeFiles/cartographer_ros.dir/src/msg_conversion.cpp.o
+[7.180s] [  5%] Building CXX object CMakeFiles/cartographer_ros.dir/src/assets_writer.cpp.o
+[7.185s] [  8%] Building CXX object CMakeFiles/cartographer_ros.dir/src/map_builder_bridge.cpp.o
+[7.210s] [ 11%] Building CXX object CMakeFiles/cartographer_ros.dir/src/node_constants.cpp.o
+[8.561s] [ 14%] Building CXX object CMakeFiles/cartographer_ros.dir/src/node.cpp.o
+[34.914s] In file included from /home/p/ros2_ws/src/install/cartographer/include/cartographer/transform/transform.h:26,
+[34.914s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/sensor/rangefinder_point.h:24,
+[34.914s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/sensor/point_cloud.h:24,
+[34.914s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/sensor/compressed_point_cloud.h:25,
+[34.915s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/sensor/range_data.h:21,
+[34.915s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/mapping/trajectory_node.h:27,
+[34.915s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/mapping/submaps.h:30,
+[34.915s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/mapping/pose_graph_interface.h:25,
+[34.915s]                  from /home/p/ros2_ws/src/install/cartographer/include/cartographer/mapping/map_builder_interface.h:29,
+[34.915s]                  from /home/p/ros2_ws/src/cartographer_ros/cartographer_ros/include/cartographer_ros/node.h:29,
+[34.915s]                  from /home/p/ros2_ws/src/cartographer_ros/cartographer_ros/src/node.cpp:17:
+[34.916s] /home/p/ros2_ws/src/install/cartographer/include/cartographer/transform/rigid_transform.h: In instantiation of ‘cartographer::transform::Rigid2<FloatType>::Rotation2D cartographer::transform::Rigid2<FloatType>::rotation() const [with FloatType = double; Rotation2D = Eigen::Rotation2D<double>]’:
+[34.922s] /home/p/ros2_ws/src/install/cartographer/include/cartographer/transform/transform.h:113:45:   required from ‘cartographer::transform::Rigid3<FloatType> cartographer::transform::Embed3D(const Rigid2<FloatType>&) [with T = double]’
+[34.922s] /home/p/ros2_ws/src/cartographer_ros/cartographer_ros/src/node.cpp:306:41:   required from here
+[34.923s] /home/p/ros2_ws/src/install/cartographer/include/cartographer/transform/rigid_transform.h:68:14: note: parameter passing for argument of type ‘Eigen::Rotation2D<double>’ when C++17 is enabled changed to match C++14 in GCC 10.1
+[34.923s]    68 |   Rotation2D rotation() const { return rotation_; }
+[34.923s]       |              ^~~~~~~~
+[46.236s] [ 17%] Building CXX object CMakeFiles/cartographer_ros.dir/src/playable_bag.cpp.o
+[47.274s] [ 20%] Building CXX object CMakeFiles/cartographer_ros.dir/src/offline_node.cpp.o
+[48.329s] [ 22%] Building CXX object CMakeFiles/cartographer_ros.dir/src/node_options.cpp.o
+[70.850s] [ 25%] Building CXX object CMakeFiles/cartographer_ros.dir/src/ros_map.cpp.o
+[72.904s] [ 28%] Building CXX object CMakeFiles/cartographer_ros.dir/src/ros_log_sink.cpp.o
+[90.962s] [ 31%] Building CXX object CMakeFiles/cartographer_ros.dir/src/submap.cpp.o
+[91.990s] [ 34%] Building CXX object CMakeFiles/cartographer_ros.dir/src/sensor_bridge.cpp.o
+[93.054s] [ 37%] Building CXX object CMakeFiles/cartographer_ros.dir/src/ros_map_writing_points_processor.cpp.o
+[111.701s] [ 40%] Building CXX object CMakeFiles/cartographer_ros.dir/src/trajectory_options.cpp.o
+[115.737s] [ 42%] Building CXX object CMakeFiles/cartographer_ros.dir/src/urdf_reader.cpp.o
+[117.769s] [ 45%] Building CXX object CMakeFiles/cartographer_ros.dir/src/time_conversion.cpp.o
+[119.802s] [ 48%] Building CXX object CMakeFiles/cartographer_ros.dir/src/tf_bridge.cpp.o
+[135.171s] [ 51%] Building CXX object CMakeFiles/cartographer_ros.dir/src/metrics/internal/histogram.cpp.o
+[136.942s] [ 57%] Building CXX object CMakeFiles/cartographer_ros.dir/src/metrics/family_factory.cpp.o
+[136.942s] [ 57%] Building CXX object CMakeFiles/cartographer_ros.dir/src/metrics/internal/family.cpp.o
+[139.408s] [ 60%] Linking CXX static library libcartographer_ros.a
+[143.772s] [ 60%] Built target cartographer_ros
+[143.824s] [ 65%] Building CXX object CMakeFiles/cartographer_node.dir/src/node_main.cpp.o
+[143.824s] [ 65%] Building CXX object CMakeFiles/cartographer_occupancy_grid_node.dir/src/occupancy_grid_node_main.cpp.o
+[144.878s] [ 68%] Building CXX object CMakeFiles/cartographer_assets_writer.dir/src/assets_writer_main.cpp.o
+[145.974s] [ 71%] Building CXX object CMakeFiles/cartographer_offline_node.dir/src/offline_node_main.cpp.o
+[165.119s] [ 74%] Linking CXX executable cartographer_offline_node
+[167.029s] [ 77%] Linking CXX executable cartographer_assets_writer
+[173.284s] [ 77%] Built target cartographer_assets_writer
+[174.566s] [ 80%] Linking CXX executable cartographer_node
+[187.092s] [ 80%] Built target cartographer_offline_node
+[191.189s] [ 80%] Built target cartographer_node
+[193.040s] [ 82%] Linking CXX executable cartographer_occupancy_grid_node
+[196.608s] [ 82%] Built target cartographer_occupancy_grid_node
+[196.659s] [ 85%] Building CXX object CMakeFiles/cartographer_rosbag_validate.dir/src/rosbag_validate_main.cpp.o
+[214.695s] [ 88%] Linking CXX executable cartographer_rosbag_validate
+[216.158s] [ 88%] Built target cartographer_rosbag_validate
+[216.222s] [ 94%] Building CXX object CMakeFiles/cartographer_pbstream_map_publisher.dir/src/pbstream_map_publisher_main.cpp.o
+[216.222s] [ 94%] Building CXX object CMakeFiles/cartographer_pbstream_to_ros_map.dir/src/pbstream_to_ros_map_main.cpp.o
+[229.902s] [ 97%] Linking CXX executable cartographer_pbstream_to_ros_map
+[230.929s] [ 97%] Built target cartographer_pbstream_to_ros_map
+[233.928s] [100%] Linking CXX executable cartographer_pbstream_map_publisher
+[235.682s] [100%] Built target cartographer_pbstream_map_publisher
+[235.706s] Invoked command in '/home/p/ros2_ws/src/build/cartographer_ros' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/p/ros2_ws/src/build/cartographer_ros -- -j4 -l4
+[235.710s] Invoking command in '/home/p/ros2_ws/src/build/cartographer_ros': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/src/build/cartographer_ros
+[235.729s] -- Install configuration: ""
+[235.729s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/libcartographer_ros.a
+[235.874s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_node
+[235.946s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_node" to ""
+[235.947s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_occupancy_grid_node
+[235.964s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_occupancy_grid_node" to ""
+[235.964s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_offline_node
+[236.036s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_offline_node" to ""
+[236.036s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_assets_writer
+[236.050s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_assets_writer" to ""
+[236.050s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_map_publisher
+[236.057s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_map_publisher" to ""
+[236.057s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_to_ros_map
+[236.062s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_pbstream_to_ros_map" to ""
+[236.062s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_rosbag_validate
+[236.067s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cartographer_ros/lib/cartographer_ros/cartographer_rosbag_validate" to ""
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include/
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/map_builder_bridge.h
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/offline_node.h
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/node_constants.h
+[236.068s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/ros_map_writing_points_processor.h
+[236.069s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/node.h
+[236.069s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics
+[236.069s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/internal
+[236.069s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/internal/counter.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/internal/family.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/internal/gauge.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/internal/histogram.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/metrics/family_factory.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/ros_log_sink.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/assets_writer.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/trajectory_options.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/time_conversion.h
+[236.070s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/submap.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/playable_bag.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/ros_map.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/msg_conversion.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/tf_bridge.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/node_options.h
+[236.071s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/urdf_reader.h
+[236.072s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/include//cartographer_ros/sensor_bridge.h
+[236.072s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//configuration_files
+[236.072s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//configuration_files/my_2d_slam.lua
+[236.072s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//urdf
+[236.072s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//urdf/mir-100.urdf
+[236.073s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//urdf/backpack_3d.urdf
+[236.073s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//urdf/backpack_2d.urdf
+[236.074s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//launch
+[236.074s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros//launch/my_cartographer_launch.py
+[236.074s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/library_path.sh
+[236.074s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/library_path.dsv
+[236.075s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/ament_index/resource_index/package_run_dependencies/cartographer_ros
+[236.075s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/ament_index/resource_index/parent_prefix_path/cartographer_ros
+[236.075s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/ament_prefix_path.sh
+[236.075s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/ament_prefix_path.dsv
+[236.076s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/path.sh
+[236.076s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/environment/path.dsv
+[236.076s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/local_setup.bash
+[236.076s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/local_setup.sh
+[236.076s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/local_setup.zsh
+[236.077s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/local_setup.dsv
+[236.077s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/package.dsv
+[236.077s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/ament_index/resource_index/packages/cartographer_ros
+[236.077s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_include_directories-extras.cmake
+[236.077s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_libraries-extras.cmake
+[236.078s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/cmake/ament_cmake_export_dependencies-extras.cmake
+[236.078s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig.cmake
+[236.078s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/cmake/cartographer_rosConfig-version.cmake
+[236.078s] -- Installing: /home/p/ros2_ws/src/install/cartographer_ros/share/cartographer_ros/package.xml
+[236.082s] Invoked command in '/home/p/ros2_ws/src/build/cartographer_ros' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs:/home/p/ros2_ws/src/install/cartographer:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib:${LD_LIBRARY_PATH} PATH=/home/p/ros2_ws/src/install/cartographer/bin:${PATH} PKG_CONFIG_PATH=/home/p/ros2_ws/src/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/src/install/cartographer/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/p/ros2_ws/src/install/cartographer_ros_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/p/ros2_ws/src/build/cartographer_ros

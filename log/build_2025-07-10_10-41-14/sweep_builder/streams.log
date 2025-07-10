@@ -1,0 +1,89 @@
+[3.470s] Invoking command in '/home/p/ros2_ws/src/sweep_builder': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/sweep_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/sweep_builder build --build-base /home/p/ros2_ws/src/build/sweep_builder/build install --record /home/p/ros2_ws/src/build/sweep_builder/install.log --single-version-externally-managed install_data
+[4.392s] running egg_info
+[4.393s] creating ../build/sweep_builder/sweep_builder.egg-info
+[4.461s] writing ../build/sweep_builder/sweep_builder.egg-info/PKG-INFO
+[4.465s] writing dependency_links to ../build/sweep_builder/sweep_builder.egg-info/dependency_links.txt
+[4.465s] writing entry points to ../build/sweep_builder/sweep_builder.egg-info/entry_points.txt
+[4.465s] writing requirements to ../build/sweep_builder/sweep_builder.egg-info/requires.txt
+[4.465s] writing top-level names to ../build/sweep_builder/sweep_builder.egg-info/top_level.txt
+[4.465s] writing manifest file '../build/sweep_builder/sweep_builder.egg-info/SOURCES.txt'
+[4.594s] reading manifest file '../build/sweep_builder/sweep_builder.egg-info/SOURCES.txt'
+[4.598s] writing manifest file '../build/sweep_builder/sweep_builder.egg-info/SOURCES.txt'
+[4.598s] running build
+[4.600s] running build_py
+[4.600s] creating /home/p/ros2_ws/src/build/sweep_builder/build
+[4.600s] creating /home/p/ros2_ws/src/build/sweep_builder/build/lib
+[4.600s] creating /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.601s] copying sweep_builder/point_preprocessor_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.601s] copying sweep_builder/dynamic_obstacle_processor.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.603s] copying sweep_builder/leveled_scan_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.603s] copying sweep_builder/sweep_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.603s] copying sweep_builder/ground_aligned_scan_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.603s] copying sweep_builder/__init__.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.603s] copying sweep_builder/lidar_imu_filtered_to_pointcloud.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/sweep_accumulator_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/lidar_imu_to_pointcloud.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/lidar_imu_filtered_to_pointcloud_front.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/preproc_front_filter_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/sweep_xy_filter_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] copying sweep_builder/accumulator_node.py -> /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder
+[4.604s] running install
+[4.618s] running install_lib
+[4.673s] creating /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.674s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/point_preprocessor_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.675s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/dynamic_obstacle_processor.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/leveled_scan_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/sweep_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/ground_aligned_scan_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/__init__.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/lidar_imu_filtered_to_pointcloud.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.678s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/sweep_accumulator_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.679s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/lidar_imu_to_pointcloud.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.679s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/lidar_imu_filtered_to_pointcloud_front.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.679s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/preproc_front_filter_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.679s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/sweep_xy_filter_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.679s] copying /home/p/ros2_ws/src/build/sweep_builder/build/lib/sweep_builder/accumulator_node.py -> /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder
+[4.680s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/point_preprocessor_node.py to point_preprocessor_node.cpython-312.pyc
+[4.682s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/dynamic_obstacle_processor.py to dynamic_obstacle_processor.cpython-312.pyc
+[4.686s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/leveled_scan_node.py to leveled_scan_node.cpython-312.pyc
+[4.691s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/sweep_node.py to sweep_node.cpython-312.pyc
+[4.691s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/ground_aligned_scan_node.py to ground_aligned_scan_node.cpython-312.pyc
+[4.695s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/__init__.py to __init__.cpython-312.pyc
+[4.695s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/lidar_imu_filtered_to_pointcloud.py to lidar_imu_filtered_to_pointcloud.cpython-312.pyc
+[4.695s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/sweep_accumulator_node.py to sweep_accumulator_node.cpython-312.pyc
+[4.697s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/lidar_imu_to_pointcloud.py to lidar_imu_to_pointcloud.cpython-312.pyc
+[4.701s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/lidar_imu_filtered_to_pointcloud_front.py to lidar_imu_filtered_to_pointcloud_front.cpython-312.pyc
+[4.702s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/preproc_front_filter_node.py to preproc_front_filter_node.cpython-312.pyc
+[4.702s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/sweep_xy_filter_node.py to sweep_xy_filter_node.cpython-312.pyc
+[4.706s] byte-compiling /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder/accumulator_node.py to accumulator_node.cpython-312.pyc
+[4.706s] running install_data
+[4.706s] creating /home/p/ros2_ws/src/install/sweep_builder/share/ament_index
+[4.706s] creating /home/p/ros2_ws/src/install/sweep_builder/share/ament_index/resource_index
+[4.707s] creating /home/p/ros2_ws/src/install/sweep_builder/share/ament_index/resource_index/packages
+[4.707s] copying resource/sweep_builder -> /home/p/ros2_ws/src/install/sweep_builder/share/ament_index/resource_index/packages
+[4.707s] copying package.xml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder
+[4.707s] creating /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.707s] copying config/my_wearable_lio.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.707s] copying config/ekf_params.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.707s] copying config/obstacle_costmap_params.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.708s] copying config/imu_odom.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.708s] copying config/ekf.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.708s] copying config/slam_online.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.708s] copying config/ekf_local.yaml -> /home/p/ros2_ws/src/install/sweep_builder/share/sweep_builder/config
+[4.708s] running install_egg_info
+[4.773s] Copying ../build/sweep_builder/sweep_builder.egg-info to /home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages/sweep_builder-0.0.1-py3.12.egg-info
+[4.773s] running install_scripts
+[5.163s] Installing accumulator_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.163s] Installing dynamic_obstacle_processor script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.164s] Installing ground_aligned_scan_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.164s] Installing leveled_scan_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.164s] Installing lidar_imu_filtered_to_pointcloud script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.165s] Installing lidar_imu_to_pointcloud script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.165s] Installing lidar_imu_to_pointcloud_front script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.165s] Installing point_preprocessor_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.166s] Installing preproc_front_filter_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.166s] Installing sweep_accmulator_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.167s] Installing sweep_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.167s] Installing sweep_xy_filter_node script to /home/p/ros2_ws/src/install/sweep_builder/lib/sweep_builder
+[5.171s] writing list of installed files to '/home/p/ros2_ws/src/build/sweep_builder/install.log'
+[5.291s] Invoked command in '/home/p/ros2_ws/src/sweep_builder' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/sweep_builder/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/sweep_builder/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/sweep_builder build --build-base /home/p/ros2_ws/src/build/sweep_builder/build install --record /home/p/ros2_ws/src/build/sweep_builder/install.log --single-version-externally-managed install_data

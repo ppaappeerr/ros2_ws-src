@@ -1,0 +1,7 @@
+Metadata-Version: 2.1
+Name: sweep-builder
+Version: 0.0.1
+Summary: 2D LiDAR + IMU 누적 3D 포인트클라우드 발행 노드
+Maintainer: jaden
+Maintainer-email: you@example.com
+License: MIT

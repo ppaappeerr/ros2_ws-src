@@ -4,10 +4,10 @@
 
 #include <string.h>
 
-#include "cartographer_ros_msgs/msg/detail/metric_family__type_support.h"
 #include "cartographer_ros_msgs/msg/detail/metric_family__struct.h"
 #include "cartographer_ros_msgs/msg/detail/metric_family__functions.h"
 #include "rosidl_typesupport_interface/macros.h"
+#include "cartographer_ros_msgs/msg/detail/metric_family__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

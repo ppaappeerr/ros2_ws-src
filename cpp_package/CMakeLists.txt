@@ -16,6 +16,7 @@ find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
+find_package(pcl_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(tf2_eigen REQUIRED)
@@ -173,6 +174,39 @@ ament_target_dependencies(stable_ground_fitter_node rclcpp sensor_msgs pcl_conve
 target_link_libraries(stable_ground_fitter_node ${PCL_LIBRARIES})
 target_link_libraries(stable_ground_fitter_node "${cpp_typesupport_target}")
 
+# # Hazard Detector Node (deactivated)
+# add_executable(hazard_detector_node src/hazard_detector_node.cpp)
+# ament_target_dependencies(hazard_detector_node
+#   rclcpp
+#   sensor_msgs
+#   pcl_conversions
+#   pcl_msgs
+#   std_msgs
+# )
+# target_link_libraries(hazard_detector_node ${PCL_LIBRARIES})
+
+# # ROI Hazard Detector Node (deactivated)
+# add_executable(roi_hazard_detector_node src/roi_hazard_detector_node.cpp)
+# ament_target_dependencies(roi_hazard_detector_node
+#   rclcpp
+#   sensor_msgs
+#   pcl_conversions
+#   pcl_msgs
+#   std_msgs
+# )
+# target_link_libraries(roi_hazard_detector_node ${PCL_LIBRARIES})
+
+# User-Centric ROI Detector Node
+add_executable(user_centric_roi_detector src/user_centric_roi_detector.cpp)
+ament_target_dependencies(user_centric_roi_detector
+  rclcpp
+  sensor_msgs
+  pcl_conversions
+  pcl_msgs
+  std_msgs
+)
+target_link_libraries(user_centric_roi_detector ${PCL_LIBRARIES})
+
 # Projected Ground Detector Node
 add_executable(projected_ground_detector_node src/projected_ground_detector_node.cpp)
 ament_target_dependencies(projected_ground_detector_node rclcpp sensor_msgs pcl_conversions)
@@ -190,6 +224,8 @@ target_link_libraries(imu_odometry_node ${PCL_LIBRARIES})
 
 # 실행 파일 설치
 install(TARGETS
+  # roi_hazard_detector_node (deactivated)
+  user_centric_roi_detector
   icp_3d_odom_node
   pointcloud_formatter_node
   front_cloud_filter_node
@@ -211,7 +247,6 @@ install(TARGETS
   ground_plane_fitter_lock_plane_node
   stable_ground_fitter_node
   projected_ground_detector_node
-  height_ground_detector_node
   imu_odometry_node
   DESTINATION lib/${PROJECT_NAME}
 )

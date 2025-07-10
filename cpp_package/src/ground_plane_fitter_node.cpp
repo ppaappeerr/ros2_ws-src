@@ -10,13 +10,14 @@
 #include <pcl/sample_consensus/model_types.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/filters/extract_indices.h>
+#include <pcl/common/distances.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
 
-class GroundPlaneFitterNode : public rclcpp::Node
+class StableGroundFitterNode : public rclcpp::Node
 {
 public:
-    GroundPlaneFitterNode() : Node("ground_plane_fitter_node"), first_plane_(true)
+    StableGroundFitterNode() : Node("ground_plane_fitter_node"), plane_locked_(false), ransac_count_(0)
     {
         // Parameters
         this->declare_parameter<std::string>("input_topic", "/sweep_cloud_cpp");
@@ -27,7 +28,18 @@ public:
         this->declare_parameter<double>("ground_height_threshold_max", -1.0);
         this->declare_parameter<double>("voxel_leaf_size", 0.05);
         this->declare_parameter<double>("ransac_distance_threshold", 0.05);
-        this->declare_parameter<double>("smoothing_alpha", 0.1); // Smoothing factor
+        this->declare_parameter<int>("ransac_lock_count", 100);
+        this->declare_parameter<bool>("reset_plane_detection", false);
+        this->declare_parameter<double>("marker_scale_x", 10.0);
+        this->declare_parameter<double>("marker_scale_y", 10.0);
+        this->declare_parameter<double>("marker_scale_z", 0.01);
+        this->declare_parameter<double>("marker_alpha", 0.5);
+        this->declare_parameter<double>("marker_locked_r", 1.0);
+        this->declare_parameter<double>("marker_locked_g", 0.0);
+        this->declare_parameter<double>("marker_locked_b", 0.0);
+        this->declare_parameter<double>("marker_learning_r", 0.0);
+        this->declare_parameter<double>("marker_learning_g", 1.0);
+        this->declare_parameter<double>("marker_learning_b", 0.0);
 
         this->get_parameter("input_topic", input_topic_);
         this->get_parameter("refined_ground_topic", refined_ground_topic_);
@@ -37,13 +49,18 @@ public:
         this->get_parameter("ground_height_threshold_max", ground_height_threshold_max_);
         this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
         this->get_parameter("ransac_distance_threshold", ransac_distance_threshold_);
-        this->get_parameter("smoothing_alpha", smoothing_alpha_);
+        this->get_parameter("ransac_lock_count", ransac_lock_count_);
 
-        RCLCPP_INFO(this->get_logger(), "Ground Plane Fitter Node started.");
+        // 파라미터 콜백 등록
+        param_callback_handle_ = this->add_on_set_parameters_callback(
+            std::bind(&StableGroundFitterNode::parameters_callback, this, std::placeholders::_1));
+
+        RCLCPP_INFO(this->get_logger(), "Stable Ground Fitter Node started.");
+        RCLCPP_INFO(this->get_logger(), "RANSAC lock count: %d", ransac_lock_count_);
 
         // Subscriber
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            input_topic_, 10, std::bind(&GroundPlaneFitterNode::cloud_callback, this, std::placeholders::_1));
+            input_topic_, 10, std::bind(&StableGroundFitterNode::cloud_callback, this, std::placeholders::_1));
 
         // Publishers
         ground_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(refined_ground_topic_, 10);
@@ -51,10 +68,101 @@ public:
         marker_publisher_ = this->create_publisher<visualization_msgs::msg::Marker>(marker_topic_, 10);
 
         accumulated_candidates_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
-        previous_coefficients_ = pcl::make_shared<pcl::ModelCoefficients>();
+        final_ground_cloud_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
+        locked_plane_coefficients_ = pcl::make_shared<pcl::ModelCoefficients>();
+        
+        // 상태 표시 타이머 (1초마다 현재 RANSAC 카운트 출력)
+        status_timer_ = this->create_wall_timer(
+            std::chrono::seconds(1),
+            std::bind(&StableGroundFitterNode::status_callback, this));
     }
 
 private:
+    // 파라미터 변경 콜백 함수
+    rcl_interfaces::msg::SetParametersResult parameters_callback(
+        const std::vector<rclcpp::Parameter> &parameters)
+    {
+        rcl_interfaces::msg::SetParametersResult result;
+        result.successful = true;
+        result.reason = "success";
+
+        for (const auto &param : parameters)
+        {
+            if (param.get_name() == "ransac_lock_count")
+            {
+                int new_count = param.as_int();
+                if (new_count < 1)
+                {
+                    result.successful = false;
+                    result.reason = "ransac_lock_count must be >= 1";
+                    return result;
+                }
+                
+                ransac_lock_count_ = new_count;
+                RCLCPP_INFO(this->get_logger(), "Updated RANSAC lock count to %d", ransac_lock_count_);
+                
+                // 이미 잠긴 상태라면 새 카운트가 현재 카운트보다 크면 잠금 해제
+                if (plane_locked_ && ransac_count_ <= ransac_lock_count_)
+                {
+                    plane_locked_ = false;
+                    RCLCPP_INFO(this->get_logger(), 
+                        "Unlocked plane detection: current count %d < new threshold %d", 
+                        ransac_count_, ransac_lock_count_);
+                    
+                    // 다시 누적 클라우드 초기화
+                    accumulated_candidates_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
+                }
+            }
+            else if (param.get_name() == "reset_plane_detection" && param.as_bool())
+            {
+                // 평면 감지 리셋 기능
+                plane_locked_ = false;
+                ransac_count_ = 0;
+                accumulated_candidates_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
+                final_ground_cloud_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
+                locked_plane_coefficients_ = pcl::make_shared<pcl::ModelCoefficients>();
+                
+                RCLCPP_INFO(this->get_logger(), "Reset plane detection state!");
+                
+                // reset_plane_detection 파라미터를 다시 false로 설정
+                this->set_parameter(rclcpp::Parameter("reset_plane_detection", false));
+            }
+            else if (param.get_name() == "ransac_distance_threshold")
+            {
+                ransac_distance_threshold_ = param.as_double();
+                RCLCPP_INFO(this->get_logger(), "Updated RANSAC distance threshold to %.3f", ransac_distance_threshold_);
+            }
+            else if (param.get_name() == "ground_height_threshold_min")
+            {
+                ground_height_threshold_min_ = param.as_double();
+                RCLCPP_INFO(this->get_logger(), "Updated ground height min to %.3f", ground_height_threshold_min_);
+            }
+            else if (param.get_name() == "ground_height_threshold_max")
+            {
+                ground_height_threshold_max_ = param.as_double();
+                RCLCPP_INFO(this->get_logger(), "Updated ground height max to %.3f", ground_height_threshold_max_);
+            }
+            else if (param.get_name() == "voxel_leaf_size")
+            {
+                voxel_leaf_size_ = param.as_double();
+                RCLCPP_INFO(this->get_logger(), "Updated voxel leaf size to %.3f", voxel_leaf_size_);
+            }
+        }
+
+        return result;
+    }
+    
+    // 상태 표시 콜백 함수
+    void status_callback()
+    {
+        if (!plane_locked_)
+        {
+            RCLCPP_DEBUG(this->get_logger(), 
+                "Plane detection progress: %d/%d iterations", 
+                ransac_count_, ransac_lock_count_);
+        }
+    }
+
     void cloud_callback(const sensor_msgs::msg::PointCloud2::SharedPtr msg)
     {
         pcl::PointCloud<pcl::PointXYZ>::Ptr input_cloud(new pcl::PointCloud<pcl::PointXYZ>);
@@ -88,63 +196,82 @@ private:
 
         if (ground_candidates->empty()) return;
 
-        // --- Accumulate & Downsample Ground Candidates ---
-        *accumulated_candidates_ += *ground_candidates;
-        pcl::VoxelGrid<pcl::PointXYZ> voxel_grid;
-        voxel_grid.setInputCloud(accumulated_candidates_);
-        voxel_grid.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
-        voxel_grid.filter(*accumulated_candidates_);
-
-        if (accumulated_candidates_->points.size() < 10) return; // Need enough points for RANSAC
-
-        // --- RANSAC Plane Fitting ---
-        pcl::ModelCoefficients::Ptr current_coefficients(new pcl::ModelCoefficients);
-        pcl::PointIndices::Ptr inliers(new pcl::PointIndices);
-        pcl::SACSegmentation<pcl::PointXYZ> seg;
-        seg.setOptimizeCoefficients(true);
-        seg.setModelType(pcl::SACMODEL_PLANE);
-        seg.setMethodType(pcl::SAC_RANSAC);
-        seg.setDistanceThreshold(ransac_distance_threshold_);
-        seg.setInputCloud(accumulated_candidates_);
-        seg.segment(*inliers, *current_coefficients);
-
-        if (inliers->indices.size() == 0)
+        if (!plane_locked_)
         {
-            RCLCPP_WARN(this->get_logger(), "Could not estimate a planar model for the given dataset.");
-            return;
-        }
+            // --- RANSAC Phase ---
+            *accumulated_candidates_ += *ground_candidates;
+            pcl::VoxelGrid<pcl::PointXYZ> voxel_grid;
+            voxel_grid.setInputCloud(accumulated_candidates_);
+            voxel_grid.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
+            voxel_grid.filter(*accumulated_candidates_);
 
-        // --- Temporal Smoothing of Plane Coefficients ---
-        if (first_plane_)
-        {
-            *previous_coefficients_ = *current_coefficients;
-            first_plane_ = false;
+            if (accumulated_candidates_->points.size() < 10) return;
+
+            pcl::ModelCoefficients::Ptr current_coefficients(new pcl::ModelCoefficients);
+            pcl::PointIndices::Ptr inliers(new pcl::PointIndices);
+            pcl::SACSegmentation<pcl::PointXYZ> seg;
+            seg.setOptimizeCoefficients(true);
+            seg.setModelType(pcl::SACMODEL_PLANE);
+            seg.setMethodType(pcl::SAC_RANSAC);
+            seg.setDistanceThreshold(ransac_distance_threshold_);
+            seg.setInputCloud(accumulated_candidates_);
+            seg.segment(*inliers, *current_coefficients);
+
+            if (inliers->indices.size() == 0) return;
+
+            *locked_plane_coefficients_ = *current_coefficients;
+            ransac_count_++;
+
+            // Extract inliers and add to the final cloud
+            pcl::ExtractIndices<pcl::PointXYZ> extract;
+            extract.setInputCloud(accumulated_candidates_);
+            extract.setIndices(inliers);
+            extract.setNegative(false);
+            extract.filter(*final_ground_cloud_); // Start building the final cloud
+
+            if (ransac_count_ >= ransac_lock_count_)
+            {
+                plane_locked_ = true;
+                RCLCPP_INFO(this->get_logger(), "Ground plane locked with %d iterations.", ransac_count_);
+                accumulated_candidates_.reset(); // No longer needed
+            }
         }
         else
         {
-            for (size_t i = 0; i < current_coefficients->values.size(); ++i)
+            // --- Plane Locked Phase: Accumulate points ---
+            for (const auto& point : ground_candidates->points)
             {
-                previous_coefficients_->values[i] = 
-                    smoothing_alpha_ * current_coefficients->values[i] + 
-                    (1.0 - smoothing_alpha_) * previous_coefficients_->values[i];
+                double distance = std::abs(
+                    locked_plane_coefficients_->values[0] * point.x +
+                    locked_plane_coefficients_->values[1] * point.y +
+                    locked_plane_coefficients_->values[2] * point.z +
+                    locked_plane_coefficients_->values[3]
+                );
+
+                if (distance < ransac_distance_threshold_)
+                {
+                    final_ground_cloud_->points.push_back(point);
+                }
             }
         }
 
-        // --- Publish Refined Ground Points (Inliers) ---
-        pcl::PointCloud<pcl::PointXYZ>::Ptr refined_ground_cloud(new pcl::PointCloud<pcl::PointXYZ>);
-        pcl::ExtractIndices<pcl::PointXYZ> extract;
-        extract.setInputCloud(accumulated_candidates_);
-        extract.setIndices(inliers);
-        extract.setNegative(false);
-        extract.filter(*refined_ground_cloud);
+        // --- Voxelize and Publish Final Ground Cloud ---
+        if (!final_ground_cloud_->points.empty()) {
+            pcl::VoxelGrid<pcl::PointXYZ> voxel_grid_final;
+            voxel_grid_final.setInputCloud(final_ground_cloud_);
+            voxel_grid_final.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
+            voxel_grid_final.filter(*final_ground_cloud_);
 
-        sensor_msgs::msg::PointCloud2 ground_msg;
-        pcl::toROSMsg(*refined_ground_cloud, ground_msg);
-        ground_msg.header = msg->header;
-        ground_publisher_->publish(ground_msg);
+            sensor_msgs::msg::PointCloud2 ground_msg;
+            pcl::toROSMsg(*final_ground_cloud_, ground_msg);
+            ground_msg.header = msg->header;
+            ground_publisher_->publish(ground_msg);
+        }
 
-        // --- Publish Plane Marker using smoothed coefficients ---
-        publish_plane_marker(msg->header, *previous_coefficients_);
+        // --- Publish Plane Marker ---
+        if (!locked_plane_coefficients_->values.empty()) {
+            publish_plane_marker(msg->header, *locked_plane_coefficients_);
+        }
     }
 
     void publish_plane_marker(const std_msgs::msg::Header& header, const pcl::ModelCoefficients& coeffs)
@@ -156,23 +283,14 @@ private:
         marker.type = visualization_msgs::msg::Marker::CUBE;
         marker.action = visualization_msgs::msg::Marker::ADD;
 
-        // Plane equation: ax + by + cz + d = 0
-        // Normal vector is (a, b, c)
         tf2::Vector3 normal(coeffs.values[0], coeffs.values[1], coeffs.values[2]);
-        // Ensure normal is not zero
-        if (normal.length2() < 1e-6) {
-            RCLCPP_WARN(this->get_logger(), "Plane normal vector is close to zero, cannot publish marker.");
-            return;
-        }
+        if (normal.length2() < 1e-6) return;
         normal.normalize();
 
         tf2::Vector3 up(0, 0, 1);
         tf2::Quaternion q;
-        
         tf2::Vector3 axis = normal.cross(up);
-        // Check if normal is parallel to up vector
         if (axis.length2() < 1e-6) {
-            // If normal is pointing up, no rotation needed. If pointing down, 180 deg rotation.
             q.setRPY(0, (normal.z() > 0 ? 0 : M_PI), 0);
         } else {
             q.setRotation(axis.normalized(), normal.angle(up));
@@ -183,26 +301,34 @@ private:
         marker.pose.orientation.z = q.z();
         marker.pose.orientation.w = q.w();
 
-        // Position the marker at the center of the point cloud on the plane
-        // For simplicity, we place it at a certain distance along the normal
-        // A better approach would be to find the centroid of the inliers
-        marker.pose.position.x = 0; // Simplified position
+        marker.pose.position.x = 0;
         marker.pose.position.y = 0;
-        // Ensure c-coefficient is not zero before dividing
-        if (std::abs(coeffs.values[2]) < 1e-6) {
-             RCLCPP_WARN(this->get_logger(), "C coefficient is close to zero, cannot determine marker z position.");
-             return;
-        }
-        marker.pose.position.z = -coeffs.values[3] / coeffs.values[2]; // z = -d/c when x=y=0
+        if (std::abs(coeffs.values[2]) < 1e-6) return;
+        marker.pose.position.z = -coeffs.values[3] / coeffs.values[2];
 
-        marker.scale.x = 10.0;
-        marker.scale.y = 10.0;
-        marker.scale.z = 0.01;
-
-        marker.color.a = 0.5; // Don't forget to set the alpha!
-        marker.color.r = 0.0;
-        marker.color.g = 1.0;
-        marker.color.b = 0.0;
+        // 파라미터에서 마커 속성 불러오기
+        double scale_x = this->get_parameter("marker_scale_x").as_double();
+        double scale_y = this->get_parameter("marker_scale_y").as_double();
+        double scale_z = this->get_parameter("marker_scale_z").as_double();
+        double alpha = this->get_parameter("marker_alpha").as_double();
+        
+        double locked_r = this->get_parameter("marker_locked_r").as_double();
+        double locked_g = this->get_parameter("marker_locked_g").as_double();
+        double locked_b = this->get_parameter("marker_locked_b").as_double();
+        
+        double learning_r = this->get_parameter("marker_learning_r").as_double();
+        double learning_g = this->get_parameter("marker_learning_g").as_double();
+        double learning_b = this->get_parameter("marker_learning_b").as_double();
+        
+        // 마커 속성 설정
+        marker.scale.x = scale_x;
+        marker.scale.y = scale_y;
+        marker.scale.z = scale_z;
+        
+        marker.color.a = alpha;
+        marker.color.r = plane_locked_ ? locked_r : learning_r;
+        marker.color.g = plane_locked_ ? locked_g : learning_g;
+        marker.color.b = plane_locked_ ? locked_b : learning_b;
 
         marker_publisher_->publish(marker);
     }
@@ -211,20 +337,26 @@ private:
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr ground_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr obstacle_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_publisher_;
+    rclcpp::TimerBase::SharedPtr status_timer_;
     
     pcl::PointCloud<pcl::PointXYZ>::Ptr accumulated_candidates_;
-    pcl::ModelCoefficients::Ptr previous_coefficients_;
-    bool first_plane_;
-    double smoothing_alpha_;
+    pcl::PointCloud<pcl::PointXYZ>::Ptr final_ground_cloud_;
+    pcl::ModelCoefficients::Ptr locked_plane_coefficients_;
+    bool plane_locked_;
+    int ransac_count_;
+    int ransac_lock_count_;
 
     std::string input_topic_, refined_ground_topic_, obstacle_topic_, marker_topic_;
     double ground_height_threshold_min_, ground_height_threshold_max_, voxel_leaf_size_, ransac_distance_threshold_;
+    
+    // 파라미터 콜백 핸들
+    rclcpp::node_interfaces::OnSetParametersCallbackHandle::SharedPtr param_callback_handle_;
 };
 
 int main(int argc, char *argv[])
 {
     rclcpp::init(argc, argv);
-    rclcpp::spin(std::make_shared<GroundPlaneFitterNode>());
+    rclcpp::spin(std::make_shared<StableGroundFitterNode>());
     rclcpp::shutdown();
     return 0;
 }

@@ -1,7 +1,8 @@
 Metadata-Version: 2.1
 Name: optical-cane-rpi
 Version: 0.0.0
-Summary: TODO: Package description
+Summary: Optical cane for RPi with SLLIDAR and MPU9250
 Maintainer: p
 Maintainer-email: whdgnl098@gmail.com
-License: TODO: License declaration
+License: Apache-2.0
+License-File: LICENSE

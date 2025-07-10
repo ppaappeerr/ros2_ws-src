@@ -5,9 +5,9 @@
 #include <string.h>
 
 #include "cpp_package/msg/detail/nav_hint__functions.h"
-#include "cpp_package/msg/detail/nav_hint__type_support.h"
-#include "rosidl_typesupport_interface/macros.h"
 #include "cpp_package/msg/detail/nav_hint__struct.h"
+#include "rosidl_typesupport_interface/macros.h"
+#include "cpp_package/msg/detail/nav_hint__type_support.h"
 
 #ifdef __cplusplus
 extern "C"

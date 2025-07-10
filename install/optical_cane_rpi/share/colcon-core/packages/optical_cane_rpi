@@ -1,1 +1,1 @@
-numpy:pyserial:rclpy:rosidl_default_runtime:scipy:sensor_msgs:tf2_ros
+launch:launch_ros:message_filters:mpu9250:rclpy:rviz2:sensor_msgs:sllidar_ros2:std_msgs:tf2_ros:tf_transformations

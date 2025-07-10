@@ -1276,6 +1276,7 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/ground_plane_fitter_no_voxel_node.dir/DependInfo.cmake"
   "CMakeFiles/ground_plane_fitter_lock_plane_node.dir/DependInfo.cmake"
   "CMakeFiles/stable_ground_fitter_node.dir/DependInfo.cmake"
+  "CMakeFiles/user_centric_roi_detector.dir/DependInfo.cmake"
   "CMakeFiles/projected_ground_detector_node.dir/DependInfo.cmake"
   "CMakeFiles/height_ground_detector_node.dir/DependInfo.cmake"
   "CMakeFiles/imu_odometry_node.dir/DependInfo.cmake"

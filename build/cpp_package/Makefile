@@ -666,6 +666,19 @@ stable_ground_fitter_node/fast:
 .PHONY : stable_ground_fitter_node/fast
 
 #=============================================================================
+# Target rules for targets named user_centric_roi_detector
+
+# Build rule for target.
+user_centric_roi_detector: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 user_centric_roi_detector
+.PHONY : user_centric_roi_detector
+
+# fast build rule for target.
+user_centric_roi_detector/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/build
+.PHONY : user_centric_roi_detector/fast
+
+#=============================================================================
 # Target rules for targets named projected_ground_detector_node
 
 # Build rule for target.
@@ -1797,6 +1810,30 @@ src/stable_ground_fitter_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stable_ground_fitter_node.dir/build.make CMakeFiles/stable_ground_fitter_node.dir/src/stable_ground_fitter_node.cpp.s
 .PHONY : src/stable_ground_fitter_node.cpp.s
 
+src/user_centric_roi_detector.o: src/user_centric_roi_detector.cpp.o
+.PHONY : src/user_centric_roi_detector.o
+
+# target to build an object file
+src/user_centric_roi_detector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/src/user_centric_roi_detector.cpp.o
+.PHONY : src/user_centric_roi_detector.cpp.o
+
+src/user_centric_roi_detector.i: src/user_centric_roi_detector.cpp.i
+.PHONY : src/user_centric_roi_detector.i
+
+# target to preprocess a source file
+src/user_centric_roi_detector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/src/user_centric_roi_detector.cpp.i
+.PHONY : src/user_centric_roi_detector.cpp.i
+
+src/user_centric_roi_detector.s: src/user_centric_roi_detector.cpp.s
+.PHONY : src/user_centric_roi_detector.s
+
+# target to generate assembly for a file
+src/user_centric_roi_detector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/src/user_centric_roi_detector.cpp.s
+.PHONY : src/user_centric_roi_detector.cpp.s
+
 src/z_variance_sweeper_node.o: src/z_variance_sweeper_node.cpp.o
 .PHONY : src/z_variance_sweeper_node.o
 
@@ -1875,6 +1912,7 @@ help:
 	@echo "... projected_ground_detector_node"
 	@echo "... stable_ground_detector_node"
 	@echo "... stable_ground_fitter_node"
+	@echo "... user_centric_roi_detector"
 	@echo "... z_variance_sweeper_node"
 	@echo "... rosidl_generator_c/cpp_package/msg/detail/nav_hint__description.o"
 	@echo "... rosidl_generator_c/cpp_package/msg/detail/nav_hint__description.i"
@@ -2011,6 +2049,9 @@ help:
 	@echo "... src/stable_ground_fitter_node.o"
 	@echo "... src/stable_ground_fitter_node.i"
 	@echo "... src/stable_ground_fitter_node.s"
+	@echo "... src/user_centric_roi_detector.o"
+	@echo "... src/user_centric_roi_detector.i"
+	@echo "... src/user_centric_roi_detector.s"
 	@echo "... src/z_variance_sweeper_node.o"
 	@echo "... src/z_variance_sweeper_node.i"
 	@echo "... src/z_variance_sweeper_node.s"

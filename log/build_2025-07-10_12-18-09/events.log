@@ -1,0 +1,726 @@
+[0.000000] (-) TimerEvent: {}
+[0.000265] (-) JobUnselected: {'identifier': 'cartographer'}
+[0.000321] (-) JobUnselected: {'identifier': 'cartographer_ros'}
+[0.000351] (-) JobUnselected: {'identifier': 'cartographer_ros_msgs'}
+[0.000372] (-) JobUnselected: {'identifier': 'cartographer_rviz'}
+[0.000390] (-) JobUnselected: {'identifier': 'mpu9250'}
+[0.000409] (-) JobUnselected: {'identifier': 'optical_cane_rpi'}
+[0.000426] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.000442] (-) JobUnselected: {'identifier': 'sweep_builder'}
+[0.000465] (cpp_package) JobQueued: {'identifier': 'cpp_package', 'dependencies': OrderedDict()}
+[0.001291] (cpp_package) JobStarted: {'identifier': 'cpp_package'}
+[0.016978] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'cmake'}
+[0.020632] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'build'}
+[0.021915] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/p/ros2_ws/src/build/cpp_package', '--', '-j4', '-l4'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.2 54597 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/cpp_package/lib:/home/p/ros2_ws/install/cartographer_rviz/lib:/home/p/ros2_ws/install/cartographer_ros/lib:/home/p/ros2_ws/install/cartographer_ros_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.101.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-80fabb8b-0113-41e9-b1aa-1a3265d7d574.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'PKG_CONFIG_PATH': '/home/p/ros2_ws/install/cartographer/lib/aarch64-linux-gnu/pkgconfig:/home/p/ros2_ws/install/cartographer/lib/pkgconfig', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '5', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-2901c5ac6db8a986a5666c3af51ff804d05af0d4/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/home/p/ros2_ws/install/cartographer/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.8.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-cb9b325c8e.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '30', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.2 54597 192.168.0.12 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/sweep_builder:/home/p/ros2_ws/install/sweep_builder/lib/python3.12/site-packages:/home/p/ros2_ws/build/optical_cane_rpi:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/cpp_package/lib/python3.12/site-packages:/home/p/ros2_ws/install/cartographer_ros_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/cpp_package:/home/p/ros2_ws/install/cartographer_rviz:/home/p/ros2_ws/install/cartographer_ros:/home/p/ros2_ws/install/cartographer_ros_msgs:/home/p/ros2_ws/install/cartographer:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[0.083408] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.099442] (-) TimerEvent: {}
+[0.127464] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter \n'}
+[0.199544] (-) TimerEvent: {}
+[0.270396] (cpp_package) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.299657] (-) TimerEvent: {}
+[0.309890] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[0.323900] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[0.340720] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.359586] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.399927] (-) TimerEvent: {}
+[0.444973] (cpp_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[0.447185] (cpp_package) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.499995] (-) TimerEvent: {}
+[0.546484] (cpp_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.600107] (-) TimerEvent: {}
+[0.633173] (cpp_package) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[0.700214] (-) TimerEvent: {}
+[0.705438] (cpp_package) StdoutLine: {'line': b'-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)\n'}
+[0.739280] (cpp_package) StdoutLine: {'line': b'-- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)\n'}
+[0.776099] (cpp_package) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[0.800335] (-) TimerEvent: {}
+[0.900577] (-) TimerEvent: {}
+[0.921209] (cpp_package) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)\n'}
+[0.926068] (cpp_package) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[0.928115] (cpp_package) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[0.930242] (cpp_package) StdoutLine: {'line': b'-- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)\n'}
+[0.935948] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)\n'}
+[0.947977] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)\n'}
+[0.950136] (cpp_package) StdoutLine: {'line': b'-- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)\n'}
+[1.000695] (-) TimerEvent: {}
+[1.024551] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[1.024886] (cpp_package) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[1.024997] (cpp_package) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[1.025084] (cpp_package) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[1.025166] (cpp_package) StderrLine: {'line': b'\n'}
+[1.025248] (cpp_package) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[1.025327] (cpp_package) StderrLine: {'line': b'\n'}
+[1.025404] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[1.025483] (cpp_package) StderrLine: {'line': b'\n'}
+[1.025562] (cpp_package) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[1.025653] (cpp_package) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[1.025747] (cpp_package) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[1.025946] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[1.026030] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[1.026111] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[1.026190] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[1.026267] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[1.026348] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[1.026426] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)\n'}
+[1.026502] (cpp_package) StderrLine: {'line': b'  CMakeLists.txt:30 (find_package)\n'}
+[1.026577] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[1.026654] (cpp_package) StderrLine: {'line': b'\n'}
+[1.026730] (cpp_package) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[1.100816] (-) TimerEvent: {}
+[1.201045] (-) TimerEvent: {}
+[1.301334] (-) TimerEvent: {}
+[1.401625] (-) TimerEvent: {}
+[1.501828] (-) TimerEvent: {}
+[1.602075] (-) TimerEvent: {}
+[1.702315] (-) TimerEvent: {}
+[1.743787] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[1.754993] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[1.760325] (cpp_package) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[1.802423] (-) TimerEvent: {}
+[1.902636] (-) TimerEvent: {}
+[2.002884] (-) TimerEvent: {}
+[2.103158] (-) TimerEvent: {}
+[2.203372] (-) TimerEvent: {}
+[2.303577] (-) TimerEvent: {}
+[2.404949] (-) TimerEvent: {}
+[2.505236] (-) TimerEvent: {}
+[2.507610] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[2.518707] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[2.605353] (-) TimerEvent: {}
+[2.705563] (-) TimerEvent: {}
+[2.806018] (-) TimerEvent: {}
+[2.906260] (-) TimerEvent: {}
+[3.006473] (-) TimerEvent: {}
+[3.106690] (-) TimerEvent: {}
+[3.206933] (-) TimerEvent: {}
+[3.211942] (cpp_package) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[3.307051] (-) TimerEvent: {}
+[3.407268] (-) TimerEvent: {}
+[3.507542] (-) TimerEvent: {}
+[3.607865] (-) TimerEvent: {}
+[3.708220] (-) TimerEvent: {}
+[3.808465] (-) TimerEvent: {}
+[3.908677] (-) TimerEvent: {}
+[3.920013] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[4.008815] (-) TimerEvent: {}
+[4.109040] (-) TimerEvent: {}
+[4.209499] (-) TimerEvent: {}
+[4.309752] (-) TimerEvent: {}
+[4.409968] (-) TimerEvent: {}
+[4.510206] (-) TimerEvent: {}
+[4.610423] (-) TimerEvent: {}
+[4.640798] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at CMakeLists.txt:32 (find_package):\n'}
+[4.641069] (cpp_package) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[4.641165] (cpp_package) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[4.641250] (cpp_package) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[4.641333] (cpp_package) StderrLine: {'line': b'\n'}
+[4.641415] (cpp_package) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[4.641495] (cpp_package) StderrLine: {'line': b'\n'}
+[4.641573] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[4.641652] (cpp_package) StderrLine: {'line': b'\n'}
+[4.641730] (cpp_package) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[4.641864] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[4.641946] (cpp_package) StderrLine: {'line': b'\n'}
+[4.710537] (-) TimerEvent: {}
+[4.810817] (-) TimerEvent: {}
+[4.911047] (-) TimerEvent: {}
+[5.011258] (-) TimerEvent: {}
+[5.111470] (-) TimerEvent: {}
+[5.134942] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)\n'}
+[5.211592] (-) TimerEvent: {}
+[5.311809] (-) TimerEvent: {}
+[5.411990] (-) TimerEvent: {}
+[5.500414] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.512080] (-) TimerEvent: {}
+[5.612293] (-) TimerEvent: {}
+[5.641756] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.643673] (cpp_package) StdoutLine: {'line': b'-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)\n'}
+[5.712390] (-) TimerEvent: {}
+[5.812587] (-) TimerEvent: {}
+[5.912837] (-) TimerEvent: {}
+[6.015874] (-) TimerEvent: {}
+[6.116119] (-) TimerEvent: {}
+[6.138473] (cpp_package) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed \n'}
+[6.216235] (-) TimerEvent: {}
+[6.316451] (-) TimerEvent: {}
+[6.416665] (-) TimerEvent: {}
+[6.490533] (cpp_package) StdoutLine: {'line': b'-- Configuring done (6.4s)\n'}
+[6.516782] (-) TimerEvent: {}
+[6.617003] (-) TimerEvent: {}
+[6.717218] (-) TimerEvent: {}
+[6.817434] (-) TimerEvent: {}
+[6.917638] (-) TimerEvent: {}
+[7.017834] (-) TimerEvent: {}
+[7.118046] (-) TimerEvent: {}
+[7.218284] (-) TimerEvent: {}
+[7.318528] (-) TimerEvent: {}
+[7.418785] (-) TimerEvent: {}
+[7.519049] (-) TimerEvent: {}
+[7.590403] (cpp_package) StdoutLine: {'line': b'-- Generating done (0.9s)\n'}
+[7.619201] (-) TimerEvent: {}
+[7.719483] (-) TimerEvent: {}
+[7.764180] (cpp_package) StdoutLine: {'line': b'-- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package\n'}
+[7.819698] (-) TimerEvent: {}
+[7.923831] (-) TimerEvent: {}
+[7.928136] (cpp_package) StdoutLine: {'line': b'[  1%] Built target cpp_package__rosidl_generator_type_description\n'}
+[7.962936] (cpp_package) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_cpp_package\n'}
+[7.988256] (cpp_package) StdoutLine: {'line': b'[  2%] Linking CXX executable pointcloud_formatter_node\n'}
+[8.021558] (cpp_package) StdoutLine: {'line': b'[  3%] Linking CXX executable icp_3d_odom_node\n'}
+[8.025577] (-) TimerEvent: {}
+[8.047060] (cpp_package) StdoutLine: {'line': b'[  4%] Linking CXX executable front_cloud_filter_node\n'}
+[8.109185] (cpp_package) StdoutLine: {'line': b'[  5%] Linking CXX executable deskew_node\n'}
+[8.129036] (-) TimerEvent: {}
+[8.229866] (-) TimerEvent: {}
+[8.334926] (-) TimerEvent: {}
+[8.435298] (-) TimerEvent: {}
+[8.535651] (-) TimerEvent: {}
+[8.636706] (-) TimerEvent: {}
+[8.737470] (-) TimerEvent: {}
+[8.838318] (-) TimerEvent: {}
+[8.943283] (-) TimerEvent: {}
+[9.045926] (-) TimerEvent: {}
+[9.149203] (-) TimerEvent: {}
+[9.250265] (-) TimerEvent: {}
+[9.359044] (-) TimerEvent: {}
+[9.459839] (-) TimerEvent: {}
+[9.560427] (-) TimerEvent: {}
+[9.668064] (-) TimerEvent: {}
+[9.768767] (-) TimerEvent: {}
+[9.869281] (-) TimerEvent: {}
+[9.973022] (-) TimerEvent: {}
+[10.073847] (-) TimerEvent: {}
+[10.179014] (-) TimerEvent: {}
+[10.279928] (-) TimerEvent: {}
+[10.380579] (-) TimerEvent: {}
+[10.484010] (-) TimerEvent: {}
+[10.586012] (-) TimerEvent: {}
+[10.686835] (-) TimerEvent: {}
+[10.787437] (-) TimerEvent: {}
+[10.889993] (-) TimerEvent: {}
+[10.993577] (-) TimerEvent: {}
+[11.094355] (-) TimerEvent: {}
+[11.195093] (-) TimerEvent: {}
+[11.299218] (-) TimerEvent: {}
+[11.399865] (-) TimerEvent: {}
+[11.500549] (-) TimerEvent: {}
+[11.605916] (-) TimerEvent: {}
+[11.706653] (-) TimerEvent: {}
+[11.810033] (-) TimerEvent: {}
+[11.910654] (-) TimerEvent: {}
+[12.011215] (-) TimerEvent: {}
+[12.115961] (-) TimerEvent: {}
+[12.216791] (-) TimerEvent: {}
+[12.317518] (-) TimerEvent: {}
+[12.419763] (-) TimerEvent: {}
+[12.522786] (-) TimerEvent: {}
+[12.626105] (-) TimerEvent: {}
+[12.726683] (-) TimerEvent: {}
+[12.830401] (-) TimerEvent: {}
+[12.931943] (-) TimerEvent: {}
+[13.032562] (-) TimerEvent: {}
+[13.133144] (-) TimerEvent: {}
+[13.234619] (-) TimerEvent: {}
+[13.336246] (-) TimerEvent: {}
+[13.437587] (-) TimerEvent: {}
+[13.539385] (-) TimerEvent: {}
+[13.641107] (-) TimerEvent: {}
+[13.743404] (-) TimerEvent: {}
+[13.846276] (-) TimerEvent: {}
+[13.948515] (-) TimerEvent: {}
+[14.051860] (-) TimerEvent: {}
+[14.152225] (-) TimerEvent: {}
+[14.256867] (-) TimerEvent: {}
+[14.357309] (-) TimerEvent: {}
+[14.457911] (-) TimerEvent: {}
+[14.558425] (-) TimerEvent: {}
+[14.662337] (-) TimerEvent: {}
+[14.762808] (-) TimerEvent: {}
+[14.863227] (-) TimerEvent: {}
+[14.964047] (-) TimerEvent: {}
+[15.066856] (-) TimerEvent: {}
+[15.167186] (-) TimerEvent: {}
+[15.267519] (-) TimerEvent: {}
+[15.367975] (-) TimerEvent: {}
+[15.413108] (cpp_package) StdoutLine: {'line': b'[  6%] Built target pointcloud_formatter_node\n'}
+[15.470002] (-) TimerEvent: {}
+[15.573011] (-) TimerEvent: {}
+[15.606251] (cpp_package) StdoutLine: {'line': b'[  7%] Linking CXX executable obstacle_detector_node\n'}
+[15.673193] (-) TimerEvent: {}
+[15.774952] (-) TimerEvent: {}
+[15.875303] (-) TimerEvent: {}
+[15.975976] (-) TimerEvent: {}
+[15.995824] (cpp_package) StdoutLine: {'line': b'[  8%] Built target deskew_node\n'}
+[16.082184] (cpp_package) StdoutLine: {'line': b'[ 10%] Built target front_cloud_filter_node\n'}
+[16.082579] (-) TimerEvent: {}
+[16.186972] (-) TimerEvent: {}
+[16.287561] (-) TimerEvent: {}
+[16.343462] (cpp_package) StdoutLine: {'line': b'[ 11%] Linking CXX executable point_cloud_sweeper_cpp_node\n'}
+[16.389092] (-) TimerEvent: {}
+[16.440277] (cpp_package) StdoutLine: {'line': b'[ 12%] Linking CXX executable point_cloud_accumulator_cpp_node\n'}
+[16.492922] (-) TimerEvent: {}
+[16.593503] (-) TimerEvent: {}
+[16.698009] (-) TimerEvent: {}
+[16.798727] (-) TimerEvent: {}
+[16.899245] (-) TimerEvent: {}
+[16.999939] (-) TimerEvent: {}
+[17.106050] (-) TimerEvent: {}
+[17.206863] (-) TimerEvent: {}
+[17.307531] (-) TimerEvent: {}
+[17.413792] (-) TimerEvent: {}
+[17.514504] (-) TimerEvent: {}
+[17.616843] (-) TimerEvent: {}
+[17.717979] (-) TimerEvent: {}
+[17.820938] (-) TimerEvent: {}
+[17.921585] (-) TimerEvent: {}
+[18.023438] (-) TimerEvent: {}
+[18.127933] (-) TimerEvent: {}
+[18.228651] (-) TimerEvent: {}
+[18.331819] (-) TimerEvent: {}
+[18.435041] (-) TimerEvent: {}
+[18.535877] (-) TimerEvent: {}
+[18.640857] (-) TimerEvent: {}
+[18.741705] (-) TimerEvent: {}
+[18.842506] (-) TimerEvent: {}
+[18.945938] (-) TimerEvent: {}
+[19.046563] (-) TimerEvent: {}
+[19.150009] (-) TimerEvent: {}
+[19.250565] (-) TimerEvent: {}
+[19.350955] (-) TimerEvent: {}
+[19.451553] (-) TimerEvent: {}
+[19.554893] (-) TimerEvent: {}
+[19.655406] (-) TimerEvent: {}
+[19.756089] (-) TimerEvent: {}
+[19.857915] (-) TimerEvent: {}
+[19.958500] (-) TimerEvent: {}
+[20.060947] (-) TimerEvent: {}
+[20.165959] (-) TimerEvent: {}
+[20.266649] (-) TimerEvent: {}
+[20.367214] (-) TimerEvent: {}
+[20.469151] (-) TimerEvent: {}
+[20.573312] (-) TimerEvent: {}
+[20.675420] (-) TimerEvent: {}
+[20.776135] (-) TimerEvent: {}
+[20.878983] (-) TimerEvent: {}
+[20.980213] (-) TimerEvent: {}
+[21.084172] (-) TimerEvent: {}
+[21.184788] (-) TimerEvent: {}
+[21.286610] (-) TimerEvent: {}
+[21.388263] (-) TimerEvent: {}
+[21.488876] (-) TimerEvent: {}
+[21.589973] (-) TimerEvent: {}
+[21.691034] (-) TimerEvent: {}
+[21.793347] (-) TimerEvent: {}
+[21.893705] (-) TimerEvent: {}
+[21.994839] (-) TimerEvent: {}
+[22.095202] (-) TimerEvent: {}
+[22.164961] (cpp_package) StdoutLine: {'line': b'[ 13%] Built target point_cloud_accumulator_cpp_node\n'}
+[22.195377] (-) TimerEvent: {}
+[22.298205] (-) TimerEvent: {}
+[22.345215] (cpp_package) StdoutLine: {'line': b'[ 14%] Linking CXX executable point_cloud_voxel_filter_cpp_node\n'}
+[22.398369] (-) TimerEvent: {}
+[22.501863] (-) TimerEvent: {}
+[22.558397] (cpp_package) StdoutLine: {'line': b'[ 15%] Built target point_cloud_sweeper_cpp_node\n'}
+[22.604022] (-) TimerEvent: {}
+[22.704432] (-) TimerEvent: {}
+[22.752521] (cpp_package) StdoutLine: {'line': b'[ 16%] Built target obstacle_detector_node\n'}
+[22.804622] (-) TimerEvent: {}
+[22.809447] (cpp_package) StdoutLine: {'line': b'[ 17%] Linking CXX executable point_cloud_passthrough_filter_cpp_node\n'}
+[22.906903] (-) TimerEvent: {}
+[23.007321] (-) TimerEvent: {}
+[23.009195] (cpp_package) StdoutLine: {'line': b'[ 18%] Linking CXX executable point_cloud_statistical_outlier_remover_cpp_node\n'}
+[23.107542] (-) TimerEvent: {}
+[23.208058] (-) TimerEvent: {}
+[23.308692] (-) TimerEvent: {}
+[23.415591] (-) TimerEvent: {}
+[23.516152] (-) TimerEvent: {}
+[23.616679] (-) TimerEvent: {}
+[23.717262] (-) TimerEvent: {}
+[23.819870] (-) TimerEvent: {}
+[23.922848] (-) TimerEvent: {}
+[24.023295] (-) TimerEvent: {}
+[24.124001] (-) TimerEvent: {}
+[24.224579] (-) TimerEvent: {}
+[24.326931] (-) TimerEvent: {}
+[24.428433] (-) TimerEvent: {}
+[24.531937] (-) TimerEvent: {}
+[24.635001] (-) TimerEvent: {}
+[24.735859] (-) TimerEvent: {}
+[24.836512] (-) TimerEvent: {}
+[24.941965] (-) TimerEvent: {}
+[25.043530] (-) TimerEvent: {}
+[25.144827] (-) TimerEvent: {}
+[25.248002] (-) TimerEvent: {}
+[25.348867] (-) TimerEvent: {}
+[25.454954] (-) TimerEvent: {}
+[25.555480] (-) TimerEvent: {}
+[25.656178] (-) TimerEvent: {}
+[25.756927] (-) TimerEvent: {}
+[25.858939] (-) TimerEvent: {}
+[25.959414] (-) TimerEvent: {}
+[26.059832] (-) TimerEvent: {}
+[26.160474] (-) TimerEvent: {}
+[26.263974] (-) TimerEvent: {}
+[26.365843] (-) TimerEvent: {}
+[26.467880] (-) TimerEvent: {}
+[26.568244] (-) TimerEvent: {}
+[26.614758] (cpp_package) StdoutLine: {'line': b'[ 20%] Built target icp_3d_odom_node\n'}
+[26.669988] (-) TimerEvent: {}
+[26.773383] (-) TimerEvent: {}
+[26.873832] (-) TimerEvent: {}
+[26.974200] (-) TimerEvent: {}
+[26.980732] (cpp_package) StdoutLine: {'line': b'[ 21%] Linking CXX executable point_count_sweeper_node\n'}
+[27.074382] (-) TimerEvent: {}
+[27.174729] (-) TimerEvent: {}
+[27.277319] (-) TimerEvent: {}
+[27.377882] (-) TimerEvent: {}
+[27.481016] (-) TimerEvent: {}
+[27.511354] (cpp_package) StdoutLine: {'line': b'[ 22%] Built target point_cloud_voxel_filter_cpp_node\n'}
+[27.581923] (-) TimerEvent: {}
+[27.684463] (-) TimerEvent: {}
+[27.775958] (cpp_package) StdoutLine: {'line': b'[ 23%] Linking CXX executable z_variance_sweeper_node\n'}
+[27.787853] (-) TimerEvent: {}
+[27.888352] (-) TimerEvent: {}
+[27.990999] (-) TimerEvent: {}
+[28.091479] (-) TimerEvent: {}
+[28.191921] (-) TimerEvent: {}
+[28.293901] (-) TimerEvent: {}
+[28.394387] (-) TimerEvent: {}
+[28.495310] (-) TimerEvent: {}
+[28.596638] (-) TimerEvent: {}
+[28.697425] (-) TimerEvent: {}
+[28.803947] (-) TimerEvent: {}
+[28.907954] (-) TimerEvent: {}
+[28.958917] (cpp_package) StdoutLine: {'line': b'[ 24%] Built target point_cloud_statistical_outlier_remover_cpp_node\n'}
+[29.011909] (-) TimerEvent: {}
+[29.114795] (-) TimerEvent: {}
+[29.215047] (-) TimerEvent: {}
+[29.223301] (cpp_package) StdoutLine: {'line': b'[ 25%] Linking CXX executable stable_ground_detector_node\n'}
+[29.315999] (-) TimerEvent: {}
+[29.418915] (-) TimerEvent: {}
+[29.519367] (-) TimerEvent: {}
+[29.624876] (-) TimerEvent: {}
+[29.727862] (-) TimerEvent: {}
+[29.828213] (-) TimerEvent: {}
+[29.928685] (-) TimerEvent: {}
+[30.029711] (-) TimerEvent: {}
+[30.130104] (-) TimerEvent: {}
+[30.231261] (-) TimerEvent: {}
+[30.337971] (-) TimerEvent: {}
+[30.438425] (-) TimerEvent: {}
+[30.478944] (cpp_package) StdoutLine: {'line': b'[ 26%] Built target point_cloud_passthrough_filter_cpp_node\n'}
+[30.541913] (-) TimerEvent: {}
+[30.642319] (-) TimerEvent: {}
+[30.742889] (-) TimerEvent: {}
+[30.778399] (cpp_package) StdoutLine: {'line': b'[ 27%] Linking CXX executable projected_ground_detector_node\n'}
+[30.843909] (-) TimerEvent: {}
+[30.945889] (-) TimerEvent: {}
+[31.048703] (-) TimerEvent: {}
+[31.148994] (-) TimerEvent: {}
+[31.250854] (-) TimerEvent: {}
+[31.352073] (-) TimerEvent: {}
+[31.452602] (-) TimerEvent: {}
+[31.554831] (-) TimerEvent: {}
+[31.655164] (-) TimerEvent: {}
+[31.755782] (-) TimerEvent: {}
+[31.803399] (cpp_package) StdoutLine: {'line': b'[ 28%] Built target point_count_sweeper_node\n'}
+[31.859212] (-) TimerEvent: {}
+[31.960141] (-) TimerEvent: {}
+[32.018873] (cpp_package) StdoutLine: {'line': b'[ 30%] Linking CXX executable height_ground_detector_node\n'}
+[32.062995] (-) TimerEvent: {}
+[32.165976] (-) TimerEvent: {}
+[32.266586] (-) TimerEvent: {}
+[32.367238] (-) TimerEvent: {}
+[32.447594] (cpp_package) StdoutLine: {'line': b'[ 31%] Built target z_variance_sweeper_node\n'}
+[32.467585] (-) TimerEvent: {}
+[32.571416] (-) TimerEvent: {}
+[32.671990] (-) TimerEvent: {}
+[32.689871] (cpp_package) StdoutLine: {'line': b'[ 33%] Built target imu_odometry_node\n'}
+[32.774863] (-) TimerEvent: {}
+[32.823023] (cpp_package) StdoutLine: {'line': b'[ 34%] Built target cpp_package__cpp\n'}
+[32.875378] (-) TimerEvent: {}
+[32.934307] (cpp_package) StdoutLine: {'line': b'[ 43%] Built target cpp_package__rosidl_generator_c\n'}
+[32.977888] (-) TimerEvent: {}
+[33.078287] (-) TimerEvent: {}
+[33.179910] (-) TimerEvent: {}
+[33.280412] (-) TimerEvent: {}
+[33.383916] (-) TimerEvent: {}
+[33.484549] (-) TimerEvent: {}
+[33.586978] (-) TimerEvent: {}
+[33.687499] (-) TimerEvent: {}
+[33.787941] (-) TimerEvent: {}
+[33.889825] (-) TimerEvent: {}
+[33.996061] (-) TimerEvent: {}
+[34.096403] (-) TimerEvent: {}
+[34.200932] (-) TimerEvent: {}
+[34.301417] (-) TimerEvent: {}
+[34.401683] (-) TimerEvent: {}
+[34.502029] (-) TimerEvent: {}
+[34.602775] (-) TimerEvent: {}
+[34.708065] (-) TimerEvent: {}
+[34.813955] (-) TimerEvent: {}
+[34.857193] (cpp_package) StdoutLine: {'line': b'[ 44%] Built target stable_ground_detector_node\n'}
+[34.918145] (-) TimerEvent: {}
+[35.018630] (-) TimerEvent: {}
+[35.099262] (cpp_package) StdoutLine: {'line': b'[ 48%] Built target cpp_package__rosidl_typesupport_cpp\n'}
+[35.127838] (-) TimerEvent: {}
+[35.150917] (cpp_package) StdoutLine: {'line': b'running egg_info\n'}
+[35.226044] (cpp_package) StdoutLine: {'line': b'[ 53%] Built target cpp_package__rosidl_typesupport_fastrtps_c\n'}
+[35.227947] (-) TimerEvent: {}
+[35.236827] (cpp_package) StdoutLine: {'line': b'writing cpp_package.egg-info/PKG-INFO\n'}
+[35.240091] (cpp_package) StdoutLine: {'line': b'writing dependency_links to cpp_package.egg-info/dependency_links.txt\n'}
+[35.240541] (cpp_package) StdoutLine: {'line': b'writing top-level names to cpp_package.egg-info/top_level.txt\n'}
+[35.330902] (-) TimerEvent: {}
+[35.349697] (cpp_package) StdoutLine: {'line': b'[ 57%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp\n'}
+[35.430993] (-) TimerEvent: {}
+[35.534886] (cpp_package) StdoutLine: {'line': b'[ 62%] Built target cpp_package__rosidl_typesupport_introspection_c\n'}
+[35.535350] (-) TimerEvent: {}
+[35.636940] (-) TimerEvent: {}
+[35.697124] (cpp_package) StdoutLine: {'line': b'[ 66%] Built target cpp_package__rosidl_typesupport_c\n'}
+[35.741049] (-) TimerEvent: {}
+[35.841633] (-) TimerEvent: {}
+[35.847598] (cpp_package) StdoutLine: {'line': b"reading manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[35.855667] (cpp_package) StdoutLine: {'line': b'[ 71%] Built target cpp_package__rosidl_typesupport_introspection_cpp\n'}
+[35.856381] (cpp_package) StdoutLine: {'line': b"writing manifest file 'cpp_package.egg-info/SOURCES.txt'\n"}
+[35.946272] (-) TimerEvent: {}
+[36.046833] (-) TimerEvent: {}
+[36.085960] (cpp_package) StdoutLine: {'line': b'[ 72%] Linking CXX executable obstacle_evaluator_node\n'}
+[36.140872] (cpp_package) StdoutLine: {'line': b'[ 72%] Built target ament_cmake_python_build_cpp_package_egg\n'}
+[36.147091] (-) TimerEvent: {}
+[36.253868] (-) TimerEvent: {}
+[36.313847] (cpp_package) StdoutLine: {'line': b'[ 74%] Built target navigation_hint_node\n'}
+[36.354064] (-) TimerEvent: {}
+[36.440229] (cpp_package) StdoutLine: {'line': b'[ 76%] Built target haptic_driver_node\n'}
+[36.456072] (-) TimerEvent: {}
+[36.556823] (-) TimerEvent: {}
+[36.615445] (cpp_package) StdoutLine: {'line': b'[ 77%] Built target height_ground_detector_node\n'}
+[36.648800] (cpp_package) StdoutLine: {'line': b'[ 78%] Building CXX object CMakeFiles/ground_plane_fitter_node.dir/src/ground_plane_fitter_node.cpp.o\n'}
+[36.659071] (-) TimerEvent: {}
+[36.760902] (-) TimerEvent: {}
+[36.846890] (cpp_package) StdoutLine: {'line': b'[ 80%] Linking CXX executable ground_plane_fitter_no_voxel_node\n'}
+[36.861118] (-) TimerEvent: {}
+[36.966867] (-) TimerEvent: {}
+[37.067248] (-) TimerEvent: {}
+[37.167620] (-) TimerEvent: {}
+[37.268031] (-) TimerEvent: {}
+[37.369143] (-) TimerEvent: {}
+[37.469569] (-) TimerEvent: {}
+[37.572328] (-) TimerEvent: {}
+[37.672901] (-) TimerEvent: {}
+[37.773359] (-) TimerEvent: {}
+[37.882832] (-) TimerEvent: {}
+[37.983207] (-) TimerEvent: {}
+[38.083712] (-) TimerEvent: {}
+[38.184234] (-) TimerEvent: {}
+[38.287884] (-) TimerEvent: {}
+[38.388233] (-) TimerEvent: {}
+[38.490874] (-) TimerEvent: {}
+[38.591240] (-) TimerEvent: {}
+[38.695992] (-) TimerEvent: {}
+[38.796584] (-) TimerEvent: {}
+[38.897850] (-) TimerEvent: {}
+[38.998195] (-) TimerEvent: {}
+[39.099870] (-) TimerEvent: {}
+[39.200200] (-) TimerEvent: {}
+[39.300481] (-) TimerEvent: {}
+[39.404848] (-) TimerEvent: {}
+[39.507948] (-) TimerEvent: {}
+[39.608299] (-) TimerEvent: {}
+[39.708561] (-) TimerEvent: {}
+[39.808840] (-) TimerEvent: {}
+[39.909909] (-) TimerEvent: {}
+[39.925842] (cpp_package) StdoutLine: {'line': b'[ 81%] Built target projected_ground_detector_node\n'}
+[40.010064] (-) TimerEvent: {}
+[40.110484] (-) TimerEvent: {}
+[40.211292] (-) TimerEvent: {}
+[40.248763] (cpp_package) StdoutLine: {'line': b'[ 82%] Built target obstacle_evaluator_node\n'}
+[40.312624] (-) TimerEvent: {}
+[40.414217] (-) TimerEvent: {}
+[40.514690] (-) TimerEvent: {}
+[40.615683] (-) TimerEvent: {}
+[40.716056] (-) TimerEvent: {}
+[40.818067] (-) TimerEvent: {}
+[40.918666] (-) TimerEvent: {}
+[41.019195] (-) TimerEvent: {}
+[41.119480] (-) TimerEvent: {}
+[41.219823] (-) TimerEvent: {}
+[41.320197] (-) TimerEvent: {}
+[41.420628] (-) TimerEvent: {}
+[41.521130] (-) TimerEvent: {}
+[41.621424] (-) TimerEvent: {}
+[41.721753] (-) TimerEvent: {}
+[41.822065] (-) TimerEvent: {}
+[41.922346] (-) TimerEvent: {}
+[42.022712] (-) TimerEvent: {}
+[42.123054] (-) TimerEvent: {}
+[42.223342] (-) TimerEvent: {}
+[42.323884] (-) TimerEvent: {}
+[42.424276] (-) TimerEvent: {}
+[42.438303] (cpp_package) StdoutLine: {'line': b'[ 83%] Built target ground_plane_fitter_no_voxel_node\n'}
+[42.524388] (-) TimerEvent: {}
+[42.624612] (-) TimerEvent: {}
+[42.724848] (-) TimerEvent: {}
+[42.825080] (-) TimerEvent: {}
+[42.925354] (-) TimerEvent: {}
+[43.025694] (-) TimerEvent: {}
+[43.125942] (-) TimerEvent: {}
+[43.226159] (-) TimerEvent: {}
+[43.326396] (-) TimerEvent: {}
+[43.426639] (-) TimerEvent: {}
+[43.526867] (-) TimerEvent: {}
+[43.627101] (-) TimerEvent: {}
+[43.727324] (-) TimerEvent: {}
+[43.827550] (-) TimerEvent: {}
+[43.927789] (-) TimerEvent: {}
+[44.028038] (-) TimerEvent: {}
+[44.128286] (-) TimerEvent: {}
+[44.228549] (-) TimerEvent: {}
+[44.328801] (-) TimerEvent: {}
+[44.429032] (-) TimerEvent: {}
+[44.529274] (-) TimerEvent: {}
+[44.629508] (-) TimerEvent: {}
+[44.729742] (-) TimerEvent: {}
+[44.829963] (-) TimerEvent: {}
+[44.930195] (-) TimerEvent: {}
+[45.030474] (-) TimerEvent: {}
+[45.130747] (-) TimerEvent: {}
+[45.231018] (-) TimerEvent: {}
+[45.331326] (-) TimerEvent: {}
+[45.431613] (-) TimerEvent: {}
+[45.531888] (-) TimerEvent: {}
+[45.632124] (-) TimerEvent: {}
+[45.732353] (-) TimerEvent: {}
+[45.832594] (-) TimerEvent: {}
+[45.932823] (-) TimerEvent: {}
+[46.033043] (-) TimerEvent: {}
+[46.133264] (-) TimerEvent: {}
+[46.233482] (-) TimerEvent: {}
+[46.333697] (-) TimerEvent: {}
+[46.433931] (-) TimerEvent: {}
+[46.534167] (-) TimerEvent: {}
+[46.634401] (-) TimerEvent: {}
+[46.734620] (-) TimerEvent: {}
+[46.834848] (-) TimerEvent: {}
+[46.935065] (-) TimerEvent: {}
+[47.035307] (-) TimerEvent: {}
+[47.135524] (-) TimerEvent: {}
+[47.235762] (-) TimerEvent: {}
+[47.335986] (-) TimerEvent: {}
+[47.436214] (-) TimerEvent: {}
+[47.536449] (-) TimerEvent: {}
+[47.636683] (-) TimerEvent: {}
+[47.736918] (-) TimerEvent: {}
+[47.837141] (-) TimerEvent: {}
+[47.937357] (-) TimerEvent: {}
+[47.946469] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp: In constructor \xe2\x80\x98GroundPlaneFitterNode::GroundPlaneFitterNode()\xe2\x80\x99:\n'}
+[47.946779] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:19:65: error: class \xe2\x80\x98GroundPlaneFitterNode\xe2\x80\x99 does not have any field named \xe2\x80\x98first_plane_\xe2\x80\x99\n'}
+[47.946903] (cpp_package) StderrLine: {'line': b'   19 |     GroundPlaneFitterNode() : Node("ground_plane_fitter_node"), first_plane_(true)\n'}
+[47.947003] (cpp_package) StderrLine: {'line': b'      |                                                                 ^~~~~~~~~~~~\n'}
+[47.984470] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:32:44: error: \xe2\x80\x98input_topic_\xe2\x80\x99 was not declared in this scope\n'}
+[47.984778] (cpp_package) StderrLine: {'line': b'   32 |         this->get_parameter("input_topic", input_topic_);\n'}
+[47.984902] (cpp_package) StderrLine: {'line': b'      |                                            ^~~~~~~~~~~~\n'}
+[48.037474] (-) TimerEvent: {}
+[48.038573] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:33:53: error: \xe2\x80\x98refined_ground_topic_\xe2\x80\x99 was not declared in this scope\n'}
+[48.038841] (cpp_package) StderrLine: {'line': b'   33 |         this->get_parameter("refined_ground_topic", refined_ground_topic_);\n'}
+[48.038949] (cpp_package) StderrLine: {'line': b'      |                                                     ^~~~~~~~~~~~~~~~~~~~~\n'}
+[48.076053] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:34:47: error: \xe2\x80\x98obstacle_topic_\xe2\x80\x99 was not declared in this scope\n'}
+[48.076323] (cpp_package) StderrLine: {'line': b'   34 |         this->get_parameter("obstacle_topic", obstacle_topic_);\n'}
+[48.076432] (cpp_package) StderrLine: {'line': b'      |                                               ^~~~~~~~~~~~~~~\n'}
+[48.113163] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:35:45: error: \xe2\x80\x98marker_topic_\xe2\x80\x99 was not declared in this scope\n'}
+[48.113433] (cpp_package) StderrLine: {'line': b'   35 |         this->get_parameter("marker_topic", marker_topic_);\n'}
+[48.113535] (cpp_package) StderrLine: {'line': b'      |                                             ^~~~~~~~~~~~~\n'}
+[48.137562] (-) TimerEvent: {}
+[48.185790] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:36:60: error: \xe2\x80\x98ground_height_threshold_min_\xe2\x80\x99 was not declared in this scope\n'}
+[48.186056] (cpp_package) StderrLine: {'line': b'   36 |         this->get_parameter("ground_height_threshold_min", ground_height_threshold_min_);\n'}
+[48.186153] (cpp_package) StderrLine: {'line': b'      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.237669] (-) TimerEvent: {}
+[48.259869] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:37:60: error: \xe2\x80\x98ground_height_threshold_max_\xe2\x80\x99 was not declared in this scope\n'}
+[48.260140] (cpp_package) StderrLine: {'line': b'   37 |         this->get_parameter("ground_height_threshold_max", ground_height_threshold_max_);\n'}
+[48.260253] (cpp_package) StderrLine: {'line': b'      |                                                            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.301096] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:38:48: error: \xe2\x80\x98voxel_leaf_size_\xe2\x80\x99 was not declared in this scope\n'}
+[48.301370] (cpp_package) StderrLine: {'line': b'   38 |         this->get_parameter("voxel_leaf_size", voxel_leaf_size_);\n'}
+[48.301507] (cpp_package) StderrLine: {'line': b'      |                                                ^~~~~~~~~~~~~~~~\n'}
+[48.337780] (-) TimerEvent: {}
+[48.366816] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:39:58: error: \xe2\x80\x98ransac_distance_threshold_\xe2\x80\x99 was not declared in this scope\n'}
+[48.367063] (cpp_package) StderrLine: {'line': b'   39 |         this->get_parameter("ransac_distance_threshold", ransac_distance_threshold_);\n'}
+[48.367162] (cpp_package) StderrLine: {'line': b'      |                                                          ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.409327] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:40:48: error: \xe2\x80\x98smoothing_alpha_\xe2\x80\x99 was not declared in this scope\n'}
+[48.409579] (cpp_package) StderrLine: {'line': b'   40 |         this->get_parameter("smoothing_alpha", smoothing_alpha_);\n'}
+[48.409672] (cpp_package) StderrLine: {'line': b'      |                                                ^~~~~~~~~~~~~~~~\n'}
+[48.437888] (-) TimerEvent: {}
+[48.457413] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:51:9: error: \xe2\x80\x98marker_publisher_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98rmw_publisher_t\xe2\x80\x99?\n'}
+[48.457674] (cpp_package) StderrLine: {'line': b'   51 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg::Marker>(marker_topic_, 10);\n'}
+[48.457809] (cpp_package) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[48.457909] (cpp_package) StderrLine: {'line': b'      |         rmw_publisher_t\n'}
+[48.516603] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:53:9: error: \xe2\x80\x98accumulated_candidates_\xe2\x80\x99 was not declared in this scope\n'}
+[48.516884] (cpp_package) StderrLine: {'line': b'   53 |         accumulated_candidates_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();\n'}
+[48.516985] (cpp_package) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.537995] (-) TimerEvent: {}
+[48.585012] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:54:9: error: \xe2\x80\x98previous_coefficients_\xe2\x80\x99 was not declared in this scope\n'}
+[48.585369] (cpp_package) StderrLine: {'line': b'   54 |         previous_coefficients_ = pcl::make_shared<pcl::ModelCoefficients>();\n'}
+[48.585534] (cpp_package) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.638105] (-) TimerEvent: {}
+[48.668034] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp: In member function \xe2\x80\x98void GroundPlaneFitterNode::cloud_callback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)\xe2\x80\x99:\n'}
+[48.668307] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:70:34: error: \xe2\x80\x98ground_height_threshold_min_\xe2\x80\x99 was not declared in this scope\n'}
+[48.668418] (cpp_package) StderrLine: {'line': b'   70 |         pass_obs.setFilterLimits(ground_height_threshold_min_, ground_height_threshold_max_);\n'}
+[48.668509] (cpp_package) StderrLine: {'line': b'      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.737947] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:70:64: error: \xe2\x80\x98ground_height_threshold_max_\xe2\x80\x99 was not declared in this scope\n'}
+[48.738243] (-) TimerEvent: {}
+[48.738268] (cpp_package) StderrLine: {'line': b'   70 |         pass_obs.setFilterLimits(ground_height_threshold_min_, ground_height_threshold_max_);\n'}
+[48.738364] (cpp_package) StderrLine: {'line': b'      |                                                                ^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.793101] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:92:10: error: \xe2\x80\x98accumulated_candidates_\xe2\x80\x99 was not declared in this scope\n'}
+[48.793353] (cpp_package) StderrLine: {'line': b'   92 |         *accumulated_candidates_ += *ground_candidates;\n'}
+[48.793445] (cpp_package) StderrLine: {'line': b'      |          ^~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.834931] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:95:32: error: \xe2\x80\x98voxel_leaf_size_\xe2\x80\x99 was not declared in this scope\n'}
+[48.835196] (cpp_package) StderrLine: {'line': b'   95 |         voxel_grid.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);\n'}
+[48.835292] (cpp_package) StderrLine: {'line': b'      |                                ^~~~~~~~~~~~~~~~\n'}
+[48.838323] (-) TimerEvent: {}
+[48.912121] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:107:34: error: \xe2\x80\x98ransac_distance_threshold_\xe2\x80\x99 was not declared in this scope\n'}
+[48.912419] (cpp_package) StderrLine: {'line': b'  107 |         seg.setDistanceThreshold(ransac_distance_threshold_);\n'}
+[48.912531] (cpp_package) StderrLine: {'line': b'      |                                  ^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[48.938432] (-) TimerEvent: {}
+[48.945611] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:118:13: error: \xe2\x80\x98first_plane_\xe2\x80\x99 was not declared in this scope\n'}
+[48.945903] (cpp_package) StderrLine: {'line': b'  118 |         if (first_plane_)\n'}
+[48.946010] (cpp_package) StderrLine: {'line': b'      |             ^~~~~~~~~~~~\n'}
+[49.001301] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:120:14: error: \xe2\x80\x98previous_coefficients_\xe2\x80\x99 was not declared in this scope\n'}
+[49.001573] (cpp_package) StderrLine: {'line': b'  120 |             *previous_coefficients_ = *current_coefficients;\n'}
+[49.001675] (cpp_package) StderrLine: {'line': b'      |              ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[49.038543] (-) TimerEvent: {}
+[49.055628] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:127:17: error: \xe2\x80\x98previous_coefficients_\xe2\x80\x99 was not declared in this scope\n'}
+[49.055916] (cpp_package) StderrLine: {'line': b'  127 |                 previous_coefficients_->values[i] =\n'}
+[49.056021] (cpp_package) StderrLine: {'line': b'      |                 ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[49.098902] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:128:21: error: \xe2\x80\x98smoothing_alpha_\xe2\x80\x99 was not declared in this scope\n'}
+[49.099179] (cpp_package) StderrLine: {'line': b'  128 |                     smoothing_alpha_ * current_coefficients->values[i] +\n'}
+[49.099287] (cpp_package) StderrLine: {'line': b'      |                     ^~~~~~~~~~~~~~~~\n'}
+[49.138647] (-) TimerEvent: {}
+[49.157434] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:147:44: error: \xe2\x80\x98previous_coefficients_\xe2\x80\x99 was not declared in this scope\n'}
+[49.157680] (cpp_package) StderrLine: {'line': b'  147 |         publish_plane_marker(msg->header, *previous_coefficients_);\n'}
+[49.157797] (cpp_package) StderrLine: {'line': b'      |                                            ^~~~~~~~~~~~~~~~~~~~~~\n'}
+[49.199538] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp: In member function \xe2\x80\x98void GroundPlaneFitterNode::publish_plane_marker(const std_msgs::msg::Header&, const pcl::ModelCoefficients&)\xe2\x80\x99:\n'}
+[49.199845] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/ground_plane_fitter_node.cpp:207:9: error: \xe2\x80\x98marker_publisher_\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98rmw_publisher_t\xe2\x80\x99?\n'}
+[49.199960] (cpp_package) StderrLine: {'line': b'  207 |         marker_publisher_->publish(marker);\n'}
+[49.200052] (cpp_package) StderrLine: {'line': b'      |         ^~~~~~~~~~~~~~~~~\n'}
+[49.200136] (cpp_package) StderrLine: {'line': b'      |         rmw_publisher_t\n'}
+[49.238781] (-) TimerEvent: {}
+[49.339011] (-) TimerEvent: {}
+[49.439252] (-) TimerEvent: {}
+[49.539503] (-) TimerEvent: {}
+[49.639729] (-) TimerEvent: {}
+[49.739955] (-) TimerEvent: {}
+[49.840174] (-) TimerEvent: {}
+[49.940393] (-) TimerEvent: {}
+[50.040608] (-) TimerEvent: {}
+[50.142833] (-) TimerEvent: {}
+[50.243073] (-) TimerEvent: {}
+[50.343298] (-) TimerEvent: {}
+[50.443523] (-) TimerEvent: {}
+[50.543779] (-) TimerEvent: {}
+[50.644105] (-) TimerEvent: {}
+[50.744415] (-) TimerEvent: {}
+[50.844774] (-) TimerEvent: {}
+[50.945061] (-) TimerEvent: {}
+[50.962929] (cpp_package) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/ground_plane_fitter_node.dir/build.make:76: CMakeFiles/ground_plane_fitter_node.dir/src/ground_plane_fitter_node.cpp.o] \xec\x98\xa4\xeb\xa5\x98 1\n'}
+[50.963747] (cpp_package) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:1091: CMakeFiles/ground_plane_fitter_node.dir/all] \xec\x98\xa4\xeb\xa5\x98 2\n'}
+[50.964490] (cpp_package) StderrLine: {'line': b'gmake: *** [Makefile:146: all] \xec\x98\xa4\xeb\xa5\x98 2\n'}
+[50.967836] (cpp_package) CommandEnded: {'returncode': 2}
+[50.989324] (cpp_package) JobEnded: {'identifier': 'cpp_package', 'rc': 2}
+[51.000179] (-) EventReactorShutdown: {}

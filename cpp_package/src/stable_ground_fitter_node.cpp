@@ -66,6 +66,7 @@ public:
         ground_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(refined_ground_topic_, 10);
         obstacle_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(obstacle_topic_, 10);
         marker_publisher_ = this->create_publisher<visualization_msgs::msg::Marker>(marker_topic_, 10);
+        plane_coeffs_pub_ = this->create_publisher<pcl_msgs::msg::ModelCoefficients>("/locked_plane_coefficients", 10);
 
         accumulated_candidates_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
         final_ground_cloud_ = pcl::make_shared<pcl::PointCloud<pcl::PointXYZ>>();
@@ -276,6 +277,14 @@ private:
 
     void publish_plane_marker(const std_msgs::msg::Header& header, const pcl::ModelCoefficients& coeffs)
     {
+        if (plane_locked_) {
+            auto coeffs_msg = std::make_unique<pcl_msgs::msg::ModelCoefficients>();
+            coeffs_msg->header = header;
+            for(const auto& value : coeffs.values)
+                coeffs_msg->values.push_back(value);
+            plane_coeffs_pub_->publish(std::move(coeffs_msg));
+        }
+
         visualization_msgs::msg::Marker marker;
         marker.header = header;
         marker.ns = "ground_plane";
@@ -337,6 +346,7 @@ private:
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr ground_publisher_;
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr obstacle_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::Marker>::SharedPtr marker_publisher_;
+    rclcpp::Publisher<pcl_msgs::msg::ModelCoefficients>::SharedPtr plane_coeffs_pub_;
     rclcpp::TimerBase::SharedPtr status_timer_;
     
     pcl::PointCloud<pcl::PointXYZ>::Ptr accumulated_candidates_;

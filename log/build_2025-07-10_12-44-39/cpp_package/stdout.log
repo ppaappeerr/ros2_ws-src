@@ -1,0 +1,107 @@
+-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+-- Found nav_msgs: 5.3.6 (/opt/ros/jazzy/share/nav_msgs/cmake)
+-- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+-- Found pcl_msgs: 1.0.0 (/opt/ros/jazzy/share/pcl_msgs/cmake)
+-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.36.12 (/opt/ros/jazzy/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found tf2_eigen: 0.36.12 (/opt/ros/jazzy/share/tf2_eigen/cmake)
+-- Found rosidl_default_generators: 1.6.0 (/opt/ros/jazzy/share/rosidl_default_generators/cmake)
+-- Found rosidl_adapter: 4.6.5 (/opt/ros/jazzy/share/rosidl_adapter/cmake)
+-- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)
+-- Found flann version 1.9.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+-- Found Qhull version 8.0.2
+-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+-- Found ament_cmake_ros: 0.12.0 (/opt/ros/jazzy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found python_cmake_module: 0.11.1 (/opt/ros/jazzy/share/python_cmake_module/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter Development NumPy Development.Module Development.Embed 
+-- Configuring done (6.5s)
+-- Generating done (0.9s)
+-- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package
+[  1%] Built target cpp_package__rosidl_generator_type_description
+[  1%] Built target ament_cmake_python_copy_cpp_package
+[  2%] Linking CXX executable icp_3d_odom_node
+[  3%] Linking CXX executable front_cloud_filter_node
+[  4%] Linking CXX executable pointcloud_formatter_node
+[  5%] Linking CXX executable deskew_node
+[  6%] Built target front_cloud_filter_node
+[  7%] Built target deskew_node
+[  8%] Linking CXX executable obstacle_detector_node
+[  9%] Built target pointcloud_formatter_node
+[ 10%] Linking CXX executable point_cloud_sweeper_cpp_node
+[ 11%] Linking CXX executable point_cloud_accumulator_cpp_node
+[ 13%] Built target point_cloud_sweeper_cpp_node
+[ 14%] Linking CXX executable point_cloud_voxel_filter_cpp_node
+[ 15%] Built target point_cloud_accumulator_cpp_node
+[ 16%] Linking CXX executable point_cloud_passthrough_filter_cpp_node
+[ 17%] Built target obstacle_detector_node
+[ 18%] Linking CXX executable point_cloud_statistical_outlier_remover_cpp_node
+[ 19%] Built target icp_3d_odom_node
+[ 20%] Linking CXX executable point_count_sweeper_node
+[ 21%] Built target point_cloud_passthrough_filter_cpp_node
+[ 22%] Linking CXX executable z_variance_sweeper_node
+[ 23%] Built target point_cloud_voxel_filter_cpp_node
+[ 25%] Linking CXX executable stable_ground_detector_node
+[ 26%] Built target point_count_sweeper_node
+[ 27%] Building CXX object CMakeFiles/step_detector_node.dir/src/step_detector_node.cpp.o
+[ 28%] Built target z_variance_sweeper_node
+[ 29%] Linking CXX executable projected_ground_detector_node
+[ 30%] Built target point_cloud_statistical_outlier_remover_cpp_node
+[ 31%] Linking CXX executable height_ground_detector_node
+[ 32%] Built target stable_ground_detector_node
+[ 34%] Built target imu_odometry_node
+[ 35%] Built target cpp_package__cpp
+[ 44%] Built target cpp_package__rosidl_generator_c
+running egg_info
+writing cpp_package.egg-info/PKG-INFO
+writing dependency_links to cpp_package.egg-info/dependency_links.txt
+writing top-level names to cpp_package.egg-info/top_level.txt
+reading manifest file 'cpp_package.egg-info/SOURCES.txt'
+writing manifest file 'cpp_package.egg-info/SOURCES.txt'
+[ 44%] Built target ament_cmake_python_build_cpp_package_egg
+[ 48%] Built target cpp_package__rosidl_typesupport_cpp
+[ 53%] Built target cpp_package__rosidl_typesupport_fastrtps_c
+[ 54%] Built target height_ground_detector_node
+[ 58%] Built target cpp_package__rosidl_typesupport_fastrtps_cpp
+[ 63%] Built target cpp_package__rosidl_typesupport_introspection_c
+[ 67%] Built target cpp_package__rosidl_typesupport_c
+[ 71%] Built target cpp_package__rosidl_typesupport_introspection_cpp
+[ 72%] Linking CXX executable obstacle_evaluator_node
+[ 75%] Built target navigation_hint_node
+[ 77%] Built target haptic_driver_node
+[ 78%] Building CXX object CMakeFiles/ground_plane_fitter_node.dir/src/ground_plane_fitter_node.cpp.o
+[ 79%] Built target projected_ground_detector_node
+[ 80%] Linking CXX executable ground_plane_fitter_no_voxel_node
+[ 81%] Built target obstacle_evaluator_node
+[ 82%] Linking CXX executable ground_plane_fitter_lock_plane_node
+[ 83%] Built target ground_plane_fitter_no_voxel_node
+[ 84%] Building CXX object CMakeFiles/stable_ground_fitter_node.dir/src/stable_ground_fitter_node.cpp.o
+[ 85%] Built target ground_plane_fitter_lock_plane_node
+[ 85%] Built target cpp_package
+[ 86%] Built target cpp_package__py
+[ 90%] Built target cpp_package__rosidl_generator_py
+[ 92%] Built target cpp_package_s__rosidl_typesupport_fastrtps_c
+[ 94%] Built target cpp_package_s__rosidl_typesupport_introspection_c
+[ 96%] Built target cpp_package_s__rosidl_typesupport_c
+[ 97%] Linking CXX executable step_detector_node
+[ 98%] Linking CXX executable ground_plane_fitter_node
+[ 98%] Built target step_detector_node
+[ 98%] Built target ground_plane_fitter_node

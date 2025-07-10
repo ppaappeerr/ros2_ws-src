@@ -77,6 +77,7 @@
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.idl
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/ObstacleFeedback.msg
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/msg/NavHint.msg
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/user_centric_roi_detector
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/icp_3d_odom_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/pointcloud_formatter_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/front_cloud_filter_node
@@ -98,7 +99,6 @@
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/ground_plane_fitter_lock_plane_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/projected_ground_detector_node
-/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/height_ground_detector_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/imu_odometry_node
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
