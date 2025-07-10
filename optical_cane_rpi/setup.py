@@ -25,9 +25,7 @@ setup(
     entry_points={
         'console_scripts': [
             'sensor_fusion_node = optical_cane_rpi.sensor_fusion_node:main',
-            'sweep_node = optical_cane_rpi.sweep_node:main',
-            'accumulator_node = optical_cane_rpi.accumulator_node:main',
-            'angle_sweeper_node = optical_cane_rpi.angle_sweeper_node:main',
+            'esp32_bridge_node = optical_cane_rpi.esp32_bridge_node:main',
         ],
     },
 )

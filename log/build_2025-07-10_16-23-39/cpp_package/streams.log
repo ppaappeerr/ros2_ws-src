@@ -1,0 +1,101 @@
+[0.052s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.199s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.351s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[1.008s] -- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.225s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.253s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.253s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.291s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.377s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.384s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.655s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.924s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.099s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[2.146s] -- Found pcl_msgs: 1.0.0 (/opt/ros/jazzy/share/pcl_msgs/cmake)
+[2.179s] -- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[2.347s] -- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)
+[2.434s] CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[2.435s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[2.435s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[2.435s]   cmake_policy command to set the policy and suppress this warning.
+[2.436s] 
+[2.436s]   CMake variable FLANN_ROOT is set to:
+[2.436s] 
+[2.436s]     /usr
+[2.436s] 
+[2.436s]   For compatibility, find_package is ignoring the variable, but code in a
+[2.436s]   .cmake module might still use it.
+[2.441s] Call Stack (most recent call first):
+[2.441s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[2.441s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[2.441s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[2.441s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[2.441s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[2.441s]   /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[2.441s]   /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[2.442s]   CMakeLists.txt:21 (find_package)
+[2.442s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[2.442s] 
+[2.442s] -- Found flann version 1.9.2
+[6.409s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[6.447s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[6.476s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[8.588s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[8.600s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[10.597s] -- Found Qhull version 8.0.2
+[12.193s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.368s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[13.371s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[13.377s] CMake Warning (dev) at CMakeLists.txt:23 (find_package):
+[13.377s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[13.377s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[13.377s]   command to set the policy and suppress this warning.
+[13.377s] 
+[13.377s]   CMake variable PCL_ROOT is set to:
+[13.378s] 
+[13.378s]     /usr
+[13.378s] 
+[13.378s]   For compatibility, CMake is ignoring the variable.
+[13.378s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[13.378s] 
+[13.731s] -- Configuring done (13.6s)
+[13.948s] -- Generating done (0.2s)
+[13.975s] -- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package
+[14.166s] [ 16%] Building CXX object CMakeFiles/point_cloud_sweeper_cpp_node.dir/src/point_cloud_sweeper_cpp_node.cpp.o
+[14.195s] [ 33%] Building CXX object CMakeFiles/stable_ground_fitter_node.dir/src/stable_ground_fitter_node.cpp.o
+[14.287s] [ 50%] Building CXX object CMakeFiles/user_centric_roi_detector.dir/src/user_centric_roi_detector.cpp.o
+[143.808s] [ 66%] Linking CXX executable point_cloud_sweeper_cpp_node
+[153.568s] [ 83%] Linking CXX executable user_centric_roi_detector
+[158.506s] [100%] Linking CXX executable stable_ground_fitter_node
+[165.046s] [100%] Built target point_cloud_sweeper_cpp_node
+[165.179s] [100%] Built target user_centric_roi_detector
+[165.322s] [100%] Built target stable_ground_fitter_node
+[165.483s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[165.502s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package
+[165.532s] -- Install configuration: ""
+[165.538s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node
+[165.555s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node" to ""
+[165.597s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node
+[165.621s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node" to ""
+[165.691s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/user_centric_roi_detector
+[165.713s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/user_centric_roi_detector" to ""
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/package_run_dependencies/cpp_package
+[165.713s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/parent_prefix_path/cpp_package
+[165.749s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.sh
+[165.749s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.dsv
+[165.749s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.sh
+[165.749s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.dsv
+[165.749s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.bash
+[165.750s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.sh
+[165.755s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.zsh
+[165.755s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.dsv
+[165.755s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.dsv
+[165.755s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/packages/cpp_package
+[165.755s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig.cmake
+[165.755s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig-version.cmake
+[165.755s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.xml
+[165.759s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/sweep_builder:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package
