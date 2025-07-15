@@ -1,9 +1,0 @@
-setup.py
-cpp_package/__init__.py
-cpp_package.egg-info/PKG-INFO
-cpp_package.egg-info/SOURCES.txt
-cpp_package.egg-info/dependency_links.txt
-cpp_package.egg-info/top_level.txt
-cpp_package/msg/__init__.py
-cpp_package/msg/_nav_hint.py
-cpp_package/msg/_obstacle_feedback.py

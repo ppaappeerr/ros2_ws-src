@@ -1,4 +1,0 @@
-[console_scripts]
-mpu9250 = mpu9250.mpu9250:main
-mpu9250_driver_node = mpu9250.mpu9250_driver_node:main
-mpu9250_filtered = mpu9250.mpu9250_filtered:main

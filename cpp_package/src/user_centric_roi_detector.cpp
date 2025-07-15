@@ -18,9 +18,9 @@ public:
         this->declare_parameter<double>("roi.x_m", 2.0); // Forward distance from user
         this->declare_parameter<double>("roi.y_m", 1.5); // Width, centered on user
         this->declare_parameter<double>("roi.z_m", 1.8); // Height from the ground plane
-        this->declare_parameter<int>("roi.x_cells", 3);
-        this->declare_parameter<int>("roi.y_cells", 3);
-        this->declare_parameter<int>("roi.z_cells", 3);
+        this->declare_parameter<int>("roi.x_cells", 3);  // 3: NEAR, MID, FAR
+        this->declare_parameter<int>("roi.y_cells", 3);  // 3: LEFT, CENTER, RIGHT
+        this->declare_parameter<int>("roi.z_cells", 3);  // 3: LOW, MID, HIGH
         this->declare_parameter<int>("cell_activation_threshold", 10);
         this->declare_parameter<double>("stop_distance_m", 0.8);
 
@@ -62,7 +62,7 @@ private:
             }
         }
         if (front_cloud->empty()) {
-            publish_command("CLEAR");
+            publish_command("STOP"); // 기본값을 STOP으로 변경
             return;
         }
 
@@ -79,13 +79,17 @@ private:
         double cell_size_y = roi_y / y_cells;
         double cell_size_z = roi_z / z_cells;
 
-        std::vector<int> cell_point_counts(x_cells * y_cells * z_cells, 0);
+        // 3D ROI 텐서 초기화 (x: distance, y: horizontal, z: vertical)
+        std::vector<std::vector<std::vector<int>>> roi_tensor(x_cells, 
+            std::vector<std::vector<int>>(y_cells, 
+                std::vector<int>(z_cells, 0)));
 
         double a = locked_plane_coefficients_->values[0];
         double b = locked_plane_coefficients_->values[1];
         double c = locked_plane_coefficients_->values[2];
         double d = locked_plane_coefficients_->values[3];
 
+        // 각 포인트를 ROI 텐서에 할당
         for (const auto& point : front_cloud->points) {
             double dist_to_plane = std::abs(a * point.x + b * point.y + c * point.z + d);
 
@@ -94,79 +98,93 @@ private:
                 int y_idx = static_cast<int>((point.y + roi_y / 2.0) / cell_size_y);
                 int z_idx = static_cast<int>(dist_to_plane / cell_size_z);
 
-                if (x_idx < x_cells && y_idx < y_cells && z_idx < z_cells) {
-                    int cell_index = z_idx * (x_cells * y_cells) + x_idx * y_cells + y_idx;
-                    cell_point_counts[cell_index]++;
+                if (x_idx >= 0 && x_idx < x_cells && 
+                    y_idx >= 0 && y_idx < y_cells && 
+                    z_idx >= 0 && z_idx < z_cells) {
+                    roi_tensor[x_idx][y_idx][z_idx]++;
                 }
             }
         }
 
-        // --- 3. Analyze cells and generate command ---
-        std::string command = "CLEAR";
-        double stop_dist = this->get_parameter("stop_distance_m").as_double();
+        // --- 3. 우선순위 기반 명령어 생성 ---
+        std::string command = "STOP"; // 기본값은 STOP
+
+        // 우선순위에 따른 ROI 텐서 분석
+        bool obstacle_detected = false;
         
-        // Check for immediate frontal obstacles (middle and top layers)
-        bool stop_triggered = false;
-        for (int z = 1; z < z_cells; ++z) { // Start from middle layer
-            int center_y = y_cells / 2;
-            for (int x = 0; x < static_cast<int>(stop_dist / cell_size_x) + 1 && x < x_cells; ++x) {
-                int cell_idx = z * (x_cells * y_cells) + x * y_cells + center_y;
-                if (cell_point_counts[cell_idx] > activation_threshold) {
-                    command = "STOP";
-                    stop_triggered = true;
-                    break;
-                }
-            }
-            if (stop_triggered) break;
+        // 정면 가까운 영역부터 검사 (높은 우선순위)
+        if (roi_tensor[0][1][2] > activation_threshold) {
+            command = "FRONT_HIGH";
+            obstacle_detected = true;
         }
-
-        // If no stop command, check for steps
-        if (!stop_triggered) {
-            int front_x = 0;
-            int left_y = 0;
-            int center_y = 1;
-            int right_y = 2;
-            int bottom_z = 0;
-
-            int left_step_idx = bottom_z * (x_cells * y_cells) + front_x * y_cells + left_y;
-            int center_step_idx = bottom_z * (x_cells * y_cells) + front_x * y_cells + center_y;
-            int right_step_idx = bottom_z * (x_cells * y_cells) + front_x * y_cells + right_y;
-
-            if (cell_point_counts[center_step_idx] > activation_threshold) {
-                command = "FRONT_STEP_UP";
-            } else if (cell_point_counts[left_step_idx] > activation_threshold) {
-                command = "LEFT_STEP_UP";
-            } else if (cell_point_counts[right_step_idx] > activation_threshold) {
-                command = "RIGHT_STEP_UP";
-            }
+        else if (roi_tensor[0][1][1] > activation_threshold) {
+            command = "FRONT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][1][0] > activation_threshold) {
+            command = "FRONT_LOW";
+            obstacle_detected = true;
+        }
+        // 왼쪽 영역 검사
+        else if (roi_tensor[0][0][2] > activation_threshold) {
+            command = "LEFT_HIGH";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][0][1] > activation_threshold) {
+            command = "LEFT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][0][0] > activation_threshold) {
+            command = "LEFT_LOW";
+            obstacle_detected = true;
+        }
+        // 오른쪽 영역 검사
+        else if (roi_tensor[0][2][2] > activation_threshold) {
+            command = "RIGHT_HIGH";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][2][1] > activation_threshold) {
+            command = "RIGHT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][2][0] > activation_threshold) {
+            command = "RIGHT_LOW";
+            obstacle_detected = true;
+        }
+        // 중거리 영역 검사 (중간 우선순위)
+        else if (roi_tensor[1][1][1] > activation_threshold) {
+            command = "FRONT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[1][0][1] > activation_threshold) {
+            command = "LEFT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[1][2][1] > activation_threshold) {
+            command = "RIGHT_MID";
+            obstacle_detected = true;
+        }
+        // 원거리 영역 검사 (낮은 우선순위)
+        else if (roi_tensor[2][1][1] > activation_threshold) {
+            command = "FRONT_LOW"; // 원거리는 낮은 강도로 알림
+            obstacle_detected = true;
         }
         
-        // If still clear, check for side obstacles to suggest turns
-        if (command == "CLEAR") {
-            bool left_obstacle = false;
-            bool right_obstacle = false;
-            for (int z = 0; z < z_cells; ++z) {
-                for (int x = 0; x < x_cells; ++x) {
-                    if (cell_point_counts[z * (x_cells * y_cells) + x * y_cells + 0] > activation_threshold) left_obstacle = true;
-                    if (cell_point_counts[z * (x_cells * y_cells) + x * y_cells + 2] > activation_threshold) right_obstacle = true;
-                }
-            }
-            if (left_obstacle && !right_obstacle) command = "TURN_RIGHT";
-            else if (!left_obstacle && right_obstacle) command = "TURN_LEFT";
+        // 장애물이 없는 경우 STOP으로 설정 (기본값)
+        if (!obstacle_detected) {
+            command = "STOP"; // 안전한 경우에는 정지 명령
         }
 
         publish_command(command);
     }
 
     void publish_command(const std::string& command) {
-        if (last_command_ != command || command != "CLEAR") {
+        if (last_command_ != command) {
             std_msgs::msg::String command_msg;
             command_msg.data = command;
             haptic_command_pub_->publish(command_msg);
+            RCLCPP_INFO(this->get_logger(), "Published command: %s", command.c_str());
             last_command_ = command;
-            if (command != "CLEAR") {
-                RCLCPP_INFO(this->get_logger(), "Published command: %s", command.c_str());
-            }
         }
     }
 

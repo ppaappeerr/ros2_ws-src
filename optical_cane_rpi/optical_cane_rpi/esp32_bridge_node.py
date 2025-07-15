@@ -1,55 +1,56 @@
+# esp32_bridge_node.py
+
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String, UInt8
+from std_msgs.msg import String, Int32
 
-class ESP32BridgeNode(Node):
+class ESP32Bridge(Node):
     def __init__(self):
         super().__init__('esp32_bridge_node')
-
-        # Command mapping from string to integer
-        self.command_map = {
-            "CLEAR": 0,
-            "STOP": 1,
-            "TURN_LEFT": 2,
-            "TURN_RIGHT": 3,
-            "FRONT_STEP_UP": 4,
-            "LEFT_STEP_UP": 5,
-            "RIGHT_STEP_UP": 6,
-            "DROPOFF_AHEAD": 7, # Assuming we might add this back later
-        }
-
-        # Subscriber to the high-level command topic
+        
+        # 1. /haptic_command 토픽(String)을 구독
         self.subscription = self.create_subscription(
             String,
             '/haptic_command',
             self.command_callback,
             10)
         
-        # Publisher for the micro-ROS agent
-        self.publisher_ = self.create_publisher(UInt8, '/micro_ros_haptic_command', 10)
-
-        self.get_logger().info('ESP32 Bridge Node has started.')
-        self.get_logger().info('Subscribing to /haptic_command and publishing to /micro_ros_haptic_command.')
+        # 2. ESP32로 보낼 /micro_ros_haptic_command 토픽(Int32)을 발행
+        self.publisher_ = self.create_publisher(Int32, '/micro_ros_haptic_command', 10)
+        
+        # 3. 문자열 명령과 정수 ID 매핑 정의
+        self.command_to_id = {
+            "STOP": 0,
+            "FRONT_LOW": 1,
+            "FRONT_MID": 2,
+            "FRONT_HIGH": 3,
+            "LEFT_LOW": 11,
+            "LEFT_MID": 12,
+            "LEFT_HIGH": 13,
+            "RIGHT_LOW": 21,
+            "RIGHT_MID": 22,
+            "RIGHT_HIGH": 23,
+            # ...필요에 따라 더 구체적인 명령 추가...
+        }
+        self.get_logger().info('ESP32 Bridge is running...')
 
     def command_callback(self, msg):
         command_str = msg.data
         
-        # Look up the command in the map
-        command_id = self.command_map.get(command_str, -1) # Default to -1 if command not found
-
+        # 4. 수신된 문자열을 정수 ID로 변환 (없으면 -1)
+        command_id = self.command_to_id.get(command_str, -1)
+        
         if command_id != -1:
-            pub_msg = UInt8()
-            pub_msg.data = command_id
-            self.publisher_.publish(pub_msg)
-            self.get_logger().debug(f'Received command "{command_str}", sent ID {command_id}')
-        else:
-            self.get_logger().warn(f'Received unknown command: "{command_str}"')
+            int_msg = Int32()
+            int_msg.data = command_id
+            self.publisher_.publish(int_msg)
+            self.get_logger().info(f'Relaying command: "{command_str}" as ID: {command_id}')
 
 def main(args=None):
     rclpy.init(args=args)
-    esp32_bridge_node = ESP32BridgeNode()
-    rclpy.spin(esp32_bridge_node)
-    esp32_bridge_node.destroy_node()
+    esp32_bridge = ESP32Bridge()
+    rclpy.spin(esp32_bridge)
+    esp32_bridge.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
