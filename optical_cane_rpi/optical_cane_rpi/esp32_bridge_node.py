@@ -30,6 +30,7 @@ class ESP32Bridge(Node):
             "RIGHT_LOW": 21,
             "RIGHT_MID": 22,
             "RIGHT_HIGH": 23,
+            "OK": 99,
             # ...필요에 따라 더 구체적인 명령 추가...
         }
         self.get_logger().info('ESP32 Bridge is running...')

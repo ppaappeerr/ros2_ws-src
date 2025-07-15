@@ -62,7 +62,7 @@ private:
             }
         }
         if (front_cloud->empty()) {
-            publish_command("STOP"); // 기본값을 STOP으로 변경
+            publish_command("OK"); // 변경: 앞쪽에 포인트가 없으면 OK 상태
             return;
         }
 
@@ -107,7 +107,7 @@ private:
         }
 
         // --- 3. 우선순위 기반 명령어 생성 ---
-        std::string command = "STOP"; // 기본값은 STOP
+        std::string command = "OK"; // 변경: 기본값은 OK로 설정
 
         // 우선순위에 따른 ROI 텐서 분석
         bool obstacle_detected = false;
@@ -170,9 +170,9 @@ private:
             obstacle_detected = true;
         }
         
-        // 장애물이 없는 경우 STOP으로 설정 (기본값)
+        // 장애물이 없는 경우 OK로 설정 (변경됨)
         if (!obstacle_detected) {
-            command = "STOP"; // 안전한 경우에는 정지 명령
+            command = "OK"; // 안전한 경우에는 OK 명령
         }
 
         publish_command(command);
