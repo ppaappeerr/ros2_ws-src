@@ -11,6 +11,7 @@ def generate_launch_description():
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
     frame_id = LaunchConfiguration('frame_id', default='laser')
+    scan_frequency = LaunchConfiguration('scan_frequency', default='10.0')
 
     # 보정 파일 경로 (동적으로 설정)
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
@@ -44,7 +45,8 @@ def generate_launch_description():
             'frame_id': frame_id,
             'inverted': False,
             'angle_compensate': True,
-            'scan_mode': 'Sensitivity'
+            'scan_mode': 'Sensitivity',
+            'scan_frequency': scan_frequency
         }],
         output='screen'
     )
@@ -87,6 +89,7 @@ def generate_launch_description():
         DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
         DeclareLaunchArgument('serial_baudrate', default_value='115200'),
         DeclareLaunchArgument('frame_id', default_value='laser'),
+        DeclareLaunchArgument('scan_frequency', default_value='10.0'),
 
         static_tf_base_to_imu,
         static_tf_imu_to_laser,
