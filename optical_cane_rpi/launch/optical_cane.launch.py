@@ -11,12 +11,10 @@ def generate_launch_description():
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
     frame_id = LaunchConfiguration('frame_id', default='laser')
-    scan_frequency = LaunchConfiguration('scan_frequency', default='10.0')
+    use_rviz = LaunchConfiguration('use_rviz', default='false')  # RViz 실행 여부 인자 추가
 
-    # 보정 파일 경로 (동적으로 설정)
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
 
-    # TF 설정 - 기본 프레임 변환
     static_tf_base_to_imu = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -33,7 +31,6 @@ def generate_launch_description():
         output='screen'
     )
 
-    # SLLIDAR 노드
     sllidar_node = Node(
         package='sllidar_ros2',
         executable='sllidar_node',
@@ -45,13 +42,11 @@ def generate_launch_description():
             'frame_id': frame_id,
             'inverted': False,
             'angle_compensate': True,
-            'scan_mode': 'Sensitivity',
-            'scan_frequency': scan_frequency
+            'scan_mode': 'Sensitivity'
         }],
         output='screen'
     )
 
-    # MPU9250 IMU 노드
     imu_node = Node(
         package='mpu9250',
         executable='mpu9250_filtered',
@@ -64,10 +59,7 @@ def generate_launch_description():
         output='screen'
     )
 
-    # RViz 설정 경로 - 소스 디렉토리 우선 사용
     source_rviz_path = '/home/p/ros2_ws/src/optical_cane_rpi/rviz/optical_cane.rviz'
-    
-    # 소스 디렉토리에 파일이 있으면 그것을 사용, 없으면 install 디렉토리 사용
     if os.path.exists(source_rviz_path):
         rviz_config_dir = source_rviz_path
     else:
@@ -84,16 +76,26 @@ def generate_launch_description():
         output='screen'
     )
 
-    return LaunchDescription([
+    # LaunchDescription에 RViz2 노드 조건부 추가
+    launch_nodes = [
         DeclareLaunchArgument('channel_type', default_value='serial'),
         DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
         DeclareLaunchArgument('serial_baudrate', default_value='115200'),
         DeclareLaunchArgument('frame_id', default_value='laser'),
-        DeclareLaunchArgument('scan_frequency', default_value='10.0'),
+        DeclareLaunchArgument('use_rviz', default_value='false'),
 
         static_tf_base_to_imu,
         static_tf_imu_to_laser,
         sllidar_node,
-        imu_node,
-        rviz_node
-    ])
+        imu_node
+    ]
+
+    from launch.conditions import IfCondition
+    from launch.actions import GroupAction
+
+    # use_rviz이 true일 때만 rviz_node 추가
+    launch_nodes.append(
+        GroupAction([rviz_node], condition=IfCondition(use_rviz))
+    )
+
+    return LaunchDescription(launch_nodes)

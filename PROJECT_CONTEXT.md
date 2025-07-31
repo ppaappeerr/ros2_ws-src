@@ -9,7 +9,7 @@
 
 ### 1. The Goal
 
-The "Optical Cane" is a wearable assistive device. Its goal is to use a 2D LiDAR and an IMU to perceive the 3D environment in real-time, distinguish between safe ground and hazards, and convey this information to the user through clear, intuitive haptic (vibration) feedback.
+The "Optical Cane" is a wearable assistive device. Its goal is to use a 2D LiDAR and an IMU to perceive the 3D environment in real-time, to distinguish between safe ground and hazards, and to convey this information to the user through clear, intuitive haptic (vibration) feedback.
 
 ### 2. System Architecture
 
@@ -70,3 +70,9 @@ The ESP32's sole job is to receive the integer ID and act.
 *   **Refine Haptics:** Experiment with the 123 available effects to create the most intuitive feedback.
 *   **Improve Code Quality:** Use `enum` for Command IDs to increase readability.
 *   **Enhance Connection Stability:** Implement robust error handling and reconnection logic for Wi-Fi and micro-ROS.
+
+---
+
+## Gemini's Language Preference
+
+**Instruction:** Always respond in Korean, regardless of the language the user asks in.

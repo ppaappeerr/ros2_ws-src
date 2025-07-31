@@ -13,6 +13,7 @@
 #include <pcl/common/distances.h>
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2/LinearMath/Matrix3x3.h>
+#include <limits>
 
 class StableGroundFitterNode : public rclcpp::Node
 {
@@ -25,10 +26,10 @@ public:
         this->declare_parameter<std::string>("obstacle_topic", "/obstacle_points");
         this->declare_parameter<std::string>("marker_topic", "/ground_plane_marker");
         this->declare_parameter<double>("ground_height_threshold_min", -1.7);
-        this->declare_parameter<double>("ground_height_threshold_max", -1.0);
+        this->declare_parameter<double>("ground_height_threshold_max", -1.5);
         this->declare_parameter<double>("voxel_leaf_size", 0.05);
         this->declare_parameter<double>("ransac_distance_threshold", 0.05);
-        this->declare_parameter<int>("ransac_lock_count", 50);
+        this->declare_parameter<int>("ransac_lock_count", 100);
         this->declare_parameter<bool>("reset_plane_detection", false);
         this->declare_parameter<double>("marker_scale_x", 10.0);
         this->declare_parameter<double>("marker_scale_y", 10.0);
@@ -171,10 +172,25 @@ private:
 
         if (input_cloud->empty()) return;
 
-        // --- Obstacle Extraction (from original cloud) ---
+        // --- Pre-filtering for a 180-degree forward field of view (+/- 90 degrees) ---
+        pcl::PointCloud<pcl::PointXYZ>::Ptr fov_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+        fov_cloud->header = input_cloud->header;
+        
+        // Keep points with a positive X value, which corresponds to the front hemisphere.
+        for (const auto& point : input_cloud->points)
+        {
+            if (point.x > 0)
+            {
+                fov_cloud->points.push_back(point);
+            }
+        }
+
+        if (fov_cloud->empty()) return;
+
+        // --- Obstacle Extraction (from the FOV-filtered cloud) ---
         pcl::PointCloud<pcl::PointXYZ>::Ptr obstacle_cloud(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::PassThrough<pcl::PointXYZ> pass_obs;
-        pass_obs.setInputCloud(input_cloud);
+        pass_obs.setInputCloud(fov_cloud);
         pass_obs.setFilterFieldName("z");
         pass_obs.setFilterLimits(ground_height_threshold_min_, ground_height_threshold_max_);
         pass_obs.setNegative(true);
@@ -187,10 +203,10 @@ private:
             obstacle_publisher_->publish(obstacle_msg);
         }
 
-        // --- Ground Candidate Extraction ---
+        // --- Ground Candidate Extraction (from the FOV-filtered cloud) ---
         pcl::PointCloud<pcl::PointXYZ>::Ptr ground_candidates(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::PassThrough<pcl::PointXYZ> pass_ground;
-        pass_ground.setInputCloud(input_cloud);
+        pass_ground.setInputCloud(fov_cloud);
         pass_ground.setFilterFieldName("z");
         pass_ground.setFilterLimits(ground_height_threshold_min_, ground_height_threshold_max_);
         pass_ground.filter(*ground_candidates);

@@ -16,7 +16,7 @@ public:
     {
         // Parameters
         this->declare_parameter<double>("roi.x_m", 2.0); // Forward distance from user
-        this->declare_parameter<double>("roi.y_m", 1.5); // Width, centered on user
+        this->declare_parameter<double>("roi.y_m", 0.9); // Width, centered on user
         this->declare_parameter<double>("roi.z_m", 1.8); // Height from the ground plane
         this->declare_parameter<int>("roi.x_cells", 3);  // 3: NEAR, MID, FAR
         this->declare_parameter<int>("roi.y_cells", 3);  // 3: LEFT, CENTER, RIGHT
@@ -125,30 +125,30 @@ private:
             command = "FRONT_LOW";
             obstacle_detected = true;
         }
-        // 왼쪽 영역 검사
+        // 오른쪽 영역 검사 (y_idx = 0)
         else if (roi_tensor[0][0][2] > activation_threshold) {
-            command = "LEFT_HIGH";
-            obstacle_detected = true;
-        }
-        else if (roi_tensor[0][0][1] > activation_threshold) {
-            command = "LEFT_MID";
-            obstacle_detected = true;
-        }
-        else if (roi_tensor[0][0][0] > activation_threshold) {
-            command = "LEFT_LOW";
-            obstacle_detected = true;
-        }
-        // 오른쪽 영역 검사
-        else if (roi_tensor[0][2][2] > activation_threshold) {
             command = "RIGHT_HIGH";
             obstacle_detected = true;
         }
-        else if (roi_tensor[0][2][1] > activation_threshold) {
+        else if (roi_tensor[0][0][1] > activation_threshold) {
             command = "RIGHT_MID";
             obstacle_detected = true;
         }
-        else if (roi_tensor[0][2][0] > activation_threshold) {
+        else if (roi_tensor[0][0][0] > activation_threshold) {
             command = "RIGHT_LOW";
+            obstacle_detected = true;
+        }
+        // 왼쪽 영역 검사 (y_idx = 2)
+        else if (roi_tensor[0][2][2] > activation_threshold) {
+            command = "LEFT_HIGH";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][2][1] > activation_threshold) {
+            command = "LEFT_MID";
+            obstacle_detected = true;
+        }
+        else if (roi_tensor[0][2][0] > activation_threshold) {
+            command = "LEFT_LOW";
             obstacle_detected = true;
         }
         // 중거리 영역 검사 (중간 우선순위)
@@ -157,11 +157,11 @@ private:
             obstacle_detected = true;
         }
         else if (roi_tensor[1][0][1] > activation_threshold) {
-            command = "LEFT_MID";
+            command = "RIGHT_MID"; // y_idx = 0 is RIGHT
             obstacle_detected = true;
         }
         else if (roi_tensor[1][2][1] > activation_threshold) {
-            command = "RIGHT_MID";
+            command = "LEFT_MID"; // y_idx = 2 is LEFT
             obstacle_detected = true;
         }
         // 원거리 영역 검사 (낮은 우선순위)
