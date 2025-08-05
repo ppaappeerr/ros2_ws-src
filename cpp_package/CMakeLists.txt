@@ -16,6 +16,7 @@ find_package(std_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(pcl_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(angles REQUIRED)
 
 # PCL 패키지
 find_package(pcl_ros REQUIRED)
@@ -52,12 +53,25 @@ ament_target_dependencies(user_centric_roi_detector
 )
 target_link_libraries(user_centric_roi_detector ${PCL_LIBRARIES})
 
+# Path Planner Node
+add_executable(path_planner_node src/path_planner_node.cpp)
+ament_target_dependencies(path_planner_node
+  rclcpp
+  sensor_msgs
+  geometry_msgs
+  visualization_msgs
+  pcl_conversions
+  angles
+)
+target_link_libraries(path_planner_node ${PCL_LIBRARIES})
+
 
 # 실행 파일 설치
 install(TARGETS
   point_cloud_sweeper_cpp_node
   stable_ground_fitter_node
   user_centric_roi_detector
+  path_planner_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

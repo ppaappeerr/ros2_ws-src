@@ -1,0 +1,4 @@
+/home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp: In member function ‘void PathPlannerNode::publishMarkers(const std::vector<double, std::allocator<double> >&, const std_msgs::msg::Header&)’:
+/home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:129:30: warning: comparison of integer expressions of different signedness: ‘size_t’ {aka ‘long unsigned int’} and ‘const int’ [-Wsign-compare]
+  129 |         for (size_t i = 0; i < num_rays; ++i) {
+      |                            ~~^~~~~~~~~~

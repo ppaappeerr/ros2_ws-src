@@ -1,0 +1,35 @@
+[0.018s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.155s] [ 25%] Built target point_cloud_sweeper_cpp_node
+[0.162s] [ 75%] Built target user_centric_roi_detector
+[0.162s] [ 75%] Built target stable_ground_fitter_node
+[0.178s] [ 87%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
+[20.268s] [100%] Linking CXX executable path_planner_node
+[22.928s] [100%] Built target path_planner_node
+[22.951s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[22.972s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package
+[22.988s] -- Install configuration: ""
+[22.988s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node
+[22.989s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node
+[22.989s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/user_centric_roi_detector
+[22.990s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/path_planner_node
+[23.008s] -- Set non-toolchain portion of runtime path of "/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/path_planner_node" to ""
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/package_run_dependencies/cpp_package
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/parent_prefix_path/cpp_package
+[23.008s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.sh
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/ament_prefix_path.dsv
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.sh
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/environment/path.dsv
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.bash
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.sh
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.zsh
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/local_setup.dsv
+[23.009s] -- Installing: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.dsv
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/ament_index/resource_index/packages/cpp_package
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig.cmake
+[23.009s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/cmake/cpp_packageConfig-version.cmake
+[23.010s] -- Up-to-date: /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/package.xml
+[23.011s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/p/ros2_ws/src/build/cpp_package

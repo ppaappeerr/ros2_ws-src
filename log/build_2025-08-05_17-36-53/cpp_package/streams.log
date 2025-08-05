@@ -1,0 +1,13 @@
+[0.017s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.151s] [ 25%] Built target stable_ground_fitter_node
+[0.159s] [ 62%] Built target user_centric_roi_detector
+[0.160s] [ 75%] Built target point_cloud_sweeper_cpp_node
+[0.186s] [ 87%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
+[2.818s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:10:10: fatal error: angles/angles.h: 그런 파일이나 디렉터리가 없습니다
+[2.818s]    10 | #include "angles/angles.h"
+[2.818s]       |          ^~~~~~~~~~~~~~~~~
+[2.818s] compilation terminated.
+[2.851s] gmake[2]: *** [CMakeFiles/path_planner_node.dir/build.make:76: CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o] 오류 1
+[2.851s] gmake[1]: *** [CMakeFiles/Makefile2:221: CMakeFiles/path_planner_node.dir/all] 오류 2
+[2.851s] gmake: *** [Makefile:146: all] 오류 2
+[2.855s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4

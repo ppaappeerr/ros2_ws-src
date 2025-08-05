@@ -3,6 +3,7 @@
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/point_cloud_sweeper_cpp_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/stable_ground_fitter_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/user_centric_roi_detector.dir
+/home/p/ros2_ws/src/build/cpp_package/CMakeFiles/path_planner_node.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/test.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/edit_cache.dir
 /home/p/ros2_ws/src/build/cpp_package/CMakeFiles/rebuild_cache.dir

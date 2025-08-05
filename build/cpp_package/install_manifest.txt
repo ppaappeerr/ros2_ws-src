@@ -1,6 +1,7 @@
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/point_cloud_sweeper_cpp_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/stable_ground_fitter_node
 /home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/user_centric_roi_detector
+/home/p/ros2_ws/src/install/cpp_package/lib/cpp_package/path_planner_node
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/icp_odom.launch.py
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/assistive_nav.launch.py
 /home/p/ros2_ws/src/install/cpp_package/share/cpp_package/launch/front_cloud_filter.launch.py

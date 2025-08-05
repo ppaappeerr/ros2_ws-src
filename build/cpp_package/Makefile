@@ -236,6 +236,43 @@ user_centric_roi_detector/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/build
 .PHONY : user_centric_roi_detector/fast
 
+#=============================================================================
+# Target rules for targets named path_planner_node
+
+# Build rule for target.
+path_planner_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 path_planner_node
+.PHONY : path_planner_node
+
+# fast build rule for target.
+path_planner_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/build
+.PHONY : path_planner_node/fast
+
+src/path_planner_node.o: src/path_planner_node.cpp.o
+.PHONY : src/path_planner_node.o
+
+# target to build an object file
+src/path_planner_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
+.PHONY : src/path_planner_node.cpp.o
+
+src/path_planner_node.i: src/path_planner_node.cpp.i
+.PHONY : src/path_planner_node.i
+
+# target to preprocess a source file
+src/path_planner_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.i
+.PHONY : src/path_planner_node.cpp.i
+
+src/path_planner_node.s: src/path_planner_node.cpp.s
+.PHONY : src/path_planner_node.s
+
+# target to generate assembly for a file
+src/path_planner_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.s
+.PHONY : src/path_planner_node.cpp.s
+
 src/point_cloud_sweeper_cpp_node.o: src/point_cloud_sweeper_cpp_node.cpp.o
 .PHONY : src/point_cloud_sweeper_cpp_node.o
 
@@ -323,9 +360,13 @@ help:
 	@echo "... test"
 	@echo "... cpp_package_uninstall"
 	@echo "... uninstall"
+	@echo "... path_planner_node"
 	@echo "... point_cloud_sweeper_cpp_node"
 	@echo "... stable_ground_fitter_node"
 	@echo "... user_centric_roi_detector"
+	@echo "... src/path_planner_node.o"
+	@echo "... src/path_planner_node.i"
+	@echo "... src/path_planner_node.s"
 	@echo "... src/point_cloud_sweeper_cpp_node.o"
 	@echo "... src/point_cloud_sweeper_cpp_node.i"
 	@echo "... src/point_cloud_sweeper_cpp_node.s"

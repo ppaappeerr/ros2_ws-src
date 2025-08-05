@@ -1,0 +1,4 @@
+[ 25%] Built target stable_ground_fitter_node
+[ 62%] Built target user_centric_roi_detector
+[ 75%] Built target point_cloud_sweeper_cpp_node
+[ 87%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o

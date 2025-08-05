@@ -1,0 +1,106 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-87342e9d753d94546cfe.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.15"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "cpp_package",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "cpp_package_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-cpp_package_uninstall-bce5f5e29e433cd679a8.json",
+					"name" : "cpp_package_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "path_planner_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-path_planner_node-5aafddf28b8f0052df76.json",
+					"name" : "path_planner_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "point_cloud_sweeper_cpp_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-point_cloud_sweeper_cpp_node-504a65573cc7fdbaf548.json",
+					"name" : "point_cloud_sweeper_cpp_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "stable_ground_fitter_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-stable_ground_fitter_node-464a8346c64dc3b713f7.json",
+					"name" : "stable_ground_fitter_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-71ec5c6786d5eaa8c553.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "user_centric_roi_detector::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-user_centric_roi_detector-d5a2a37de7bdacb8400d.json",
+					"name" : "user_centric_roi_detector",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/p/ros2_ws/src/build/cpp_package",
+		"source" : "/home/p/ros2_ws/src/cpp_package"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -66,6 +66,7 @@ CMAKE_BINARY_DIR = /home/p/ros2_ws/src/build/cpp_package
 all: CMakeFiles/point_cloud_sweeper_cpp_node.dir/all
 all: CMakeFiles/stable_ground_fitter_node.dir/all
 all: CMakeFiles/user_centric_roi_detector.dir/all
+all: CMakeFiles/path_planner_node.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -78,6 +79,7 @@ clean: CMakeFiles/cpp_package_uninstall.dir/clean
 clean: CMakeFiles/point_cloud_sweeper_cpp_node.dir/clean
 clean: CMakeFiles/stable_ground_fitter_node.dir/clean
 clean: CMakeFiles/user_centric_roi_detector.dir/clean
+clean: CMakeFiles/path_planner_node.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -139,7 +141,7 @@ CMakeFiles/cpp_package_uninstall.dir/clean:
 CMakeFiles/point_cloud_sweeper_cpp_node.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/point_cloud_sweeper_cpp_node.dir/build.make CMakeFiles/point_cloud_sweeper_cpp_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/point_cloud_sweeper_cpp_node.dir/build.make CMakeFiles/point_cloud_sweeper_cpp_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=1,2 "Built target point_cloud_sweeper_cpp_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=3,4 "Built target point_cloud_sweeper_cpp_node"
 .PHONY : CMakeFiles/point_cloud_sweeper_cpp_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -165,7 +167,7 @@ CMakeFiles/point_cloud_sweeper_cpp_node.dir/clean:
 CMakeFiles/stable_ground_fitter_node.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stable_ground_fitter_node.dir/build.make CMakeFiles/stable_ground_fitter_node.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/stable_ground_fitter_node.dir/build.make CMakeFiles/stable_ground_fitter_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=3,4 "Built target stable_ground_fitter_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=5,6 "Built target stable_ground_fitter_node"
 .PHONY : CMakeFiles/stable_ground_fitter_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -191,7 +193,7 @@ CMakeFiles/stable_ground_fitter_node.dir/clean:
 CMakeFiles/user_centric_roi_detector.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=5,6 "Built target user_centric_roi_detector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=7,8 "Built target user_centric_roi_detector"
 .PHONY : CMakeFiles/user_centric_roi_detector.dir/all
 
 # Build rule for subdir invocation for target.
@@ -209,6 +211,32 @@ user_centric_roi_detector: CMakeFiles/user_centric_roi_detector.dir/rule
 CMakeFiles/user_centric_roi_detector.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/clean
 .PHONY : CMakeFiles/user_centric_roi_detector.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/path_planner_node.dir
+
+# All Build rule for target.
+CMakeFiles/path_planner_node.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/p/ros2_ws/src/build/cpp_package/CMakeFiles --progress-num=1,2 "Built target path_planner_node"
+.PHONY : CMakeFiles/path_planner_node.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/path_planner_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p/ros2_ws/src/build/cpp_package/CMakeFiles 2
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/path_planner_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/p/ros2_ws/src/build/cpp_package/CMakeFiles 0
+.PHONY : CMakeFiles/path_planner_node.dir/rule
+
+# Convenience name for target.
+path_planner_node: CMakeFiles/path_planner_node.dir/rule
+.PHONY : path_planner_node
+
+# clean rule for target.
+CMakeFiles/path_planner_node.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/clean
+.PHONY : CMakeFiles/path_planner_node.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

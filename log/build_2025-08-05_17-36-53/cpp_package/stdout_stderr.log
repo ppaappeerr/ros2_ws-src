@@ -1,0 +1,11 @@
+[ 25%] Built target stable_ground_fitter_node
+[ 62%] Built target user_centric_roi_detector
+[ 75%] Built target point_cloud_sweeper_cpp_node
+[ 87%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
+/home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:10:10: fatal error: angles/angles.h: 그런 파일이나 디렉터리가 없습니다
+   10 | #include "angles/angles.h"
+      |          ^~~~~~~~~~~~~~~~~
+compilation terminated.
+gmake[2]: *** [CMakeFiles/path_planner_node.dir/build.make:76: CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o] 오류 1
+gmake[1]: *** [CMakeFiles/Makefile2:221: CMakeFiles/path_planner_node.dir/all] 오류 2
+gmake: *** [Makefile:146: all] 오류 2
