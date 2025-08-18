@@ -163,7 +163,7 @@ private:
             marker.scale.x = 0.02;
             marker.scale.y = 0.05;
             marker.scale.z = 0.05;
-            marker.color.a = 0.5; // Make candidate rays semi-transparent
+            marker.color.a = 0.1; // Make candidate rays very transparent
             marker.color.r = (5.0 - depths[i]) / 5.0;
             marker.color.g = depths[i] / 5.0;
             marker.color.b = 0.0;
@@ -187,7 +187,7 @@ private:
         ideal_marker.scale.x = 0.05; // Reduced thickness
         ideal_marker.scale.y = 0.1;  // Reduced thickness
         ideal_marker.scale.z = 0.1;
-        ideal_marker.color.a = 1.0;
+        ideal_marker.color.a = 0.1; // Make ideal vector very transparent
         ideal_marker.color.r = 1.0;
         ideal_marker.color.g = 1.0;
         ideal_marker.color.b = 0.0; // Yellow
@@ -214,6 +214,7 @@ private:
         smoothed_marker.id = num_rays + 1;
         smoothed_marker.points[1].x = smoothed_depth * cos(smoothed_angle);
         smoothed_marker.points[1].y = smoothed_depth * sin(smoothed_angle);
+        smoothed_marker.color.a = 1.0; // Keep final vector fully opaque
         smoothed_marker.color.r = 0.0;
         smoothed_marker.color.g = 0.5;
         smoothed_marker.color.b = 1.0; // Blue

@@ -75,4 +75,36 @@ This section describes the key nodes and how they form three different pipelines
 -   **Identified Problem:** The rigid bracelet design suffers from significant vibration crosstalk, making it difficult for a user to reliably distinguish which motor is active. This human-factors issue is unresolved and work is **ON HOLD**.
 
 ### 5. The Turning Point & New Development Mandate
-Following a critical review meeting, the project's philosophy shifted from "build it" to "prove it". **All future work must be guided by the principles and mandatory validation tasks outlined in `DEV_MANDATES.md`.**
+Following a critical review meeting, the project's philosophy shifted from "build it" to "prove it". **All future work must be
+guided by the principles and mandatory validation tasks outlined in `DEV_MANDATES.md`.**
+
+---
+
+### 6. Analysis Tooling & Workflow (Developed with Gemini)
+
+To support the mandatory data-driven analysis, a suite of Python-based tools and a standardized workflow have been developed.
+
+#### 6.1. Post-Hoc Analysis (`plot_analysis.py`)
+-   **Purpose:** To perform detailed, quantitative analysis on `ros2 bag` recordings after an experiment.
+-   **Location:** `src/plot_analysis.py`
+-   **Key Features:**
+    1.  **Automated Test Set Processing:** Analyzes a numbered test set (e.g., `test_1_p1`, `test_1_p2`, `test_1_p3`) with a single command: `python3 plot_analysis.py --test_set 1`.
+    2.  **Path Stability Plot:** Compares the path angle over time for the three pipelines. Data is automatically trimmed to the shortest run for fair comparison.
+    3.  **Advanced Smoothness Analysis:** Generates crucial metrics for evaluating the quality of the path guidance:
+        -   **Angular Velocity (RMS):** Measures how "jerky" or smooth the path changes are. Lower is better.
+        -   **Power Spectral Density (PSD):** Measures the amount of high-frequency "jitter" or vibration in the path signal. Lower is better.
+    4.  **Tilt Robustness Plot:** Compares path angle to IMU pitch to visualize stability during sensor tilt.
+
+#### 6.2. Real-Time Analysis (`live_plotter.py`)
+-   **Purpose:** To provide an immediate, intuitive visualization of an algorithm's performance during a live test, replacing the need for `rqt_plot`.
+-   **Key Components:**
+    1.  **`path_vector_plotter.py` (ROS Node):** Converts the `Vector3Stamped` path messages into simple `Float64` topics (`/plot/path_angle`, `/plot/path_angular_velocity`) for easy consumption.
+    2.  **`live_plotter.py` (Standalone Script):** A Matplotlib-based GUI that subscribes to the `/plot/*` topics and displays the path angle and angular velocity in real-time. Features a fixed Y-axis for stable viewing.
+-   **Workflow:**
+    1.  Run the main ROS pipeline nodes.
+    2.  Run the `path_vector_plotter.py` node.
+    3.  Run `python3 live_plotter.py` to launch the real-time graph.
+
+#### 6.3. RViz Visualization Improvements
+-   **Change:** The C++ path planner nodes (`path_planner_node.cpp`, `path_planner_3d_node.cpp`) were modified.
+-   **Improvement:** In the `/candidate_rays` MarkerArray, non-selected candidate rays are now rendered almost transparently (`alpha = 0.1`), making the final chosen path vector stand out clearly for better real-time intuition.
