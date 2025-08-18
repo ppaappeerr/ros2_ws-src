@@ -249,6 +249,56 @@ path_planner_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_node.dir/build.make CMakeFiles/path_planner_node.dir/build
 .PHONY : path_planner_node/fast
 
+#=============================================================================
+# Target rules for targets named path_planner_3d_node
+
+# Build rule for target.
+path_planner_3d_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 path_planner_3d_node
+.PHONY : path_planner_3d_node
+
+# fast build rule for target.
+path_planner_3d_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_3d_node.dir/build.make CMakeFiles/path_planner_3d_node.dir/build
+.PHONY : path_planner_3d_node/fast
+
+#=============================================================================
+# Target rules for targets named voxel_grid_filter_node
+
+# Build rule for target.
+voxel_grid_filter_node: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 voxel_grid_filter_node
+.PHONY : voxel_grid_filter_node
+
+# fast build rule for target.
+voxel_grid_filter_node/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/voxel_grid_filter_node.dir/build.make CMakeFiles/voxel_grid_filter_node.dir/build
+.PHONY : voxel_grid_filter_node/fast
+
+src/path_planner_3d_node.o: src/path_planner_3d_node.cpp.o
+.PHONY : src/path_planner_3d_node.o
+
+# target to build an object file
+src/path_planner_3d_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_3d_node.dir/build.make CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o
+.PHONY : src/path_planner_3d_node.cpp.o
+
+src/path_planner_3d_node.i: src/path_planner_3d_node.cpp.i
+.PHONY : src/path_planner_3d_node.i
+
+# target to preprocess a source file
+src/path_planner_3d_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_3d_node.dir/build.make CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.i
+.PHONY : src/path_planner_3d_node.cpp.i
+
+src/path_planner_3d_node.s: src/path_planner_3d_node.cpp.s
+.PHONY : src/path_planner_3d_node.s
+
+# target to generate assembly for a file
+src/path_planner_3d_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/path_planner_3d_node.dir/build.make CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.s
+.PHONY : src/path_planner_3d_node.cpp.s
+
 src/path_planner_node.o: src/path_planner_node.cpp.o
 .PHONY : src/path_planner_node.o
 
@@ -345,6 +395,30 @@ src/user_centric_roi_detector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/user_centric_roi_detector.dir/build.make CMakeFiles/user_centric_roi_detector.dir/src/user_centric_roi_detector.cpp.s
 .PHONY : src/user_centric_roi_detector.cpp.s
 
+src/voxel_grid_filter_node.o: src/voxel_grid_filter_node.cpp.o
+.PHONY : src/voxel_grid_filter_node.o
+
+# target to build an object file
+src/voxel_grid_filter_node.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/voxel_grid_filter_node.dir/build.make CMakeFiles/voxel_grid_filter_node.dir/src/voxel_grid_filter_node.cpp.o
+.PHONY : src/voxel_grid_filter_node.cpp.o
+
+src/voxel_grid_filter_node.i: src/voxel_grid_filter_node.cpp.i
+.PHONY : src/voxel_grid_filter_node.i
+
+# target to preprocess a source file
+src/voxel_grid_filter_node.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/voxel_grid_filter_node.dir/build.make CMakeFiles/voxel_grid_filter_node.dir/src/voxel_grid_filter_node.cpp.i
+.PHONY : src/voxel_grid_filter_node.cpp.i
+
+src/voxel_grid_filter_node.s: src/voxel_grid_filter_node.cpp.s
+.PHONY : src/voxel_grid_filter_node.s
+
+# target to generate assembly for a file
+src/voxel_grid_filter_node.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/voxel_grid_filter_node.dir/build.make CMakeFiles/voxel_grid_filter_node.dir/src/voxel_grid_filter_node.cpp.s
+.PHONY : src/voxel_grid_filter_node.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -360,10 +434,15 @@ help:
 	@echo "... test"
 	@echo "... cpp_package_uninstall"
 	@echo "... uninstall"
+	@echo "... path_planner_3d_node"
 	@echo "... path_planner_node"
 	@echo "... point_cloud_sweeper_cpp_node"
 	@echo "... stable_ground_fitter_node"
 	@echo "... user_centric_roi_detector"
+	@echo "... voxel_grid_filter_node"
+	@echo "... src/path_planner_3d_node.o"
+	@echo "... src/path_planner_3d_node.i"
+	@echo "... src/path_planner_3d_node.s"
 	@echo "... src/path_planner_node.o"
 	@echo "... src/path_planner_node.i"
 	@echo "... src/path_planner_node.s"
@@ -376,6 +455,9 @@ help:
 	@echo "... src/user_centric_roi_detector.o"
 	@echo "... src/user_centric_roi_detector.i"
 	@echo "... src/user_centric_roi_detector.s"
+	@echo "... src/voxel_grid_filter_node.o"
+	@echo "... src/voxel_grid_filter_node.i"
+	@echo "... src/voxel_grid_filter_node.s"
 .PHONY : help
 
 

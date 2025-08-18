@@ -1,0 +1,24 @@
+[3.638s] Invoking command in '/home/p/ros2_ws/src/optical_cane_rpi': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/mpu9250:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/sllidar_ros2:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/mpu9250/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data
+[4.491s] running egg_info
+[4.568s] writing ../build/optical_cane_rpi/optical_cane_rpi.egg-info/PKG-INFO
+[4.569s] writing dependency_links to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/dependency_links.txt
+[4.571s] writing entry points to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/entry_points.txt
+[4.571s] writing requirements to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/requires.txt
+[4.575s] writing top-level names to ../build/optical_cane_rpi/optical_cane_rpi.egg-info/top_level.txt
+[4.731s] reading manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[4.733s] adding license file 'LICENSE'
+[4.737s] writing manifest file '../build/optical_cane_rpi/optical_cane_rpi.egg-info/SOURCES.txt'
+[4.737s] running build
+[4.737s] running build_py
+[4.739s] running install
+[4.757s] running install_lib
+[4.855s] running install_data
+[4.855s] running install_egg_info
+[4.961s] removing '/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi-0.0.0-py3.12.egg-info' (and everything under it)
+[4.970s] Copying ../build/optical_cane_rpi/optical_cane_rpi.egg-info to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages/optical_cane_rpi-0.0.0-py3.12.egg-info
+[4.979s] running install_scripts
+[5.586s] Installing esp32_bridge_node script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[5.591s] Installing scan_accumulator_node script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[5.591s] Installing sensor_fusion_node script to /home/p/ros2_ws/src/install/optical_cane_rpi/lib/optical_cane_rpi
+[5.591s] writing list of installed files to '/home/p/ros2_ws/src/build/optical_cane_rpi/install.log'
+[5.852s] Invoked command in '/home/p/ros2_ws/src/optical_cane_rpi' returned '0': AMENT_PREFIX_PATH=/home/p/ros2_ws/src/install/sllidar_ros2:/home/p/ros2_ws/src/install/mpu9250:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/p/ros2_ws/src/install/sllidar_ros2:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/p/ros2_ws/src/build/optical_cane_rpi/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/p/ros2_ws/src/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/src/install/mpu9250/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../build/optical_cane_rpi build --build-base /home/p/ros2_ws/src/build/optical_cane_rpi/build install --record /home/p/ros2_ws/src/build/optical_cane_rpi/install.log --single-version-externally-managed install_data

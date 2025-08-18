@@ -19,6 +19,13 @@ class PathPlannerNode : public rclcpp::Node
 public:
     PathPlannerNode() : Node("path_planner_node"), last_best_idx_(-1), smoothed_angle_(0.0)
     {
+        this->declare_parameter<bool>("front_view_only", true);
+        this->get_parameter("front_view_only", front_view_only_);
+        this->declare_parameter<bool>("use_voxel_filter", true);
+        this->get_parameter("use_voxel_filter", use_voxel_filter_);
+        this->declare_parameter<double>("voxel_leaf_size", 0.1);
+        this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
+
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/sweep_cloud_cpp", 10, std::bind(&PathPlannerNode::pointCloudCallback, this, std::placeholders::_1));
 
@@ -28,6 +35,7 @@ public:
 
         last_time_ = this->now();
         RCLCPP_INFO(this->get_logger(), "Path Planner Node has been started.");
+        RCLCPP_INFO(this->get_logger(), "Front view only: %s", front_view_only_ ? "true" : "false");
     }
 
 private:
@@ -41,22 +49,34 @@ private:
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::fromROSMsg(*msg, *cloud);
 
-        // ROI Filtering & Downsampling... (Code is the same, omitted for brevity)
+        // ROI Filtering & Downsampling...
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::PassThrough<pcl::PointXYZ> pass;
         pass.setInputCloud(cloud);
-        pass.setFilterFieldName("x");
-        pass.setFilterLimits(0.0, 5.0);
-        pass.filter(*cloud_filtered);
+
+        if (front_view_only_) {
+            pass.setFilterFieldName("x");
+            pass.setFilterLimits(0.0, 5.0); // Keep points in front of the sensor
+            pass.filter(*cloud_filtered);
+        } else {
+            *cloud_filtered = *cloud;
+        }
+        
         pass.setInputCloud(cloud_filtered);
         pass.setFilterFieldName("z");
         pass.setFilterLimits(-1.0, 2.0);
         pass.filter(*cloud_filtered);
+        
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_downsampled(new pcl::PointCloud<pcl::PointXYZ>);
-        pcl::VoxelGrid<pcl::PointXYZ> sor;
-        sor.setInputCloud(cloud_filtered);
-        sor.setLeafSize(0.1f, 0.1f, 0.1f);
-        sor.filter(*cloud_downsampled);
+        if (use_voxel_filter_) {
+            pcl::VoxelGrid<pcl::PointXYZ> sor;
+            sor.setInputCloud(cloud_filtered);
+            sor.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
+            sor.filter(*cloud_downsampled);
+        } else {
+            *cloud_downsampled = *cloud_filtered;
+        }
+
         for (auto& point : *cloud_downsampled) {
             point.z = 0;
         }
@@ -75,7 +95,8 @@ private:
             Eigen::Vector2f ray_dir(cos(angle), sin(angle));
             double min_dist_for_ray = max_dist;
             for (const auto& point : *cloud_downsampled) {
-                if (point.x < 0) continue;
+                // This check is somewhat redundant if front_view_only is true, but good for safety
+                if (point.x < 0) continue; 
                 Eigen::Vector2f point_vec(point.x, point.y);
                 if (point_vec.norm() == 0) continue;
                 if (point_vec.dot(ray_dir) > 0) {
@@ -208,6 +229,9 @@ private:
     int last_best_idx_;
     double smoothed_angle_;
     rclcpp::Time last_time_;
+    bool front_view_only_;
+    bool use_voxel_filter_;
+    double voxel_leaf_size_;
 };
 
 // main function is the same

@@ -65,6 +65,23 @@ ament_target_dependencies(path_planner_node
 )
 target_link_libraries(path_planner_node ${PCL_LIBRARIES})
 
+# Path Planner 3D Node
+add_executable(path_planner_3d_node src/path_planner_3d_node.cpp)
+ament_target_dependencies(path_planner_3d_node
+  rclcpp
+  sensor_msgs
+  geometry_msgs
+  visualization_msgs
+  pcl_conversions
+  angles
+)
+target_link_libraries(path_planner_3d_node ${PCL_LIBRARIES})
+
+# Voxel Grid Filter Node
+add_executable(voxel_grid_filter_node src/voxel_grid_filter_node.cpp)
+ament_target_dependencies(voxel_grid_filter_node rclcpp sensor_msgs pcl_conversions)
+target_link_libraries(voxel_grid_filter_node ${PCL_LIBRARIES})
+
 
 # 실행 파일 설치
 install(TARGETS
@@ -72,6 +89,8 @@ install(TARGETS
   stable_ground_fitter_node
   user_centric_roi_detector
   path_planner_node
+  path_planner_3d_node
+  voxel_grid_filter_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

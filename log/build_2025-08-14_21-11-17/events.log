@@ -1,0 +1,429 @@
+[0.000000] (-) TimerEvent: {}
+[0.000143] (-) JobUnselected: {'identifier': 'drive_base_msgs'}
+[0.000325] (-) JobUnselected: {'identifier': 'micro_ros_agent'}
+[0.000403] (-) JobUnselected: {'identifier': 'micro_ros_msgs'}
+[0.000625] (-) JobUnselected: {'identifier': 'mpu9250'}
+[0.000645] (-) JobUnselected: {'identifier': 'optical_cane_rpi'}
+[0.000790] (-) JobUnselected: {'identifier': 'sllidar_ros2'}
+[0.000813] (cpp_package) JobQueued: {'identifier': 'cpp_package', 'dependencies': OrderedDict()}
+[0.001012] (cpp_package) JobStarted: {'identifier': 'cpp_package'}
+[0.014823] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'cmake'}
+[0.016514] (cpp_package) JobProgress: {'identifier': 'cpp_package', 'progress': 'build'}
+[0.017747] (cpp_package) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/p/ros2_ws/src/build/cpp_package', '--', '-j4', '-l4'], 'cwd': '/home/p/ros2_ws/src/build/cpp_package', 'env': OrderedDict({'LESSOPEN': '| /usr/bin/lesspipe %s', 'LANGUAGE': 'ko:en', 'USER': 'p', 'SSH_CLIENT': '192.168.0.6 38260 22', 'LC_TIME': 'en_US.UTF-8', 'GZ_CONFIG_PATH': '/opt/ros/jazzy/opt/gz_sim_vendor/share/gz:/opt/ros/jazzy/opt/sdformat_vendor/share/gz:/opt/ros/jazzy/opt/gz_gui_vendor/share/gz:/opt/ros/jazzy/opt/gz_transport_vendor/share/gz:/opt/ros/jazzy/opt/gz_rendering_vendor/share/gz:/opt/ros/jazzy/opt/gz_plugin_vendor/share/gz:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/share/gz:/opt/ros/jazzy/opt/gz_msgs_vendor/share/gz:/opt/ros/jazzy/opt/gz_common_vendor/share/gz', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/p/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/extensions/git/dist/askpass.sh', 'SHLVL': '3', 'LD_LIBRARY_PATH': '/home/p/ros2_ws/install/micro_ros_agent/lib:/home/p/ros2_ws/install/micro_ros_msgs/lib:/home/p/ros2_ws/install/drive_base_msgs/lib:/opt/ros/jazzy/opt/gz_sim_vendor/lib:/opt/ros/jazzy/opt/gz_sensors_vendor/lib:/opt/ros/jazzy/opt/gz_physics_vendor/lib:/opt/ros/jazzy/opt/sdformat_vendor/lib:/opt/ros/jazzy/opt/rviz_ogre_vendor/lib:/opt/ros/jazzy/lib/aarch64-linux-gnu:/opt/ros/jazzy/opt/gz_gui_vendor/lib:/opt/ros/jazzy/opt/gz_transport_vendor/lib:/opt/ros/jazzy/opt/gz_rendering_vendor/lib:/opt/ros/jazzy/opt/gz_plugin_vendor/lib:/opt/ros/jazzy/opt/gz_fuel_tools_vendor/lib:/opt/ros/jazzy/opt/gz_msgs_vendor/lib:/opt/ros/jazzy/opt/gz_common_vendor/lib:/opt/ros/jazzy/opt/gz_math_vendor/lib:/opt/ros/jazzy/opt/gz_utils_vendor/lib:/opt/ros/jazzy/opt/gz_tools_vendor/lib:/opt/ros/jazzy/opt/gz_ogre_next_vendor/lib:/opt/ros/jazzy/opt/gz_dartsim_vendor/lib:/opt/ros/jazzy/opt/gz_cmake_vendor/lib:/opt/ros/jazzy/lib', 'BROWSER': '/home/p/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/bin/helpers/browser.sh', 'HOME': '/home/p', 'TERM_PROGRAM_VERSION': '1.102.3', 'VSCODE_IPC_HOOK_CLI': '/run/user/1002/vscode-ipc-75405b5a-4a60-43d5-97b2-1269930c8e50.sock', 'ROS_PYTHON_VERSION': '3', 'VSCODE_GIT_ASKPASS_MAIN': '/home/p/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'en_US.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/p/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/cert.pem', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.10.0/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1002/bus', 'COLORTERM': 'truecolor', 'GEMINI_MODEL': 'gemini-2.5-pro', 'DEBUGINFOD_URLS': 'https://debuginfod.ubuntu.com', 'COLCON_PREFIX_PATH': '/home/p/ros2_ws/install', 'ROS_DISTRO': 'jazzy', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'p', '_': '/usr/bin/colcon', 'GEMINI_CLI': '1', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'GEMINI_CLI_IDE_WORKSPACE_PATH': '/home/p/ros2_ws/src', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '7', 'GEMINI_CLI_IDE_SERVER_PORT': '33235', 'PATH': '/opt/nodejs/bin:/home/p/.vscode-server/cli/servers/Stable-488a1f239235055e34e673291fb8d8c810886f81/server/bin/remote-cli:/home/p/.local/bin:/opt/nodejs/bin:/opt/ros/jazzy/opt/gz_msgs_vendor/bin:/opt/ros/jazzy/opt/gz_tools_vendor/bin:/opt/ros/jazzy/opt/gz_ogre_next_vendor/bin:/opt/ros/jazzy/bin:/home/p/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/p/.vscode-server/extensions/ms-python.debugpy-2025.10.0/bundled/scripts/noConfigScripts:/home/p/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand', 'FASTRTPS_DEFAULT_PROFILES_FILE': '/home/p/fastrtps_profile.xml', 'PAPERSIZE': 'letter', 'LC_ADDRESS': 'en_US.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1002', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/p/.vscode-server/extensions/ms-python.debugpy-2025.10.0/.noConfigDebugAdapterEndpoints/endpoint-f6094e7b537131ef.txt', 'LANG': 'ko_KR.UTF-8', 'LC_TELEPHONE': 'en_US.UTF-8', 'RMW_IMPLEMENTATION': 'rmw_fastrtps_cpp', 'XMODIFIERS': '@im=ibus', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=00:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.avif=01;35:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:*~=00;90:*#=00;90:*.bak=00;90:*.crdownload=00;90:*.dpkg-dist=00;90:*.dpkg-new=00;90:*.dpkg-old=00;90:*.dpkg-tmp=00;90:*.old=00;90:*.orig=00;90:*.part=00;90:*.rej=00;90:*.rpmnew=00;90:*.rpmorig=00;90:*.rpmsave=00;90:*.swp=00;90:*.tmp=00;90:*.ucf-dist=00;90:*.ucf-new=00;90:*.ucf-old=00;90:', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1002/vscode-git-99df6499c2.sock', 'TERM_PROGRAM': 'vscode', 'ROS_DOMAIN_ID': '0', 'AMENT_PREFIX_PATH': '/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/mpu9250:/home/p/ros2_ws/install/micro_ros_agent:/home/p/ros2_ws/install/micro_ros_msgs:/home/p/ros2_ws/install/drive_base_msgs:/home/p/ros2_ws/install/cpp_package:/opt/ros/jazzy', 'SHELL': '/bin/bash', 'LC_NAME': 'en_US.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'en_US.UTF-8', 'LC_IDENTIFICATION': 'en_US.UTF-8', 'ROS_AUTOMATIC_DISCOVERY_RANGE': 'SUBNET', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/p/ros2_ws/src/build/cpp_package', 'LC_ALL': 'en_US.UTF-8', 'GEMINI_API_KEY': 'AIzaSyCFOAXu8QJKCJuvyuozc_YKgQbxlHeOCrM', 'SSH_CONNECTION': '192.168.0.6 38260 192.168.0.4 22', 'XDG_DATA_DIRS': '/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/p/ros2_ws/build/optical_cane_rpi:/home/p/ros2_ws/install/optical_cane_rpi/lib/python3.12/site-packages:/home/p/ros2_ws/build/mpu9250:/home/p/ros2_ws/install/mpu9250/lib/python3.12/site-packages:/home/p/ros2_ws/install/micro_ros_msgs/lib/python3.12/site-packages:/home/p/ros2_ws/install/drive_base_msgs/lib/python3.12/site-packages:/opt/ros/jazzy/lib/python3.12/site-packages', 'LC_NUMERIC': 'en_US.UTF-8', 'LC_PAPER': 'en_US.UTF-8', 'COLCON': '1', 'CMAKE_PREFIX_PATH': '/home/p/ros2_ws/install/sllidar_ros2:/home/p/ros2_ws/install/micro_ros_agent:/home/p/ros2_ws/install/micro_ros_msgs:/home/p/ros2_ws/install/drive_base_msgs:/home/p/ros2_ws/install/cpp_package:/opt/ros/jazzy/opt/gz_sim_vendor:/opt/ros/jazzy/opt/gz_sensors_vendor:/opt/ros/jazzy/opt/gz_physics_vendor:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_gui_vendor:/opt/ros/jazzy/opt/gz_transport_vendor:/opt/ros/jazzy/opt/gz_rendering_vendor:/opt/ros/jazzy/opt/gz_plugin_vendor:/opt/ros/jazzy/opt/gz_fuel_tools_vendor:/opt/ros/jazzy/opt/gz_msgs_vendor:/opt/ros/jazzy/opt/gz_common_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_ogre_next_vendor:/opt/ros/jazzy/opt/gz_dartsim_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy'}), 'shell': False}
+[0.087965] (cpp_package) StdoutLine: {'line': b'-- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)\n'}
+[0.099669] (-) TimerEvent: {}
+[0.199887] (-) TimerEvent: {}
+[0.300086] (-) TimerEvent: {}
+[0.400293] (-) TimerEvent: {}
+[0.500500] (-) TimerEvent: {}
+[0.600727] (-) TimerEvent: {}
+[0.700974] (-) TimerEvent: {}
+[0.748061] (cpp_package) StdoutLine: {'line': b'-- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)\n'}
+[0.801099] (-) TimerEvent: {}
+[0.901341] (-) TimerEvent: {}
+[1.001582] (-) TimerEvent: {}
+[1.101821] (-) TimerEvent: {}
+[1.202043] (-) TimerEvent: {}
+[1.302267] (-) TimerEvent: {}
+[1.402517] (-) TimerEvent: {}
+[1.502758] (-) TimerEvent: {}
+[1.593134] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)\n'}
+[1.602834] (-) TimerEvent: {}
+[1.703041] (-) TimerEvent: {}
+[1.803278] (-) TimerEvent: {}
+[1.879488] (cpp_package) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)\n'}
+[1.903398] (-) TimerEvent: {}
+[2.003625] (-) TimerEvent: {}
+[2.103862] (-) TimerEvent: {}
+[2.204107] (-) TimerEvent: {}
+[2.304345] (-) TimerEvent: {}
+[2.404561] (-) TimerEvent: {}
+[2.408067] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[2.504677] (-) TimerEvent: {}
+[2.604918] (-) TimerEvent: {}
+[2.705175] (-) TimerEvent: {}
+[2.805403] (-) TimerEvent: {}
+[2.905614] (-) TimerEvent: {}
+[2.999906] (cpp_package) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[3.005694] (-) TimerEvent: {}
+[3.105878] (-) TimerEvent: {}
+[3.206113] (-) TimerEvent: {}
+[3.306366] (-) TimerEvent: {}
+[3.406608] (-) TimerEvent: {}
+[3.506856] (-) TimerEvent: {}
+[3.607101] (-) TimerEvent: {}
+[3.707352] (-) TimerEvent: {}
+[3.807582] (-) TimerEvent: {}
+[3.907811] (-) TimerEvent: {}
+[4.008035] (-) TimerEvent: {}
+[4.108244] (-) TimerEvent: {}
+[4.208475] (-) TimerEvent: {}
+[4.308705] (-) TimerEvent: {}
+[4.408935] (-) TimerEvent: {}
+[4.509185] (-) TimerEvent: {}
+[4.580855] (cpp_package) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)\n'}
+[4.609262] (-) TimerEvent: {}
+[4.633297] (cpp_package) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)\n'}
+[4.709396] (-) TimerEvent: {}
+[4.809632] (-) TimerEvent: {}
+[4.909865] (-) TimerEvent: {}
+[5.010100] (-) TimerEvent: {}
+[5.110335] (-) TimerEvent: {}
+[5.210547] (-) TimerEvent: {}
+[5.310768] (-) TimerEvent: {}
+[5.369039] (cpp_package) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[5.410880] (-) TimerEvent: {}
+[5.511105] (-) TimerEvent: {}
+[5.611359] (-) TimerEvent: {}
+[5.711585] (-) TimerEvent: {}
+[5.811816] (-) TimerEvent: {}
+[5.952126] (-) TimerEvent: {}
+[6.052380] (-) TimerEvent: {}
+[6.152609] (-) TimerEvent: {}
+[6.252326] (cpp_package) StdoutLine: {'line': b'-- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)\n'}
+[6.252668] (-) TimerEvent: {}
+[6.352823] (-) TimerEvent: {}
+[6.453053] (-) TimerEvent: {}
+[6.553282] (-) TimerEvent: {}
+[6.653504] (-) TimerEvent: {}
+[6.753751] (-) TimerEvent: {}
+[6.829076] (cpp_package) StdoutLine: {'line': b'-- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)\n'}
+[6.853845] (-) TimerEvent: {}
+[6.954050] (-) TimerEvent: {}
+[6.984890] (cpp_package) StdoutLine: {'line': b'-- Found pcl_msgs: 1.0.0 (/opt/ros/jazzy/share/pcl_msgs/cmake)\n'}
+[7.054162] (-) TimerEvent: {}
+[7.134891] (cpp_package) StdoutLine: {'line': b'-- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)\n'}
+[7.154265] (-) TimerEvent: {}
+[7.254493] (-) TimerEvent: {}
+[7.354714] (-) TimerEvent: {}
+[7.454931] (-) TimerEvent: {}
+[7.555152] (-) TimerEvent: {}
+[7.655381] (-) TimerEvent: {}
+[7.755597] (-) TimerEvent: {}
+[7.855826] (-) TimerEvent: {}
+[7.956052] (-) TimerEvent: {}
+[8.056262] (-) TimerEvent: {}
+[8.156482] (-) TimerEvent: {}
+[8.256708] (-) TimerEvent: {}
+[8.356927] (-) TimerEvent: {}
+[8.457145] (-) TimerEvent: {}
+[8.557373] (-) TimerEvent: {}
+[8.657598] (-) TimerEvent: {}
+[8.674076] (cpp_package) StdoutLine: {'line': b'-- Found angles: 1.16.0 (/opt/ros/jazzy/share/angles/cmake)\n'}
+[8.757705] (-) TimerEvent: {}
+[8.764193] (cpp_package) StdoutLine: {'line': b'-- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)\n'}
+[8.857823] (-) TimerEvent: {}
+[8.958039] (-) TimerEvent: {}
+[9.058297] (-) TimerEvent: {}
+[9.158583] (-) TimerEvent: {}
+[9.185160] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):\n'}
+[9.185496] (cpp_package) StderrLine: {'line': b'  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT\n'}
+[9.185790] (cpp_package) StderrLine: {'line': b'  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the\n'}
+[9.185905] (cpp_package) StderrLine: {'line': b'  cmake_policy command to set the policy and suppress this warning.\n'}
+[9.186008] (cpp_package) StderrLine: {'line': b'\n'}
+[9.186108] (cpp_package) StderrLine: {'line': b'  CMake variable FLANN_ROOT is set to:\n'}
+[9.186211] (cpp_package) StderrLine: {'line': b'\n'}
+[9.186316] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[9.186430] (cpp_package) StderrLine: {'line': b'\n'}
+[9.186529] (cpp_package) StderrLine: {'line': b'  For compatibility, find_package is ignoring the variable, but code in a\n'}
+[9.186626] (cpp_package) StderrLine: {'line': b'  .cmake module might still use it.\n'}
+[9.186724] (cpp_package) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[9.186820] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)\n'}
+[9.186919] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)\n'}
+[9.187021] (cpp_package) StderrLine: {'line': b'  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)\n'}
+[9.187118] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.187214] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)\n'}
+[9.187319] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)\n'}
+[9.187435] (cpp_package) StderrLine: {'line': b'  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)\n'}
+[9.187536] (cpp_package) StderrLine: {'line': b'  CMakeLists.txt:22 (find_package)\n'}
+[9.187635] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[9.187732] (cpp_package) StderrLine: {'line': b'\n'}
+[9.187971] (cpp_package) StdoutLine: {'line': b'-- Found flann version 1.9.2\n'}
+[9.258689] (-) TimerEvent: {}
+[9.358914] (-) TimerEvent: {}
+[9.459130] (-) TimerEvent: {}
+[9.559381] (-) TimerEvent: {}
+[9.659600] (-) TimerEvent: {}
+[9.759824] (-) TimerEvent: {}
+[9.860077] (-) TimerEvent: {}
+[9.960384] (-) TimerEvent: {}
+[10.060596] (-) TimerEvent: {}
+[10.160815] (-) TimerEvent: {}
+[10.261040] (-) TimerEvent: {}
+[10.361288] (-) TimerEvent: {}
+[10.461558] (-) TimerEvent: {}
+[10.561768] (-) TimerEvent: {}
+[10.662014] (-) TimerEvent: {}
+[10.762267] (-) TimerEvent: {}
+[10.862502] (-) TimerEvent: {}
+[10.962716] (-) TimerEvent: {}
+[11.062948] (-) TimerEvent: {}
+[11.163182] (-) TimerEvent: {}
+[11.263398] (-) TimerEvent: {}
+[11.363621] (-) TimerEvent: {}
+[11.463829] (-) TimerEvent: {}
+[11.564036] (-) TimerEvent: {}
+[11.664248] (-) TimerEvent: {}
+[11.764484] (-) TimerEvent: {}
+[11.864689] (-) TimerEvent: {}
+[11.964915] (-) TimerEvent: {}
+[12.065163] (-) TimerEvent: {}
+[12.165377] (-) TimerEvent: {}
+[12.265585] (-) TimerEvent: {}
+[12.365803] (-) TimerEvent: {}
+[12.466028] (-) TimerEvent: {}
+[12.566252] (-) TimerEvent: {}
+[12.666504] (-) TimerEvent: {}
+[12.766733] (-) TimerEvent: {}
+[12.866953] (-) TimerEvent: {}
+[12.971079] (-) TimerEvent: {}
+[13.021683] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[13.071210] (-) TimerEvent: {}
+[13.105900] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[13.155447] (cpp_package) StdoutLine: {'line': b'-- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) \n'}
+[13.171328] (-) TimerEvent: {}
+[13.271540] (-) TimerEvent: {}
+[13.371912] (-) TimerEvent: {}
+[13.472370] (-) TimerEvent: {}
+[13.572635] (-) TimerEvent: {}
+[13.672870] (-) TimerEvent: {}
+[13.773096] (-) TimerEvent: {}
+[13.873356] (-) TimerEvent: {}
+[13.929951] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[13.941298] (cpp_package) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[13.973518] (-) TimerEvent: {}
+[14.073766] (-) TimerEvent: {}
+[14.173981] (-) TimerEvent: {}
+[14.274224] (-) TimerEvent: {}
+[14.374488] (-) TimerEvent: {}
+[14.474730] (-) TimerEvent: {}
+[14.574956] (-) TimerEvent: {}
+[14.675173] (-) TimerEvent: {}
+[14.709222] (cpp_package) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[14.775291] (-) TimerEvent: {}
+[14.875523] (-) TimerEvent: {}
+[14.975752] (-) TimerEvent: {}
+[15.075984] (-) TimerEvent: {}
+[15.176200] (-) TimerEvent: {}
+[15.276460] (-) TimerEvent: {}
+[15.376676] (-) TimerEvent: {}
+[15.410935] (cpp_package) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[15.476804] (-) TimerEvent: {}
+[15.577150] (-) TimerEvent: {}
+[15.677446] (-) TimerEvent: {}
+[15.777725] (-) TimerEvent: {}
+[15.877951] (-) TimerEvent: {}
+[15.978158] (-) TimerEvent: {}
+[16.078384] (-) TimerEvent: {}
+[16.178629] (-) TimerEvent: {}
+[16.278851] (-) TimerEvent: {}
+[16.379100] (-) TimerEvent: {}
+[16.442235] (cpp_package) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)\n'}
+[16.445991] (cpp_package) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[16.453373] (cpp_package) StderrLine: {'line': b'CMake Warning (dev) at CMakeLists.txt:24 (find_package):\n'}
+[16.453631] (cpp_package) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[16.453802] (cpp_package) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[16.453936] (cpp_package) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[16.454060] (cpp_package) StderrLine: {'line': b'\n'}
+[16.454192] (cpp_package) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[16.454301] (cpp_package) StderrLine: {'line': b'\n'}
+[16.454437] (cpp_package) StderrLine: {'line': b'    /usr\n'}
+[16.454522] (cpp_package) StderrLine: {'line': b'\n'}
+[16.454609] (cpp_package) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[16.454692] (cpp_package) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[16.454776] (cpp_package) StderrLine: {'line': b'\n'}
+[16.479198] (-) TimerEvent: {}
+[16.579402] (-) TimerEvent: {}
+[16.679615] (-) TimerEvent: {}
+[16.779852] (-) TimerEvent: {}
+[16.799751] (cpp_package) StdoutLine: {'line': b'-- Configuring done (16.7s)\n'}
+[16.879969] (-) TimerEvent: {}
+[16.980202] (-) TimerEvent: {}
+[17.080423] (-) TimerEvent: {}
+[17.180668] (-) TimerEvent: {}
+[17.280910] (-) TimerEvent: {}
+[17.381114] (-) TimerEvent: {}
+[17.454404] (cpp_package) StdoutLine: {'line': b'-- Generating done (0.6s)\n'}
+[17.481237] (-) TimerEvent: {}
+[17.533652] (cpp_package) StdoutLine: {'line': b'-- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package\n'}
+[17.581449] (-) TimerEvent: {}
+[17.684394] (-) TimerEvent: {}
+[17.692618] (cpp_package) StdoutLine: {'line': b'[ 20%] Built target path_planner_node\n'}
+[17.700625] (cpp_package) StdoutLine: {'line': b'[ 40%] Built target point_cloud_sweeper_cpp_node\n'}
+[17.714960] (cpp_package) StdoutLine: {'line': b'[ 60%] Built target stable_ground_fitter_node\n'}
+[17.737045] (cpp_package) StdoutLine: {'line': b'[ 70%] Building CXX object CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o\n'}
+[17.778805] (cpp_package) StdoutLine: {'line': b'[ 90%] Built target user_centric_roi_detector\n'}
+[17.784505] (-) TimerEvent: {}
+[17.884712] (-) TimerEvent: {}
+[17.984944] (-) TimerEvent: {}
+[18.085160] (-) TimerEvent: {}
+[18.185387] (-) TimerEvent: {}
+[18.285593] (-) TimerEvent: {}
+[18.385812] (-) TimerEvent: {}
+[18.486033] (-) TimerEvent: {}
+[18.586394] (-) TimerEvent: {}
+[18.686747] (-) TimerEvent: {}
+[18.786987] (-) TimerEvent: {}
+[18.887214] (-) TimerEvent: {}
+[18.987450] (-) TimerEvent: {}
+[19.087668] (-) TimerEvent: {}
+[19.187893] (-) TimerEvent: {}
+[19.288124] (-) TimerEvent: {}
+[19.388360] (-) TimerEvent: {}
+[19.489103] (-) TimerEvent: {}
+[19.589379] (-) TimerEvent: {}
+[19.689607] (-) TimerEvent: {}
+[19.789842] (-) TimerEvent: {}
+[19.890080] (-) TimerEvent: {}
+[19.990342] (-) TimerEvent: {}
+[20.090578] (-) TimerEvent: {}
+[20.190827] (-) TimerEvent: {}
+[20.291054] (-) TimerEvent: {}
+[20.391293] (-) TimerEvent: {}
+[20.491536] (-) TimerEvent: {}
+[20.591759] (-) TimerEvent: {}
+[20.691978] (-) TimerEvent: {}
+[20.792198] (-) TimerEvent: {}
+[20.892427] (-) TimerEvent: {}
+[20.992648] (-) TimerEvent: {}
+[21.092873] (-) TimerEvent: {}
+[21.193094] (-) TimerEvent: {}
+[21.293337] (-) TimerEvent: {}
+[21.393553] (-) TimerEvent: {}
+[21.493769] (-) TimerEvent: {}
+[21.593990] (-) TimerEvent: {}
+[21.694217] (-) TimerEvent: {}
+[21.794470] (-) TimerEvent: {}
+[21.894695] (-) TimerEvent: {}
+[21.994934] (-) TimerEvent: {}
+[22.095164] (-) TimerEvent: {}
+[22.195379] (-) TimerEvent: {}
+[22.295618] (-) TimerEvent: {}
+[22.395844] (-) TimerEvent: {}
+[22.496071] (-) TimerEvent: {}
+[22.596320] (-) TimerEvent: {}
+[22.696566] (-) TimerEvent: {}
+[22.796793] (-) TimerEvent: {}
+[22.897039] (-) TimerEvent: {}
+[22.997293] (-) TimerEvent: {}
+[23.097535] (-) TimerEvent: {}
+[23.197767] (-) TimerEvent: {}
+[23.297983] (-) TimerEvent: {}
+[23.398205] (-) TimerEvent: {}
+[23.498450] (-) TimerEvent: {}
+[23.598668] (-) TimerEvent: {}
+[23.698883] (-) TimerEvent: {}
+[23.799110] (-) TimerEvent: {}
+[23.899359] (-) TimerEvent: {}
+[23.999584] (-) TimerEvent: {}
+[24.099809] (-) TimerEvent: {}
+[24.200038] (-) TimerEvent: {}
+[24.300259] (-) TimerEvent: {}
+[24.400515] (-) TimerEvent: {}
+[24.500778] (-) TimerEvent: {}
+[24.600998] (-) TimerEvent: {}
+[24.701214] (-) TimerEvent: {}
+[24.801499] (-) TimerEvent: {}
+[24.901820] (-) TimerEvent: {}
+[25.002040] (-) TimerEvent: {}
+[25.102270] (-) TimerEvent: {}
+[25.202544] (-) TimerEvent: {}
+[25.302779] (-) TimerEvent: {}
+[25.402994] (-) TimerEvent: {}
+[25.503217] (-) TimerEvent: {}
+[25.603453] (-) TimerEvent: {}
+[25.703707] (-) TimerEvent: {}
+[25.803923] (-) TimerEvent: {}
+[25.904140] (-) TimerEvent: {}
+[26.004369] (-) TimerEvent: {}
+[26.104601] (-) TimerEvent: {}
+[26.129794] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In constructor \xe2\x80\x98PathPlanner3DNode::PathPlanner3DNode()\xe2\x80\x99:\n'}
+[26.130236] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:35: error: parse error in template argument list\n'}
+[26.130417] (cpp_package) StderrLine: {'line': b'   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);\n'}
+[26.130530] (cpp_package) StderrLine: {'line': b'      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.130619] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: no matching function for call to \xe2\x80\x98PathPlanner3DNode::create_publisher<<expression error> >(const char [21], int)\xe2\x80\x99\n'}
+[26.130711] (cpp_package) StderrLine: {'line': b'   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);\n'}
+[26.130809] (cpp_package) StderrLine: {'line': b'      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.130901] (cpp_package) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28,\n'}
+[26.130998] (cpp_package) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:22,\n'}
+[26.131091] (cpp_package) StderrLine: {'line': b'                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:172,\n'}
+[26.131179] (cpp_package) StderrLine: {'line': b'                 from /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:1:\n'}
+[26.131266] (cpp_package) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note: candidate: \xe2\x80\x98template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)\xe2\x80\x99\n'}
+[26.131628] (cpp_package) StderrLine: {'line': b'  197 |   create_publisher(\n'}
+[26.131740] (cpp_package) StderrLine: {'line': b'      |   ^~~~~~~~~~~~~~~~\n'}
+[26.131827] (cpp_package) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note:   template argument deduction/substitution failed:\n'}
+[26.131913] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: template argument 1 is invalid\n'}
+[26.131996] (cpp_package) StderrLine: {'line': b'   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);\n'}
+[26.132077] (cpp_package) StderrLine: {'line': b'      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.132157] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:35: error: parse error in template argument list\n'}
+[26.132237] (cpp_package) StderrLine: {'line': b'   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);\n'}
+[26.132329] (cpp_package) StderrLine: {'line': b'      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.132421] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: no matching function for call to \xe2\x80\x98PathPlanner3DNode::create_publisher<<expression error> >(const char [19], int)\xe2\x80\x99\n'}
+[26.132527] (cpp_package) StderrLine: {'line': b'   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);\n'}
+[26.132618] (cpp_package) StderrLine: {'line': b'      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.132698] (cpp_package) StderrLine: {'line': b'In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:1663:\n'}
+[26.132777] (cpp_package) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note: candidate: \xe2\x80\x98template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)\xe2\x80\x99\n'}
+[26.132867] (cpp_package) StderrLine: {'line': b'   73 | Node::create_publisher(\n'}
+[26.132948] (cpp_package) StderrLine: {'line': b'      | ^~~~\n'}
+[26.133025] (cpp_package) StderrLine: {'line': b'/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note:   template argument deduction/substitution failed:\n'}
+[26.133102] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: template argument 1 is invalid\n'}
+[26.133179] (cpp_package) StderrLine: {'line': b'   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);\n'}
+[26.133256] (cpp_package) StderrLine: {'line': b'      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~\n'}
+[26.155624] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In member function \xe2\x80\x98void PathPlanner3DNode::publishMarkers(const std::vector<double, std::allocator<double> >&, const std_msgs::msg::Header&, int, double)\xe2\x80\x99:\n'}
+[26.155872] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:101: warning: unused parameter \xe2\x80\x98best_ray_idx\xe2\x80\x99 [-Wunused-parameter]\n'}
+[26.155964] (cpp_package) StderrLine: {'line': b'  141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)\n'}
+[26.156064] (cpp_package) StderrLine: {'line': b'      |                                                                                                 ~~~~^~~~~~~~~~~~\n'}
+[26.156147] (cpp_package) StderrLine: {'line': b'/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:122: warning: unused parameter \xe2\x80\x98smoothed_angle\xe2\x80\x99 [-Wunused-parameter]\n'}
+[26.156228] (cpp_package) StderrLine: {'line': b'  141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)\n'}
+[26.156317] (cpp_package) StderrLine: {'line': b'      |                                                                                                                   ~~~~~~~^~~~~~~~~~~~~~\n'}
+[26.204707] (-) TimerEvent: {}
+[26.304928] (-) TimerEvent: {}
+[26.405159] (-) TimerEvent: {}
+[26.505380] (-) TimerEvent: {}
+[26.605598] (-) TimerEvent: {}
+[26.705817] (-) TimerEvent: {}
+[26.806048] (-) TimerEvent: {}
+[26.906270] (-) TimerEvent: {}
+[27.006519] (-) TimerEvent: {}
+[27.106742] (-) TimerEvent: {}
+[27.206967] (-) TimerEvent: {}
+[27.307202] (-) TimerEvent: {}
+[27.407454] (-) TimerEvent: {}
+[27.507675] (-) TimerEvent: {}
+[27.607904] (-) TimerEvent: {}
+[27.708134] (-) TimerEvent: {}
+[27.808373] (-) TimerEvent: {}
+[27.908591] (-) TimerEvent: {}
+[28.008816] (-) TimerEvent: {}
+[28.109043] (-) TimerEvent: {}
+[28.209291] (-) TimerEvent: {}
+[28.309533] (-) TimerEvent: {}
+[28.409787] (-) TimerEvent: {}
+[28.510024] (-) TimerEvent: {}
+[28.610247] (-) TimerEvent: {}
+[28.710478] (-) TimerEvent: {}
+[28.810719] (-) TimerEvent: {}
+[28.910953] (-) TimerEvent: {}
+[29.011166] (-) TimerEvent: {}
+[29.111388] (-) TimerEvent: {}
+[29.211620] (-) TimerEvent: {}
+[29.311838] (-) TimerEvent: {}
+[29.412051] (-) TimerEvent: {}
+[29.512265] (-) TimerEvent: {}
+[29.612502] (-) TimerEvent: {}
+[29.712750] (-) TimerEvent: {}
+[29.812985] (-) TimerEvent: {}
+[29.913217] (-) TimerEvent: {}
+[30.013453] (-) TimerEvent: {}
+[30.113673] (-) TimerEvent: {}
+[30.213910] (-) TimerEvent: {}
+[30.314174] (-) TimerEvent: {}
+[30.414406] (-) TimerEvent: {}
+[30.514638] (-) TimerEvent: {}
+[30.614882] (-) TimerEvent: {}
+[30.679868] (cpp_package) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/path_planner_3d_node.dir/build.make:76: CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o] \xec\x98\xa4\xeb\xa5\x98 1\n'}
+[30.680325] (cpp_package) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/path_planner_3d_node.dir/all] \xec\x98\xa4\xeb\xa5\x98 2\n'}
+[30.680531] (cpp_package) StderrLine: {'line': b'gmake: *** [Makefile:146: all] \xec\x98\xa4\xeb\xa5\x98 2\n'}
+[30.683931] (cpp_package) CommandEnded: {'returncode': 2}
+[30.700012] (cpp_package) JobEnded: {'identifier': 'cpp_package', 'rc': 2}
+[30.710565] (-) EventReactorShutdown: {}

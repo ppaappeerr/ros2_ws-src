@@ -26,6 +26,7 @@ setup(
         'console_scripts': [
             'sensor_fusion_node = optical_cane_rpi.sensor_fusion_node:main',
             'esp32_bridge_node = optical_cane_rpi.esp32_bridge_node:main',
+            'scan_accumulator_node = optical_cane_rpi.scan_accumulator_node:main',
         ],
     },
 )

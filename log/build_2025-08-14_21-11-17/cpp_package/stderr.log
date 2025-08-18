@@ -1,0 +1,76 @@
+CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+  Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+  variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  CMake variable FLANN_ROOT is set to:
+
+    /usr
+
+  For compatibility, find_package is ignoring the variable, but code in a
+  .cmake module might still use it.
+Call Stack (most recent call first):
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+  /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+  /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+  /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+  CMakeLists.txt:22 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+CMake Warning (dev) at CMakeLists.txt:24 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  CMake variable PCL_ROOT is set to:
+
+    /usr
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In constructor ‘PathPlanner3DNode::PathPlanner3DNode()’:
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:35: error: parse error in template argument list
+   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: no matching function for call to ‘PathPlanner3DNode::create_publisher<<expression error> >(const char [21], int)’
+   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:22,
+                 from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:172,
+                 from /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:1:
+/opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+  197 |   create_publisher(
+      |   ^~~~~~~~~~~~~~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note:   template argument deduction/substitution failed:
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: template argument 1 is invalid
+   27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:35: error: parse error in template argument list
+   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+      |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: no matching function for call to ‘PathPlanner3DNode::create_publisher<<expression error> >(const char [19], int)’
+   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:1663:
+/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+   73 | Node::create_publisher(
+      | ^~~~
+/opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note:   template argument deduction/substitution failed:
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: template argument 1 is invalid
+   29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+      |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In member function ‘void PathPlanner3DNode::publishMarkers(const std::vector<double, std::allocator<double> >&, const std_msgs::msg::Header&, int, double)’:
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:101: warning: unused parameter ‘best_ray_idx’ [-Wunused-parameter]
+  141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+      |                                                                                                 ~~~~^~~~~~~~~~~~
+/home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:122: warning: unused parameter ‘smoothed_angle’ [-Wunused-parameter]
+  141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+      |                                                                                                                   ~~~~~~~^~~~~~~~~~~~~~
+gmake[2]: *** [CMakeFiles/path_planner_3d_node.dir/build.make:76: CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o] 오류 1
+gmake[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/path_planner_3d_node.dir/all] 오류 2
+gmake: *** [Makefile:146: all] 오류 2

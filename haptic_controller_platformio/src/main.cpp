@@ -26,10 +26,10 @@
 
 // --- WiFi Credentials ---
 // Replace with your network details.
-char ssid[] = "eGIST-WAP";
+char ssid[] = "Bio-Robotics";
 
 // Option 1: For a WiFi network WITH a password.
-char pass[] = "";
+char pass[] = "leejongho";
 
 // Option 2: For a WiFi network WITHOUT a password.
 // Comment out the line above and uncomment the line below.

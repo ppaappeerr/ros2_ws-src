@@ -1,0 +1,111 @@
+[0.018s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.087s] -- Found ament_cmake: 2.5.4 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.747s] -- Found rclcpp: 28.1.10 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.592s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.879s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[2.407s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[2.999s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[4.580s] -- Found rmw_implementation_cmake: 7.3.2 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[4.633s] -- Found rmw_fastrtps_cpp: 8.4.2 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[5.368s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[6.252s] -- Found sensor_msgs: 5.3.6 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[6.828s] -- Found visualization_msgs: 5.3.6 (/opt/ros/jazzy/share/visualization_msgs/cmake)
+[6.984s] -- Found pcl_msgs: 1.0.0 (/opt/ros/jazzy/share/pcl_msgs/cmake)
+[7.134s] -- Found tf2_ros: 0.36.12 (/opt/ros/jazzy/share/tf2_ros/cmake)
+[8.673s] -- Found angles: 1.16.0 (/opt/ros/jazzy/share/angles/cmake)
+[8.763s] -- Found pcl_ros: 2.6.2 (/opt/ros/jazzy/share/pcl_ros/cmake)
+[9.184s] CMake Warning (dev) at /usr/lib/aarch64-linux-gnu/cmake/pcl/Modules/FindFLANN.cmake:45 (find_package):
+[9.185s]   Policy CMP0144 is not set: find_package uses upper-case <PACKAGENAME>_ROOT
+[9.185s]   variables.  Run "cmake --help-policy CMP0144" for policy details.  Use the
+[9.185s]   cmake_policy command to set the policy and suppress this warning.
+[9.185s] 
+[9.185s]   CMake variable FLANN_ROOT is set to:
+[9.185s] 
+[9.185s]     /usr
+[9.185s] 
+[9.186s]   For compatibility, find_package is ignoring the variable, but code in a
+[9.186s]   .cmake module might still use it.
+[9.186s] Call Stack (most recent call first):
+[9.186s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:261 (find_package)
+[9.186s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:306 (find_flann)
+[9.186s]   /usr/lib/aarch64-linux-gnu/cmake/pcl/PCLConfig.cmake:570 (find_external_library)
+[9.186s]   /opt/ros/jazzy/share/pcl_conversions/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[9.186s]   /opt/ros/jazzy/share/pcl_conversions/cmake/pcl_conversionsConfig.cmake:41 (include)
+[9.186s]   /opt/ros/jazzy/share/pcl_ros/cmake/ament_cmake_export_dependencies-extras.cmake:21 (find_package)
+[9.186s]   /opt/ros/jazzy/share/pcl_ros/cmake/pcl_rosConfig.cmake:41 (include)
+[9.187s]   CMakeLists.txt:22 (find_package)
+[9.187s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[9.187s] 
+[9.187s] -- Found flann version 1.9.2
+[13.021s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.105s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[13.155s] -- Could NOT find Pcap (missing: PCAP_LIBRARIES PCAP_INCLUDE_DIRS) 
+[13.929s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[13.940s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/aarch64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[14.708s] -- Found Qhull version 8.0.2
+[15.410s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[16.441s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[16.445s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[16.453s] CMake Warning (dev) at CMakeLists.txt:24 (find_package):
+[16.453s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[16.453s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[16.453s]   command to set the policy and suppress this warning.
+[16.453s] 
+[16.453s]   CMake variable PCL_ROOT is set to:
+[16.453s] 
+[16.453s]     /usr
+[16.454s] 
+[16.454s]   For compatibility, CMake is ignoring the variable.
+[16.454s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[16.454s] 
+[16.799s] -- Configuring done (16.7s)
+[17.454s] -- Generating done (0.6s)
+[17.533s] -- Build files have been written to: /home/p/ros2_ws/src/build/cpp_package
+[17.692s] [ 20%] Built target path_planner_node
+[17.700s] [ 40%] Built target point_cloud_sweeper_cpp_node
+[17.714s] [ 60%] Built target stable_ground_fitter_node
+[17.736s] [ 70%] Building CXX object CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o
+[17.778s] [ 90%] Built target user_centric_roi_detector
+[26.129s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In constructor ‘PathPlanner3DNode::PathPlanner3DNode()’:
+[26.129s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:35: error: parse error in template argument list
+[26.129s]    27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+[26.130s]       |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.130s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: no matching function for call to ‘PathPlanner3DNode::create_publisher<<expression error> >(const char [21], int)’
+[26.130s]    27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+[26.130s]       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.130s] In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28,
+[26.130s]                  from /opt/ros/jazzy/include/rclcpp/rclcpp/executors.hpp:22,
+[26.130s]                  from /opt/ros/jazzy/include/rclcpp/rclcpp/rclcpp.hpp:172,
+[26.130s]                  from /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:1:
+[26.131s] /opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+[26.131s]   197 |   create_publisher(
+[26.131s]       |   ^~~~~~~~~~~~~~~~
+[26.131s] /opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:197:3: note:   template argument deduction/substitution failed:
+[26.131s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:27:86: error: template argument 1 is invalid
+[26.131s]    27 |         vector_publisher_ = this->create_publisher<geometry_msgs::msg/Vector3Stamped>("/safe_path_vector_3d", 10);
+[26.131s]       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.131s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:35: error: parse error in template argument list
+[26.131s]    29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+[26.131s]       |                                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.131s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: no matching function for call to ‘PathPlanner3DNode::create_publisher<<expression error> >(const char [19], int)’
+[26.132s]    29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+[26.132s]       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.132s] In file included from /opt/ros/jazzy/include/rclcpp/rclcpp/node.hpp:1663:
+[26.132s] /opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note: candidate: ‘template<class MessageT, class AllocatorT, class PublisherT> std::shared_ptr<PublisherT> rclcpp::Node::create_publisher(const std::string&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)’
+[26.132s]    73 | Node::create_publisher(
+[26.132s]       | ^~~~
+[26.132s] /opt/ros/jazzy/include/rclcpp/rclcpp/node_impl.hpp:73:1: note:   template argument deduction/substitution failed:
+[26.132s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:29:88: error: template argument 1 is invalid
+[26.132s]    29 |         marker_publisher_ = this->create_publisher<visualization_msgs::msg/MarkerArray>("/candidate_rays_3d", 10);
+[26.132s]       |                             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+[26.155s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In member function ‘void PathPlanner3DNode::publishMarkers(const std::vector<double, std::allocator<double> >&, const std_msgs::msg::Header&, int, double)’:
+[26.155s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:101: warning: unused parameter ‘best_ray_idx’ [-Wunused-parameter]
+[26.155s]   141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+[26.155s]       |                                                                                                 ~~~~^~~~~~~~~~~~
+[26.155s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:141:122: warning: unused parameter ‘smoothed_angle’ [-Wunused-parameter]
+[26.155s]   141 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+[26.155s]       |                                                                                                                   ~~~~~~~^~~~~~~~~~~~~~
+[30.679s] gmake[2]: *** [CMakeFiles/path_planner_3d_node.dir/build.make:76: CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o] 오류 1
+[30.679s] gmake[1]: *** [CMakeFiles/Makefile2:249: CMakeFiles/path_planner_3d_node.dir/all] 오류 2
+[30.680s] gmake: *** [Makefile:146: all] 오류 2
+[30.683s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4

@@ -23,6 +23,7 @@
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/a2m8_with_filtred_9250_launch.py
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/a2m8_with_9250_launch.py
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/a2m8_with_filtred_9250_front_launch.py
+/home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/__pycache__/sllidar_a2m8_launch.cpython-312.pyc
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/__pycache__/a2m8_with_filtred_9250_front_launch.cpython-312.pyc
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/__pycache__/a2m8_with_filtred_9250_launch.cpython-312.pyc
 /home/p/ros2_ws/src/install/sllidar_ros2/share/sllidar_ros2/launch/sllidar_a2m8_launch.py

@@ -1,0 +1,34 @@
+[0.170s] Invoking command in '/home/p/ros2_ws/src/build/cpp_package': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
+[0.968s] [ 10%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
+[1.014s] [ 70%] Built target point_cloud_sweeper_cpp_node
+[1.014s] [ 70%] Built target stable_ground_fitter_node
+[1.015s] [ 70%] Built target user_centric_roi_detector
+[1.215s] [ 80%] Building CXX object CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o
+[32.658s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp: In constructor ‘PathPlannerNode::PathPlannerNode()’:
+[32.659s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:25:49: error: ‘use_voxel_filter_’ was not declared in this scope
+[32.659s]    25 |         this->get_parameter("use_voxel_filter", use_voxel_filter_);
+[32.659s]       |                                                 ^~~~~~~~~~~~~~~~~
+[32.660s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp: In member function ‘void PathPlanner3DNode::publishMarkers(const std::vector<double, std::allocator<double> >&, const std_msgs::msg::Header&, int, double)’:
+[32.660s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:154:101: warning: unused parameter ‘best_ray_idx’ [-Wunused-parameter]
+[32.661s]   154 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+[32.661s]       |                                                                                                 ~~~~^~~~~~~~~~~~
+[32.661s] /home/p/ros2_ws/src/cpp_package/src/path_planner_3d_node.cpp:154:122: warning: unused parameter ‘smoothed_angle’ [-Wunused-parameter]
+[32.661s]   154 |     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
+[32.661s]       |                                                                                                                   ~~~~~~~^~~~~~~~~~~~~~
+[32.703s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:27:48: error: ‘voxel_leaf_size_’ was not declared in this scope
+[32.703s]    27 |         this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
+[32.703s]       |                                                ^~~~~~~~~~~~~~~~
+[32.781s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp: In member function ‘void PathPlannerNode::pointCloudCallback(sensor_msgs::msg::PointCloud2_<std::allocator<void> >::SharedPtr)’:
+[32.781s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:71:13: error: ‘use_voxel_filter_’ was not declared in this scope
+[32.781s]    71 |         if (use_voxel_filter_) {
+[32.781s]       |             ^~~~~~~~~~~~~~~~~
+[32.827s] /home/p/ros2_ws/src/cpp_package/src/path_planner_node.cpp:74:29: error: ‘voxel_leaf_size_’ was not declared in this scope
+[32.827s]    74 |             sor.setLeafSize(voxel_leaf_size_, voxel_leaf_size_, voxel_leaf_size_);
+[32.827s]       |                             ^~~~~~~~~~~~~~~~
+[38.217s] gmake[2]: *** [CMakeFiles/path_planner_node.dir/build.make:76: CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o] 오류 1
+[38.218s] gmake[1]: *** [CMakeFiles/Makefile2:223: CMakeFiles/path_planner_node.dir/all] 오류 2
+[38.218s] gmake[1]: *** 끝나지 않은 작업을 기다리고 있습니다....
+[45.991s] [ 90%] Linking CXX executable path_planner_3d_node
+[55.505s] [ 90%] Built target path_planner_3d_node
+[55.508s] gmake: *** [Makefile:146: all] 오류 2
+[55.512s] Invoked command in '/home/p/ros2_ws/src/build/cpp_package' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/p/ros2_ws/install/optical_cane_rpi:/home/p/ros2_ws/install/mpu9250:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/p/ros2_ws/src/build/cpp_package -- -j4 -l4
