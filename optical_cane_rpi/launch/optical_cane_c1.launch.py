@@ -6,16 +6,16 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # SLLIDAR S3 설정 (현재 기본 사용 센서)
+    # SLLIDAR C1 설정
     channel_type = LaunchConfiguration('channel_type', default='serial')
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
-    serial_baudrate = LaunchConfiguration('serial_baudrate', default='1000000')  # S3는 1Mbps
+    serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')  # C1은 115200 baud
     frame_id = LaunchConfiguration('frame_id', default='laser')
     use_rviz = LaunchConfiguration('use_rviz', default='false')  # RViz 실행 여부 인자 추가
 
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
 
-    # IMU는 LiDAR 위 2cm에 위치 (0.02m)
+    # IMU는 LiDAR 위 2cm에 위치 (0.02m) - 현재 하드웨어 구성
     static_tf_base_to_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -43,7 +43,7 @@ def generate_launch_description():
             'frame_id': frame_id,
             'inverted': False,
             'angle_compensate': True,
-            'scan_mode': 'DenseBoost'  # S3용 고성능 스캔 모드
+            'scan_mode': 'Sensitivity'  # C1용 향상된 감도 스캔 모드
         }],
         output='screen'
     )

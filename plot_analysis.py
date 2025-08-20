@@ -161,6 +161,28 @@ def analyze_tilt_robustness(fig, bag_file, pipeline_name):
     ax2.tick_params(axis='y', labelcolor='tab:orange')
     fig.legend(loc="upper right", bbox_to_anchor=(1,1), bbox_transform=ax1.transAxes)
 
+def analyze_path_accuracy(ax, all_data, ground_truth_angle=0):
+    """
+    Analyzes path accuracy against a ground truth.
+    Assumes a straight corridor scenario (ground truth = 0 degrees).
+    """
+    print("\n--- Performing Path Accuracy Analysis ---")
+    ax.set_title('Path Accuracy Analysis (Error from Ground Truth)')
+    ax.set_xlabel('Time (s)')
+    ax.set_ylabel('Absolute Error (degrees)')
+    ax.grid(True)
+
+    for data in all_data:
+        # Calculate absolute error from ground truth
+        absolute_error = np.abs(data['angles'] - ground_truth_angle)
+        
+        # Calculate Mean Absolute Error (MAE)
+        mae = np.mean(absolute_error)
+        print(f"'{data['label']}' | Mean Absolute Error (MAE): {mae:.2f} degrees")
+
+        ax.plot(data['times'], absolute_error, label=f"{data['label']} (MAE: {mae:.2f})")
+    
+    ax.legend()
 
 def main():
     parser = argparse.ArgumentParser(description="Analyze ROS2 bags for optical cane project based on a test set number.")
@@ -238,6 +260,13 @@ def main():
 
     # --- Advanced Smoothness Analysis ---
     analyze_smoothness(all_data, set_str)
+
+    # --- Path Accuracy Plot ---
+    fig_acc, ax_acc = plt.subplots(figsize=(12, 7))
+    analyze_path_accuracy(ax_acc, all_data)
+    output_filename_accuracy = f"path_accuracy_analysis_set_{set_str}.png"
+    fig_acc.savefig(output_filename_accuracy)
+    print(f"Saved {output_filename_accuracy}")
 
     # --- Tilt Plot ---
     fig2 = plt.figure(figsize=(12, 7))

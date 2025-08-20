@@ -1,0 +1,49 @@
+# ~/.bashrc에 추가할 간단한 alias들
+# 이 내용을 복사해서 ~/.bashrc 맨 아래에 붙여넣으세요
+
+# =============================================================================
+# ROS2 광학 지팡이 간단 명령어들
+# =============================================================================
+
+# 기본 설정
+alias ros_setup='cd ~/ros2_ws && source install/setup.bash'
+alias ros_build='cd ~/ros2_ws && colcon build --packages-select cpp_package --symlink-install'
+
+# 센서 시작
+alias start_sensors='ros2 launch optical_cane_rpi optical_cane.launch.py'
+alias start_fusion='ros2 run optical_cane_rpi sensor_fusion_node'
+alias start_sweep='ros2 run cpp_package point_cloud_sweeper_cpp_node'
+
+# 새로운 알고리즘들
+alias start_heightmap='ros2 run cpp_package heightmap_planner_node'
+alias start_ftg3d='ros2 run cpp_package ftg_3d_node'
+
+# 기존 알고리즘들 (비교용)
+alias start_2d='ros2 run cpp_package path_planner_node'
+alias start_3d='ros2 run cpp_package path_planner_3d_node'
+
+# 전처리
+alias start_voxel='ros2 run cpp_package voxel_grid_filter_node --ros-args -p leaf_size:=0.04'
+
+# 데이터 기록
+alias record_heightmap='ros2 bag record -o heightmap_test /safe_path_vector_heightmap /downsampled_cloud /imu/data /tf /tf_static'
+alias record_ftg3d='ros2 bag record -o ftg3d_test /safe_path_vector_ftg3d /downsampled_cloud /imu/data /tf /tf_static'
+
+# 시각화
+alias start_rviz='ros2 run rviz2 rviz2'
+
+# 유틸리티
+alias kill_ros='pkill -f ros2'
+alias topic_list='ros2 topic list'
+alias topic_hz='ros2 topic hz'
+
+# =============================================================================
+# 사용 예시:
+# 1. ros_setup        (환경 설정)
+# 2. start_sensors    (센서 시작)  
+# 3. start_fusion     (새 터미널에서)
+# 4. start_sweep      (새 터미널에서)
+# 5. start_voxel      (새 터미널에서)
+# 6. start_heightmap  (새 터미널에서)
+# 7. record_heightmap (새 터미널에서 데이터 기록)
+# =============================================================================

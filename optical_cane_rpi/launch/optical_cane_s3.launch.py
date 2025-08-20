@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # SLLIDAR S3 설정 (현재 기본 사용 센서)
+    # SLLIDAR S3 설정
     channel_type = LaunchConfiguration('channel_type', default='serial')
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
     serial_baudrate = LaunchConfiguration('serial_baudrate', default='1000000')  # S3는 1Mbps
@@ -15,7 +15,7 @@ def generate_launch_description():
 
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
 
-    # IMU는 LiDAR 위 2cm에 위치 (0.02m)
+    # IMU는 LiDAR 위 2cm에 위치 (S3 설정)
     static_tf_base_to_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -81,7 +81,7 @@ def generate_launch_description():
     launch_nodes = [
         DeclareLaunchArgument('channel_type', default_value='serial'),
         DeclareLaunchArgument('serial_port', default_value='/dev/ttyUSB0'),
-        DeclareLaunchArgument('serial_baudrate', default_value='115200'),
+        DeclareLaunchArgument('serial_baudrate', default_value='1000000'),  # S3용 보드레이트
         DeclareLaunchArgument('frame_id', default_value='laser'),
         DeclareLaunchArgument('use_rviz', default_value='false'),
 

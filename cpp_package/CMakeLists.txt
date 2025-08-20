@@ -82,6 +82,29 @@ add_executable(voxel_grid_filter_node src/voxel_grid_filter_node.cpp)
 ament_target_dependencies(voxel_grid_filter_node rclcpp sensor_msgs pcl_conversions)
 target_link_libraries(voxel_grid_filter_node ${PCL_LIBRARIES})
 
+# HeightMap Planner Node (2.5D with negative obstacle detection)
+add_executable(heightmap_planner_node src/heightmap_planner_node.cpp)
+ament_target_dependencies(heightmap_planner_node
+  rclcpp
+  sensor_msgs
+  geometry_msgs
+  visualization_msgs
+  pcl_conversions
+  angles
+)
+target_link_libraries(heightmap_planner_node ${PCL_LIBRARIES})
+
+# Follow-the-Gap 3D Node
+add_executable(ftg_3d_node src/ftg_3d_node.cpp)
+ament_target_dependencies(ftg_3d_node
+  rclcpp
+  sensor_msgs
+  geometry_msgs
+  visualization_msgs
+  pcl_conversions
+  angles
+)
+target_link_libraries(ftg_3d_node ${PCL_LIBRARIES})
 
 # 실행 파일 설치
 install(TARGETS
@@ -91,6 +114,8 @@ install(TARGETS
   path_planner_node
   path_planner_3d_node
   voxel_grid_filter_node
+  heightmap_planner_node
+  ftg_3d_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

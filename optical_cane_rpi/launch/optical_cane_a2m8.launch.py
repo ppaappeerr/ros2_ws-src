@@ -6,16 +6,16 @@ from launch_ros.actions import Node
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    # SLLIDAR S3 설정 (현재 기본 사용 센서)
+    # SLLIDAR A2M8 설정
     channel_type = LaunchConfiguration('channel_type', default='serial')
     serial_port = LaunchConfiguration('serial_port', default='/dev/ttyUSB0')
-    serial_baudrate = LaunchConfiguration('serial_baudrate', default='1000000')  # S3는 1Mbps
+    serial_baudrate = LaunchConfiguration('serial_baudrate', default='115200')
     frame_id = LaunchConfiguration('frame_id', default='laser')
     use_rviz = LaunchConfiguration('use_rviz', default='false')  # RViz 실행 여부 인자 추가
 
     calib_path = os.path.expanduser('~/ros2_ws/src/calib/mpu9250_calib.json')
 
-    # IMU는 LiDAR 위 2cm에 위치 (0.02m)
+    # IMU는 LiDAR 아래 5cm에 위치 (기존 A2M8 설정)
     static_tf_base_to_laser = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
@@ -24,11 +24,11 @@ def generate_launch_description():
         output='screen'
     )
 
-    static_tf_laser_to_imu = Node(
+    static_tf_base_to_imu = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
-        name='static_tf_laser_to_imu',
-        arguments=['0.0', '0.0', '0.02', '0', '0.0', '0.0', 'laser', 'imu_link'],
+        name='static_tf_base_to_imu',
+        arguments=['0.0', '0.0', '-0.05', '0', '0.0', '0.0', 'base_link', 'imu_link'],
         output='screen'
     )
 
@@ -43,7 +43,7 @@ def generate_launch_description():
             'frame_id': frame_id,
             'inverted': False,
             'angle_compensate': True,
-            'scan_mode': 'DenseBoost'  # S3용 고성능 스캔 모드
+            'scan_mode': 'Sensitivity'  # A2M8용 스캔 모드
         }],
         output='screen'
     )
@@ -86,7 +86,7 @@ def generate_launch_description():
         DeclareLaunchArgument('use_rviz', default_value='false'),
 
         static_tf_base_to_laser,
-        static_tf_laser_to_imu,
+        static_tf_base_to_imu,
         sllidar_node,
         imu_node
     ]
