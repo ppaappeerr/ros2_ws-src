@@ -15,15 +15,15 @@
 #include <numeric>
 
 struct GapInfo {
-    int start_idx;
-    int end_idx;
+    int start_sector;
+    int end_sector;
     double width_degrees;
     double depth_meters;
     double center_angle;
     double score;
     
     GapInfo(int start, int end, double width, double depth, double center) 
-        : start_idx(start), end_idx(end), width_degrees(width), 
+        : start_sector(start), end_sector(end), width_degrees(width), 
           depth_meters(depth), center_angle(center), score(0.0) {}
 };
 
@@ -274,92 +274,136 @@ private:
                                 const std::vector<GapInfo>& gaps,
                                 const std::vector<double>& sector_distances)
     {
-        // Visualize sectors
         visualization_msgs::msg::MarkerArray sector_markers;
         visualization_msgs::msg::MarkerArray gap_markers;
         
-        // Clear previous markers first
-        visualization_msgs::msg::Marker clear_marker;
-        clear_marker.header = header;
-        clear_marker.action = visualization_msgs::msg::Marker::DELETEALL;
-        sector_markers.markers.push_back(clear_marker);
-        gap_markers.markers.push_back(clear_marker);
-        
         double sector_angle_width = M_PI / num_sectors_;
         
+        // 섹터별 장애물 거리 시각화 (화살표)
         for (int i = 0; i < num_sectors_; ++i) {
-            visualization_msgs::msg::Marker marker;
-            marker.header = header;
-            marker.ns = "sectors";
-            marker.id = i;
-            marker.type = visualization_msgs::msg::Marker::ARROW;
-            marker.action = visualization_msgs::msg::Marker::ADD;
+            visualization_msgs::msg::Marker arrow;
+            arrow.header = header;
+            arrow.ns = "ftg_sectors";
+            arrow.id = i;
+            arrow.type = visualization_msgs::msg::Marker::ARROW;
+            arrow.action = visualization_msgs::msg::Marker::ADD;
+            arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
             
             double sector_angle = (i * sector_angle_width) - M_PI/2.0;
-            double distance = sector_distances[i];
+            double distance = std::min(sector_distances[i], max_range_);
             
-            marker.points.resize(2);
-            marker.points[0].x = 0.0;
-            marker.points[0].y = 0.0;
-            marker.points[0].z = 0.0;
-            marker.points[1].x = distance * cos(sector_angle);
-            marker.points[1].y = distance * sin(sector_angle);
-            marker.points[1].z = 0.0;
+            arrow.points.resize(2);
+            arrow.points[0].x = 0.0;
+            arrow.points[0].y = 0.0;
+            arrow.points[0].z = 0.05;
+            arrow.points[1].x = distance * cos(sector_angle);
+            arrow.points[1].y = distance * sin(sector_angle);
+            arrow.points[1].z = 0.05;
             
-            marker.scale.x = 0.01;  // 더 얇은 화살표
-            marker.scale.y = 0.02;  // 작은 헤드
-            marker.scale.z = 0.02;  // 작은 헤드
+            // 화살표 크기
+            arrow.scale.x = 0.02;  // 샤프트 두께
+            arrow.scale.y = 0.04;  // 헤드 두께  
+            arrow.scale.z = 0.04;  // 헤드 길이
             
-            // Color based on distance
-            if (distance > max_range_ * 0.8) {
-                // Green for free space
-                marker.color.r = 0.0;
-                marker.color.g = 1.0;
-                marker.color.b = 0.0;
-            } else if (distance > max_range_ * 0.4) {
-                // Yellow for medium distance
-                marker.color.r = 1.0;
-                marker.color.g = 1.0;
-                marker.color.b = 0.0;
+            // 거리에 따른 색상
+            if (distance > max_range_ * 0.9) {
+                arrow.color.r = 0.0; arrow.color.g = 0.8; arrow.color.b = 0.0;  // 진한 녹색
+            } else if (distance > max_range_ * 0.6) {
+                arrow.color.r = 0.3; arrow.color.g = 1.0; arrow.color.b = 0.0;  // 연한 녹색
+            } else if (distance > max_range_ * 0.3) {
+                arrow.color.r = 1.0; arrow.color.g = 0.6; arrow.color.b = 0.0;  // 주황
             } else {
-                // Red for close obstacles
-                marker.color.r = 1.0;
-                marker.color.g = 0.0;
-                marker.color.b = 0.0;
+                arrow.color.r = 1.0; arrow.color.g = 0.0; arrow.color.b = 0.0;  // 빨강
             }
-            marker.color.a = 0.6;
+            arrow.color.a = 0.8;
             
-            sector_markers.markers.push_back(marker);
+            sector_markers.markers.push_back(arrow);
         }
         
-        // Visualize gaps
+        // 갭 시각화 - 부채꼴 모양으로 실제 갭 영역 표시
         for (size_t i = 0; i < gaps.size(); ++i) {
             const auto& gap = gaps[i];
             
-            visualization_msgs::msg::Marker marker;
-            marker.header = header;
-            marker.ns = "gaps";
-            marker.id = i;
-            marker.type = visualization_msgs::msg::Marker::CYLINDER;
-            marker.action = visualization_msgs::msg::Marker::ADD;
+            // 갭의 시작과 끝 각도 계산
+            double start_angle = (gap.start_sector * sector_angle_width) - M_PI/2.0;
+            double end_angle = ((gap.end_sector + 1) * sector_angle_width) - M_PI/2.0;
             
-            marker.pose.position.x = (gap.depth_meters * 0.5) * cos(gap.center_angle);
-            marker.pose.position.y = (gap.depth_meters * 0.5) * sin(gap.center_angle);
-            marker.pose.position.z = 0.1;
-            marker.pose.orientation.w = 1.0;
+            // 갭 영역을 부채꼴로 시각화 (라인 스트립 사용)
+            visualization_msgs::msg::Marker gap_arc;
+            gap_arc.header = header;
+            gap_arc.ns = "ftg_gaps";
+            gap_arc.id = i;
+            gap_arc.type = visualization_msgs::msg::Marker::LINE_STRIP;
+            gap_arc.action = visualization_msgs::msg::Marker::ADD;
+            gap_arc.lifetime = rclcpp::Duration::from_seconds(0.2);
             
-            marker.scale.x = 0.3;  // 더 작은 크기
-            marker.scale.y = 0.3;
-            marker.scale.z = 0.05 + (gap.score / 50.0);  // 점수에 따른 높이
+            // 부채꼴 그리기
+            gap_arc.points.clear();
             
-            // Color intensity based on score
-            double normalized_score = std::min(gap.score / 20.0, 1.0);
-            marker.color.r = 0.0;
-            marker.color.g = normalized_score;
-            marker.color.b = 1.0 - normalized_score;
-            marker.color.a = 0.7;
+            // 중심점
+            geometry_msgs::msg::Point center;
+            center.x = 0.0; center.y = 0.0; center.z = 0.1;
+            gap_arc.points.push_back(center);
             
-            gap_markers.markers.push_back(marker);
+            // 갭 영역의 호 그리기
+            int arc_points = std::max(5, static_cast<int>(gap.width_degrees / 2.0));  // 2도마다 점
+            for (int j = 0; j <= arc_points; ++j) {
+                double angle = start_angle + (end_angle - start_angle) * j / arc_points;
+                geometry_msgs::msg::Point point;
+                point.x = gap.depth_meters * 0.8 * cos(angle);
+                point.y = gap.depth_meters * 0.8 * sin(angle);
+                point.z = 0.1;
+                gap_arc.points.push_back(point);
+            }
+            
+            // 중심점으로 돌아가기
+            gap_arc.points.push_back(center);
+            
+            gap_arc.scale.x = 0.02;  // 라인 두께
+            
+            // 점수에 따른 색상
+            double normalized_score = std::min(gap.score / 25.0, 1.0);
+            gap_arc.color.r = 0.0;
+            gap_arc.color.g = 0.5 + normalized_score * 0.5;  // 0.5~1.0
+            gap_arc.color.b = 1.0 - normalized_score * 0.3;  // 1.0~0.7
+            gap_arc.color.a = 0.8;
+            
+            gap_markers.markers.push_back(gap_arc);
+            
+            // 갭 중심 방향 화살표
+            visualization_msgs::msg::Marker direction_arrow;
+            direction_arrow.header = header;
+            direction_arrow.ns = "ftg_gaps";
+            direction_arrow.id = i + 1000;  // ID 겹침 방지
+            direction_arrow.type = visualization_msgs::msg::Marker::ARROW;
+            direction_arrow.action = visualization_msgs::msg::Marker::ADD;
+            direction_arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
+            
+            direction_arrow.points.resize(2);
+            direction_arrow.points[0].x = 0.0;
+            direction_arrow.points[0].y = 0.0;
+            direction_arrow.points[0].z = 0.15;
+            direction_arrow.points[1].x = gap.depth_meters * 0.7 * cos(gap.center_angle);
+            direction_arrow.points[1].y = gap.depth_meters * 0.7 * sin(gap.center_angle);
+            direction_arrow.points[1].z = 0.15;
+            
+            direction_arrow.scale.x = 0.03;  // 두꺼운 샤프트
+            direction_arrow.scale.y = 0.06;  // 큰 헤드
+            direction_arrow.scale.z = 0.08;
+            
+            // 최고 점수 갭은 특별히 표시
+            if (i == 0) {  // 첫 번째 갭이 최고 점수라고 가정
+                direction_arrow.color.r = 1.0;
+                direction_arrow.color.g = 1.0;
+                direction_arrow.color.b = 0.0;  // 노란색
+            } else {
+                direction_arrow.color.r = 0.0;
+                direction_arrow.color.g = 1.0;
+                direction_arrow.color.b = 0.0;  // 녹색
+            }
+            direction_arrow.color.a = 0.9;
+            
+            gap_markers.markers.push_back(direction_arrow);
         }
         
         sector_publisher_->publish(sector_markers);

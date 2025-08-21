@@ -69,7 +69,6 @@ public:
             std::bind(&HeightMapPlannerNode::pointCloudCallback, this, std::placeholders::_1));
         vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector_heightmap", 10);
         height_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/height_markers", 10);
-        risk_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/risk_map_markers", 10);
         
         last_time_ = this->now();
         ground_height_ = 0.0f;
@@ -96,7 +95,6 @@ private:
         
         if (!ground_height_calibrated_) {
             calibrateGroundHeight(cloud);
-            RCLCPP_INFO(this->get_logger(), "Ground height calibration: %.3f m", ground_height_);
             return;
         }
         
@@ -110,9 +108,6 @@ private:
         // Build accumulated height map
         std::unordered_map<std::string, HeightCell> accumulated_map;
         buildAccumulatedHeightMap(accumulated_map, current_time);
-        
-        RCLCPP_DEBUG(this->get_logger(), "Generated %zu grid cells from %zu cloud points", 
-                    accumulated_map.size(), cloud->points.size());
         
         // Analyze traversability
         analyzeTraversability(accumulated_map);
@@ -132,7 +127,6 @@ private:
         // Publish results
         publishSafeVector(msg->header, smoothed_angle_);
         publishHeightMapVisualization(msg->header, accumulated_map);
-        publishRiskMapVisualization(msg->header, accumulated_map, smoothed_angle_);
         
         last_time_ = current_time;
     }
@@ -358,91 +352,11 @@ private:
         
         height_publisher_->publish(markers);
     }
-    
-    void publishRiskMapVisualization(const std_msgs::msg::Header& header,
-                                    const std::unordered_map<std::string, HeightCell>& height_map,
-                                    double safe_angle)
-    {
-        visualization_msgs::msg::MarkerArray markers;
-        int marker_id = 0;
-        
-        // 안전 방향 화살표 표시
-        visualization_msgs::msg::Marker direction_arrow;
-        direction_arrow.header = header;
-        direction_arrow.ns = "safe_direction";
-        direction_arrow.id = marker_id++;
-        direction_arrow.type = visualization_msgs::msg::Marker::ARROW;
-        direction_arrow.action = visualization_msgs::msg::Marker::ADD;
-        direction_arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
-        
-        // 화살표 시작점과 끝점
-        direction_arrow.points.resize(2);
-        direction_arrow.points[0].x = 0.0;
-        direction_arrow.points[0].y = 0.0;
-        direction_arrow.points[0].z = 0.2;
-        direction_arrow.points[1].x = 2.0 * cos(safe_angle);
-        direction_arrow.points[1].y = 2.0 * sin(safe_angle);
-        direction_arrow.points[1].z = 0.2;
-        
-        // 화살표 스타일
-        direction_arrow.scale.x = 0.05;  // 샤프트 두께
-        direction_arrow.scale.y = 0.1;   // 헤드 두께
-        direction_arrow.scale.z = 0.15;  // 헤드 길이
-        
-        // 밝은 녹색으로 표시
-        direction_arrow.color.r = 0.0;
-        direction_arrow.color.g = 1.0;
-        direction_arrow.color.b = 0.0;
-        direction_arrow.color.a = 0.9;
-        
-        markers.markers.push_back(direction_arrow);
-        
-        // 위험도에 따른 추가 시각화 (원형 마커)
-        for (const auto& [key, cell] : height_map) {
-            if (cell.point_count == 0 || cell.drop_risk < 0.1) continue;
-            
-            size_t comma_pos = key.find(',');
-            int grid_x = std::stoi(key.substr(0, comma_pos));
-            int grid_y = std::stoi(key.substr(comma_pos + 1));
-            
-            double world_x = (grid_x + 0.5) * grid_resolution_;
-            double world_y = (grid_y + 0.5) * grid_resolution_;
-            
-            visualization_msgs::msg::Marker risk_marker;
-            risk_marker.header = header;
-            risk_marker.ns = "risk_indicators";
-            risk_marker.id = marker_id++;
-            risk_marker.type = visualization_msgs::msg::Marker::CYLINDER;
-            risk_marker.action = visualization_msgs::msg::Marker::ADD;
-            risk_marker.lifetime = rclcpp::Duration::from_seconds(0.2);
-            
-            risk_marker.pose.position.x = world_x;
-            risk_marker.pose.position.y = world_y;
-            risk_marker.pose.position.z = ground_height_ + 0.05;
-            risk_marker.pose.orientation.w = 1.0;
-            
-            double risk_scale = 0.02 + (cell.drop_risk * 0.08);  // 0.02~0.1m
-            risk_marker.scale.x = risk_scale;
-            risk_marker.scale.y = risk_scale;
-            risk_marker.scale.z = 0.02;
-            
-            // 위험도에 따른 색상 (노랑 -> 빨강)
-            risk_marker.color.r = 1.0;
-            risk_marker.color.g = 1.0 - cell.drop_risk;
-            risk_marker.color.b = 0.0;
-            risk_marker.color.a = 0.8;
-            
-            markers.markers.push_back(risk_marker);
-        }
-        
-        risk_publisher_->publish(markers);
-    }
 
 private:
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr vector_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr height_publisher_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr risk_publisher_;
     
     bool front_view_only_;
     double grid_resolution_;

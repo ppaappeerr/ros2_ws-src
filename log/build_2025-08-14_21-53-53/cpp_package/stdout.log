@@ -1,7 +1,0 @@
-[ 10%] Building CXX object CMakeFiles/path_planner_node.dir/src/path_planner_node.cpp.o
-[ 70%] Built target point_cloud_sweeper_cpp_node
-[ 70%] Built target stable_ground_fitter_node
-[ 70%] Built target user_centric_roi_detector
-[ 80%] Building CXX object CMakeFiles/path_planner_3d_node.dir/src/path_planner_3d_node.cpp.o
-[ 90%] Linking CXX executable path_planner_3d_node
-[ 90%] Built target path_planner_3d_node
