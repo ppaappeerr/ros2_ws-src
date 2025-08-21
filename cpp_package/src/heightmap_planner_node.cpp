@@ -142,16 +142,18 @@ private:
     {
         std::vector<float> ground_candidates;
         for (const auto& point : cloud->points) {
-            if (point.x > 0.5 && point.x < 2.0) {  // 50cm to 2m in front
+            // UPDATED: calibration region now in front (-X) 0.5~2.0m ahead (i.e., x in [-2.0,-0.5])
+            if (point.x < -0.5 && point.x > -2.0) {
                 ground_candidates.push_back(point.z);
             }
         }
-        
-        if (ground_candidates.size() > 100) {
+        if (ground_candidates.size() > 50) { // lowered threshold to avoid starvation after FOV change
             std::sort(ground_candidates.begin(), ground_candidates.end());
             ground_height_ = ground_candidates[ground_candidates.size() / 2];
             ground_height_calibrated_ = true;
-            RCLCPP_INFO(this->get_logger(), "Ground height calibrated: %.3f m", ground_height_);
+            RCLCPP_INFO(this->get_logger(), "Ground height calibrated (front -X): %.3f m (samples=%zu)", ground_height_, ground_candidates.size());
+        } else {
+            RCLCPP_DEBUG(this->get_logger(), "Ground calibration waiting (samples=%zu)", ground_candidates.size());
         }
     }
     
@@ -301,24 +303,8 @@ private:
                                     const std::unordered_map<std::string, HeightCell>& height_map,
                                     double safe_angle)
     {
-        visualization_msgs::msg::MarkerArray debug_markers; // safe direction
-        visualization_msgs::msg::MarkerArray pillar_markers; // refined risk pillars
-        int id_debug = 0;
-        int id_pillar = 0;
-        // Safe direction arrow (unchanged)
-        visualization_msgs::msg::Marker direction_arrow;
-        direction_arrow.header = header;
-        direction_arrow.ns = "safe_direction";
-        direction_arrow.id = id_debug++;
-        direction_arrow.type = visualization_msgs::msg::Marker::ARROW;
-        direction_arrow.action = visualization_msgs::msg::Marker::ADD;
-        direction_arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
-        direction_arrow.points.resize(2);
-        direction_arrow.points[0].x=0; direction_arrow.points[0].y=0; direction_arrow.points[0].z=0.2;
-        direction_arrow.points[1].x=2.0*cos(safe_angle); direction_arrow.points[1].y=2.0*sin(safe_angle); direction_arrow.points[1].z=0.2;
-        direction_arrow.scale.x=0.05; direction_arrow.scale.y=0.1; direction_arrow.scale.z=0.15;
-        direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; direction_arrow.color.a=0.9;
-        debug_markers.markers.push_back(direction_arrow);
+        visualization_msgs::msg::MarkerArray debug_markers; visualization_msgs::msg::MarkerArray pillar_markers; int id_debug=0; int id_pillar=0;
+        visualization_msgs::msg::Marker direction_arrow; direction_arrow.header=header; direction_arrow.ns="safe_direction"; direction_arrow.id=id_debug++; direction_arrow.type=visualization_msgs::msg::Marker::ARROW; direction_arrow.action=visualization_msgs::msg::Marker::ADD; direction_arrow.lifetime=rclcpp::Duration::from_seconds(0.2); direction_arrow.points.resize(2); direction_arrow.points[0].x=0; direction_arrow.points[0].y=0; direction_arrow.points[0].z=0.2; direction_arrow.points[1].x=2.0*cos(safe_angle); direction_arrow.points[1].y=2.0*sin(safe_angle); direction_arrow.points[1].z=0.2; direction_arrow.scale.x=0.05; direction_arrow.scale.y=0.1; direction_arrow.scale.z=0.15; direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; direction_arrow.color.a=0.9; debug_markers.markers.push_back(direction_arrow);
 
         // Pillars (refined)
         for (const auto& [key, cell] : height_map) {
@@ -403,7 +389,10 @@ private:
 
             pillar_markers.markers.push_back(pillar);
         }
-
+        if (pillar_markers.markers.empty()) {
+            // publish a dummy invisible marker to keep topic alive for RViz
+            visualization_msgs::msg::Marker keepalive; keepalive.header=header; keepalive.ns="height_pillars"; keepalive.id=999999; keepalive.type=visualization_msgs::msg::Marker::SPHERE; keepalive.action=visualization_msgs::msg::Marker::ADD; keepalive.scale.x=0.001; keepalive.scale.y=0.001; keepalive.scale.z=0.001; keepalive.color.a=0.0; keepalive.lifetime=rclcpp::Duration::from_seconds(0.2); pillar_markers.markers.push_back(keepalive);
+        }
         if (!debug_markers.markers.empty()) risk_publisher_->publish(debug_markers);
         if (!pillar_markers.markers.empty()) pillar_publisher_->publish(pillar_markers);
     }

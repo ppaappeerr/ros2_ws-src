@@ -21,12 +21,11 @@ public:
         this->declare_parameter<bool>("front_view_only", true); // Default to true
         this->get_parameter("front_view_only", front_view_only_);
 
-        // Publisher and Subscriber
         publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(output_topic_, 10);
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             input_topic_, 10, std::bind(&VoxelGridFilterNode::cloud_callback, this, std::placeholders::_1));
 
-        RCLCPP_INFO(this->get_logger(), "VoxelGrid Filter Node started.");
+        RCLCPP_INFO(this->get_logger(), "VoxelGrid Filter Node started. (Front = -X)");
         RCLCPP_INFO(this->get_logger(), "Input topic: %s", input_topic_.c_str());
         RCLCPP_INFO(this->get_logger(), "Output topic: %s", output_topic_.c_str());
         RCLCPP_INFO(this->get_logger(), "Leaf size: %.3f", leaf_size_);
@@ -40,38 +39,25 @@ private:
         pcl::fromROSMsg(*msg, *cloud);
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_front_filtered(new pcl::PointCloud<pcl::PointXYZ>);
-        
-        // --- ADDED: Front View Filter ---
         if (front_view_only_) {
             pcl::PassThrough<pcl::PointXYZ> pass;
             pass.setInputCloud(cloud);
             pass.setFilterFieldName("x");
-            pass.setFilterLimits(0.0, 10.0); // Keep only points in front of the sensor
+            pass.setFilterLimits(-10.0, 0.0); // Front now defined as negative X
             pass.filter(*cloud_front_filtered);
         } else {
             *cloud_front_filtered = *cloud;
         }
 
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_voxel_filtered(new pcl::PointCloud<pcl::PointXYZ>);
-        
-        pcl::VoxelGrid<pcl::PointXYZ> sor;
-        sor.setInputCloud(cloud_front_filtered);
-        sor.setLeafSize(leaf_size_, leaf_size_, leaf_size_);
-        sor.filter(*cloud_voxel_filtered);
+        pcl::VoxelGrid<pcl::PointXYZ> sor; sor.setInputCloud(cloud_front_filtered); sor.setLeafSize(leaf_size_, leaf_size_, leaf_size_); sor.filter(*cloud_voxel_filtered);
 
-        sensor_msgs::msg::PointCloud2 output_msg;
-        pcl::toROSMsg(*cloud_voxel_filtered, output_msg);
-        output_msg.header = msg->header;
-        
-        publisher_->publish(output_msg);
+        sensor_msgs::msg::PointCloud2 output_msg; pcl::toROSMsg(*cloud_voxel_filtered, output_msg); output_msg.header = msg->header; publisher_->publish(output_msg);
     }
 
     rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr publisher_;
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
-    double leaf_size_;
-    std::string input_topic_;
-    std::string output_topic_;
-    bool front_view_only_;
+    double leaf_size_; std::string input_topic_; std::string output_topic_; bool front_view_only_;
 };
 
 int main(int argc, char * argv[])

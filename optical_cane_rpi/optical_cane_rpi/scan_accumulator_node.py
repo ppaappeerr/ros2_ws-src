@@ -56,7 +56,7 @@ class ScanAccumulatorNode(Node):
 
         self.get_logger().info(f"Scan Accumulator Node started. Accumulating scans over {self.accumulation_time} seconds.")
         self.get_logger().info(f"Input: '{input_topic}', Output: '{output_topic}', Fixed Frame: '{self.fixed_frame}'")
-        self.get_logger().info(f"Front view only: {self.front_view_only}")
+        self.get_logger().info(f"Front view only: {self.front_view_only} (Front = -X)")
 
 
     def scan_callback(self, msg: LaserScan):
@@ -121,23 +121,19 @@ class ScanAccumulatorNode(Node):
         scan_out.scan_time = scan_in.scan_time
         scan_out.range_min = scan_in.range_min
         scan_out.range_max = scan_in.range_max
-        
+
         ranges = np.array(scan_in.ranges)
-        
-        # Create an angle array for each range measurement
-        angles = np.arange(scan_in.angle_min, scan_in.angle_max + scan_in.angle_increment, scan_in.angle_increment)
-        
-        # Set ranges to infinity (or NaN) for points that are not in the front view
-        # Front view is typically -PI/2 to +PI/2
-        front_view_mask = (angles < -math.pi / 2) | (angles > math.pi / 2)
-        ranges[front_view_mask] = float('inf')
-        
+        angles = np.arange(scan_in.angle_min, scan_in.angle_max + scan_in.angle_increment/2.0, scan_in.angle_increment)
+        # NEW: front is -X (angle ~ pi or -pi). Keep angles whose wrapped distance to pi <= 90 deg
+        wrapped_diff = np.arctan2(np.sin(angles - math.pi), np.cos(angles - math.pi))
+        keep_mask = np.abs(wrapped_diff) <= (math.pi / 2.0)
+        # Remove points not in new front
+        ranges[~keep_mask] = float('inf')
         scan_out.ranges = ranges.tolist()
         if scan_in.intensities:
             intensities = np.array(scan_in.intensities)
-            intensities[front_view_mask] = 0
+            intensities[~keep_mask] = 0
             scan_out.intensities = intensities.tolist()
-            
         return scan_out
 
     def pc2_to_numpy(self, cloud_msg):

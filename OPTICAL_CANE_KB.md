@@ -508,8 +508,177 @@
 
 ---
 
-**마지막 업데이트:** 2025년 8월 20일 저녁  
-**프로젝트 단계:** 새로운 3D 인식 알고리즘 구현 및 개선  
-**다음 주요 이정표:** HeightMap 2.5D 알고리즘 시각화 개선  
-**현재 과제:** 원통 지속성 및 높이 반영 정확성 향상  
-**작업 상태:** WORK_STATUS_SUMMARY.md 참조
+## 14. 2025-08-22 업데이트 요약 (Front = -X 전환 및 토픽 구조 확정)
+
+### 14.1. 전역 좌표 기준 변경
+- 모든 `front_view_only` 로직에서 전방을 기존 `+X` → `-X` 로 재정의.
+- 적용 노드: `path_planner_node`, `path_planner_3d_node`, `ftg_3d_node`, `heightmap_planner_node`, `voxel_grid_filter_node`, `scan_accumulator_node`.
+- PassThrough / 필터 조건: `x` 범위 (기존 0..R) → `(-R .. 0)`.
+- 각도 처리: 모든 레이/섹터/갭/heightmap ray angle 계산 후 `+π` 시프트.
+- 초기 `smoothed_angle_` 값 `0` → `M_PI` 로 조정 (초기 방향 -X 정면).
+
+### 14.2. 주 토픽/시각화 정리 (최종 확정)
+| 기능 | 최종 토픽 | 비고 |
+|------|-----------|------|
+| 통합 경로 출력 | `/safe_path_vector` | 모든 플래너 동일 (과거 *_3d / *_heightmap 제거) |
+| 일반 디버그 마커 | `/path_planner_debug` | 후보 레이, 안전 화살표 등 공통(혼잡 방지 최소화) |
+| FTG 갭 시각화 | `/ftg_gaps` | 갭 아크 + 선택 방향 전용 (섹터는 옵션) |
+| HeightMap 위험 필러 | `/height_pillars` | 드롭/장애물/불균일 Pillar (동적 높이/반경/색) |
+| 지면 평면 (연구) | `/ground_plane_marker` | 변화 없음 |
+
+### 14.3. Follow-The-Gap 3D 개선
+- 전방 -X 반영. - 라이다를 교체하며 기존 +X에서 -X를 Front로 선정하는 것이 좀 더 편안해졌기에 변경.
+- 섹터 거리 프로파일 180° ( -90°~+90° 상대 ) → world frame -X 중심.
+- `show_sectors` 파라미터: true 시 얇은 회색 화살표를 `/path_planner_debug` 에 출력.
+- 갭 전용 토픽 `/ftg_gaps` 분리 → 시각적 분리(잡음 감소).
+- 중앙성 + 폭 + 깊이 복합 점수 (좁은 미로 환경에서도 중앙 통과 유도).
+
+### 14.4. HeightMap 2.5D Planner 개선
+- Front -X 적용 및 ground calibration 영역 재설정: `x∈[-2.0,-0.5]` (샘플 부족 방지 위해 최소 샘플 50).
+- Pillar 표현:
+  * 유형 분류: DROP / OBSTACLE / UNEVEN.
+  * 높이: 유형/심각도 기반 비선형 스케일 (drop/protrusion/roughness 제한 cap).
+  * 반경: 해상도 비례 + severity 가중 (기본 0.25*grid_resolution 최소 0.01).
+  * 색상: DROP (노랑→빨강), OBSTACLE (주황→진홍), UNEVEN (연녹→주황).
+- 경로 선택 로직 추가 개선:
+  * `traversable_counts[i]==0` 레이 패널티 (공허/가장자리 쏠림 완화).
+  * 중앙 bias (2차 곡선) 적용으로 ±90° 경계로 화살표 튀는 현상 감소.
+- Marker keepalive: Pillar 없을 때 RViz 토픽 유지 위한 투명 dummy 추가.
+
+### 14.5. 2D / 3D Corridor Planner 조정
+- 전방 반전 + 중앙 bias 적용.
+- 레이 각도 `+π` 시프트로 -X 기준.
+- 기존 전방 필터 조건 `point.x < 0` 검사 방향 반전.
+
+### 14.6. Voxel / Scan Accumulator 조정
+- PassThrough x 필터 범위 변경: `0..N` → `-N..0`.
+- Scan Accumulator front mask: (이전 ±90° around 0 rad) → (±90° around π rad) 로 재작성 (wrap 각도 diff 사용).
+
+### 14.7. 토픽 과거 기술 항목 정리 필요
+문서 상 남아있던 구형 토픽 (예: `/safe_path_vector_3d`, `/gap_markers`, `/height_map_markers`, `/risk_map_markers`) 는 **모두 폐기**. 분석 및 스크립트 갱신 시 최신 토픽만 사용.
+
+### 14.8. 남은 단기 기술 부채
+1. HeightMap pillar 시간 지속성(프레임별 flicker 필터) → deque 기반 누적 후 가중 감쇠 필요.
+2. Gap/Height Pillar 스케일 파라미터화 (ros2 param set으로 동적 조정) 준비.
+3. /corridor_preprocessed_cloud 유지 여부 결정 (장기: 파라미터로 on/off).
+4. Negative obstacle 정량 이벤트 추적(드롭 감지 횟수 / 단위 거리) 로깅.
+
+---
+
+## 15. 2025-08-23 어깨 장착 비교 실험 계획 (5 방식 × 5 반복)
+
+### 15.1. 비교 대상 5 방식
+| 코드명 | 설명 | 플래너 노드 | 주 입력 | 비고 |
+|--------|------|-------------|---------|------|
+| A | 3D→2D 투영 누적 (기존 안정형) | `path_planner_node` | `/sweep_cloud_cpp` | IMU 사용, Z 평탄화 |
+| B | 순수 2D 스캔 누적 | `path_planner_node` (remap) | `/scan_accumulation_cloud` | IMU 미사용 |
+| C | 3D Corridor | `path_planner_3d_node` | `/downsampled_cloud` | 음의 장애물 잠재 감지 |
+| D | Follow-The-Gap 3D | `ftg_3d_node` | `/downsampled_cloud` | 갭 중심 추종 |
+| E | HeightMap 2.5D | `heightmap_planner_node` | `/downsampled_cloud` | Drop / Obstacle / Uneven 고려 |
+
+모두 최종 경로 토픽 동일: `/safe_path_vector` (단일화). 반복 실행 별도 bag 이름으로 구분.
+
+### 15.2. 실행/기록 표준화
+반복 번호 r ∈ {1..5}. 세션 prefix: `smt` (shoulder mounted test). 디렉토리/rosbag 이름 규칙:
+`bag_<DATE>_<MODE><r>` 예) `bag_0823_A1`.
+
+### 15.3. 기록해야 할 공통 최소 토픽 세트
+필수(모든 모드 공통):
+- `/safe_path_vector`
+- `/tf` `/tf_static`
+- `/imu/data` (B 모드에서도 기준 프레임 로그 용도)
+- 원시 또는 전처리 포인트: 모드별 1개만
+  * A: `/sweep_cloud_cpp`
+  * B: `/scan_accumulation_cloud`
+  * C/D/E: `/downsampled_cloud`
+- 시각화 근거:
+  * D: `/ftg_gaps`
+  * E: `/height_pillars`
+  * 공통 디버그: `/path_planner_debug`
+
+선택(추가 분석 시): `/corridor_preprocessed_cloud` (C), `/ground_plane_marker`.
+
+### 15.4. rosbag 예시 명령 세트
+(모드 A 1회차 예)
+`ros2 bag record -o bag_0823_A1 /safe_path_vector /imu/data /tf /tf_static /sweep_cloud_cpp /path_planner_debug`
+
+모드별 템플릿:
+- A: `/sweep_cloud_cpp`
+- B: `/scan_accumulation_cloud`
+- C: `/downsampled_cloud /path_planner_debug /corridor_preprocessed_cloud`
+- D: `/downsampled_cloud /ftg_gaps /path_planner_debug`
+- E: `/downsampled_cloud /height_pillars /path_planner_debug`
+
+### 15.5. 실시간 모니터링 권장
+- RViz: `/safe_path_vector`, `/ftg_gaps`, `/height_pillars` 표시.
+- Live Plot: 기존 `path_vector_plotter.py` + `live_plotter.py` (각 모드 동일).
+
+### 15.6. 사후 분석 메트릭 (추가/정의 명확화)
+| 카테고리 | 메트릭 | 설명 | 계산 방식 제안 |
+|----------|--------|------|----------------|
+| 안정성 | Path Angle Std | `safe_angle(t)` 표준편차 | 라디안→도 변환 후 std |
+| 부드러움 | Angular Velocity RMS | dθ/dt RMS | 1차 미분 후 RMS |
+| 저주파 편향 | Heading Drift | 시작 대비 누적 평균 편차 | mean(θ) - θ_start |
+| 고주파 노이즈 | PSD High-Freq Energy | >1Hz 대역 적분 | Welch / SciPy |
+| 회피 여유 | Clearance Proxy | FTG: 선택 갭 깊이, Corridor: best ray depth | 마커/내부 depth 로그 추가 고려 |
+| 음의 장애물 지표 | Drop Pillar Count / min | HeightMap DROP 타입 빈도 | 시간 정규화 |
+| 지형 위험 합 | Pillar Severity Sum | Σ(severity) / window | 1초 슬라이딩 |
+| 탐색 안정성 | Direction Reversal Count | sign 변화(>45°) 횟수 | 임계 기반 카운트 |
+| 중앙성 | Deviation from Forward | | mean(|θ - π|) (전방 -X) |
+| 반응 지연 | Latency (optional) | 입력 cloud stamp→vector stamp | 타임스탬프 차 |
+
+### 15.7. 추가 HeightMap 전용 추출
+- Pillar 타입별 비율 (DROP/OBSTACLE/UNEVEN).
+- Max severity vs 선택 경로 방향 각도 차 (위험 회피 정도).
+
+### 15.8. 추가 FTG 전용 추출
+- 선택된 갭 폭(deg) 히스토그램.
+- 연속 프레임 gap center angle 변화율.
+
+### 15.9. 분석 파이프라인 제안 절차
+1. Bag 목록 스캔 → (모드, 반복) 파싱.
+2. 공통 parser: `/safe_path_vector` → angle, angular velocity 시계열.
+3. 모드별 추가 parser:
+   - D: `/ftg_gaps` LINE_STRIP id→gap score (색/길이) 추출 (필요시 Marker 해석 룰 정의).
+   - E: `/height_pillars` CYLINDER set → severity (색/scale) 역변환 저장 (현재 색/scale 공식 그대로 사용).
+4. 메트릭 계산 후 DataFrame 합치기 (columns: mode, run, metric, value).
+5. 시각화:
+   - Bar(평균) + error bar(표준편차) per metric.
+   - Time-series overlay (대표 run 1개씩) 안정성 비교.
+   - Boxplot (Angular Velocity RMS) 5×5.
+6. 결과 요약 자동 Markdown 생성 → KB append.
+
+### 15.10. 파일/폴더 네이밍 권장
+```
+results/
+  2025-08-23/
+    raw_bags/ (심볼릭링크 또는 원본 위치 참조)
+    metrics_summary.csv
+    metrics_by_run.csv
+    plots/
+      stability_bar.png
+      angular_velocity_box.png
+      ftg_gap_width_hist.png
+      heightmap_drop_counts.png
+      psd_comparison.png
+    report.md
+```
+
+### 15.11. 자동화 TODO (내일 담당 AI 위한 선행 과제)
+- [ ] 기존 `plot_analysis.py` 확장: 다중 모드 자동 ingest.
+- [ ] HeightMap pillar 역해석 유틸 (scale / color → severity/type) 함수화.
+- [ ] FTG gap arc 파싱(라인스트립 첫 center→호 포인트→깊이/폭 재계산) 함수.
+- [ ] 공통 CLI: `python analyze_batch.py --date 2025-08-23 --modes A,B,C,D,E`.
+- [ ] 결과 Markdown 템플릿 자동 채움.
+
+### 15.12. 위험 / 주의 포인트
+- Shoulder 장착 시 센서 pitch 변화 → -X front 정합 확인 (TF/Axes 표시 필수).
+- HeightMap ground 재캘리브레이션 지연 가능 (샘플 부족 시) → 초기 2초 정지 권장.
+- 동일 환경 반복 경로 다양성 확보 위해 수행 순서 permutation (A→E 순 고정 편향 방지).
+
+---
+
+**오늘 변경 핵심:** Front = -X 통일, 토픽 단일화(`/safe_path_vector`), 시각화 정비(`/ftg_gaps`, `/height_pillars`), HeightMap/FTG 알고리즘 안정화 편향/패널티 도입.
+
+**마지막 업데이트:** 2025년 8월 22일 새벽
+**NEW_ALGORITHM_EXPERIMENT_GUIDE.md:** 해당 파일도 참조
