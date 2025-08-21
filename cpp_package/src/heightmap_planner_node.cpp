@@ -46,7 +46,7 @@ struct HeightMapFrame {
 class HeightMapPlannerNode : public rclcpp::Node
 {
 public:
-    HeightMapPlannerNode() : Node("heightmap_planner_node"), smoothed_angle_(0.0)
+    HeightMapPlannerNode() : Node("heightmap_planner_node"), smoothed_angle_(M_PI)
     {
         // Parameters
         this->declare_parameter<bool>("front_view_only", true);
@@ -67,9 +67,11 @@ public:
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, 
             std::bind(&HeightMapPlannerNode::pointCloudCallback, this, std::placeholders::_1));
-        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector_heightmap", 10);
-        height_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/height_markers", 10);
-        risk_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/risk_map_markers", 10);
+        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector", 10);
+        // NEW: risk & direction debug
+        risk_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/path_planner_debug", 10);
+        // NEW: pillars (drop risk) separate topic
+        pillar_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/height_pillars", 10);
         
         last_time_ = this->now();
         ground_height_ = 0.0f;
@@ -90,7 +92,7 @@ private:
             pcl::PassThrough<pcl::PointXYZ> pass;
             pass.setInputCloud(cloud);
             pass.setFilterFieldName("x");
-            pass.setFilterLimits(0.0, max_range_);
+            pass.setFilterLimits(-max_range_, 0.0);
             pass.filter(*cloud);
         }
         
@@ -131,7 +133,6 @@ private:
         
         // Publish results
         publishSafeVector(msg->header, smoothed_angle_);
-        publishHeightMapVisualization(msg->header, accumulated_map);
         publishRiskMapVisualization(msg->header, accumulated_map, smoothed_angle_);
         
         last_time_ = current_time;
@@ -240,52 +241,48 @@ private:
     {
         const int num_rays = 50;
         std::vector<double> scores(num_rays, 0.0);
-        
+        std::vector<int> traversable_counts(num_rays,0);
         for (int i = 0; i < num_rays; ++i) {
-            double ray_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+            double rel_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0); // [-pi/2,pi/2] around +X
+            double ray_angle = rel_angle + M_PI; // shift to -X forward
             Eigen::Vector2f ray_dir(cos(ray_angle), sin(ray_angle));
-            
             double total_clearance = max_range_;
-            double total_risk_penalty = 0.0;
-            int cells_checked = 0;
-            double ray_clearance = 0.2;  // 20cm clearance
-            
+            double total_risk_penalty = 0.0; int cells_checked = 0; int traversable_local = 0;
+            double ray_clearance = 0.2;
             for (double dist = 0.2; dist < max_range_; dist += grid_resolution_) {
                 Eigen::Vector2f ray_point = ray_dir * dist;
-                
                 for (double offset = -ray_clearance; offset <= ray_clearance; offset += grid_resolution_) {
                     Eigen::Vector2f perp_dir(-ray_dir.y(), ray_dir.x());
                     Eigen::Vector2f check_point = ray_point + perp_dir * offset;
-                    
+                    // Discard points that fall outside FOV wedge (avoid wrapping artifacts)
+                    if (check_point.x() > 0) continue; // behind new forward reference
                     int grid_x = static_cast<int>(std::floor(check_point.x() / grid_resolution_));
                     int grid_y = static_cast<int>(std::floor(check_point.y() / grid_resolution_));
                     std::string key = std::to_string(grid_x) + "," + std::to_string(grid_y);
-                    
                     auto it = height_map.find(key);
                     if (it != height_map.end()) {
-                        const HeightCell& cell = it->second;
-                        
+                        const HeightCell & cell = it->second;
                         if (!cell.is_traversable) {
                             total_clearance = std::min(total_clearance, dist);
+                        } else {
+                            traversable_local++;
                         }
-                        
                         total_risk_penalty += cell.drop_risk;
                         cells_checked++;
                     }
                 }
             }
-            
+            traversable_counts[i] = traversable_local;
             double avg_risk = cells_checked > 0 ? total_risk_penalty / cells_checked : 0.0;
             scores[i] = total_clearance * (1.0 - avg_risk * 2.0);
-            
-            if (i > 0 && i < num_rays - 1) {
-                double neighbor_boost = 0.1 * (scores[i-1] + scores[i+1]);
-                scores[i] += neighbor_boost;
-            }
         }
-        
+        // Penalize rays with zero traversable cells (edge pointing into void)
+        for (int i=0;i<num_rays;++i){ if (traversable_counts[i]==0) scores[i] *= 0.3; }
+        // Central bias to avoid drifting toward FOV edges in sparse maps
+        double center_idx = (num_rays - 1)/2.0;
+        for (int i=0;i<num_rays;++i){ double norm_pos = std::abs(i-center_idx)/center_idx; scores[i] *= (1.0 - 0.25*norm_pos*norm_pos); }
         int best_ray_idx = std::distance(scores.begin(), std::max_element(scores.begin(), scores.end()));
-        double ideal_angle = (best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+        double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
         
         return ideal_angle;
     }
@@ -300,149 +297,122 @@ private:
         vector_publisher_->publish(safe_vector_msg);
     }
     
-    void publishHeightMapVisualization(const std_msgs::msg::Header& header,
-                                      const std::unordered_map<std::string, HeightCell>& height_map)
-    {
-        visualization_msgs::msg::MarkerArray markers;
-        int marker_id = 0;
-        
-        for (const auto& [key, cell] : height_map) {
-            if (cell.point_count == 0) continue;
-            
-            size_t comma_pos = key.find(',');
-            int grid_x = std::stoi(key.substr(0, comma_pos));
-            int grid_y = std::stoi(key.substr(comma_pos + 1));
-            
-            double world_x = (grid_x + 0.5) * grid_resolution_;
-            double world_y = (grid_y + 0.5) * grid_resolution_;
-            
-            // Grid cell visualization as cubes
-            visualization_msgs::msg::Marker grid_marker;
-            grid_marker.header = header;
-            grid_marker.ns = "height_grid";
-            grid_marker.id = marker_id++;
-            grid_marker.type = visualization_msgs::msg::Marker::CUBE;
-            grid_marker.action = visualization_msgs::msg::Marker::ADD;
-            grid_marker.lifetime = rclcpp::Duration::from_seconds(0.3);
-            
-            grid_marker.pose.position.x = world_x;
-            grid_marker.pose.position.y = world_y;
-            grid_marker.pose.position.z = ground_height_ + (cell.max_z - cell.min_z) / 2.0;
-            grid_marker.pose.orientation.w = 1.0;
-            
-            grid_marker.scale.x = grid_resolution_ * 0.9;
-            grid_marker.scale.y = grid_resolution_ * 0.9;
-            
-            double height_range = cell.max_z - cell.min_z;
-            if (height_range < 0.01) height_range = 0.01;
-            grid_marker.scale.z = height_range;
-            
-            if (!cell.is_traversable) {
-                if (cell.drop_risk > 0.5) {
-                    grid_marker.color.r = 0.9; grid_marker.color.g = 0.0; grid_marker.color.b = 0.0;
-                } else {
-                    grid_marker.color.r = 1.0; grid_marker.color.g = 0.4; grid_marker.color.b = 0.0;
-                }
-            } else {
-                double height_offset = cell.mean_z - ground_height_;
-                if (std::abs(height_offset) < 0.05) {
-                    grid_marker.color.r = 0.0; grid_marker.color.g = 0.8; grid_marker.color.b = 0.2;
-                } else {
-                    grid_marker.color.r = 0.2; grid_marker.color.g = 0.6; grid_marker.color.b = 0.3;
-                }
-            }
-            grid_marker.color.a = 0.7;
-            
-            markers.markers.push_back(grid_marker);
-        }
-        
-        height_publisher_->publish(markers);
-    }
-    
     void publishRiskMapVisualization(const std_msgs::msg::Header& header,
                                     const std::unordered_map<std::string, HeightCell>& height_map,
                                     double safe_angle)
     {
-        visualization_msgs::msg::MarkerArray markers;
-        int marker_id = 0;
-        
-        // 안전 방향 화살표 표시
+        visualization_msgs::msg::MarkerArray debug_markers; // safe direction
+        visualization_msgs::msg::MarkerArray pillar_markers; // refined risk pillars
+        int id_debug = 0;
+        int id_pillar = 0;
+        // Safe direction arrow (unchanged)
         visualization_msgs::msg::Marker direction_arrow;
         direction_arrow.header = header;
         direction_arrow.ns = "safe_direction";
-        direction_arrow.id = marker_id++;
+        direction_arrow.id = id_debug++;
         direction_arrow.type = visualization_msgs::msg::Marker::ARROW;
         direction_arrow.action = visualization_msgs::msg::Marker::ADD;
         direction_arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
-        
-        // 화살표 시작점과 끝점
         direction_arrow.points.resize(2);
-        direction_arrow.points[0].x = 0.0;
-        direction_arrow.points[0].y = 0.0;
-        direction_arrow.points[0].z = 0.2;
-        direction_arrow.points[1].x = 2.0 * cos(safe_angle);
-        direction_arrow.points[1].y = 2.0 * sin(safe_angle);
-        direction_arrow.points[1].z = 0.2;
-        
-        // 화살표 스타일
-        direction_arrow.scale.x = 0.05;  // 샤프트 두께
-        direction_arrow.scale.y = 0.1;   // 헤드 두께
-        direction_arrow.scale.z = 0.15;  // 헤드 길이
-        
-        // 밝은 녹색으로 표시
-        direction_arrow.color.r = 0.0;
-        direction_arrow.color.g = 1.0;
-        direction_arrow.color.b = 0.0;
-        direction_arrow.color.a = 0.9;
-        
-        markers.markers.push_back(direction_arrow);
-        
-        // 위험도에 따른 추가 시각화 (원형 마커)
+        direction_arrow.points[0].x=0; direction_arrow.points[0].y=0; direction_arrow.points[0].z=0.2;
+        direction_arrow.points[1].x=2.0*cos(safe_angle); direction_arrow.points[1].y=2.0*sin(safe_angle); direction_arrow.points[1].z=0.2;
+        direction_arrow.scale.x=0.05; direction_arrow.scale.y=0.1; direction_arrow.scale.z=0.15;
+        direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; direction_arrow.color.a=0.9;
+        debug_markers.markers.push_back(direction_arrow);
+
+        // Pillars (refined)
         for (const auto& [key, cell] : height_map) {
-            if (cell.point_count == 0 || cell.drop_risk < 0.1) continue;
-            
+            if (cell.point_count == 0) continue;
+            // Skip very low risk
+            if (cell.drop_risk < 0.05 && cell.is_traversable) continue;
+
             size_t comma_pos = key.find(',');
             int grid_x = std::stoi(key.substr(0, comma_pos));
             int grid_y = std::stoi(key.substr(comma_pos + 1));
-            
             double world_x = (grid_x + 0.5) * grid_resolution_;
             double world_y = (grid_y + 0.5) * grid_resolution_;
-            
-            visualization_msgs::msg::Marker risk_marker;
-            risk_marker.header = header;
-            risk_marker.ns = "risk_indicators";
-            risk_marker.id = marker_id++;
-            risk_marker.type = visualization_msgs::msg::Marker::CYLINDER;
-            risk_marker.action = visualization_msgs::msg::Marker::ADD;
-            risk_marker.lifetime = rclcpp::Duration::from_seconds(0.2);
-            
-            risk_marker.pose.position.x = world_x;
-            risk_marker.pose.position.y = world_y;
-            risk_marker.pose.position.z = ground_height_ + 0.05;
-            risk_marker.pose.orientation.w = 1.0;
-            
-            double risk_scale = 0.02 + (cell.drop_risk * 0.08);  // 0.02~0.1m
-            risk_marker.scale.x = risk_scale;
-            risk_marker.scale.y = risk_scale;
-            risk_marker.scale.z = 0.02;
-            
-            // 위험도에 따른 색상 (노랑 -> 빨강)
-            risk_marker.color.r = 1.0;
-            risk_marker.color.g = 1.0 - cell.drop_risk;
-            risk_marker.color.b = 0.0;
-            risk_marker.color.a = 0.8;
-            
-            markers.markers.push_back(risk_marker);
+
+            double min_offset = cell.min_z - ground_height_;   // negative if drop
+            double max_offset = cell.max_z - ground_height_;   // positive if obstacle
+            double range = cell.getHeightRange();
+
+            double pillar_height = 0.0;  // visual scale.z
+            double severity = 0.0;       // 0~1 for color mapping
+            enum class PillarType { DROP, OBSTACLE, UNEVEN, SAFE } type = PillarType::SAFE;
+
+            if (min_offset < -drop_threshold_) {
+                // Drop: height proportional to depth below ground
+                double drop_depth = std::min(0.6, std::abs(min_offset));
+                pillar_height = std::max(0.12, drop_depth * 0.8);
+                severity = std::min(1.0, std::abs(min_offset) / (drop_threshold_ * 3.0));
+                type = PillarType::DROP;
+            } else if (max_offset > obstacle_height_threshold_) {
+                // Obstacle protruding up
+                double protrude = std::min(0.6, max_offset);
+                pillar_height = std::max(0.10, protrude * 0.9);
+                severity = std::min(1.0, max_offset / (obstacle_height_threshold_ * 3.0));
+                type = PillarType::OBSTACLE;
+            } else if (!cell.is_traversable || range > ground_height_tolerance_) {
+                // Uneven terrain / roughness
+                double rough = std::min(0.4, range * 2.0);
+                pillar_height = std::max(0.08, rough);
+                severity = std::min(1.0, range / (ground_height_tolerance_ * 2.0));
+                type = PillarType::UNEVEN;
+            } else {
+                continue; // traversable & low risk: skip
+            }
+
+            visualization_msgs::msg::Marker pillar;
+            pillar.header = header;
+            pillar.ns = "height_pillars";
+            pillar.id = id_pillar++;
+            pillar.type = visualization_msgs::msg::Marker::CYLINDER;
+            pillar.action = visualization_msgs::msg::Marker::ADD;
+            pillar.lifetime = rclcpp::Duration::from_seconds(0.3);
+            pillar.pose.position.x = world_x;
+            pillar.pose.position.y = world_y;
+            // Base sits slightly above ground for visibility
+            pillar.pose.position.z = ground_height_ + pillar_height / 2.0;
+            pillar.pose.orientation.w = 1.0;
+
+            // Thin radius relative to grid resolution; widen slightly with severity
+            double base_radius = std::max(0.25 * grid_resolution_, 0.01);
+            double radius = base_radius * (1.0 + 0.6 * severity);
+            pillar.scale.x = radius;
+            pillar.scale.y = radius;
+            pillar.scale.z = pillar_height;
+
+            // Color scheme per type
+            if (type == PillarType::DROP) {
+                // Yellow -> Red
+                pillar.color.r = 1.0;
+                pillar.color.g = 1.0 - 0.8 * severity;
+                pillar.color.b = 0.0;
+            } else if (type == PillarType::OBSTACLE) {
+                // Orange -> Deep Red
+                pillar.color.r = 1.0;
+                pillar.color.g = 0.5 - 0.4 * severity;
+                pillar.color.b = 0.0;
+            } else { // UNEVEN
+                // Greenish -> Orange (roughness)
+                pillar.color.r = 0.3 + 0.5 * severity;
+                pillar.color.g = 0.8 - 0.5 * severity;
+                pillar.color.b = 0.1;
+            }
+            pillar.color.a = 0.88;
+
+            pillar_markers.markers.push_back(pillar);
         }
-        
-        risk_publisher_->publish(markers);
+
+        if (!debug_markers.markers.empty()) risk_publisher_->publish(debug_markers);
+        if (!pillar_markers.markers.empty()) pillar_publisher_->publish(pillar_markers);
     }
 
 private:
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr vector_publisher_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr height_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr risk_publisher_;
+    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pillar_publisher_;
     
     bool front_view_only_;
     double grid_resolution_;

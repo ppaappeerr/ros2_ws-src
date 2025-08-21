@@ -30,7 +30,7 @@ struct GapInfo {
 class FollowTheGap3DNode : public rclcpp::Node
 {
 public:
-    FollowTheGap3DNode() : Node("follow_the_gap_3d_node"), smoothed_angle_(0.0)
+    FollowTheGap3DNode() : Node("follow_the_gap_3d_node"), smoothed_angle_(M_PI) // facing -X
     {
         // Parameters
         this->declare_parameter<bool>("front_view_only", true);
@@ -45,19 +45,23 @@ public:
         this->get_parameter("safety_margin", safety_margin_);
         this->declare_parameter<int>("num_sectors", 36);  // Number of angular sectors (10 degree resolution)
         this->get_parameter("num_sectors", num_sectors_);
+        this->declare_parameter<bool>("show_sectors", false);
+        this->get_parameter("show_sectors", show_sectors_);
         
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, 
             std::bind(&FollowTheGap3DNode::pointCloudCallback, this, std::placeholders::_1));
 
-        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector_ftg3d", 10);
-        gap_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/gap_markers", 10);
-        sector_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/sector_markers", 10);
+        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector", 10);
+        // NEW: dedicated gap topic
+        gap_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/ftg_gaps", 10);
+        // Debug (optional sectors etc.)
+        debug_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/path_planner_debug", 10);
+        // sector_publisher_ removed; sectors go to debug if enabled
         
         last_time_ = this->now();
         
-        RCLCPP_INFO(this->get_logger(), "Follow-the-Gap 3D Node has been started.");
-        RCLCPP_INFO(this->get_logger(), "Corridor width: %.2f m, Sectors: %d", corridor_width_, num_sectors_);
+        RCLCPP_INFO(this->get_logger(), "Follow-the-Gap 3D Node started (front is -X).");
     }
 
 private:
@@ -77,7 +81,7 @@ private:
             pcl::PassThrough<pcl::PointXYZ> pass;
             pass.setInputCloud(cloud);
             pass.setFilterFieldName("x");
-            pass.setFilterLimits(0.0, max_range_);
+            pass.setFilterLimits(-max_range_, 0.0);
             pass.filter(*cloud_filtered);
         } else {
             *cloud_filtered = *cloud;
@@ -97,8 +101,7 @@ private:
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, safe_angle);
         double max_angle_change = max_angular_velocity * dt;
         double angle_change = std::clamp(angle_diff, -max_angle_change, max_angle_change);
-        smoothed_angle_ += angle_change;
-        smoothed_angle_ = angles::normalize_angle(smoothed_angle_);
+        smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_change);
 
         // Publish results
         publishSafeVector(msg->header, smoothed_angle_);
@@ -108,32 +111,31 @@ private:
     std::vector<double> buildSectorDistanceProfile(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud)
     {
         std::vector<double> sector_distances(num_sectors_, max_range_);
-        
-        // Angular resolution per sector
-        double sector_angle_width = M_PI / num_sectors_;  // Full 180-degree front view
+        double sector_angle_width = M_PI / num_sectors_; // 180 deg FOV centered at -X
         
         for (const auto& point : cloud->points) {
-            if (point.x <= 0) continue;  // Skip points behind sensor
+            if (point.x >= 0) continue; // skip behind new forward
             
-            // Calculate angle of this point
-            double point_angle = std::atan2(point.y, point.x);
+            double point_angle = std::atan2(point.y, point.x); // angle in original frame
             
-            // Convert to sector index (0 = -90°, num_sectors-1 = +90°)
-            double normalized_angle = point_angle + M_PI/2.0;  // Shift to [0, π]
+            // Shift so that -X (pi) maps to 0 (center of new FOV) -> subtract pi, then add pi/2 for index in [0,pi]
+            double shifted = angles::normalize_angle(point_angle - M_PI); // now around 0
+            double normalized_angle = shifted + M_PI/2.0; // [ -pi/2, +pi/2 ] -> shift to [0,pi]
+            if (normalized_angle < 0 || normalized_angle > M_PI) continue; // outside FOV
+            
             int sector_idx = static_cast<int>(normalized_angle / sector_angle_width);
+            sector_idx = std::max(0, std::min(num_sectors_-1, sector_idx));
             
-            // Clamp to valid range
-            sector_idx = std::max(0, std::min(num_sectors_ - 1, sector_idx));
+            double sector_center_angle = (sector_idx * sector_angle_width) - M_PI/2.0; // [-pi/2,pi/2] relative to -X center
+            double world_angle = sector_center_angle + M_PI; // convert back to world frame
             
-            // Check if point is within the 3D corridor for this sector
-            double sector_center_angle = (sector_idx * sector_angle_width) - M_PI/2.0;
-            Eigen::Vector2f sector_dir(cos(sector_center_angle), sin(sector_center_angle));
+            Eigen::Vector2f sector_dir(cos(world_angle), sin(world_angle));
             Eigen::Vector2f point_2d(point.x, point.y);
             
             // Calculate perpendicular distance to sector center line
             double dist_to_sector_line = std::abs(point.x * sector_dir.y() - point.y * sector_dir.x());
             
-            if (dist_to_sector_line < (corridor_width_ / 2.0 + safety_margin_)) {
+            if (dist_to_sector_line < (corridor_width_/2.0 + safety_margin_)) {
                 // Point is within the corridor for this sector
                 double point_distance = point_2d.norm();
                 sector_distances[sector_idx] = std::min(sector_distances[sector_idx], point_distance);
@@ -211,19 +213,20 @@ private:
         double sector_angle_width = M_PI / num_sectors_;
         
         // Calculate gap properties
-        double start_angle = (start_idx * sector_angle_width) - M_PI/2.0;
-        double end_angle = ((end_idx + 1) * sector_angle_width) - M_PI/2.0;
-        double center_angle = (start_angle + end_angle) / 2.0;
-        double width_degrees = (end_angle - start_angle) * 180.0 / M_PI;
+        double start_angle_rel = (start_idx * sector_angle_width) - M_PI/2.0;
+        double end_angle_rel = ((end_idx + 1) * sector_angle_width) - M_PI/2.0;
+        double center_rel = (start_angle_rel + end_angle_rel)/2.0;
+        double start_angle_world = start_angle_rel + M_PI;
+        double end_angle_world = end_angle_rel + M_PI;
+        double center_angle_world = center_rel + M_PI;
+        double width_degrees = (end_angle_world - start_angle_world) * 180.0 / M_PI;
         
         // Calculate average depth in the gap
-        double total_depth = 0.0;
-        for (int i = start_idx; i <= end_idx; ++i) {
-            total_depth += sector_distances[i];
-        }
+        double total_depth=0.0;
+        for(int i=start_idx;i<=end_idx;++i) total_depth += sector_distances[i];
         double avg_depth = total_depth / (end_idx - start_idx + 1);
         
-        gaps.emplace_back(start_idx, end_idx, width_degrees, avg_depth, center_angle);
+        gaps.emplace_back(start_idx, end_idx, width_degrees, avg_depth, center_angle_world);
     }
     
     double selectBestGap(std::vector<GapInfo>& gaps)
@@ -231,7 +234,7 @@ private:
         if (gaps.empty()) {
             // No gaps found, go straight
             RCLCPP_WARN(this->get_logger(), "No gaps found, going straight");
-            return 0.0;
+            return M_PI;
         }
         
         // Score each gap
@@ -240,7 +243,7 @@ private:
             gap.score = gap.depth_meters * gap.width_degrees;
             
             // Bonus for central gaps (prefer going straight)
-            double angle_from_center = std::abs(gap.center_angle);
+            double angle_from_center = std::abs(angles::shortest_angular_distance(M_PI, gap.center_angle));
             double centrality_bonus = (M_PI/2.0 - angle_from_center) / (M_PI/2.0);  // 0 to 1
             gap.score += centrality_bonus * 2.0;  // Up to 2.0 bonus points
             
@@ -262,71 +265,60 @@ private:
     
     void publishSafeVector(const std_msgs::msg::Header& header, double angle)
     {
-        geometry_msgs::msg::Vector3Stamped safe_vector_msg;
-        safe_vector_msg.header = header;
-        safe_vector_msg.vector.x = cos(angle);
-        safe_vector_msg.vector.y = sin(angle);
-        safe_vector_msg.vector.z = 0;
-        vector_publisher_->publish(safe_vector_msg);
+        geometry_msgs::msg::Vector3Stamped msg_out;
+        msg_out.header = header;
+        msg_out.vector.x = cos(angle);
+        msg_out.vector.y = sin(angle);
+        msg_out.vector.z = 0;
+        vector_publisher_->publish(msg_out);
     }
     
     void publishGapVisualization(const std_msgs::msg::Header& header, 
                                 const std::vector<GapInfo>& gaps,
                                 const std::vector<double>& sector_distances)
     {
-        visualization_msgs::msg::MarkerArray sector_markers;
+        visualization_msgs::msg::MarkerArray sector_markers; // only if show_sectors_
         visualization_msgs::msg::MarkerArray gap_markers;
         
         double sector_angle_width = M_PI / num_sectors_;
-        
-        // 섹터별 장애물 거리 시각화 (화살표)
-        for (int i = 0; i < num_sectors_; ++i) {
-            visualization_msgs::msg::Marker arrow;
-            arrow.header = header;
-            arrow.ns = "ftg_sectors";
-            arrow.id = i;
-            arrow.type = visualization_msgs::msg::Marker::ARROW;
-            arrow.action = visualization_msgs::msg::Marker::ADD;
-            arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
-            
-            double sector_angle = (i * sector_angle_width) - M_PI/2.0;
-            double distance = std::min(sector_distances[i], max_range_);
-            
-            arrow.points.resize(2);
-            arrow.points[0].x = 0.0;
-            arrow.points[0].y = 0.0;
-            arrow.points[0].z = 0.05;
-            arrow.points[1].x = distance * cos(sector_angle);
-            arrow.points[1].y = distance * sin(sector_angle);
-            arrow.points[1].z = 0.05;
-            
-            // 화살표 크기
-            arrow.scale.x = 0.02;  // 샤프트 두께
-            arrow.scale.y = 0.04;  // 헤드 두께  
-            arrow.scale.z = 0.04;  // 헤드 길이
-            
-            // 거리에 따른 색상
-            if (distance > max_range_ * 0.9) {
-                arrow.color.r = 0.0; arrow.color.g = 0.8; arrow.color.b = 0.0;  // 진한 녹색
-            } else if (distance > max_range_ * 0.6) {
-                arrow.color.r = 0.3; arrow.color.g = 1.0; arrow.color.b = 0.0;  // 연한 녹색
-            } else if (distance > max_range_ * 0.3) {
-                arrow.color.r = 1.0; arrow.color.g = 0.6; arrow.color.b = 0.0;  // 주황
-            } else {
-                arrow.color.r = 1.0; arrow.color.g = 0.0; arrow.color.b = 0.0;  // 빨강
+        if (show_sectors_) {
+            for (int i = 0; i < num_sectors_; ++i) {
+                visualization_msgs::msg::Marker arrow;
+                arrow.header = header;
+                arrow.ns = "ftg_sectors";
+                arrow.id = i;
+                arrow.type = visualization_msgs::msg::Marker::ARROW;
+                arrow.action = visualization_msgs::msg::Marker::ADD;
+                arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
+                
+                double sector_rel = (i * sector_angle_width) - M_PI/2.0;
+                double world_angle = sector_rel + M_PI;
+                double distance = std::min(sector_distances[i], max_range_);
+                
+                arrow.points.resize(2);
+                arrow.points[0].x = 0.0; arrow.points[0].y = 0.0; arrow.points[0].z = 0.05;
+                arrow.points[1].x = distance * cos(world_angle);
+                arrow.points[1].y = distance * sin(world_angle);
+                arrow.points[1].z = 0.05;
+                
+                // 화살표 크기
+                arrow.scale.x = 0.01; // thinner
+                arrow.scale.y = 0.02;
+                arrow.scale.z = 0.02;
+                
+                // desaturate for less clutter
+                arrow.color.r = 0.3; arrow.color.g = 0.3; arrow.color.b = 0.3; arrow.color.a = 0.15;
+                
+                sector_markers.markers.push_back(arrow);
             }
-            arrow.color.a = 0.8;
-            
-            sector_markers.markers.push_back(arrow);
         }
-        
-        // 갭 시각화 - 부채꼴 모양으로 실제 갭 영역 표시
+        // Gap arcs + direction arrows
         for (size_t i = 0; i < gaps.size(); ++i) {
             const auto& gap = gaps[i];
             
             // 갭의 시작과 끝 각도 계산
-            double start_angle = (gap.start_sector * sector_angle_width) - M_PI/2.0;
-            double end_angle = ((gap.end_sector + 1) * sector_angle_width) - M_PI/2.0;
+            double start_angle= ((gap.start_sector * sector_angle_width) - M_PI/2.0) + M_PI;
+            double end_angle = (((gap.end_sector + 1) * sector_angle_width) - M_PI/2.0) + M_PI;
             
             // 갭 영역을 부채꼴로 시각화 (라인 스트립 사용)
             visualization_msgs::msg::Marker gap_arc;
@@ -359,14 +351,14 @@ private:
             // 중심점으로 돌아가기
             gap_arc.points.push_back(center);
             
-            gap_arc.scale.x = 0.02;  // 라인 두께
+            gap_arc.scale.x = 0.025;
             
             // 점수에 따른 색상
             double normalized_score = std::min(gap.score / 25.0, 1.0);
             gap_arc.color.r = 0.0;
-            gap_arc.color.g = 0.5 + normalized_score * 0.5;  // 0.5~1.0
-            gap_arc.color.b = 1.0 - normalized_score * 0.3;  // 1.0~0.7
-            gap_arc.color.a = 0.8;
+            gap_arc.color.g = 0.6 + 0.4 * normalized_score;
+            gap_arc.color.b = 1.0 - 0.3 * normalized_score;
+            gap_arc.color.a = 0.85;
             
             gap_markers.markers.push_back(gap_arc);
             
@@ -387,34 +379,23 @@ private:
             direction_arrow.points[1].y = gap.depth_meters * 0.7 * sin(gap.center_angle);
             direction_arrow.points[1].z = 0.15;
             
-            direction_arrow.scale.x = 0.03;  // 두꺼운 샤프트
-            direction_arrow.scale.y = 0.06;  // 큰 헤드
-            direction_arrow.scale.z = 0.08;
-            
-            // 최고 점수 갭은 특별히 표시
-            if (i == 0) {  // 첫 번째 갭이 최고 점수라고 가정
-                direction_arrow.color.r = 1.0;
-                direction_arrow.color.g = 1.0;
-                direction_arrow.color.b = 0.0;  // 노란색
-            } else {
-                direction_arrow.color.r = 0.0;
-                direction_arrow.color.g = 1.0;
-                direction_arrow.color.b = 0.0;  // 녹색
-            }
-            direction_arrow.color.a = 0.9;
+            direction_arrow.scale.x = 0.035; direction_arrow.scale.y = 0.07; direction_arrow.scale.z = 0.09;
+            if (i==0){ direction_arrow.color.r=1.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; }
+            else { direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; }
+            direction_arrow.color.a = 0.95;
             
             gap_markers.markers.push_back(direction_arrow);
         }
-        
-        sector_publisher_->publish(sector_markers);
-        gap_publisher_->publish(gap_markers);
+        // Publish
+        if (show_sectors_ && !sector_markers.markers.empty()) debug_publisher_->publish(sector_markers);
+        if (!gap_markers.markers.empty()) gap_publisher_->publish(gap_markers);
     }
 
 private:
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr vector_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr gap_publisher_;
-    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr sector_publisher_;
+    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr debug_publisher_;
     
     bool front_view_only_;
     double corridor_width_;
@@ -422,6 +403,7 @@ private:
     double min_gap_width_;
     double safety_margin_;
     int num_sectors_;
+    bool show_sectors_;
     
     double smoothed_angle_;
     rclcpp::Time last_time_;

@@ -17,7 +17,7 @@
 class PathPlannerNode : public rclcpp::Node
 {
 public:
-    PathPlannerNode() : Node("path_planner_node"), last_best_idx_(-1), smoothed_angle_(0.0)
+    PathPlannerNode() : Node("path_planner_node"), last_best_idx_(-1), smoothed_angle_(M_PI) // initialize looking toward -X
     {
         this->declare_parameter<bool>("front_view_only", true);
         this->get_parameter("front_view_only", front_view_only_);
@@ -30,12 +30,10 @@ public:
             "/sweep_cloud_cpp", 10, std::bind(&PathPlannerNode::pointCloudCallback, this, std::placeholders::_1));
 
         vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector", 10);
-        preprocessed_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/preprocessed_cloud", 10);
-        marker_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/candidate_rays", 10);
+        marker_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/path_planner_debug", 10);
 
         last_time_ = this->now();
-        RCLCPP_INFO(this->get_logger(), "Path Planner Node has been started.");
-        RCLCPP_INFO(this->get_logger(), "Front view only: %s", front_view_only_ ? "true" : "false");
+        RCLCPP_INFO(this->get_logger(), "Path Planner Node started (front inverted to -X).");
     }
 
 private:
@@ -55,8 +53,9 @@ private:
         pass.setInputCloud(cloud);
 
         if (front_view_only_) {
+            // NEW: front is -X (negative). Keep points where x in [-5,0]
             pass.setFilterFieldName("x");
-            pass.setFilterLimits(0.0, 5.0); // Keep points in front of the sensor
+            pass.setFilterLimits(-5.0, 0.0);
             pass.filter(*cloud_filtered);
         } else {
             *cloud_filtered = *cloud;
@@ -80,10 +79,10 @@ private:
         for (auto& point : *cloud_downsampled) {
             point.z = 0;
         }
-        sensor_msgs::msg::PointCloud2 preprocessed_msg;
-        pcl::toROSMsg(*cloud_downsampled, preprocessed_msg);
-        preprocessed_msg.header = msg->header;
-        preprocessed_publisher_->publish(preprocessed_msg);
+        // sensor_msgs::msg::PointCloud2 preprocessed_msg;
+        // pcl::toROSMsg(*cloud_downsampled, preprocessed_msg);
+        // preprocessed_msg.header = msg->header;
+        // preprocessed_publisher_->publish(preprocessed_msg);
 
         // Phase 2: Safety Vector Calculation
         const int num_rays = 15;
@@ -91,12 +90,13 @@ private:
         std::vector<double> depths(num_rays, max_dist);
 
         for (int i = 0; i < num_rays; ++i) {
-            double angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+            double base_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0); // [-pi/2, pi/2] around +X
+            double angle = base_angle + M_PI; // shift 180deg so 0 points to -X
             Eigen::Vector2f ray_dir(cos(angle), sin(angle));
             double min_dist_for_ray = max_dist;
             for (const auto& point : *cloud_downsampled) {
-                // This check is somewhat redundant if front_view_only is true, but good for safety
-                if (point.x < 0) continue; 
+                // Skip points BEHIND new forward (-X): i.e., points with x > 0
+                if (point.x > 0) continue;
                 Eigen::Vector2f point_vec(point.x, point.y);
                 if (point_vec.norm() == 0) continue;
                 if (point_vec.dot(ray_dir) > 0) {
@@ -110,26 +110,27 @@ private:
         }
 
         std::vector<double> scores(num_rays, 0.0);
-        double w1 = 0.7;
-        double w2 = 0.3;
+        double w1 = 0.7, w2 = 0.3;
         for (int i = 0; i < num_rays; ++i) {
             double prev_depth = (i > 0) ? depths[i - 1] : depths[i];
             double next_depth = (i < num_rays - 1) ? depths[i + 1] : depths[i];
             scores[i] = w1 * depths[i] + w2 * (prev_depth + next_depth);
+            // Mild central bias to avoid hugging FOV edges (i=0 & i=end)
+            double center_idx = (num_rays - 1) / 2.0;
+            double norm_pos = std::abs(i - center_idx) / center_idx;
+            scores[i] *= (1.0 - 0.15 * norm_pos * norm_pos);
         }
 
         // Optimal Raw Vector Selection
         int best_ray_idx = std::distance(scores.begin(), std::max_element(scores.begin(), scores.end()));
-        double ideal_angle = (best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+        double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI; // shifted frame
 
         // Angular Velocity Smoothing
         const double max_angular_velocity = M_PI / 2.0; // 90 deg/s
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, ideal_angle);
         double max_angle_change = max_angular_velocity * dt;
         double angle_change = std::clamp(angle_diff, -max_angle_change, max_angle_change);
-        
-        smoothed_angle_ += angle_change;
-        smoothed_angle_ = angles::normalize_angle(smoothed_angle_);
+        smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_change);
 
         // Phase 3: Publish Results
         geometry_msgs::msg::Vector3Stamped safe_vector_msg;
@@ -156,7 +157,7 @@ private:
             marker.action = visualization_msgs::msg::Marker::ADD;
             marker.points.resize(2);
             marker.points[0].x = 0; marker.points[0].y = 0; marker.points[0].z = 0;
-            double angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+            double angle = ((i * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
             marker.points[1].x = depths[i] * cos(angle);
             marker.points[1].y = depths[i] * sin(angle);
             marker.points[1].z = 0;
@@ -179,7 +180,7 @@ private:
         ideal_marker.action = visualization_msgs::msg::Marker::ADD;
         ideal_marker.points.resize(2);
         ideal_marker.points[0].x = 0; ideal_marker.points[0].y = 0; ideal_marker.points[0].z = 0;
-        double ideal_angle = (best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+        double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
         double ideal_depth = depths[best_ray_idx];
         ideal_marker.points[1].x = ideal_depth * cos(ideal_angle);
         ideal_marker.points[1].y = ideal_depth * sin(ideal_angle);
@@ -225,7 +226,6 @@ private:
 
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
     rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr vector_publisher_;
-    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr preprocessed_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr marker_publisher_;
     int last_best_idx_;
     double smoothed_angle_;

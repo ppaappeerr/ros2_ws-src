@@ -15,7 +15,7 @@
 class PathPlanner3DNode : public rclcpp::Node
 {
 public:
-    PathPlanner3DNode() : Node("path_planner_3d_node"), last_best_idx_(-1), smoothed_angle_(0.0)
+    PathPlanner3DNode() : Node("path_planner_3d_node"), last_best_idx_(-1), smoothed_angle_(M_PI)
     {
         // Parameters
         this->declare_parameter<bool>("use_voxel_filter", false); // Default to false
@@ -28,12 +28,13 @@ public:
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, std::bind(&PathPlanner3DNode::pointCloudCallback, this, std::placeholders::_1));
 
-        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector_3d", 10);
-        preprocessed_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/preprocessed_cloud_3d", 10);
-        marker_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/candidate_rays_3d", 10);
+        // Unify to flat naming
+        vector_publisher_ = this->create_publisher<geometry_msgs::msg::Vector3Stamped>("/safe_path_vector", 10);
+        preprocessed_publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/corridor_preprocessed_cloud", 10);
+        marker_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/path_planner_debug", 10);
 
         last_time_ = this->now();
-        RCLCPP_INFO(this->get_logger(), "3D Path Planner (3D Corridor Scan) Node has been started.");
+        RCLCPP_INFO(this->get_logger(), "3D Path Planner Node started (front is -X).");
     }
 
 private:
@@ -70,13 +71,14 @@ private:
         std::vector<double> depths(num_rays, max_dist);
 
         for (int i = 0; i < num_rays; ++i) {
-            double angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+            double base_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0); // [-pi/2,pi/2] around +X
+            double angle = base_angle + M_PI; // shift to -X forward
             Eigen::Vector2f ray_dir(cos(angle), sin(angle));
             double min_dist_for_ray = max_dist;
 
             for (const auto& point : *cloud_prepared) {
                 // Basic front view filter
-                if (point.x < 0) continue;
+                if (point.x > 0) continue; // ignore +X (behind new forward)
 
                 Eigen::Vector2f point_vec_2d(point.x, point.y);
                 
@@ -100,36 +102,29 @@ private:
         std::vector<double> scores(num_rays, 0.0);
         double w1 = 0.7;
         double w2 = 0.3;
+        double center_idx = (num_rays - 1) / 2.0;
         for (int i = 0; i < num_rays; ++i) {
-            double prev_depth = (i > 0) ? depths[i - 1] : depths[i];
-            double next_depth = (i < num_rays - 1) ? depths[i + 1] : depths[i];
+            double prev_depth = (i > 0) ? depths[i-1] : depths[i];
+            double next_depth = (i < num_rays - 1) ? depths[i+1] : depths[i];
             scores[i] = w1 * depths[i] + w2 * (prev_depth + next_depth);
+            double norm_pos = std::abs(i - center_idx) / center_idx;
+            scores[i] *= (1.0 - 0.15 * norm_pos * norm_pos); // central bias
         }
 
         int best_ray_idx = std::distance(scores.begin(), std::max_element(scores.begin(), scores.end()));
 
         // --- Bug Fix: Force forward direction if no obstacles are detected ---
-        bool all_max_depth = true;
-        for(const auto& depth : depths) {
-            if (depth < max_dist) {
-                all_max_depth = false;
-                break;
-            }
-        }
-        if (all_max_depth) {
-            best_ray_idx = num_rays / 2; // Choose the center ray
-        }
+        bool all_max_depth = std::all_of(depths.begin(), depths.end(), [max_dist](double d){ return d >= max_dist; });
+        if (all_max_depth) best_ray_idx = num_rays / 2;
         // --- End of Bug Fix ---
 
-        double ideal_angle = (best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+        double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
 
         const double max_angular_velocity = M_PI / 2.0;
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, ideal_angle);
         double max_angle_change = max_angular_velocity * dt;
         double angle_change = std::clamp(angle_diff, -max_angle_change, max_angle_change);
-        
-        smoothed_angle_ += angle_change;
-        smoothed_angle_ = angles::normalize_angle(smoothed_angle_);
+        smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_change);
 
         geometry_msgs::msg::Vector3Stamped safe_vector_msg;
         safe_vector_msg.header = msg->header;
@@ -148,13 +143,13 @@ private:
         for (int i = 0; i < num_rays; ++i) {
             visualization_msgs::msg::Marker marker;
             marker.header = header;
-            marker.ns = "candidate_rays_3d";
+            marker.ns = "corridor_analysis";
             marker.id = i;
             marker.type = visualization_msgs::msg::Marker::ARROW;
             marker.action = visualization_msgs::msg::Marker::ADD;
             marker.points.resize(2);
             marker.points[0].x = 0; marker.points[0].y = 0; marker.points[0].z = 0;
-            double angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+            double angle = ((i * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
             marker.points[1].x = depths[i] * cos(angle);
             marker.points[1].y = depths[i] * sin(angle);
             marker.points[1].z = 0;
@@ -176,7 +171,7 @@ private:
         ideal_marker.action = visualization_msgs::msg::Marker::ADD;
         ideal_marker.points.resize(2);
         ideal_marker.points[0].x = 0; ideal_marker.points[0].y = 0; ideal_marker.points[0].z = 0;
-        double ideal_angle = (best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0);
+        double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
         double ideal_depth = depths[best_ray_idx];
         ideal_marker.points[1].x = ideal_depth * cos(ideal_angle);
         ideal_marker.points[1].y = ideal_depth * sin(ideal_angle);
@@ -190,11 +185,10 @@ private:
         ideal_marker.color.b = 0.0;
         marker_array.markers.push_back(ideal_marker);
 
-        double smoothed_depth = 5.0; // Default length
         visualization_msgs::msg::Marker smoothed_marker = ideal_marker;
         smoothed_marker.id = num_rays + 1;
-        smoothed_marker.points[1].x = smoothed_depth * cos(smoothed_angle);
-        smoothed_marker.points[1].y = smoothed_depth * sin(smoothed_angle);
+        smoothed_marker.points[1].x = 5.0 * cos(smoothed_angle);
+        smoothed_marker.points[1].y = 5.0 * sin(smoothed_angle);
         smoothed_marker.color.a = 1.0; // Keep final vector fully opaque
         smoothed_marker.color.r = 0.0;
         smoothed_marker.color.g = 0.5;
