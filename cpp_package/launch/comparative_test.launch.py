@@ -1,101 +1,99 @@
-import os
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, ExecuteProcess, IncludeLaunchDescription
+from launch.actions import DeclareLaunchArgument, GroupAction
+from launch.substitutions import LaunchConfiguration, TextSubstitution
 from launch.conditions import IfCondition, UnlessCondition
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from launch.substitutions import LaunchConfiguration, PythonExpression
-from launch_ros.actions import Node
-from ament_index_python.packages import get_package_share_directory
+from launch_ros.actions import Node, PushRosNamespace
 
 def generate_launch_description():
-    # Get the share directory for cpp_package
-    cpp_package_share_dir = get_package_share_directory('cpp_package')
-
-    # --- Declare Launch Arguments ---
-    pipeline_arg = DeclareLaunchArgument(
-        'pipeline',
-        default_value='3d_corridor',
-        description="Type of pipeline to run: '2d_projection', '2d_direct', or '3d_corridor'"
+    # Declare the launch argument
+    mode_arg = DeclareLaunchArgument(
+        'mode',
+        default_value='A',
+        description='The experimental mode to run. Options: A, B, C, D, E.'
     )
 
-    record_arg = DeclareLaunchArgument(
-        'record',
-        default_value='false',
-        description='If true, records all topics to a rosbag file.'
+    # Common nodes for 3D pipelines (A, C, D, E)
+    # Note: Mode B does not use these.
+    sensor_fusion_node = Node(
+        package='optical_cane_rpi',
+        executable='sensor_fusion_node',
+        name='sensor_fusion_node',
     )
-    
-    bag_filename_arg = DeclareLaunchArgument(
-        'bag_filename',
-        default_value=PythonExpression(["'rosbag2_', LaunchConfiguration('pipeline')"]),
-        description='Name of the rosbag file.'
-    )
-
-    # --- Define Nodes ---
-
-    # Node for the 3D point cloud sweeper (used by 2d_projection and 3d_corridor)
     point_cloud_sweeper_node = Node(
         package='cpp_package',
         executable='point_cloud_sweeper_cpp_node',
         name='point_cloud_sweeper_cpp_node',
-        output='screen',
-        condition=IfCondition(PythonExpression(["LaunchConfiguration('pipeline') != '2d_direct'"]))
+    )
+    voxel_grid_filter_node = Node(
+        package='cpp_package',
+        executable='voxel_grid_filter_node',
+        name='voxel_grid_filter_node',
+        parameters=[{'leaf_size': 0.04}]
     )
 
-    # Node for the 2D scan accumulator (used by 2d_direct)
-    scan_accumulator_node = Node(
-        package='optical_cane_rpi',
-        executable='scan_accumulator_node',
-        name='scan_accumulator_node',
-        output='screen',
-        parameters=[{'front_view_only': True}],
-        condition=IfCondition(PythonExpression(["LaunchConfiguration('pipeline') == '2d_direct'"]))
-    )
-
-    # Node for the 2D projection path planner
-    path_planner_2d_node = Node(
+    # Planner nodes for each mode
+    planner_a = Node(
         package='cpp_package',
         executable='path_planner_node',
-        name='path_planner_node',
-        output='screen',
-        parameters=[{'use_voxel_filter': False}],
-        remappings=[
-            # Remap input if using the 2d_direct pipeline
-            ('/sweep_cloud_cpp', PythonExpression([
-                "' /scan_accumulation_cloud' if LaunchConfiguration('pipeline') == '2d_direct' else '/sweep_cloud_cpp'"
-            ]))
-        ],
-        condition=IfCondition(PythonExpression(["LaunchConfiguration('pipeline') != '3d_corridor'"]))
+        name='path_planner_a',
+        condition=IfCondition(TextSubstitution(text="'$(var mode)' == 'A'"))
     )
 
-    # Node for the 3D corridor path planner
-    path_planner_3d_node = Node(
+    planner_b_group = GroupAction(
+        condition=IfCondition(TextSubstitution(text="'$(var mode)' == 'B'")),
+        actions=[
+            Node(
+                package='optical_cane_rpi',
+                executable='scan_accumulator_node',
+                name='scan_accumulator_node'
+            ),
+            Node(
+                package='cpp_package',
+                executable='path_planner_node',
+                name='path_planner_b',
+                remappings=[('/sweep_cloud_cpp', '/scan_accumulation_cloud')]
+            )
+        ]
+    )
+
+    planner_c = Node(
         package='cpp_package',
         executable='path_planner_3d_node',
-        name='path_planner_3d_node',
-        output='screen',
-        parameters=[{'use_voxel_filter': False}],
-        condition=IfCondition(PythonExpression(["LaunchConfiguration('pipeline') == '3d_corridor'"]))
+        name='path_planner_c',
+        condition=IfCondition(TextSubstitution(text="'$(var mode)' == 'C'"))
     )
 
-    # --- ROS Bag Recording ---
-    record_process = ExecuteProcess(
-        cmd=['ros2', 'bag', 'record', '-a', '-o', LaunchConfiguration('bag_filename')],
-        output='screen',
-        condition=IfCondition(LaunchConfiguration('record'))
+    planner_d = Node(
+        package='cpp_package',
+        executable='ftg_3d_node',
+        name='path_planner_d',
+        condition=IfCondition(TextSubstitution(text="'$(var mode)' == 'D'"))
+    )
+
+    planner_e = Node(
+        package='cpp_package',
+        executable='heightmap_planner_node',
+        name='path_planner_e',
+        condition=IfCondition(TextSubstitution(text="'$(var mode)' == 'E'"))
     )
 
     return LaunchDescription([
-        pipeline_arg,
-        record_arg,
-        bag_filename_arg,
+        mode_arg,
         
-        # Sensor nodes would typically be launched here as well,
-        # but we assume they are running separately for this test.
-        
-        point_cloud_sweeper_node,
-        scan_accumulator_node,
-        path_planner_2d_node,
-        path_planner_3d_node,
-        
-        record_process
+        # Common nodes are launched for all modes except B
+        GroupAction(
+            condition=UnlessCondition(TextSubstitution(text="'$(var mode)' == 'B'")),
+            actions=[
+                sensor_fusion_node,
+                point_cloud_sweeper_node,
+                voxel_grid_filter_node
+            ]
+        ),
+
+        # Planner nodes
+        planner_a,
+        planner_b_group,
+        planner_c,
+        planner_d,
+        planner_e,
     ])
