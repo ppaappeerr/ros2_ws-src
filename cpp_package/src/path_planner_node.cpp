@@ -25,6 +25,40 @@ public:
         this->get_parameter("use_voxel_filter", use_voxel_filter_);
         this->declare_parameter<double>("voxel_leaf_size", 0.1);
         this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
+        this->declare_parameter<bool>("dead_zone_enabled", true);
+        this->declare_parameter<double>("dead_zone_forward_x", -0.3);
+        this->declare_parameter<double>("dead_zone_lateral", 0.25);
+        this->declare_parameter<double>("roi_max_radius", 4.5);
+        this->declare_parameter<double>("edge_penalty_gain", 1.2);
+        this->declare_parameter<double>("edge_penalty_power", 2.0);
+        this->declare_parameter<double>("min_visual_depth", 0.6);
+        this->declare_parameter<double>("min_arrow_length", 1.0);
+        this->declare_parameter<double>("unknown_evidence_k", 8.0);
+        this->declare_parameter<int>("evidence_min_threshold", 5);
+        this->declare_parameter<double>("mirror_depth_diff_thresh", 0.8);
+        this->declare_parameter<double>("mirror_penalty_factor", 0.55);
+        this->declare_parameter<double>("max_ang_vel_base", 1.0);   // rad/s base
+        this->declare_parameter<double>("max_ang_vel_near", 2.2);   // rad/s when obstacle very near
+        this->declare_parameter<double>("turn_accel_decay", 1.0);   // m decay distance
+
+        this->get_parameter("front_view_only", front_view_only_);
+        this->get_parameter("use_voxel_filter", use_voxel_filter_);
+        this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
+        this->get_parameter("dead_zone_enabled", dead_zone_enabled_);
+        this->get_parameter("dead_zone_forward_x", dead_zone_forward_x_);
+        this->get_parameter("dead_zone_lateral", dead_zone_lateral_);
+        this->get_parameter("roi_max_radius", roi_max_radius_);
+        this->get_parameter("edge_penalty_gain", edge_penalty_gain_);
+        this->get_parameter("edge_penalty_power", edge_penalty_power_);
+        this->get_parameter("min_visual_depth", min_visual_depth_);
+        this->get_parameter("min_arrow_length", min_arrow_length_);
+        this->get_parameter("unknown_evidence_k", unknown_evidence_k_);
+        this->get_parameter("evidence_min_threshold", evidence_min_threshold_);
+        this->get_parameter("mirror_depth_diff_thresh", mirror_depth_diff_thresh_);
+        this->get_parameter("mirror_penalty_factor", mirror_penalty_factor_);
+        this->get_parameter("max_ang_vel_base", max_ang_vel_base_);
+        this->get_parameter("max_ang_vel_near", max_ang_vel_near_);
+        this->get_parameter("turn_accel_decay", turn_accel_decay_);
 
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/sweep_cloud_cpp", 10, std::bind(&PathPlannerNode::pointCloudCallback, this, std::placeholders::_1));
@@ -76,6 +110,21 @@ private:
             *cloud_downsampled = *cloud_filtered;
         }
 
+        // NEW: Dead-zone + ROI filtering (in-place)
+        if (dead_zone_enabled_ || roi_max_radius_ > 0) {
+            pcl::PointCloud<pcl::PointXYZ>::Ptr tmp(new pcl::PointCloud<pcl::PointXYZ>);
+            tmp->points.reserve(cloud_downsampled->points.size());
+            double roi2 = roi_max_radius_ * roi_max_radius_;
+            for (auto & p : *cloud_downsampled) {
+                if (dead_zone_enabled_ && p.x > dead_zone_forward_x_ && std::fabs(p.y) < dead_zone_lateral_) continue; // strip shoulder / body
+                double r2 = p.x*p.x + p.y*p.y;
+                if (roi_max_radius_ > 0 && r2 > roi2) continue; // outside ROI
+                tmp->points.push_back(p);
+            }
+            tmp->width = tmp->points.size(); tmp->height = 1; tmp->is_dense = true;
+            cloud_downsampled.swap(tmp);
+        }
+
         for (auto& point : *cloud_downsampled) {
             point.z = 0;
         }
@@ -88,6 +137,7 @@ private:
         const int num_rays = 15;
         const double max_dist = 5.0;
         std::vector<double> depths(num_rays, max_dist);
+        std::vector<int> evidences(num_rays,0);
 
         for (int i = 0; i < num_rays; ++i) {
             double base_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0); // [-pi/2, pi/2] around +X
@@ -98,11 +148,13 @@ private:
                 // Skip points BEHIND new forward (-X): i.e., points with x > 0
                 if (point.x > 0) continue;
                 Eigen::Vector2f point_vec(point.x, point.y);
-                if (point_vec.norm() == 0) continue;
+                double norm = point_vec.norm();
+                if (norm == 0) continue;
                 if (point_vec.dot(ray_dir) > 0) {
                     double dist_to_ray = std::abs(point_vec.x() * ray_dir.y() - point_vec.y() * ray_dir.x());
                     if (dist_to_ray < 0.15) {
-                        min_dist_for_ray = std::min(min_dist_for_ray, static_cast<double>(point_vec.norm()));
+                        evidences[i]++;
+                        if (norm < min_dist_for_ray) min_dist_for_ray = norm;
                     }
                 }
             }
@@ -111,30 +163,45 @@ private:
 
         std::vector<double> scores(num_rays, 0.0);
         double w1 = 0.7, w2 = 0.3;
+        double center_idx = (num_rays - 1) / 2.0;
         for (int i = 0; i < num_rays; ++i) {
             double prev_depth = (i > 0) ? depths[i - 1] : depths[i];
             double next_depth = (i < num_rays - 1) ? depths[i + 1] : depths[i];
-            scores[i] = w1 * depths[i] + w2 * (prev_depth + next_depth);
-            // Mild central bias to avoid hugging FOV edges (i=0 & i=end)
-            double center_idx = (num_rays - 1) / 2.0;
+            double raw = w1 * depths[i] + w2 * (prev_depth + next_depth);
             double norm_pos = std::abs(i - center_idx) / center_idx;
-            scores[i] *= (1.0 - 0.15 * norm_pos * norm_pos);
+            double edge_penalty = std::exp(-edge_penalty_gain_ * std::pow(norm_pos, edge_penalty_power_));
+            // Evidence attenuation (unknown space penalty)
+            double evidence_factor = (double)evidences[i] / (evidences[i] + unknown_evidence_k_);
+            raw *= evidence_factor;
+            scores[i] = raw * edge_penalty;
+        }
+
+        // Mirror density compensation (handle masked side bias)
+        for(int i = 0; i < num_rays; ++i) {
+            int mirror = (num_rays - 1) - i;
+            if (i == mirror) continue;
+            if (depths[i] > depths[mirror] + mirror_depth_diff_thresh_ && evidences[i] < evidence_min_threshold_ && evidences[mirror] >= evidence_min_threshold_) {
+                scores[i] *= mirror_penalty_factor_;
+            }
         }
 
         // Optimal Raw Vector Selection
         int best_ray_idx = std::distance(scores.begin(), std::max_element(scores.begin(), scores.end()));
         double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI; // shifted frame
 
+        // Dynamic angular velocity limit based on forward clearance
+        double forward_clearance = depths[(int)center_idx];
+        double proximity_gain = std::exp(-forward_clearance / std::max(0.01, turn_accel_decay_));
+        double max_angular_velocity = max_ang_vel_base_ + (max_ang_vel_near_ - max_ang_vel_base_) * (1.0 - proximity_gain);
+
         // Angular Velocity Smoothing
-        const double max_angular_velocity = M_PI / 2.0; // 90 deg/s
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, ideal_angle);
         double max_angle_change = max_angular_velocity * dt;
         double angle_change = std::clamp(angle_diff, -max_angle_change, max_angle_change);
         smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_change);
 
         // Phase 3: Publish Results
-        geometry_msgs::msg::Vector3Stamped safe_vector_msg;
-        safe_vector_msg.header = msg->header;
+        geometry_msgs::msg::Vector3Stamped safe_vector_msg; safe_vector_msg.header = msg->header;
         safe_vector_msg.vector.x = cos(smoothed_angle_);
         safe_vector_msg.vector.y = sin(smoothed_angle_);
         safe_vector_msg.vector.z = 0;
@@ -145,30 +212,9 @@ private:
 
     void publishMarkers(const std::vector<double>& depths, const std_msgs::msg::Header& header, int best_ray_idx, double smoothed_angle)
     {
-        visualization_msgs::msg::MarkerArray marker_array;
-        const int num_rays = depths.size();
+        visualization_msgs::msg::MarkerArray marker_array; const int num_rays = depths.size();
         for (int i = 0; i < num_rays; ++i) {
-            // ... (Candidate rays marker code is the same, omitted for brevity)
-            visualization_msgs::msg::Marker marker;
-            marker.header = header;
-            marker.ns = "candidate_rays";
-            marker.id = i;
-            marker.type = visualization_msgs::msg::Marker::ARROW;
-            marker.action = visualization_msgs::msg::Marker::ADD;
-            marker.points.resize(2);
-            marker.points[0].x = 0; marker.points[0].y = 0; marker.points[0].z = 0;
-            double angle = ((i * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
-            marker.points[1].x = depths[i] * cos(angle);
-            marker.points[1].y = depths[i] * sin(angle);
-            marker.points[1].z = 0;
-            marker.scale.x = 0.02;
-            marker.scale.y = 0.05;
-            marker.scale.z = 0.05;
-            marker.color.a = 0.1; // Make candidate rays very transparent
-            marker.color.r = (5.0 - depths[i]) / 5.0;
-            marker.color.g = depths[i] / 5.0;
-            marker.color.b = 0.0;
-            marker_array.markers.push_back(marker);
+            visualization_msgs::msg::Marker marker; marker.header = header; marker.ns = "candidate_rays"; marker.id = i; marker.type = visualization_msgs::msg::Marker::ARROW; marker.action = visualization_msgs::msg::Marker::ADD; marker.points.resize(2); marker.points[0].x = 0; marker.points[0].y = 0; marker.points[0].z = 0; double angle = ((i * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI; double depth_v = std::max(min_visual_depth_, depths[i]); marker.points[1].x = depth_v * cos(angle); marker.points[1].y = depth_v * sin(angle); marker.points[1].z = 0; marker.scale.x = 0.02; marker.scale.y = 0.05; marker.scale.z = 0.05; marker.color.a = 0.1; marker.color.r = (5.0 - depths[i]) / 5.0; marker.color.g = depths[i] / 5.0; marker.color.b = 0.0; marker.lifetime = rclcpp::Duration(0,0); marker_array.markers.push_back(marker);
         }
 
         // Yellow marker for the ideal (raw) direction
@@ -182,8 +228,8 @@ private:
         ideal_marker.points[0].x = 0; ideal_marker.points[0].y = 0; ideal_marker.points[0].z = 0;
         double ideal_angle = ((best_ray_idx * (M_PI / (num_rays - 1))) - (M_PI / 2.0)) + M_PI;
         double ideal_depth = depths[best_ray_idx];
-        ideal_marker.points[1].x = ideal_depth * cos(ideal_angle);
-        ideal_marker.points[1].y = ideal_depth * sin(ideal_angle);
+        ideal_marker.points[1].x = std::max(min_visual_depth_, ideal_depth) * cos(ideal_angle);
+        ideal_marker.points[1].y = std::max(min_visual_depth_, ideal_depth) * sin(ideal_angle);
         ideal_marker.points[1].z = 0;
         ideal_marker.scale.x = 0.05; // Reduced thickness
         ideal_marker.scale.y = 0.1;  // Reduced thickness
@@ -192,6 +238,7 @@ private:
         ideal_marker.color.r = 1.0;
         ideal_marker.color.g = 1.0;
         ideal_marker.color.b = 0.0; // Yellow
+        ideal_marker.lifetime = rclcpp::Duration(0,0);
         marker_array.markers.push_back(ideal_marker);
 
         // Blue marker for the smoothed final direction
@@ -210,11 +257,16 @@ private:
             double t = smoothed_ray_idx_float - r_idx1;
             smoothed_depth = (1.0 - t) * depths[r_idx1] + t * depths[r_idx2];
         }
+        smoothed_depth = std::max(min_visual_depth_, smoothed_depth);
+
+        // Store for vector publish scaling if needed
+        smoothed_depth_estimate_ = smoothed_depth;
 
         visualization_msgs::msg::Marker smoothed_marker = ideal_marker;
         smoothed_marker.id = num_rays + 1;
         smoothed_marker.points[1].x = smoothed_depth * cos(smoothed_angle);
         smoothed_marker.points[1].y = smoothed_depth * sin(smoothed_angle);
+        smoothed_marker.lifetime = rclcpp::Duration(0,0);
         smoothed_marker.color.a = 1.0; // Keep final vector fully opaque
         smoothed_marker.color.r = 0.0;
         smoothed_marker.color.g = 0.5;
@@ -233,6 +285,22 @@ private:
     bool front_view_only_;
     bool use_voxel_filter_;
     double voxel_leaf_size_;
+    bool dead_zone_enabled_;
+    double dead_zone_forward_x_;
+    double dead_zone_lateral_;
+    double roi_max_radius_;
+    double edge_penalty_gain_;
+    double edge_penalty_power_;
+    double min_visual_depth_;
+    double min_arrow_length_;
+    double smoothed_depth_estimate_{1.0};
+    double unknown_evidence_k_{};
+    int evidence_min_threshold_{};
+    double mirror_depth_diff_thresh_{};
+    double mirror_penalty_factor_{};
+    double max_ang_vel_base_{};
+    double max_ang_vel_near_{};
+    double turn_accel_decay_{};
 };
 
 // main function is the same

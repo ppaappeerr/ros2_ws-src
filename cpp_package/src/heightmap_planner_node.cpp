@@ -61,8 +61,16 @@ public:
         this->get_parameter("drop_threshold", drop_threshold_);
         this->declare_parameter<double>("obstacle_height_threshold", 0.2);
         this->get_parameter("obstacle_height_threshold", obstacle_height_threshold_);
-        this->declare_parameter<double>("history_duration", 2.0);
+        this->declare_parameter<double>("history_duration", 1.0); // shortened default
         this->get_parameter("history_duration", history_duration_);
+        this->declare_parameter<double>("decay_tau", 0.8); // seconds for exponential decay
+        this->declare_parameter<double>("adaptive_smooth_max", 0.9); // rad/s when environment very safe
+        this->declare_parameter<double>("adaptive_smooth_min", 0.35); // rad/s when risky
+        this->declare_parameter<double>("min_arrow_length", 1.2);
+        this->get_parameter("decay_tau", decay_tau_);
+        this->get_parameter("adaptive_smooth_max", adaptive_smooth_max_);
+        this->get_parameter("adaptive_smooth_min", adaptive_smooth_min_);
+        this->get_parameter("min_arrow_length", min_arrow_length_);
         
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, 
@@ -121,15 +129,14 @@ private:
         
         // Plan path
         double safe_angle = planPathWithHeightAwareness(accumulated_map);
-        
-        // Smooth angle changes
+        // Adaptive smoothing: estimate risk via proportion of non-traversable cells
+        int risky=0,total=0; for (auto & kv: accumulated_map){ total++; if(!kv.second.is_traversable) risky++; }
+        double risk_ratio = total>0 ? (double)risky/total : 0.0;
+        double max_rate = adaptive_smooth_min_ + (adaptive_smooth_max_ - adaptive_smooth_min_) * (1.0 - risk_ratio);
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, safe_angle);
-        double max_angle_change = 0.5 * dt;  // Max 0.5 rad/s
-        if (std::abs(angle_diff) > max_angle_change) {
-            angle_diff = std::copysign(max_angle_change, angle_diff);
-        }
-        smoothed_angle_ += angle_diff;
-        smoothed_angle_ = angles::normalize_angle(smoothed_angle_);
+        double max_angle_change = max_rate * dt;
+        if (std::abs(angle_diff) > max_angle_change) angle_diff = std::copysign(max_angle_change, angle_diff);
+        smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_diff);
         
         // Publish results
         publishSafeVector(msg->header, smoothed_angle_);
@@ -190,24 +197,23 @@ private:
                                   rclcpp::Time current_time)
     {
         accumulated_map.clear();
-        
         for (const auto& frame : height_history_) {
+            double age = (current_time - frame.timestamp).seconds();
+            double w = std::exp(-age / decay_tau_);
             for (const auto& [key, cell] : frame.cells) {
-                if (accumulated_map.find(key) == accumulated_map.end()) {
-                    accumulated_map[key] = cell;
+                auto & dst = accumulated_map[key];
+                if (dst.point_count == 0) {
+                    dst = cell; // copy
+                    // scale stats by weight approximation: keep counts weight-coded
+                    dst.point_count = static_cast<int>(cell.point_count * w);
+                    dst.mean_z = cell.mean_z; // no change
                 } else {
-                    auto& existing_cell = accumulated_map[key];
-                    existing_cell.min_z = std::min(existing_cell.min_z, cell.min_z);
-                    existing_cell.max_z = std::max(existing_cell.max_z, cell.max_z);
-                    
-                    float total_points = existing_cell.point_count + cell.point_count;
-                    existing_cell.mean_z = (existing_cell.mean_z * existing_cell.point_count + 
-                                          cell.mean_z * cell.point_count) / total_points;
-                    existing_cell.point_count = total_points;
-                    
-                    if (cell.last_seen > existing_cell.last_seen) {
-                        existing_cell.last_seen = cell.last_seen;
-                    }
+                    dst.min_z = std::min(dst.min_z, cell.min_z);
+                    dst.max_z = std::max(dst.max_z, cell.max_z);
+                    double total_w_points = dst.point_count + cell.point_count * w;
+                    dst.mean_z = (dst.mean_z * dst.point_count + cell.mean_z * cell.point_count * w) / std::max(1.0, total_w_points);
+                    dst.point_count = static_cast<int>(total_w_points);
+                    if (cell.last_seen > dst.last_seen) dst.last_seen = cell.last_seen;
                 }
             }
         }
@@ -304,7 +310,7 @@ private:
                                     double safe_angle)
     {
         visualization_msgs::msg::MarkerArray debug_markers; visualization_msgs::msg::MarkerArray pillar_markers; int id_debug=0; int id_pillar=0;
-        visualization_msgs::msg::Marker direction_arrow; direction_arrow.header=header; direction_arrow.ns="safe_direction"; direction_arrow.id=id_debug++; direction_arrow.type=visualization_msgs::msg::Marker::ARROW; direction_arrow.action=visualization_msgs::msg::Marker::ADD; direction_arrow.lifetime=rclcpp::Duration::from_seconds(0.2); direction_arrow.points.resize(2); direction_arrow.points[0].x=0; direction_arrow.points[0].y=0; direction_arrow.points[0].z=0.2; direction_arrow.points[1].x=2.0*cos(safe_angle); direction_arrow.points[1].y=2.0*sin(safe_angle); direction_arrow.points[1].z=0.2; direction_arrow.scale.x=0.05; direction_arrow.scale.y=0.1; direction_arrow.scale.z=0.15; direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; direction_arrow.color.a=0.9; debug_markers.markers.push_back(direction_arrow);
+        visualization_msgs::msg::Marker direction_arrow; direction_arrow.header=header; direction_arrow.ns="safe_direction"; direction_arrow.id=id_debug++; direction_arrow.type=visualization_msgs::msg::Marker::ARROW; direction_arrow.action=visualization_msgs::msg::Marker::ADD; direction_arrow.lifetime=rclcpp::Duration(0,0); direction_arrow.points.resize(2); direction_arrow.points[0].x=0; direction_arrow.points[0].y=0; direction_arrow.points[0].z=0.2; direction_arrow.points[1].x=std::max(min_arrow_length_, 2.0)*cos(safe_angle); direction_arrow.points[1].y=std::max(min_arrow_length_, 2.0)*sin(safe_angle); direction_arrow.points[1].z=0.2; direction_arrow.scale.x=0.05; direction_arrow.scale.y=0.1; direction_arrow.scale.z=0.15; direction_arrow.color.r=0.0; direction_arrow.color.g=1.0; direction_arrow.color.b=0.0; direction_arrow.color.a=0.9; debug_markers.markers.push_back(direction_arrow);
 
         // Pillars (refined)
         for (const auto& [key, cell] : height_map) {
@@ -403,21 +409,22 @@ private:
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr risk_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pillar_publisher_;
     
-    bool front_view_only_;
-    double grid_resolution_;
-    double max_range_;
-    double ground_height_tolerance_;
-    double drop_threshold_;
-    double obstacle_height_threshold_;
-    double history_duration_;
+    bool front_view_only_{};
+    double grid_resolution_{};
+    double max_range_{};
+    double ground_height_tolerance_{};
+    double drop_threshold_{};
+    double obstacle_height_threshold_{};
+    double history_duration_{};
     
-    double smoothed_angle_;
-    rclcpp::Time last_time_;
+    double smoothed_angle_{};
+    rclcpp::Time last_time_{};
     
-    float ground_height_;
-    bool ground_height_calibrated_;
+    float ground_height_{};
+    bool ground_height_calibrated_{};
     
     std::deque<HeightMapFrame> height_history_;
+    double decay_tau_{}; double adaptive_smooth_max_{}; double adaptive_smooth_min_{}; double min_arrow_length_{};
 };
 
 int main(int argc, char * argv[])
