@@ -26,21 +26,19 @@ class SensorFusionNode(Node):
         # Publisher for fused 3D cloud
         self.point_cloud_pub = self.create_publisher(PointCloud2, '/dense_points', 10)
         
-        # NEW parameters for shoulder mount adaptation
-        self.declare_parameter('front_is_negative_x', True)          # global front = -X
+        # Parameters for shoulder mount adaptation (원래대로 복구)
         self.declare_parameter('use_roll_pitch_only', True)          # ignore yaw drift
         self.declare_parameter('yaw_offset_deg', 0.0)                # manual fine alignment
         self.declare_parameter('max_roi_distance', 2.0)              # radial ROI
         self.declare_parameter('dead_zone_box', [-0.30, 0.15, -0.20, 0.35])  # xmin,xmax,ymin,ymax near body
         self.declare_parameter('min_range_clip', 0.05)               # clip too-near returns
-        self.front_neg_x = self.get_parameter('front_is_negative_x').get_parameter_value().bool_value
         self.use_rp_only = self.get_parameter('use_roll_pitch_only').get_parameter_value().bool_value
         self.yaw_off = math.radians(self.get_parameter('yaw_offset_deg').get_parameter_value().double_value)
         self.max_roi = self.get_parameter('max_roi_distance').get_parameter_value().double_value
         dz = self.get_parameter('dead_zone_box').get_parameter_value().double_array_value
         self.dead_zone = (dz[0], dz[1], dz[2], dz[3])
         self.min_range_clip = self.get_parameter('min_range_clip').get_parameter_value().double_value
-        self.get_logger().info('Sensor Fusion Node started (shoulder-adapted). Front=-X=%s ROI=%.2fm' % (self.front_neg_x, self.max_roi))
+        self.get_logger().info('Sensor Fusion Node started (shoulder-adapted). ROI=%.2fm' % (self.max_roi))
 
     def sync_callback(self, scan_msg, imu_msg):
         """
@@ -77,9 +75,7 @@ class SensorFusionNode(Node):
             # Apply yaw offset
             p_adj = quaternion_multiply(q_yaw, quaternion_multiply([p_rp[0], p_rp[1], p_rp[2], 0.0], q_yaw_conj))
             px, py, pz = p_adj[0], p_adj[1], p_adj[2]
-            # Flip X if front is -X
-            if self.front_neg_x:
-                px = -px
+            # X축 뒤집기 제거 (플래너에서 처리하도록 원래대로 복구)
             # ROI radial filter
             if (px * px + py * py) > (self.max_roi * self.max_roi):
                 continue

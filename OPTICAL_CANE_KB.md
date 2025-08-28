@@ -578,100 +578,99 @@
 
 모두 최종 경로 토픽 동일: `/safe_path_vector` (단일화). 반복 실행 별도 bag 이름으로 구분.
 
-### 15.2. 실행/기록 표준화
-반복 번호 r ∈ {1..5}. 세션 prefix: `smt` (shoulder mounted test). 디렉토리/rosbag 이름 규칙:
-`bag_<DATE>_<MODE><r>` 예) `bag_0823_A1`.
+### 15.2. 실험 워크플로우 (2025-08-23 업데이트)
+5가지 모드를 체계적으로 실행하고 기록하기 위한 표준화된 절차입니다.
 
-### 15.3. 기록해야 할 공통 최소 토픽 세트
-필수(모든 모드 공통):
-- `/safe_path_vector`
-- `/tf` `/tf_static`
-- `/imu/data` (B 모드에서도 기준 프레임 로그 용도)
-- 원시 또는 전처리 포인트: 모드별 1개만
-  * A: `/sweep_cloud_cpp`
-  * B: `/scan_accumulation_cloud`
-  * C/D/E: `/downsampled_cloud`
-- 시각화 근거:
-  * D: `/ftg_gaps`
-  * E: `/height_pillars`
-  * 공통 디버그: `/path_planner_debug`
+#### 1단계: 실험 환경 구성
+3개의 터미널을 준비합니다.
 
-선택(추가 분석 시): `/corridor_preprocessed_cloud` (C), `/ground_plane_marker`.
+- **터미널 1:** 기본 센서 실행용
+- **터미널 2:** 주 알고리즘 실행용
+- **터미널 3:** 데이터 기록(`rosbag`)용
 
-### 15.4. rosbag 예시 명령 세트
-(모드 A 1회차 예)
-`ros2 bag record -o bag_0823_A1 /safe_path_vector /imu/data /tf /tf_static /sweep_cloud_cpp /path_planner_debug`
+#### 2단계: 실험 실행 (예: 모드 A, 1회차)
 
-모드별 템플릿:
-- A: `/sweep_cloud_cpp`
-- B: `/scan_accumulation_cloud`
-- C: `/downsampled_cloud /path_planner_debug /corridor_preprocessed_cloud`
-- D: `/downsampled_cloud /ftg_gaps /path_planner_debug`
-- E: `/downsampled_cloud /height_pillars /path_planner_debug`
+1.  **터미널 1: 기본 센서 실행**
+    ```bash
+    # LiDAR, IMU, TF 등 기본 센서 패키지를 실행합니다.
+    ros2 launch optical_cane_rpi optical_cane.launch.py
+    ```
 
-### 15.5. 실시간 모니터링 권장
-- RViz: `/safe_path_vector`, `/ftg_gaps`, `/height_pillars` 표시.
-- Live Plot: 기존 `path_vector_plotter.py` + `live_plotter.py` (각 모드 동일).
+2.  **터미널 2: 비교 알고리즘 실행**
+    새롭게 추가된 `comparative_test.launch.py`를 사용하여 원하는 모드를 간편하게 실행합니다.
+    ```bash
+    # 'mode' 인자를 A, B, C, D, E 중 하나로 설정하여 실행합니다.
+    ros2 launch cpp_package comparative_test.launch.py mode:=A
+    ```
 
-### 15.6. 사후 분석 메트릭 (추가/정의 명확화)
-| 카테고리 | 메트릭 | 설명 | 계산 방식 제안 |
-|----------|--------|------|----------------|
-| 안정성 | Path Angle Std | `safe_angle(t)` 표준편차 | 라디안→도 변환 후 std |
-| 부드러움 | Angular Velocity RMS | dθ/dt RMS | 1차 미분 후 RMS |
-| 저주파 편향 | Heading Drift | 시작 대비 누적 평균 편차 | mean(θ) - θ_start |
-| 고주파 노이즈 | PSD High-Freq Energy | >1Hz 대역 적분 | Welch / SciPy |
-| 회피 여유 | Clearance Proxy | FTG: 선택 갭 깊이, Corridor: best ray depth | 마커/내부 depth 로그 추가 고려 |
-| 음의 장애물 지표 | Drop Pillar Count / min | HeightMap DROP 타입 빈도 | 시간 정규화 |
-| 지형 위험 합 | Pillar Severity Sum | Σ(severity) / window | 1초 슬라이딩 |
-| 탐색 안정성 | Direction Reversal Count | sign 변화(>45°) 횟수 | 임계 기반 카운트 |
-| 중앙성 | Deviation from Forward | | mean(|θ - π|) (전방 -X) |
-| 반응 지연 | Latency (optional) | 입력 cloud stamp→vector stamp | 타임스탬프 차 |
+3.  **터미널 3: `rosbag` 기록**
+    결과를 저장할 디렉토리로 이동한 후, 해당 모드에 맞는 토픽들을 기록합니다.
+    ```bash
+    # 결과 저장 디렉토리 생성 및 이동
+    mkdir -p results/2025-08-23/raw_bags
+    cd results/2025-08-23/raw_bags
 
-### 15.7. 추가 HeightMap 전용 추출
-- Pillar 타입별 비율 (DROP/OBSTACLE/UNEVEN).
-- Max severity vs 선택 경로 방향 각도 차 (위험 회피 정도).
+    # rosbag 기록 시작 (모드 A, 1회차 예시)
+    # 파일 이름 규칙: bag_DATE_MODE+RUN (예: bag_0823_A1)
+    ros2 bag record -o bag_0823_A1 /safe_path_vector /imu/data /tf /tf_static /sweep_cloud_cpp /path_planner_debug
+    ```
+    실험이 끝나면 `Ctrl+C`를 눌러 기록을 중지합니다. 이 과정을 각 모드별로 5회씩, 총 25번 반복합니다.
 
-### 15.8. 추가 FTG 전용 추출
-- 선택된 갭 폭(deg) 히스토그램.
-- 연속 프레임 gap center angle 변화율.
+#### 15.2.1. 모드별 `rosbag` 기록 토픽 목록
+-   **모드 A:** `/safe_path_vector /imu/data /tf /tf_static /sweep_cloud_cpp /path_planner_debug`
+-   **모드 B:** `/safe_path_vector /imu/data /tf /tf_static /scan_accumulation_cloud /path_planner_debug`
+-   **모드 C:** `/safe_path_vector /imu/data /tf /tf_static /downsampled_cloud /path_planner_debug`
+-   **모드 D:** `/safe_path_vector /imu/data /tf /tf_static /downsampled_cloud /ftg_gaps /path_planner_debug`
+-   **모드 E:** `/safe_path_vector /imu/data /tf /tf_static /downsampled_cloud /height_pillars /path_planner_debug`
 
-### 15.9. 분석 파이프라인 제안 절차
-1. Bag 목록 스캔 → (모드, 반복) 파싱.
-2. 공통 parser: `/safe_path_vector` → angle, angular velocity 시계열.
-3. 모드별 추가 parser:
-   - D: `/ftg_gaps` LINE_STRIP id→gap score (색/길이) 추출 (필요시 Marker 해석 룰 정의).
-   - E: `/height_pillars` CYLINDER set → severity (색/scale) 역변환 저장 (현재 색/scale 공식 그대로 사용).
-4. 메트릭 계산 후 DataFrame 합치기 (columns: mode, run, metric, value).
-5. 시각화:
-   - Bar(평균) + error bar(표준편차) per metric.
-   - Time-series overlay (대표 run 1개씩) 안정성 비교.
-   - Boxplot (Angular Velocity RMS) 5×5.
-6. 결과 요약 자동 Markdown 생성 → KB append.
+---
 
-### 15.10. 파일/폴더 네이밍 권장
+### 15.3. 사후 분석 워크플로우 (2025-08-23 업데이트)
+기존 `plot_analysis.py`는 삭제되었으며, 모든 분석은 새롭게 개발된 `enhanced_analysis.py` 스크립트를 통해 수행됩니다.
+
+#### 1단계: 모든 `rosbag` 기록 완료
+25개(`5 모드 x 5회`)의 `rosbag` 파일이 `results/DATE/raw_bags/` 디렉토리 안에 준비되어야 합니다.
+
+#### 2단계: 분석 스크립트 실행
+단일 명령어로 모든 `rosbag` 파일을 자동으로 분석하고 결과물을 생성합니다.
+```bash
+python3 enhanced_analysis.py --input_dir results/2025-08-23/raw_bags/
 ```
-results/
-  2025-08-23/
-    raw_bags/ (심볼릭링크 또는 원본 위치 참조)
-    metrics_summary.csv
-    metrics_by_run.csv
-    plots/
-      stability_bar.png
-      angular_velocity_box.png
-      ftg_gap_width_hist.png
-      heightmap_drop_counts.png
-      psd_comparison.png
-    report.md
-```
+스크립트는 지정된 폴더 내의 모든 `.mcap` 파일을 탐색하여 파일 이름(`bag_0823_A1`)을 파싱하고, 모드별로 그룹화하여 분석을 진행합니다.
 
-### 15.11. 자동화 TODO (내일 담당 AI 위한 선행 과제)
-- [ ] 기존 `plot_analysis.py` 확장: 다중 모드 자동 ingest.
-- [ ] HeightMap pillar 역해석 유틸 (scale / color → severity/type) 함수화.
-- [ ] FTG gap arc 파싱(라인스트립 첫 center→호 포인트→깊이/폭 재계산) 함수.
-- [ ] 공통 CLI: `python analyze_batch.py --date 2025-08-23 --modes A,B,C,D,E`.
-- [ ] 결과 Markdown 템플릿 자동 채움.
+#### 3단계: 결과 확인
+스크립트 실행이 완료되면 `results/DATE/analysis_results/` 디렉토리에 다음과 같은 결과물들이 생성됩니다.
 
-### 15.12. 위험 / 주의 포인트
+-   `metrics_summary.csv`: 모든 실행(25회)에 대한 성능 지표가 담긴 원본 데이터 파일.
+-   `plot_*.png`: 각 성능 지표를 모드별로 비교하는 박스 플롯 이미지들.
+-   `analysis_report.md`: 분석 결과 요약, 통계, 그리고 모든 그래프가 포함된 마크다운 보고서.
+
+#### 15.3.1. 분석의 의미: 평균이 아닌 분포 비교
+`enhanced_analysis.py`가 생성하는 박스 플롯은 각 모드의 5회 실행 결과에 대한 **평균(중앙값)뿐만 아니라, 결과의 일관성과 안정성을 나타내는 전체 분포(최솟값, 최댓값, 사분위수 범위)를 시각화**합니다. 이를 통해 단순히 평균 성능이 좋은 것을 넘어, 어떤 알고리즘이 더 예측 가능하고 일관된 성능을 보이는지 깊이 있게 파악할 수 있습니다.
+
+### 15.4. 분석 지표 및 파일 구조
+(기존 15.6, 15.7, 15.8, 15.10 절의 내용은 `enhanced_analysis.py` 스크립트에 대부분 구현되었으므로 이 섹션으로 통합 및 요약합니다.)
+
+-   **주요 분석 지표:**
+    -   **공통 지표:** 경로 안정성(StdDev), 부드러움(Angular Velocity RMS), 중앙 지향성(MAE), 고주파 노이즈(PSD).
+    -   **HeightMap 전용:** Drop/Obstacle Pillar 감지 횟수.
+    -   **FTG 전용:** (향후 구현) 평균 갭 너비/깊이.
+-   **결과물 폴더 구조:**
+    ```
+    results/
+      2025-08-23/
+        raw_bags/
+          ├── bag_0823_A1/
+          └── ... (25개의 rosbag 폴더)
+        analysis_results/
+          ├── metrics_summary.csv
+          ├── analysis_report.md
+          └── plots/
+              ├── plot_path_angle_std_comparison.png
+              └── ... (각종 비교 그래프)
+    ```
+
+### 15.5. 위험 / 주의 포인트
 - Shoulder 장착 시 센서 pitch 변화 → -X front 정합 확인 (TF/Axes 표시 필수).
 - HeightMap ground 재캘리브레이션 지연 가능 (샘플 부족 시) → 초기 2초 정지 권장.
 - 동일 환경 반복 경로 다양성 확보 위해 수행 순서 permutation (A→E 순 고정 편향 방지).

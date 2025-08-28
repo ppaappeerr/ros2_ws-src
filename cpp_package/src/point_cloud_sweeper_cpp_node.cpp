@@ -11,7 +11,7 @@ public:
     PointCloudSweeperCppNode() : Node("point_cloud_sweeper_cpp_node")
     {
         // Parameters
-        this->declare_parameter<double>("window_size_seconds", 1.5);
+        this->declare_parameter<double>("window_size_seconds", 0.8);
         this->get_parameter("window_size_seconds", window_size_);
 
         // QoS Profile

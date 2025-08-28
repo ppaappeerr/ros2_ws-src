@@ -26,6 +26,19 @@ public:
         this->declare_parameter<double>("voxel_leaf_size", 0.1);
         this->get_parameter("voxel_leaf_size", voxel_leaf_size_);
 
+        // Parameters for Dead-zone (occlusion) and ROI filtering
+        this->declare_parameter<bool>("dead_zone_enabled", true);
+        this->declare_parameter<std::string>("mount_side", "right");
+        this->declare_parameter<double>("dead_zone_forward_x", 0.25); // How far forward the dead-zone extends
+        this->declare_parameter<double>("dead_zone_lateral_y", 0.50); // How far to the side the dead-zone extends
+        this->declare_parameter<double>("roi_max_radius", 3.0); // Max distance of points to consider
+
+        this->get_parameter("dead_zone_enabled", dead_zone_enabled_);
+        this->get_parameter("mount_side", mount_side_);
+        this->get_parameter("dead_zone_forward_x", dead_zone_forward_x_);
+        this->get_parameter("dead_zone_lateral_y", dead_zone_lateral_y_);
+        this->get_parameter("roi_max_radius", roi_max_radius_);
+
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/sweep_cloud_cpp", 10, std::bind(&PathPlannerNode::pointCloudCallback, this, std::placeholders::_1));
 
@@ -47,18 +60,54 @@ private:
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::fromROSMsg(*msg, *cloud);
 
+        // --- New Dead-zone and ROI Filtering ---
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_roi_filtered(new pcl::PointCloud<pcl::PointXYZ>);
+        cloud_roi_filtered->reserve(cloud->size());
+
+        for (const auto& point : *cloud) {
+            // 1. ROI radius filtering
+            if (std::sqrt(point.x * point.x + point.y * point.y) > roi_max_radius_) {
+                continue;
+            }
+
+            // 2. Dead-zone filtering
+            if (dead_zone_enabled_) {
+                bool in_dead_zone = false;
+                // Front is -X. Dead zone is in front of the sensor (negative x) 
+                // and to one side (positive or negative y).
+                if (point.x < 0 && point.x > -dead_zone_forward_x_) {
+                    if (mount_side_ == "right" && point.y > 0 && point.y < dead_zone_lateral_y_) {
+                        // Right shoulder mount, dead zone is on the left (positive y)
+                        in_dead_zone = true;
+                    } else if (mount_side_ == "left" && point.y < 0 && point.y > -dead_zone_lateral_y_) {
+                        // Left shoulder mount, dead zone is on the right (negative y)
+                        in_dead_zone = true;
+                    }
+                }
+                if (in_dead_zone) {
+                    continue;
+                }
+            }
+            cloud_roi_filtered->points.push_back(point);
+        }
+        cloud_roi_filtered->width = cloud_roi_filtered->points.size();
+        cloud_roi_filtered->height = 1;
+        cloud_roi_filtered->is_dense = true;
+        // --- End of New Filtering ---
+
+
         // ROI Filtering & Downsampling...
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::PassThrough<pcl::PointXYZ> pass;
-        pass.setInputCloud(cloud);
+        pass.setInputCloud(cloud_roi_filtered); // Use the new filtered cloud
 
         if (front_view_only_) {
             // NEW: front is -X (negative). Keep points where x in [-5,0]
             pass.setFilterFieldName("x");
-            pass.setFilterLimits(-5.0, 0.0);
+            pass.setFilterLimits(-roi_max_radius_, 0.0); // Use roi_max_radius_
             pass.filter(*cloud_filtered);
         } else {
-            *cloud_filtered = *cloud;
+            *cloud_filtered = *cloud_roi_filtered;
         }
         
         pass.setInputCloud(cloud_filtered);
@@ -233,6 +282,13 @@ private:
     bool front_view_only_;
     bool use_voxel_filter_;
     double voxel_leaf_size_;
+
+    // Member variables for Dead-zone and ROI
+    bool dead_zone_enabled_;
+    std::string mount_side_;
+    double dead_zone_forward_x_;
+    double dead_zone_lateral_y_;
+    double roi_max_radius_;
 };
 
 // main function is the same

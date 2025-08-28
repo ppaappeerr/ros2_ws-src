@@ -21,6 +21,8 @@ struct GapInfo {
     double depth_meters;
     double center_angle;
     double score;
+
+    GapInfo() : start_sector(0), end_sector(0), width_degrees(0), depth_meters(0), center_angle(0), score(0) {} // Default constructor
     
     GapInfo(int start, int end, double width, double depth, double center) 
         : start_sector(start), end_sector(end), width_degrees(width), 
@@ -47,6 +49,14 @@ public:
         this->get_parameter("num_sectors", num_sectors_);
         this->declare_parameter<bool>("show_sectors", false);
         this->get_parameter("show_sectors", show_sectors_);
+
+        // New parameters for stability and visualization
+        this->declare_parameter<int>("min_points_per_sector", 3);
+        this->get_parameter("min_points_per_sector", min_points_per_sector_);
+        this->declare_parameter<bool>("compact_viz", true); // Show only the best gap
+        this->get_parameter("compact_viz", compact_viz_);
+        this->declare_parameter<double>("gap_inertia", 0.3); // 0: no inertia, 1: sticky
+        this->get_parameter("gap_inertia", gap_inertia_);
         
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, 
@@ -111,6 +121,7 @@ private:
     std::vector<double> buildSectorDistanceProfile(const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud)
     {
         std::vector<double> sector_distances(num_sectors_, max_range_);
+        std::vector<int> sector_counts(num_sectors_, 0); // Keep track of points per sector
         double sector_angle_width = M_PI / num_sectors_; // 180 deg FOV centered at -X
         
         for (const auto& point : cloud->points) {
@@ -139,6 +150,14 @@ private:
                 // Point is within the corridor for this sector
                 double point_distance = point_2d.norm();
                 sector_distances[sector_idx] = std::min(sector_distances[sector_idx], point_distance);
+                sector_counts[sector_idx]++;
+            }
+        }
+
+        // Penalize sectors with too few points (treat as unknown/unsafe)
+        for(int i = 0; i < num_sectors_; ++i) {
+            if (sector_counts[i] < min_points_per_sector_) {
+                sector_distances[i] = 0.1; // Treat as a close obstacle
             }
         }
         
@@ -233,8 +252,8 @@ private:
     {
         if (gaps.empty()) {
             // No gaps found, go straight
-            RCLCPP_WARN(this->get_logger(), "No gaps found, going straight");
-            return M_PI;
+            RCLCPP_WARN(this->get_logger(), "No gaps found, maintaining previous angle.");
+            return smoothed_angle_; // Return last known good angle instead of snapping to M_PI
         }
         
         // Score each gap
@@ -250,17 +269,27 @@ private:
             // Bonus for wider gaps
             double width_bonus = std::min(gap.width_degrees / 60.0, 1.0);  // Cap at 60 degrees
             gap.score += width_bonus * 1.0;
+
+            // Inertia: add bonus to gaps close to the previously smoothed angle
+            double inertia_diff = std::abs(angles::shortest_angular_distance(smoothed_angle_, gap.center_angle));
+            double inertia_bonus = (M_PI - inertia_diff) / M_PI; // 1 if same, 0 if opposite
+            gap.score *= (1.0 + gap_inertia_ * inertia_bonus);
         }
         
         // Find the highest-scoring gap
-        auto best_gap = std::max_element(gaps.begin(), gaps.end(),
+        auto best_gap_it = std::max_element(gaps.begin(), gaps.end(),
             [](const GapInfo& a, const GapInfo& b) { return a.score < b.score; });
         
         RCLCPP_DEBUG(this->get_logger(), "Selected gap: angle=%.1f°, width=%.1f°, depth=%.2fm, score=%.2f",
-                    best_gap->center_angle * 180.0 / M_PI, best_gap->width_degrees, 
-                    best_gap->depth_meters, best_gap->score);
+                    best_gap_it->center_angle * 180.0 / M_PI, best_gap_it->width_degrees, 
+                    best_gap_it->depth_meters, best_gap_it->score);
         
-        return best_gap->center_angle;
+        // Store the best gap for compact visualization
+        if (!gaps.empty()) {
+            best_gap_ = *best_gap_it;
+        }
+
+        return best_gap_it->center_angle;
     }
     
     void publishSafeVector(const std_msgs::msg::Header& header, double angle)
@@ -404,6 +433,10 @@ private:
     double safety_margin_;
     int num_sectors_;
     bool show_sectors_;
+    int min_points_per_sector_;
+    bool compact_viz_;
+    double gap_inertia_;
+    GapInfo best_gap_;
     
     double smoothed_angle_;
     rclcpp::Time last_time_;

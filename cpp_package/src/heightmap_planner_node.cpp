@@ -61,8 +61,21 @@ public:
         this->get_parameter("drop_threshold", drop_threshold_);
         this->declare_parameter<double>("obstacle_height_threshold", 0.2);
         this->get_parameter("obstacle_height_threshold", obstacle_height_threshold_);
-        this->declare_parameter<double>("history_duration", 2.0);
+        this->declare_parameter<double>("history_duration", 1.0); // Reduced from 2.0
         this->get_parameter("history_duration", history_duration_);
+        this->declare_parameter<double>("decay_tau", 0.8);
+        this->get_parameter("decay_tau", decay_tau_);
+        
+        // Dead-zone parameters (same as other algorithms)
+        this->declare_parameter<bool>("dead_zone_enabled", true);
+        this->declare_parameter<std::string>("mount_side", "right");
+        this->declare_parameter<double>("dead_zone_forward_x", 0.25);
+        this->declare_parameter<double>("dead_zone_lateral_y", 0.50);
+        
+        this->get_parameter("dead_zone_enabled", dead_zone_enabled_);
+        this->get_parameter("mount_side", mount_side_);
+        this->get_parameter("dead_zone_forward_x", dead_zone_forward_x_);
+        this->get_parameter("dead_zone_lateral_y", dead_zone_lateral_y_);
         
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, 
@@ -87,14 +100,41 @@ private:
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZ>);
         pcl::fromROSMsg(*msg, *cloud);
         
-        // Filter for front view only
-        if (front_view_only_) {
-            pcl::PassThrough<pcl::PointXYZ> pass;
-            pass.setInputCloud(cloud);
-            pass.setFilterFieldName("x");
-            pass.setFilterLimits(-max_range_, 0.0);
-            pass.filter(*cloud);
+        // Apply dead-zone and ROI filtering
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZ>);
+        cloud_filtered->reserve(cloud->size());
+
+        for (const auto& point : *cloud) {
+            // Basic front view filter
+            if (front_view_only_ && point.x > 0) continue;
+            
+            // ROI radius filtering
+            if (std::sqrt(point.x * point.x + point.y * point.y) > max_range_) {
+                continue;
+            }
+
+            // Dead-zone filtering - critical for HeightMap
+            if (dead_zone_enabled_) {
+                bool in_dead_zone = false;
+                if (point.x < 0 && point.x > -dead_zone_forward_x_) {
+                    if (mount_side_ == "right" && point.y > 0 && point.y < dead_zone_lateral_y_) {
+                        in_dead_zone = true;
+                    } else if (mount_side_ == "left" && point.y < 0 && point.y > -dead_zone_lateral_y_) {
+                        in_dead_zone = true;
+                    }
+                }
+                if (in_dead_zone) {
+                    continue;
+                }
+            }
+            cloud_filtered->points.push_back(point);
         }
+        cloud_filtered->width = cloud_filtered->points.size();
+        cloud_filtered->height = 1;
+        cloud_filtered->is_dense = true;
+        
+        // Use the filtered cloud for processing
+        cloud = cloud_filtered;
         
         if (!ground_height_calibrated_) {
             calibrateGroundHeight(cloud);
@@ -109,9 +149,9 @@ private:
         // Update history
         updateHeightMapHistory(current_map, current_time);
         
-        // Build accumulated height map
+        // Build accumulated height map with decay
         std::unordered_map<std::string, HeightCell> accumulated_map;
-        buildAccumulatedHeightMap(accumulated_map, current_time);
+        buildAccumulatedHeightMapWithDecay(accumulated_map, current_time);
         
         RCLCPP_DEBUG(this->get_logger(), "Generated %zu grid cells from %zu cloud points", 
                     accumulated_map.size(), cloud->points.size());
@@ -122,14 +162,23 @@ private:
         // Plan path
         double safe_angle = planPathWithHeightAwareness(accumulated_map);
         
-        // Smooth angle changes
+        // Improved adaptive smoothing for HeightMap
         double angle_diff = angles::shortest_angular_distance(smoothed_angle_, safe_angle);
-        double max_angle_change = 0.5 * dt;  // Max 0.5 rad/s
-        if (std::abs(angle_diff) > max_angle_change) {
-            angle_diff = std::copysign(max_angle_change, angle_diff);
+        
+        // Adaptive max angular velocity based on urgency
+        double base_max_angular_velocity = M_PI / 3.0; // 60 deg/s (increased from ~28 deg/s)
+        double urgency_factor = 1.0;
+        
+        // If we're close to obstacles, increase response speed
+        if (std::abs(angle_diff) > M_PI / 6.0) { // > 30 degrees
+            urgency_factor = 1.5;
         }
-        smoothed_angle_ += angle_diff;
-        smoothed_angle_ = angles::normalize_angle(smoothed_angle_);
+        
+        double max_angular_velocity = base_max_angular_velocity * urgency_factor;
+        double max_angle_change = max_angular_velocity * dt;
+        
+        double angle_change = std::clamp(angle_diff, -max_angle_change, max_angle_change);
+        smoothed_angle_ = angles::normalize_angle(smoothed_angle_ + angle_change);
         
         // Publish results
         publishSafeVector(msg->header, smoothed_angle_);
@@ -186,24 +235,32 @@ private:
         }
     }
     
-    void buildAccumulatedHeightMap(std::unordered_map<std::string, HeightCell>& accumulated_map,
-                                  rclcpp::Time current_time)
+    void buildAccumulatedHeightMapWithDecay(std::unordered_map<std::string, HeightCell>& accumulated_map,
+                                           rclcpp::Time current_time)
     {
         accumulated_map.clear();
         
         for (const auto& frame : height_history_) {
+            double age = (current_time - frame.timestamp).seconds();
+            double time_weight = std::exp(-age / decay_tau_); // Exponential decay
+            
             for (const auto& [key, cell] : frame.cells) {
                 if (accumulated_map.find(key) == accumulated_map.end()) {
-                    accumulated_map[key] = cell;
+                    HeightCell weighted_cell = cell;
+                    weighted_cell.point_count = static_cast<int>(cell.point_count * time_weight);
+                    accumulated_map[key] = weighted_cell;
                 } else {
                     auto& existing_cell = accumulated_map[key];
                     existing_cell.min_z = std::min(existing_cell.min_z, cell.min_z);
                     existing_cell.max_z = std::max(existing_cell.max_z, cell.max_z);
                     
-                    float total_points = existing_cell.point_count + cell.point_count;
-                    existing_cell.mean_z = (existing_cell.mean_z * existing_cell.point_count + 
-                                          cell.mean_z * cell.point_count) / total_points;
-                    existing_cell.point_count = total_points;
+                    float weighted_points = cell.point_count * time_weight;
+                    float total_points = existing_cell.point_count + weighted_points;
+                    if (total_points > 0) {
+                        existing_cell.mean_z = (existing_cell.mean_z * existing_cell.point_count + 
+                                              cell.mean_z * weighted_points) / total_points;
+                    }
+                    existing_cell.point_count += weighted_points;
                     
                     if (cell.last_seen > existing_cell.last_seen) {
                         existing_cell.last_seen = cell.last_seen;
@@ -410,6 +467,13 @@ private:
     double drop_threshold_;
     double obstacle_height_threshold_;
     double history_duration_;
+    double decay_tau_;
+    
+    // Dead-zone parameters
+    bool dead_zone_enabled_;
+    std::string mount_side_;
+    double dead_zone_forward_x_;
+    double dead_zone_lateral_y_;
     
     double smoothed_angle_;
     rclcpp::Time last_time_;
