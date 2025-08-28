@@ -25,6 +25,23 @@ public:
         this->declare_parameter<double>("corridor_width", 0.3); // 30cm width for each 3D corridor
         this->get_parameter("corridor_width", corridor_width_);
 
+        // Parameters for Dead-zone filtering and edge penalty
+        this->declare_parameter<bool>("dead_zone_enabled", true);
+        this->declare_parameter<std::string>("mount_side", "right");
+        this->declare_parameter<double>("dead_zone_forward_x", 0.25);
+        this->declare_parameter<double>("dead_zone_lateral_y", 0.50);
+        this->declare_parameter<double>("roi_max_radius", 3.0);
+        this->declare_parameter<int>("min_points_per_ray", 3);
+        this->declare_parameter<double>("unknown_evidence_k", 5.0);
+
+        this->get_parameter("dead_zone_enabled", dead_zone_enabled_);
+        this->get_parameter("mount_side", mount_side_);
+        this->get_parameter("dead_zone_forward_x", dead_zone_forward_x_);
+        this->get_parameter("dead_zone_lateral_y", dead_zone_lateral_y_);
+        this->get_parameter("roi_max_radius", roi_max_radius_);
+        this->get_parameter("min_points_per_ray", min_points_per_ray_);
+        this->get_parameter("unknown_evidence_k", unknown_evidence_k_);
+
         subscription_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
             "/downsampled_cloud", 10, std::bind(&PathPlanner3DNode::pointCloudCallback, this, std::placeholders::_1));
 
@@ -65,18 +82,50 @@ private:
         preprocessed_publisher_->publish(preprocessed_msg);
 
 
-        // Phase 2: 3D Corridor Scan
+        // Apply dead-zone and ROI filtering
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_roi_filtered(new pcl::PointCloud<pcl::PointXYZ>);
+        cloud_roi_filtered->reserve(cloud_prepared->size());
+
+        for (const auto& point : *cloud_prepared) {
+            // 1. ROI radius filtering
+            if (std::sqrt(point.x * point.x + point.y * point.y) > roi_max_radius_) {
+                continue;
+            }
+
+            // 2. Dead-zone filtering
+            if (dead_zone_enabled_) {
+                bool in_dead_zone = false;
+                if (point.x < 0 && point.x > -dead_zone_forward_x_) {
+                    if (mount_side_ == "right" && point.y > 0 && point.y < dead_zone_lateral_y_) {
+                        in_dead_zone = true;
+                    } else if (mount_side_ == "left" && point.y < 0 && point.y > -dead_zone_lateral_y_) {
+                        in_dead_zone = true;
+                    }
+                }
+                if (in_dead_zone) {
+                    continue;
+                }
+            }
+            cloud_roi_filtered->points.push_back(point);
+        }
+        cloud_roi_filtered->width = cloud_roi_filtered->points.size();
+        cloud_roi_filtered->height = 1;
+        cloud_roi_filtered->is_dense = true;
+
+        // Phase 2: 3D Corridor Scan with evidence tracking
         const int num_rays = 15;
         const double max_dist = 5.0;
         std::vector<double> depths(num_rays, max_dist);
+        std::vector<int> evidences(num_rays, 0); // Track points per ray
 
         for (int i = 0; i < num_rays; ++i) {
             double base_angle = (i * (M_PI / (num_rays - 1))) - (M_PI / 2.0); // [-pi/2,pi/2] around +X
             double angle = base_angle + M_PI; // shift to -X forward
             Eigen::Vector2f ray_dir(cos(angle), sin(angle));
             double min_dist_for_ray = max_dist;
+            int points_in_ray = 0;
 
-            for (const auto& point : *cloud_prepared) {
+            for (const auto& point : *cloud_roi_filtered) {
                 // Basic front view filter
                 if (point.x > 0) continue; // ignore +X (behind new forward)
 
@@ -88,6 +137,7 @@ private:
                     double dist_to_ray = std::abs(point.x * ray_dir.y() - point.y * ray_dir.x());
                     
                     if (dist_to_ray < (corridor_width_ / 2.0)) {
+                        points_in_ray++;
                         // The point is inside the corridor's width
                         // The distance to this obstacle is its distance from the sensor
                         double point_dist = point_vec_2d.norm();
@@ -96,9 +146,10 @@ private:
                 }
             }
             depths[i] = min_dist_for_ray;
+            evidences[i] = points_in_ray;
         }
 
-        // Phase 3: Scoring, Smoothing, and Publishing (Identical to 2D version)
+        // Phase 3: Evidence-based scoring with edge penalty
         std::vector<double> scores(num_rays, 0.0);
         double w1 = 0.7;
         double w2 = 0.3;
@@ -107,8 +158,21 @@ private:
             double prev_depth = (i > 0) ? depths[i-1] : depths[i];
             double next_depth = (i < num_rays - 1) ? depths[i+1] : depths[i];
             scores[i] = w1 * depths[i] + w2 * (prev_depth + next_depth);
+            
+            // Evidence-based scoring to handle occlusion bias
+            double evidence_factor = static_cast<double>(evidences[i]) / (evidences[i] + unknown_evidence_k_);
+            scores[i] *= evidence_factor;
+            
+            // Edge penalty to avoid ±90° snapping
+            if (i == 0 || i == num_rays - 1) {
+                scores[i] *= 0.5; // Strong penalty for extreme edges
+            } else if (i == 1 || i == num_rays - 2) {
+                scores[i] *= 0.8; // Moderate penalty for near edges
+            }
+            
+            // Central bias
             double norm_pos = std::abs(i - center_idx) / center_idx;
-            scores[i] *= (1.0 - 0.15 * norm_pos * norm_pos); // central bias
+            scores[i] *= (1.0 - 0.15 * norm_pos * norm_pos);
         }
 
         int best_ray_idx = std::distance(scores.begin(), std::max_element(scores.begin(), scores.end()));
@@ -208,6 +272,15 @@ private:
     bool use_voxel_filter_;
     double voxel_leaf_size_;
     double corridor_width_;
+    
+    // Dead-zone and evidence parameters
+    bool dead_zone_enabled_;
+    std::string mount_side_;
+    double dead_zone_forward_x_;
+    double dead_zone_lateral_y_;
+    double roi_max_radius_;
+    int min_points_per_ray_;
+    double unknown_evidence_k_;
 };
 
 int main(int argc, char * argv[])
