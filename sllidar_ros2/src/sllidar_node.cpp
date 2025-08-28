@@ -305,7 +305,10 @@ public:
         start_motor_service = this->create_service<std_srvs::srv::Empty>("start_motor", 
                                 std::bind(&SLlidarNode::start_motor,this,std::placeholders::_1,std::placeholders::_2));
 
-        drv->setMotorSpeed();
+        int pwm = static_cast<int>(scan_frequency * 40);
+        pwm = std::clamp(pwm, 400, 660);  // 안전범위 제한 (A2M8은 보통 400~660이 안정적)
+        RCLCPP_INFO(this->get_logger(), "Setting motor PWM to: %d", pwm);
+        drv->setMotorSpeed(pwm);
 
         LidarScanMode current_scan_mode;
         if (scan_mode.empty()) {

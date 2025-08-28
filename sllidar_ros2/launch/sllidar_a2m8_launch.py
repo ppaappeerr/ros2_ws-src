@@ -54,6 +54,10 @@ def generate_launch_description():
             'scan_mode',
             default_value=scan_mode,
             description='Specifying scan mode of lidar'),
+        DeclareLaunchArgument(
+            'scan_frequency',
+            default_value='15.0',  # 기본값 10Hz, 원하는 경우 예: '7.0'
+            description='Specifying scan frequency (Hz) of lidar'),
 
 
         Node(
@@ -65,7 +69,10 @@ def generate_launch_description():
                          'serial_baudrate': serial_baudrate, 
                          'frame_id': frame_id,
                          'inverted': inverted, 
-                         'angle_compensate': angle_compensate}],
+                         'angle_compensate': angle_compensate,
+                         'scan_mode': scan_mode,
+                         'range_max': 5.0
+                         }],
             output='screen'),
     ])
 

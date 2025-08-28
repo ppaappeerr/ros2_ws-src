@@ -1,0 +1,66 @@
+rosbag2_bagfile_information:
+  version: 9
+  storage_identifier: sqlite3
+  duration:
+    nanoseconds: 59821080555
+  starting_time:
+    nanoseconds_since_epoch: 1756423967563572400
+  message_count: 950
+  topics_with_message_count:
+    - topic_metadata:
+        name: /path_planner_debug
+        type: visualization_msgs/msg/MarkerArray
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_86cb8800b6fb05b5eff1abd7a56f62a5641d3ae9a1c29e78e67e704f1d067dcf
+      message_count: 475
+    - topic_metadata:
+        name: /safe_path_vector
+        type: geometry_msgs/msg/Vector3Stamped
+        serialization_format: cdr
+        offered_qos_profiles:
+          - history: unknown
+            depth: 0
+            reliability: reliable
+            durability: volatile
+            deadline:
+              sec: 9223372036
+              nsec: 854775807
+            lifespan:
+              sec: 9223372036
+              nsec: 854775807
+            liveliness: automatic
+            liveliness_lease_duration:
+              sec: 9223372036
+              nsec: 854775807
+            avoid_ros_namespace_conventions: false
+        type_description_hash: RIHS01_d4829622288cbb443886e7ea94ea5671a3b1be6bab4ad04224432a65f7d7887a
+      message_count: 475
+  compression_format: ""
+  compression_mode: ""
+  relative_file_paths:
+    - up2_trial_3_0.db3
+  files:
+    - path: up2_trial_3_0.db3
+      starting_time:
+        nanoseconds_since_epoch: 1756423967563572400
+      duration:
+        nanoseconds: 59821080555
+      message_count: 950
+  custom_data: ~
+  ros_distro: jazzy
