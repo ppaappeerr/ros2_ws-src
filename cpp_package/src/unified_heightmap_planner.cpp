@@ -52,6 +52,9 @@ public:
         this->declare_parameter<double>("decay_tau", 0.8);                 // 지수 감쇠 시상수
         this->declare_parameter<int>("num_rays", 50);                      // 방향 해상도
         this->declare_parameter<double>("ray_clearance", 0.2);             // Ray 폭
+        this->declare_parameter<std::vector<double>>("pillar_rgb", {0.2,0.8,1.0});
+        this->declare_parameter<double>("alpha_near", 1.0);
+        this->declare_parameter<double>("alpha_far", 0.15);
         
         this->get_parameter("grid_resolution", grid_resolution_);
         this->get_parameter("ground_height_tolerance", ground_height_tolerance_);
@@ -62,12 +65,20 @@ public:
         this->get_parameter("num_rays", num_rays_);
         this->get_parameter("ray_clearance", ray_clearance_);
         
+        std::vector<double> rgb; this->get_parameter("pillar_rgb", rgb);
+        this->get_parameter("alpha_near", alpha_near_);
+        this->get_parameter("alpha_far", alpha_far_);
+        if(rgb.size()==3){ pillar_r_=rgb[0]; pillar_g_=rgb[1]; pillar_b_=rgb[2]; }
+        
         // 커스텀 시각화를 위한 추가 퍼블리셔
         pillar_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/height_pillars", 10);
         
+        // UP5 전용: FOV 제한 (뒤로 가는 방향 방지)
+        fov_deg_ = 120.0;  // ±60°로 제한 (±100°에서 축소)
+        
         RCLCPP_INFO(this->get_logger(), 
-            "P5 플래너 초기화: %.2fm 격자, %.1fs 이력, %d rays", 
-            grid_resolution_, history_duration_, num_rays_);
+            "P5 플래너 초기화: %.2fm 격자, %.1fs 이력, %d rays, FOV=±%.0f°", 
+            grid_resolution_, history_duration_, num_rays_, fov_deg_/2.0);
     }
 
 protected:
@@ -238,8 +249,16 @@ private:
         std::vector<int> evidences(num_rays_, 0);
         
         for (int i = 0; i < num_rays_; ++i) {
-            double rel_angle = (i * (10.0 * M_PI / 9.0) / (num_rays_ - 1)) - (5.0 * M_PI / 9.0);  // +-100도 범위
+            // ±60도로 제한 (뒤로 가는 방향 차단!)
+            double rel_angle = (i * (2.0 * M_PI / 3.0) / (num_rays_ - 1)) - (M_PI / 3.0);  // ±60도 범위
             double ray_angle = rel_angle + M_PI;  // -X 전방 기준
+            
+            // 각도가 ±90도를 넘으면 스킵 (추가 안전장치)
+            if (std::abs(rel_angle) > M_PI / 3.0) {
+                raw_scores[i] = 0.0;
+                evidences[i] = 0;
+                continue;
+            }
             
             Eigen::Vector2f ray_dir(cos(ray_angle), sin(ray_angle));
             double total_clearance = roi_max_radius_;
@@ -296,41 +315,28 @@ private:
         int best_ray_idx = std::distance(final_scores.begin(), 
                                         std::max_element(final_scores.begin(), final_scores.end()));
         
-        double ideal_angle = ((best_ray_idx * M_PI / (num_rays_ - 1)) - (M_PI / 2.0)) + M_PI;
+        // ±60도 범위에서 각도 계산
+        double rel_angle = (best_ray_idx * (2.0 * M_PI / 3.0) / (num_rays_ - 1)) - (M_PI / 3.0);
+        double ideal_angle = rel_angle + M_PI;  // -X 전방 기준
+        
+        // 안전장치: ±90도를 넘으면 전방으로 강제
+        if (std::abs(rel_angle) > M_PI / 2.0) {
+            ideal_angle = M_PI;  // 전방 직진
+            RCLCPP_WARN(this->get_logger(), "P5: 각도 초과 감지, 전방으로 강제 설정");
+        }
+        
         return ideal_angle;
     }
     
     void publishPillarVisualization(const std_msgs::msg::Header& header, double /* direction */)
     {
-        // 실제 pillar 시각화 - accumulated height map 기반
-        visualization_msgs::msg::MarkerArray pillar_array;
-        int marker_id = 0;
-        
-        // 최근 계산된 height map이 있는 경우에만 시각화
+        visualization_msgs::msg::MarkerArray pillar_array; int marker_id = 0;
         if (height_history_.empty()) {
-            // keepalive 마커만 발행
-            visualization_msgs::msg::Marker keepalive;
-            keepalive.header = header;
-            keepalive.ns = "height_pillars";
-            keepalive.id = 999999;
-            keepalive.type = visualization_msgs::msg::Marker::SPHERE;
-            keepalive.action = visualization_msgs::msg::Marker::ADD;
-            keepalive.scale.x = 0.001;
-            keepalive.scale.y = 0.001;
-            keepalive.scale.z = 0.001;
-            keepalive.color.a = 0.0;
-            keepalive.lifetime = rclcpp::Duration::from_seconds(0.2);
-            pillar_array.markers.push_back(keepalive);
+            visualization_msgs::msg::Marker keepalive; keepalive.header=header; keepalive.ns="height_pillars"; keepalive.id=999999; keepalive.type=visualization_msgs::msg::Marker::SPHERE; keepalive.action=visualization_msgs::msg::Marker::ADD; keepalive.scale.x=keepalive.scale.y=keepalive.scale.z=0.001; keepalive.color.a=0.0; keepalive.lifetime=rclcpp::Duration::from_seconds(0.2); pillar_array.markers.push_back(keepalive);
         } else {
-            // 최근 프레임의 height map 사용
             const auto& latest_frame = height_history_.back();
-            
             for (const auto& [key, cell] : latest_frame.cells) {
                 if (cell.point_count == 0) continue;
-                
-                // 모든 셀을 표시 (디버깅을 위해 필터링 완전 제거)
-                // bool show_safe_cells = (marker_id % 10 == 0);  // 10개 중 1개만 표시
-                // if (cell.is_traversable && cell.drop_risk < 0.1f && !show_safe_cells) continue;
                 
                 // 격자 좌표 파싱
                 size_t comma_pos = key.find(',');
@@ -343,97 +349,65 @@ private:
                 double world_x = (grid_x + 0.5) * grid_resolution_;
                 double world_y = (grid_y + 0.5) * grid_resolution_;
                 
-                // 전방 뷰 범위를 더 넓게 (디버깅용)
-                double distance = std::sqrt(world_x*world_x + world_y*world_y);
-                if (world_x > 1.0 || distance > roi_max_radius_ + 1.0) {
-                    continue;  // 더 관대한 범위
-                }
+                double dist = std::hypot(world_x, world_y);
+                if (world_x > 1.0 || dist > roi_max_radius_ + 1.0) continue;
                 
-                // 위험도별 pillar 생성
-                visualization_msgs::msg::Marker pillar;
-                pillar.header = header;
-                pillar.ns = "height_pillars";
-                pillar.id = marker_id++;
-                pillar.type = visualization_msgs::msg::Marker::CYLINDER;
-                pillar.action = visualization_msgs::msg::Marker::ADD;
-                pillar.lifetime = rclcpp::Duration::from_seconds(0.3);
+                visualization_msgs::msg::Marker pillar; pillar.header=header; pillar.ns="height_pillars"; pillar.id=marker_id++; pillar.type=visualization_msgs::msg::Marker::CYLINDER; pillar.action=visualization_msgs::msg::Marker::ADD; pillar.lifetime=rclcpp::Duration::from_seconds(0.3);
+                pillar.pose.position.x=world_x; pillar.pose.position.y=world_y;
                 
-                // 위치 설정
-                pillar.pose.position.x = world_x;
-                pillar.pose.position.y = world_y;
+                // 단일 색 + 거리 기반 알파
+                double t = std::clamp(dist/roi_max_radius_, 0.0, 1.0);
+                double alpha = alpha_near_*(1.0 - t) + alpha_far_*t;
+                pillar.color.r=pillar_r_; pillar.color.g=pillar_g_; pillar.color.b=pillar_b_; pillar.color.a=alpha;
                 
-                // 위험 유형별 높이 및 색상 설정
+                // 센서 TF 기준 높이 계산 (어깨 장착 고려)
                 double pillar_height = 0.15;
-                float height_diff_from_ground = cell.min_z - ground_height_;
+                double sensor_tf_z = 0.0;  // 센서 TF 높이 (현재 frame 기준)
                 
-                if (height_diff_from_ground < -drop_threshold_) {
-                    // 드롭 위험 (빨간색)
-                    double drop_depth = std::min(0.5, static_cast<double>(std::abs(height_diff_from_ground)));
-                    pillar_height = std::max(0.1, drop_depth * 0.6);
-                    pillar.color.r = 1.0;
-                    pillar.color.g = 0.2;
-                    pillar.color.b = 0.0;
-                    pillar.color.a = 0.8;
-                } else if (cell.max_z - ground_height_ > obstacle_height_threshold_) {
-                    // 장애물 (주황색)
-                    double obstacle_height = std::min(0.5, static_cast<double>(cell.max_z - ground_height_));
-                    pillar_height = std::max(0.1, obstacle_height * 0.7);
-                    pillar.color.r = 1.0;
-                    pillar.color.g = 0.5;
-                    pillar.color.b = 0.0;
-                    pillar.color.a = 0.8;
+                // 센서 기준 상대 높이 계산
+                float relative_min_z = cell.min_z - sensor_tf_z;
+                float relative_max_z = cell.max_z - sensor_tf_z;
+                
+                if (relative_min_z < -drop_threshold_) {
+                    // 드롭 위험: 센서보다 아래로 떨어지는 경우
+                    double drop_depth = std::min(0.5, static_cast<double>(std::abs(relative_min_z)));
+                    pillar_height = std::max(0.1, drop_depth * 0.8);  // 더 눈에 띄게
+                    // 센서 TF에서 아래로 시작하는 기둥
+                    pillar.pose.position.z = sensor_tf_z - pillar_height/2.0;
+                } else if (relative_max_z > obstacle_height_threshold_) {
+                    // 장애물: 센서보다 위로 올라오는 경우
+                    double obstacle_height = std::min(0.5, static_cast<double>(relative_max_z));
+                    pillar_height = std::max(0.1, obstacle_height * 0.8);
+                    // 센서 TF에서 위로 올라가는 기둥
+                    pillar.pose.position.z = sensor_tf_z + pillar_height/2.0;
                 } else if (!cell.is_traversable) {
-                    // 불균등 지형 (노란색)
-                    pillar_height = 0.12;
-                    pillar.color.r = 1.0;
-                    pillar.color.g = 1.0;
-                    pillar.color.b = 0.2;
-                    pillar.color.a = 0.7;
+                    // 불균등 지형: 센서 레벨에서 표시
+                    pillar_height = 0.15;
+                    pillar.pose.position.z = sensor_tf_z + pillar_height/2.0;
                 } else {
-                    // 일반적인 지형 (파란색, 더 눈에 띄게)
-                    pillar_height = 0.12;
-                    pillar.color.r = 0.2;
-                    pillar.color.g = 0.6;
-                    pillar.color.b = 1.0;
-                    pillar.color.a = 0.8;
+                    // 일반적인 지형: 낮은 높이로 센서 레벨에서
+                    pillar_height = 0.08;
+                    pillar.pose.position.z = sensor_tf_z + pillar_height/2.0;
                 }
                 
-                // pillar 크기 설정
-                pillar.pose.position.z = ground_height_ + pillar_height / 2.0;
-                pillar.pose.orientation.w = 1.0;
-                
-                double radius = std::max(0.04, grid_resolution_ * 0.8);  // 더 큰 반지름
-                pillar.scale.x = radius;
-                pillar.scale.y = radius;
-                pillar.scale.z = pillar_height;
+                pillar.pose.orientation.w=1.0;
+                double radius = std::max(0.04, grid_resolution_ * 0.8);
+                pillar.scale.x = radius; pillar.scale.y = radius; pillar.scale.z = pillar_height;
                 
                 pillar_array.markers.push_back(pillar);
                 
-                // 더 많은 마커 허용 (디버깅용)
                 if (marker_id > 1000) break;
             }
             
             // keepalive 마커도 추가
             if (pillar_array.markers.empty()) {
-                visualization_msgs::msg::Marker keepalive;
-                keepalive.header = header;
-                keepalive.ns = "height_pillars";
-                keepalive.id = 999999;
-                keepalive.type = visualization_msgs::msg::Marker::SPHERE;
-                keepalive.action = visualization_msgs::msg::Marker::ADD;
-                keepalive.scale.x = 0.001;
-                keepalive.scale.y = 0.001;
-                keepalive.scale.z = 0.001;
-                keepalive.color.a = 0.0;
-                keepalive.lifetime = rclcpp::Duration::from_seconds(0.2);
-                pillar_array.markers.push_back(keepalive);
+                visualization_msgs::msg::Marker keepalive; keepalive.header=header; keepalive.ns="height_pillars"; keepalive.id=999999; keepalive.type=visualization_msgs::msg::Marker::SPHERE; keepalive.action=visualization_msgs::msg::Marker::ADD; keepalive.scale.x=keepalive.scale.y=keepalive.scale.z=0.001; keepalive.color.a=0.0; keepalive.lifetime=rclcpp::Duration::from_seconds(0.2); pillar_array.markers.push_back(keepalive);
             }
         }
-        
         pillar_publisher_->publish(pillar_array);
         
         // 디버깅용 로그 (항상 출력)
-        RCLCPP_INFO(this->get_logger(), "HeightMap pillar 시각화: %zu개 마커 발행", pillar_array.markers.size());
+        RCLCPP_INFO(this->get_logger(), "HeightMap pillar 시각화: %zu개 마커", pillar_array.markers.size());
         if (!height_history_.empty()) {
             RCLCPP_INFO(this->get_logger(), "최신 프레임에 %zu개 셀 존재", height_history_.back().cells.size());
         }
@@ -457,6 +431,7 @@ private:
     
     // 추가 퍼블리셔
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr pillar_publisher_;
+    double pillar_r_{0.2}, pillar_g_{0.8}, pillar_b_{1.0}; double alpha_near_{1.0}, alpha_far_{0.15};
 };
 
 int main(int argc, char * argv[])

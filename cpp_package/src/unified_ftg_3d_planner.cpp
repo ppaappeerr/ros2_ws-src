@@ -34,22 +34,24 @@ public:
         this->declare_parameter<int>("num_sectors", 36);              // 36개 섹터 (10도 해상도)
         this->declare_parameter<double>("corridor_width", 0.4);       // 40cm corridor
         this->declare_parameter<double>("max_detection_range", 5.0);  // 최대 탐지 거리
-        this->declare_parameter<double>("min_gap_width", 15.0);       // 최소 갭 폭 (도)
+        this->declare_parameter<double>("min_gap_width_deg", 15.0);   // 이름 통일
         this->declare_parameter<double>("safety_margin", 0.1);        // 안전 여백
         this->declare_parameter<int>("min_points_per_sector", 3);     // 섹터당 최소 포인트
+        this->declare_parameter<double>("gap_inertia", 0.2);          // 향후 gap 중심 관성
         
         this->get_parameter("num_sectors", num_sectors_);
         this->get_parameter("corridor_width", corridor_width_);
         this->get_parameter("max_detection_range", max_detection_range_);
-        this->get_parameter("min_gap_width", min_gap_width_);
+        this->get_parameter("min_gap_width_deg", min_gap_width_);
         this->get_parameter("safety_margin", safety_margin_);
         this->get_parameter("min_points_per_sector", min_points_per_sector_);
+        this->get_parameter("gap_inertia", gap_inertia_);
         
         // 커스텀 시각화를 위한 추가 퍼블리셔
         gap_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/ftg_gaps", 10);
         
         RCLCPP_INFO(this->get_logger(), 
-            "P4 플래너 초기화: %d 섹터, %.2fm corridor, %.1f° 최소갭", 
+            "P4 플래너 초기화: %d 섹터, %.2fm corridor, 최소갭 %.1f°", 
             num_sectors_, corridor_width_, min_gap_width_);
     }
 
@@ -65,7 +67,7 @@ protected:
         // 2. 부족한 증거를 가진 섹터 페널티 적용
         applySectorEvidencePenalty(sector_distances, sector_counts);
         
-        // 3. 갭 탐지
+        // 매 프레임 갭 재계산 (이전 상태 보존 없음)
         std::vector<GapInfo> gaps = detectGaps(sector_distances);
         
         // 4. 갭 스코어링 및 선택
@@ -85,6 +87,8 @@ protected:
             ideal_angle = M_PI;
         }
         
+        // gap_inertia 향후 적용 영역 (필요 시 이전 best와 보간)
+        
         RCLCPP_DEBUG(this->get_logger(), 
             "P4: %zu개 갭, 최적갭 %.1f°(폭=%.1f°, 깊이=%.2fm)", 
             gaps.size(), best_gap.center_angle * 180/M_PI, 
@@ -97,8 +101,74 @@ protected:
                                    const pcl::PointCloud<pcl::PointXYZ>::Ptr& /* cloud */,
                                    double direction) override
     {
-        // FTG 전용 갭 시각화
-        publishGapVisualization(header, direction);
+        // 간단한 갭 시각화 (기존 작동 버전)
+        visualization_msgs::msg::MarkerArray gap_array;
+        gap_array.markers.clear();
+        
+        // DELETE_ALL로 이전 마커 정리
+        visualization_msgs::msg::Marker delete_marker;
+        delete_marker.header = header;
+        delete_marker.ns = "ftg_gaps";
+        delete_marker.action = visualization_msgs::msg::Marker::DELETEALL;
+        gap_array.markers.push_back(delete_marker);
+        
+        if (!latest_gaps_.empty()) {
+            for (size_t i = 0; i < latest_gaps_.size(); ++i) {
+                const auto& gap = latest_gaps_[i];
+                
+                // 갭 중심 방향 화살표만 간단히
+                visualization_msgs::msg::Marker arrow;
+                arrow.header = header;
+                arrow.ns = "ftg_gaps";
+                arrow.id = static_cast<int>(i + 1); // 1부터 시작 (0은 DELETE_ALL용)
+                arrow.type = visualization_msgs::msg::Marker::ARROW;
+                arrow.action = visualization_msgs::msg::Marker::ADD;
+                arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
+                
+                arrow.points.resize(2);
+                arrow.points[0].x = 0.0;
+                arrow.points[0].y = 0.0; 
+                arrow.points[0].z = 0.15;
+                
+                double arrow_angle = gap.center_angle + M_PI; // 전방 기준 변환
+                arrow.points[1].x = gap.depth_meters * 0.6 * cos(arrow_angle);
+                arrow.points[1].y = gap.depth_meters * 0.6 * sin(arrow_angle);
+                arrow.points[1].z = 0.15;
+                
+                arrow.scale.x = 0.05;
+                arrow.scale.y = 0.1;
+                arrow.scale.z = 0.1;
+                
+                // 최고 점수는 노란색, 나머지는 초록색
+                double max_score = 0.0;
+                for (const auto& g : latest_gaps_) max_score = std::max(max_score, g.score);
+                
+                if (gap.score >= max_score - 0.1) {
+                    arrow.color.r = 1.0; arrow.color.g = 1.0; arrow.color.b = 0.0;
+                } else {
+                    arrow.color.r = 0.0; arrow.color.g = 1.0; arrow.color.b = 0.0;
+                }
+                arrow.color.a = 0.8;
+                
+                gap_array.markers.push_back(arrow);
+            }
+        }
+        
+        // keepalive 마커 추가 (토픽이 살아있음을 보장)
+        visualization_msgs::msg::Marker keepalive;
+        keepalive.header = header;
+        keepalive.ns = "ftg_gaps";
+        keepalive.id = 999999;
+        keepalive.type = visualization_msgs::msg::Marker::SPHERE;
+        keepalive.action = visualization_msgs::msg::Marker::ADD;
+        keepalive.scale.x = keepalive.scale.y = keepalive.scale.z = 0.001;
+        keepalive.color.a = 0.0;
+        keepalive.lifetime = rclcpp::Duration::from_seconds(0.3);
+        gap_array.markers.push_back(keepalive);
+        
+        gap_publisher_->publish(gap_array);
+        RCLCPP_INFO(this->get_logger(), "FTG 갭 시각화: %zu개 갭, 마커 %zu개", 
+                   latest_gaps_.size(), gap_array.markers.size());
     }
 
 private:
@@ -263,113 +333,6 @@ private:
         
         return best_gap;
     }
-    
-    void publishGapVisualization(const std_msgs::msg::Header& header, double direction)
-    {
-        visualization_msgs::msg::MarkerArray gap_array;
-        
-        if (latest_gaps_.empty()) {
-            RCLCPP_DEBUG(this->get_logger(), "갭이 없어서 시각화 건너뜀");
-            return;
-        }
-        
-        double degrees_per_sector = 360.0 / num_sectors_;
-        
-        // 실제 계산된 갭들을 시각화
-        for (size_t i = 0; i < latest_gaps_.size(); ++i) {
-            const auto& gap = latest_gaps_[i];
-            
-            // 갭의 시작과 끝 각도 계산
-            double start_angle_rel = (gap.start_sector * degrees_per_sector) - 180.0;  // -180~180도 범위
-            double end_angle_rel = ((gap.end_sector + 1) * degrees_per_sector) - 180.0;
-            
-            double start_angle_world = (start_angle_rel * M_PI / 180.0) + M_PI;  // 월드 좌표계로 변환
-            double end_angle_world = (end_angle_rel * M_PI / 180.0) + M_PI;
-            
-            // 갭 영역을 부채꼴로 시각화
-            visualization_msgs::msg::Marker gap_arc;
-            gap_arc.header = header;
-            gap_arc.ns = "ftg_gaps";
-            gap_arc.id = i;
-            gap_arc.type = visualization_msgs::msg::Marker::LINE_STRIP;
-            gap_arc.action = visualization_msgs::msg::Marker::ADD;
-            gap_arc.lifetime = rclcpp::Duration::from_seconds(0.2);
-            
-            // 부채꼴 그리기
-            gap_arc.points.clear();
-            
-            // 중심점
-            geometry_msgs::msg::Point center;
-            center.x = 0.0; center.y = 0.0; center.z = 0.1;
-            gap_arc.points.push_back(center);
-            
-            // 갭 영역의 호 그리기
-            int arc_points = std::max(5, static_cast<int>(gap.width_degrees / 2.0));  // 2도마다 점
-            for (int j = 0; j <= arc_points; ++j) {
-                double angle = start_angle_world + (end_angle_world - start_angle_world) * j / arc_points;
-                geometry_msgs::msg::Point point;
-                point.x = gap.depth_meters * 0.8 * cos(angle);
-                point.y = gap.depth_meters * 0.8 * sin(angle);
-                point.z = 0.1;
-                gap_arc.points.push_back(point);
-            }
-            
-            // 중심점으로 돌아가기
-            gap_arc.points.push_back(center);
-            
-            gap_arc.scale.x = 0.025;
-            
-            // 점수에 따른 색상 (최고 점수는 노란색, 나머지는 초록색)
-            double max_score = 0.0;
-            for (const auto& g : latest_gaps_) {
-                max_score = std::max(max_score, g.score);
-            }
-            
-            if (gap.score >= max_score - 0.1) {  // 최고 점수 갭
-                gap_arc.color.r = 1.0; gap_arc.color.g = 1.0; gap_arc.color.b = 0.0;
-            } else {
-                gap_arc.color.r = 0.0; gap_arc.color.g = 0.8; gap_arc.color.b = 0.2;
-            }
-            gap_arc.color.a = 0.7;
-            
-            gap_array.markers.push_back(gap_arc);
-            
-            // 갭 중심 방향 화살표
-            visualization_msgs::msg::Marker direction_arrow;
-            direction_arrow.header = header;
-            direction_arrow.ns = "ftg_gaps";
-            direction_arrow.id = i + 1000;  // ID 겹침 방지
-            direction_arrow.type = visualization_msgs::msg::Marker::ARROW;
-            direction_arrow.action = visualization_msgs::msg::Marker::ADD;
-            direction_arrow.lifetime = rclcpp::Duration::from_seconds(0.2);
-            
-            direction_arrow.points.resize(2);
-            direction_arrow.points[0].x = 0.0;
-            direction_arrow.points[0].y = 0.0;
-            direction_arrow.points[0].z = 0.15;
-            direction_arrow.points[1].x = gap.depth_meters * 0.7 * cos(gap.center_angle);
-            direction_arrow.points[1].y = gap.depth_meters * 0.7 * sin(gap.center_angle);
-            direction_arrow.points[1].z = 0.15;
-            
-            direction_arrow.scale.x = 0.035; 
-            direction_arrow.scale.y = 0.07; 
-            direction_arrow.scale.z = 0.09;
-            
-            // 색상 (최고 점수는 노란색, 나머지는 초록색)
-            if (gap.score >= max_score - 0.1) {
-                direction_arrow.color.r = 1.0; direction_arrow.color.g = 1.0; direction_arrow.color.b = 0.0;
-            } else {
-                direction_arrow.color.r = 0.0; direction_arrow.color.g = 1.0; direction_arrow.color.b = 0.0;
-            }
-            direction_arrow.color.a = 0.95;
-            
-            gap_array.markers.push_back(direction_arrow);
-        }
-        
-        gap_publisher_->publish(gap_array);
-        
-        RCLCPP_INFO(this->get_logger(), "FTG 갭 시각화: %zu개 실제 갭 표시", latest_gaps_.size());
-    }
 
 private:
     // P4 고유 파라미터
@@ -379,6 +342,7 @@ private:
     double min_gap_width_;
     double safety_margin_;
     int min_points_per_sector_;
+    double gap_inertia_{0.2};
     
     // 추가 퍼블리셔
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr gap_publisher_;

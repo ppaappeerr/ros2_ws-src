@@ -22,6 +22,9 @@ public:
         this->get_parameter("corridor_width", corridor_width_);
         this->get_parameter("max_detection_range", max_detection_range_);
         
+        // UP2 전용 ray-casting 시각화 publisher
+        ray_publisher_ = this->create_publisher<visualization_msgs::msg::MarkerArray>("/ray_casting", 10);
+        
         RCLCPP_INFO(this->get_logger(), 
             "P2 플래너 초기화: %d rays, %.2fm corridor, %.1fm range (순수 2D)", 
             num_rays_, corridor_width_, max_detection_range_);
@@ -36,6 +39,7 @@ protected:
         // 2. Ray casting으로 각 방향별 거리 측정
         std::vector<double> depths(num_rays_, max_detection_range_);
         std::vector<int> evidences(num_rays_, 0);  // 각 ray별 포인트 수
+        std::vector<double> ray_distances(num_rays_, max_detection_range_);  // 시각화용
         
         for (int i = 0; i < num_rays_; ++i) {
             // 각도 계산: [-π/2, π/2] → [-X 방향 기준으로 변환]
@@ -68,6 +72,7 @@ protected:
             
             depths[i] = min_distance;
             evidences[i] = points_in_ray;
+            ray_distances[i] = min_distance;  // 시각화용 저장
         }
         
         // 3. 원시 점수 계산 (거리 + 인접성)
@@ -94,6 +99,9 @@ protected:
             "P2: ray %d/%d, 거리=%.2fm, 각도=%.1f° (순수2D)", 
             best_ray_idx, num_rays_, depths[best_ray_idx], ideal_angle * 180/M_PI);
         
+        // 시각화용 ray_distances 저장
+        latest_ray_distances_ = ray_distances;
+        
         return ideal_angle;
     }
     
@@ -101,8 +109,68 @@ protected:
                                    const pcl::PointCloud<pcl::PointXYZ>::Ptr& cloud,
                                    double direction) override
     {
-        // P2는 별도의 커스텀 시각화 없음 (공통 디버그 화살표만 사용)
-        // scan_accumulation_cloud 자체가 시각화 역할
+        // UP2 전용 ray-casting 시각화
+        visualization_msgs::msg::MarkerArray ray_array;
+        ray_array.markers.clear();
+        
+        // DELETE_ALL로 이전 마커 정리
+        visualization_msgs::msg::Marker delete_marker;
+        delete_marker.header = header;
+        delete_marker.ns = "ray_casting";
+        delete_marker.action = visualization_msgs::msg::Marker::DELETEALL;
+        ray_array.markers.push_back(delete_marker);
+        
+        // 각 ray 시각화 (동적 길이)
+        for (int i = 0; i < num_rays_; ++i) {
+            double base_angle = (i * M_PI / (num_rays_ - 1)) - (M_PI / 2.0);
+            double ray_angle = base_angle + M_PI;  // -X 전방 기준
+            double ray_length = (i < static_cast<int>(latest_ray_distances_.size())) 
+                               ? latest_ray_distances_[i] : max_detection_range_;
+            
+            visualization_msgs::msg::Marker ray_line;
+            ray_line.header = header;
+            ray_line.ns = "ray_casting";
+            ray_line.id = i + 1;  // 1부터 시작 (0은 DELETE_ALL용)
+            ray_line.type = visualization_msgs::msg::Marker::ARROW;
+            ray_line.action = visualization_msgs::msg::Marker::ADD;
+            ray_line.lifetime = rclcpp::Duration::from_seconds(0.2);
+            
+            // Ray 시작점과 실제 스캔 거리까지의 끝점
+            ray_line.points.resize(2);
+            ray_line.points[0].x = 0.0;
+            ray_line.points[0].y = 0.0;
+            ray_line.points[0].z = 0.05; // 바닥 위 5cm
+            
+            ray_line.points[1].x = ray_length * cos(ray_angle);
+            ray_line.points[1].y = ray_length * sin(ray_angle);
+            ray_line.points[1].z = 0.05;
+            
+            ray_line.scale.x = 0.02;  // 선 두께
+            ray_line.scale.y = 0.03; // 화살표 머리 폭
+            ray_line.scale.z = 0.03; // 화살표 머리 높이
+            
+            // 색상: 주황색 (UP2 표시)
+            ray_line.color.r = 1.0;
+            ray_line.color.g = 0.5;
+            ray_line.color.b = 0.0;
+            ray_line.color.a = 0.6;
+            
+            ray_array.markers.push_back(ray_line);
+        }
+        
+        // keepalive 마커 추가
+        visualization_msgs::msg::Marker keepalive;
+        keepalive.header = header;
+        keepalive.ns = "ray_casting";
+        keepalive.id = 999999;
+        keepalive.type = visualization_msgs::msg::Marker::SPHERE;
+        keepalive.action = visualization_msgs::msg::Marker::ADD;
+        keepalive.scale.x = keepalive.scale.y = keepalive.scale.z = 0.001;
+        keepalive.color.a = 0.0;
+        keepalive.lifetime = rclcpp::Duration::from_seconds(0.3);
+        ray_array.markers.push_back(keepalive);
+        
+        ray_publisher_->publish(ray_array);
     }
 
 private:
@@ -110,6 +178,10 @@ private:
     int num_rays_;
     double corridor_width_;
     double max_detection_range_;
+    
+    // 시각화용
+    rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr ray_publisher_;
+    std::vector<double> latest_ray_distances_;
 };
 
 int main(int argc, char * argv[])

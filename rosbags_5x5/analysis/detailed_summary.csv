@@ -1,0 +1,8 @@
+,message_count,message_count,message_count,duration_seconds,duration_seconds,frequency_hz,frequency_hz
+,count,mean,std,mean,std,mean,std
+planner_name,,,,,,,
+P1: 2D Projection,3,514.0,34.77,51.27,3.46,10.02,0.0
+P2: Pure 2D,3,440.67,39.83,55.11,5.21,8.0,0.05
+P3: 3D Corridor,2,480.0,31.11,57.96,4.53,8.29,0.11
+P4: Follow-the-Gap,1,601.0,,60.05,,10.01,
+P5: HeightMap,3,565.33,45.79,56.44,4.57,10.02,0.02

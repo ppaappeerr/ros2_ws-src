@@ -15,6 +15,7 @@
 #include <algorithm>
 #include <numeric>
 #include <string>
+#include <limits>
 
 /**
  * @brief 모든 경로 계획 알고리즘의 베이스 클래스
@@ -104,29 +105,32 @@ private:
 protected:
     // === 공통 파라미터 ===
     // Dead-zone 및 ROI
-    bool dead_zone_enabled_;
-    std::string mount_side_;
-    double dead_zone_forward_x_;
-    double dead_zone_lateral_y_;
-    double roi_max_radius_;
-    
+    bool dead_zone_enabled_{}; std::string mount_side_{}; double dead_zone_forward_x_{}; double dead_zone_lateral_y_{}; double roi_max_radius_{};
     // Evidence-based scoring
-    double unknown_evidence_k_;
-    
+    double unknown_evidence_k_{};
     // Angular smoothing
-    double max_angular_velocity_;
-    bool use_adaptive_smoothing_;
-    double urgency_threshold_;
-    double urgency_multiplier_;
-    
+    double max_angular_velocity_{}; bool use_adaptive_smoothing_{}; double urgency_threshold_{}; double urgency_multiplier_{};
+
+    // FOV / 양자화 / 히스테리시스 / 직진 바이어스 / 에지 가드 파라미터
+    double fov_deg_{200.0};           // ±100° 기본
+    double quantize_deg_{22.5};       // 22.5도 양자화 (16채널 대응)
+    double angle_hysteresis_deg_{15.0}; // 히스테리시스 강화
+    double hold_time_sec_{0.5};       // 최소 유지시간 증가
+    double straight_bias_{0.5};       // 직진 우선 강화
+    double edge_guard_deg_{20.0};     // 에지 가드 강화
+    rclcpp::Time last_switch_time_{}; // 마지막 스위치 시각
+    double last_quantized_{std::numeric_limits<double>::quiet_NaN()};
+
     // 상태 변수
-    double smoothed_angle_;
-    rclcpp::Time last_time_;
-    
-    // Publishers
+    double smoothed_angle_{}; rclcpp::Time last_time_{};
+    // Publishers / Subscriber
     rclcpp::Publisher<geometry_msgs::msg::Vector3Stamped>::SharedPtr vector_publisher_;
     rclcpp::Publisher<visualization_msgs::msg::MarkerArray>::SharedPtr debug_publisher_;
-    
-    // Subscriber
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscription_;
+
+    // 공통 후처리 (양자화/히스테리시스/바이어스/에지 가드 + 기존 스무딩)
+    double finalizeAngle(double best_angle,
+                         const std::vector<double>& candidate_angles,
+                         const std::vector<double>& candidate_scores,
+                         double dt);
 };

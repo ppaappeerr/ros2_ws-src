@@ -16,8 +16,8 @@ from datetime import datetime
 class SimpleBagAnalyzer:
     def __init__(self):
         self.planner_names = {
-            'up1': 'P1: 2D 투영',
-            'up2': 'P2: 순수 2D',
+            'up1': 'P1: 2D Projection',
+            'up2': 'P2: Pure 2D',
             'up3': 'P3: 3D Corridor', 
             'up4': 'P4: Follow-the-Gap',
             'up5': 'P5: HeightMap'
