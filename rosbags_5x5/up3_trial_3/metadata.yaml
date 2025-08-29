@@ -2,10 +2,10 @@ rosbag2_bagfile_information:
   version: 9
   storage_identifier: sqlite3
   duration:
-    nanoseconds: 0
+    nanoseconds: 55025259643
   starting_time:
-    nanoseconds_since_epoch: 9223372036854775807
-  message_count: 0
+    nanoseconds_since_epoch: 1756431892814339154
+  message_count: 950
   topics_with_message_count:
     - topic_metadata:
         name: /path_planner_debug
@@ -28,7 +28,7 @@ rosbag2_bagfile_information:
               nsec: 854775807
             avoid_ros_namespace_conventions: false
         type_description_hash: RIHS01_86cb8800b6fb05b5eff1abd7a56f62a5641d3ae9a1c29e78e67e704f1d067dcf
-      message_count: 0
+      message_count: 475
     - topic_metadata:
         name: /safe_path_vector
         type: geometry_msgs/msg/Vector3Stamped
@@ -50,7 +50,7 @@ rosbag2_bagfile_information:
               nsec: 854775807
             avoid_ros_namespace_conventions: false
         type_description_hash: RIHS01_d4829622288cbb443886e7ea94ea5671a3b1be6bab4ad04224432a65f7d7887a
-      message_count: 0
+      message_count: 475
   compression_format: ""
   compression_mode: ""
   relative_file_paths:
@@ -58,9 +58,9 @@ rosbag2_bagfile_information:
   files:
     - path: up3_trial_3_0.db3
       starting_time:
-        nanoseconds_since_epoch: 9223372036854775807
+        nanoseconds_since_epoch: 1756431892814339154
       duration:
-        nanoseconds: 0
-      message_count: 0
+        nanoseconds: 55025259643
+      message_count: 950
   custom_data: ~
   ros_distro: jazzy
